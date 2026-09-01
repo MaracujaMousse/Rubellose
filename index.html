@@ -93,9 +93,7 @@ button {
 .app {
     width:100%;
     max-width:600px;
-
     margin:0 auto;
-
     min-height:100dvh;
 
     padding:
@@ -104,9 +102,7 @@ button {
         calc(100px + env(safe-area-inset-bottom));
 }
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+/* HEADER */
 
 .topbar {
     height:48px;
@@ -158,9 +154,7 @@ button {
     font-weight:750;
 }
 
-/* =========================================================
-   BALANCE
-   ========================================================= */
+/* BALANCE */
 
 .balance-card {
     position:relative;
@@ -246,9 +240,7 @@ button {
     color:var(--text);
 }
 
-/* =========================================================
-   LEVEL
-   ========================================================= */
+/* LEVEL */
 
 .level-card {
     margin-top:9px;
@@ -350,9 +342,7 @@ button {
     color:var(--text);
 }
 
-/* =========================================================
-   PAGES
-   ========================================================= */
+/* PAGES */
 
 .page {
     display:none;
@@ -362,9 +352,7 @@ button {
     display:block;
 }
 
-/* =========================================================
-   SECTION
-   ========================================================= */
+/* SECTION */
 
 .section-header {
     margin:25px 2px 10px;
@@ -386,9 +374,7 @@ button {
     color:var(--muted);
 }
 
-/* =========================================================
-   STATS
-   ========================================================= */
+/* STATS */
 
 .stats {
     display:grid;
@@ -421,12 +407,7 @@ button {
 
     text-overflow:ellipsis;
 
-    font-size:
-        clamp(
-            14px,
-            4.2vw,
-            19px
-        );
+    font-size:clamp(14px,4.2vw,19px);
 
     font-weight:800;
 
@@ -443,9 +424,7 @@ button {
     text-transform:uppercase;
 }
 
-/* =========================================================
-   SCRATCH TICKETS
-   ========================================================= */
+/* TICKETS */
 
 .ticket-grid {
     display:flex;
@@ -474,7 +453,7 @@ button {
 .ticket {
     flex:0 0 min(79vw,335px);
 
-    min-height:185px;
+    min-height:198px;
 
     padding:18px;
 
@@ -603,6 +582,30 @@ button {
     color:var(--text);
 }
 
+.ticket-meta {
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+
+    margin-top:8px;
+}
+
+.ticket-chip {
+    padding:5px 7px;
+
+    border-radius:999px;
+
+    border:1px solid var(--line);
+
+    color:var(--muted);
+
+    font-size:8px;
+}
+
+.ticket-chip strong {
+    color:var(--text);
+}
+
 .odds {
     color:var(--muted);
 
@@ -621,9 +624,7 @@ button {
     font-weight:800;
 }
 
-/* =========================================================
-   SCRATCH GAME
-   ========================================================= */
+/* SCRATCH GAME */
 
 .game-panel {
     border:1px solid var(--line);
@@ -690,12 +691,7 @@ button {
 .result-amount {
     margin-top:7px;
 
-    font-size:
-        clamp(
-            52px,
-            17vw,
-            84px
-        );
+    font-size:clamp(52px,17vw,84px);
 
     font-weight:950;
 
@@ -837,9 +833,7 @@ button {
     color:var(--muted);
 }
 
-/* =========================================================
-   BUTTONS
-   ========================================================= */
+/* BUTTONS */
 
 .primary-btn,
 .secondary-btn,
@@ -894,9 +888,7 @@ button:disabled {
     pointer-events:none;
 }
 
-/* =========================================================
-   BANKRUPT
-   ========================================================= */
+/* BANKRUPT */
 
 .bankrupt-card {
     display:none;
@@ -969,9 +961,7 @@ button:disabled {
     border:1px solid var(--line);
 }
 
-/* =========================================================
-   PROGRESSION
-   ========================================================= */
+/* PROGRESSION */
 
 .progression {
     display:flex;
@@ -1038,9 +1028,7 @@ button:disabled {
     color:var(--muted);
 }
 
-/* =========================================================
-   HISTORY
-   ========================================================= */
+/* HISTORY */
 
 .history {
     overflow:hidden;
@@ -1142,9 +1130,7 @@ button:disabled {
     font-weight:800;
 }
 
-/* =========================================================
-   MINT
-   ========================================================= */
+/* MINT */
 
 .mint-hero {
     margin-top:14px;
@@ -1192,8 +1178,7 @@ button:disabled {
 .mint-stats {
     display:grid;
 
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
     gap:6px;
 
@@ -1347,25 +1332,18 @@ button:disabled {
 
     font-size:15px;
 
-    animation:
-        tapFloat .65s ease forwards;
+    animation:tapFloat .65s ease forwards;
 }
 
 @keyframes tapFloat {
 
     from {
-        transform:
-            translate(-50%,0)
-            scale(.9);
-
+        transform:translate(-50%,0) scale(.9);
         opacity:1;
     }
 
     to {
-        transform:
-            translate(-50%,-48px)
-            scale(1.05);
-
+        transform:translate(-50%,-48px) scale(1.05);
         opacity:0;
     }
 
@@ -1383,30 +1361,6 @@ button:disabled {
     background:var(--panel);
 }
 
-.mint-block-head {
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-
-    gap:10px;
-
-    margin-bottom:11px;
-}
-
-.mint-block-head h3 {
-    margin:0;
-
-    font-size:17px;
-
-    letter-spacing:-.03em;
-}
-
-.mint-block-head span {
-    color:var(--muted);
-
-    font-size:9px;
-}
-
 .upgrade-list {
     display:flex;
 
@@ -1422,8 +1376,7 @@ button:disabled {
 
     display:grid;
 
-    grid-template-columns:
-        1fr auto;
+    grid-template-columns:1fr auto;
 
     gap:10px;
 
@@ -1443,8 +1396,7 @@ button:disabled {
 }
 
 .upgrade-card.owned {
-    border-color:
-        rgba(117,240,197,.22);
+    border-color:rgba(117,240,197,.22);
 }
 
 .upgrade-title {
@@ -1473,6 +1425,7 @@ button:disabled {
 
 .mint-buy-btn {
     width:auto;
+
     min-width:78px;
     min-height:39px;
 
@@ -1580,9 +1533,7 @@ button:disabled {
     font-size:8px;
 }
 
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+/* BOTTOM NAV */
 
 .bottom-nav {
     position:fixed;
@@ -1591,25 +1542,15 @@ button:disabled {
 
     left:50%;
 
-    bottom:
-        max(
-            10px,
-            env(safe-area-inset-bottom)
-        );
+    bottom:max(10px,env(safe-area-inset-bottom));
 
-    width:
-        min(
-            calc(100% - 20px),
-            580px
-        );
+    width:min(calc(100% - 20px),580px);
 
-    transform:
-        translateX(-50%);
+    transform:translateX(-50%);
 
     display:grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
     padding:6px;
 
@@ -1619,21 +1560,12 @@ button:disabled {
 
     border-radius:18px;
 
-    background:
-        rgba(
-            18,
-            21,
-            25,
-            .91
-        );
+    background:rgba(18,21,25,.91);
 
     backdrop-filter:blur(18px);
-
     -webkit-backdrop-filter:blur(18px);
 
-    box-shadow:
-        0 15px 40px
-        rgba(0,0,0,.35);
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
 .nav-btn {
@@ -1662,9 +1594,7 @@ button:disabled {
     color:#0c1612;
 }
 
-/* =========================================================
-   MODALS
-   ========================================================= */
+/* MODALS */
 
 .modal,
 .install-modal {
@@ -1681,15 +1611,11 @@ button:disabled {
     padding:
         12px
         12px
-        max(
-            12px,
-            env(safe-area-inset-bottom)
-        );
+        max(12px,env(safe-area-inset-bottom));
 
     background:rgba(5,6,8,.8);
 
     backdrop-filter:blur(15px);
-
     -webkit-backdrop-filter:blur(15px);
 }
 
@@ -1869,8 +1795,6 @@ button:disabled {
     font-size:11px;
 }
 
-/* OFFLINE MODAL */
-
 .offline-modal-amount {
     margin:20px 0 4px;
 
@@ -1883,38 +1807,185 @@ button:disabled {
     color:var(--mint);
 }
 
-/* =========================================================
-   TOAST
-   ========================================================= */
+/* WIN EFFECT */
+
+.win-effect {
+    position:fixed;
+
+    inset:0;
+
+    z-index:900;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:25px;
+
+    background:rgba(5,6,8,.91);
+
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:opacity .25s ease;
+}
+
+.win-effect.show {
+    opacity:1;
+    pointer-events:auto;
+}
+
+.win-effect-glow {
+    position:absolute;
+
+    width:90vw;
+    max-width:520px;
+
+    aspect-ratio:1;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    filter:blur(95px);
+
+    opacity:.13;
+
+    animation:winPulse 1.1s ease infinite alternate;
+}
+
+.win-effect.mega .win-effect-glow {
+    opacity:.22;
+}
+
+.win-effect.jackpot .win-effect-glow {
+    opacity:.34;
+}
+
+@keyframes winPulse {
+
+    from {
+        transform:scale(.65);
+    }
+
+    to {
+        transform:scale(1.15);
+    }
+
+}
+
+.win-effect-content {
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+    max-width:450px;
+
+    text-align:center;
+
+    animation:winEnter .55s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes winEnter {
+
+    from {
+        transform:scale(.72) translateY(30px);
+        opacity:0;
+    }
+
+    to {
+        transform:scale(1) translateY(0);
+        opacity:1;
+    }
+
+}
+
+.win-effect-label {
+    color:var(--accent);
+
+    font-size:12px;
+    font-weight:950;
+
+    letter-spacing:.24em;
+}
+
+.win-effect-title {
+    margin-top:10px;
+
+    font-size:clamp(48px,16vw,92px);
+
+    font-weight:1000;
+
+    line-height:.88;
+
+    letter-spacing:-.07em;
+}
+
+.win-effect-amount {
+    margin-top:17px;
+
+    font-size:clamp(32px,10vw,55px);
+
+    font-weight:900;
+
+    color:var(--accent);
+
+    letter-spacing:-.05em;
+}
+
+.win-effect-ticket {
+    margin-top:10px;
+
+    color:var(--muted);
+
+    font-size:11px;
+}
+
+.win-effect-button {
+    margin-top:30px;
+
+    width:100%;
+
+    min-height:54px;
+
+    border-radius:14px;
+
+    background:var(--accent);
+
+    color:#10120e;
+
+    font-weight:900;
+}
+
+.win-effect.jackpot .win-effect-title {
+    text-shadow:
+        0 0 30px rgba(217,255,101,.3);
+}
+
+/* TOAST */
 
 .toast {
     position:fixed;
 
-    z-index:700;
+    z-index:1000;
 
     left:50%;
 
-    bottom:
-        calc(
-            88px +
-            env(safe-area-inset-bottom)
-        );
+    bottom:calc(88px + env(safe-area-inset-bottom));
 
-    max-width:
-        calc(
-            100vw -
-            28px
-        );
+    max-width:calc(100vw - 28px);
 
     padding:12px 17px;
 
     border-radius:999px;
 
-    transform:
-        translate(
-            -50%,
-            25px
-        );
+    transform:translate(-50%,25px);
 
     opacity:0;
 
@@ -1940,11 +2011,7 @@ button:disabled {
 .toast.show {
     opacity:1;
 
-    transform:
-        translate(
-            -50%,
-            0
-        );
+    transform:translate(-50%,0);
 }
 
 @supports (-webkit-touch-callout:none) {
@@ -1954,7 +2021,6 @@ button:disabled {
     }
 
 }
-
 </style>
 </head>
 
@@ -2079,10 +2145,6 @@ button:disabled {
 </section>
 
 
-<!-- =====================================================
-     SCRATCH PAGE
-     ===================================================== -->
-
 <main class="page active" id="scratchPage">
 
 <section class="stats">
@@ -2170,7 +2232,7 @@ button:disabled {
     </h2>
 
     <p>
-        Wischen und auswählen.
+        Höhere Klassen bieten bessere Rückzahlung.
     </p>
 
 </div>
@@ -2265,10 +2327,20 @@ button:disabled {
         <div class="info-row">
 
             <span>
-                Gewinnchance
+                Trefferquote
             </span>
 
             <span id="selectedOdds"></span>
+
+        </div>
+
+        <div class="info-row">
+
+            <span>
+                RTP
+            </span>
+
+            <span id="selectedRtp"></span>
 
         </div>
 
@@ -2279,6 +2351,16 @@ button:disabled {
             </span>
 
             <span id="selectedJackpot"></span>
+
+        </div>
+
+        <div class="info-row">
+
+            <span>
+                Jackpot-Chance
+            </span>
+
+            <span id="selectedJackpotOdds"></span>
 
         </div>
 
@@ -2349,10 +2431,6 @@ button:disabled {
 
 </main>
 
-
-<!-- =====================================================
-     MINT PAGE
-     ===================================================== -->
 
 <main class="page" id="mintPage">
 
@@ -2504,7 +2582,7 @@ button:disabled {
     </h2>
 
     <p>
-        Einmal kaufen, dauerhaft stärker tippen.
+        Dauerhaft stärker tippen.
     </p>
 
 </div>
@@ -2541,10 +2619,6 @@ button:disabled {
 </div>
 
 
-<!-- =====================================================
-     NAVIGATION
-     ===================================================== -->
-
 <nav class="bottom-nav">
 
     <button class="nav-btn active" data-page="scratch">
@@ -2557,10 +2631,6 @@ button:disabled {
 
 </nav>
 
-
-<!-- =====================================================
-     START MODAL
-     ===================================================== -->
 
 <div class="modal" id="startModal">
 
@@ -2598,10 +2668,6 @@ button:disabled {
 
 </div>
 
-
-<!-- =====================================================
-     INSTALL MODAL
-     ===================================================== -->
 
 <div class="install-modal hidden" id="installModal">
 
@@ -2654,10 +2720,6 @@ button:disabled {
 </div>
 
 
-<!-- =====================================================
-     OFFLINE MODAL
-     ===================================================== -->
-
 <div class="modal hidden" id="offlineModal">
 
     <div class="modal-card">
@@ -2687,21 +2749,66 @@ button:disabled {
 </div>
 
 
+<div class="win-effect" id="winEffect">
+
+    <div class="win-effect-glow"></div>
+
+    <div class="win-effect-content">
+
+        <div class="win-effect-label" id="winEffectLabel">
+            BIG WIN
+        </div>
+
+        <div class="win-effect-title" id="winEffectTitle">
+            BIG<br>WIN
+        </div>
+
+        <div class="win-effect-amount" id="winEffectAmount">
+            +1.000 €
+        </div>
+
+        <div class="win-effect-ticket" id="winEffectTicket">
+            Gold
+        </div>
+
+        <button class="win-effect-button" id="winEffectButton">
+            Weiter
+        </button>
+
+    </div>
+
+</div>
+
+
 <div class="toast" id="toast"></div>
 
 
 <script>
 
-/* =========================================================
-   CORE
-   ========================================================= */
-
 const START_BALANCE = 150;
-const STORAGE_KEY = "scratchGameStateV3";
+const STORAGE_KEY = "scratchGameStateV4";
+
+/*
+    Gemeinsamer Wahrscheinlichkeitsraum.
+
+    2.100.000 ist durch
+    100.000
+    75.000
+    50.000
+    35.000
+    25.000
+
+    teilbar.
+
+    Dadurch können die Jackpot-Chancen
+    exakt dargestellt werden.
+*/
+
+const PROBABILITY_TOTAL = 2100000;
 
 
 /* =========================================================
-   SCRATCH TICKETS
+   LOSE
    ========================================================= */
 
 const tickets = [
@@ -2716,20 +2823,24 @@ const tickets = [
         unlockLevel:1,
 
         jackpot:10000,
-        odds:"1 : 3,2",
+
+        hitRate:48,
+        rtp:80,
+
+        jackpotOdds:"1 : 100.000",
 
         xp:6,
 
         prizes:[
-            {amount:0,probability:690000},
-            {amount:2,probability:230000},
-            {amount:4,probability:50000},
-            {amount:10,probability:20000},
-            {amount:20,probability:7000},
-            {amount:50,probability:2500},
-            {amount:100,probability:450},
-            {amount:1000,probability:49},
-            {amount:10000,probability:1}
+            {amount:0,probability:1092000},
+            {amount:2,probability:557844},
+            {amount:4,probability:435078},
+            {amount:10,probability:10500},
+            {amount:20,probability:3150},
+            {amount:50,probability:1050},
+            {amount:100,probability:315},
+            {amount:1000,probability:42},
+            {amount:10000,probability:21}
         ]
     },
 
@@ -2743,20 +2854,24 @@ const tickets = [
         unlockLevel:3,
 
         jackpot:100000,
-        odds:"1 : 3,8",
+
+        hitRate:50,
+        rtp:85,
+
+        jackpotOdds:"1 : 100.000",
 
         xp:14,
 
         prizes:[
-            {amount:0,probability:735000},
-            {amount:5,probability:180000},
-            {amount:10,probability:60000},
-            {amount:20,probability:18000},
-            {amount:50,probability:5000},
-            {amount:100,probability:1500},
-            {amount:500,probability:400},
-            {amount:5000,probability:95},
-            {amount:100000,probability:5}
+            {amount:0,probability:1050000},
+            {amount:5,probability:813120},
+            {amount:10,probability:227640},
+            {amount:20,probability:6300},
+            {amount:50,probability:2100},
+            {amount:100,probability:630},
+            {amount:500,probability:168},
+            {amount:5000,probability:21},
+            {amount:100000,probability:21}
         ]
     },
 
@@ -2770,20 +2885,25 @@ const tickets = [
         unlockLevel:6,
 
         jackpot:100000,
-        odds:"1 : 3,4",
+
+        hitRate:52,
+        rtp:88,
+
+        jackpotOdds:"1 : 75.000",
 
         xp:28,
 
         prizes:[
-            {amount:0,probability:710000},
-            {amount:10,probability:220000},
-            {amount:20,probability:50000},
-            {amount:50,probability:15000},
-            {amount:100,probability:4000},
-            {amount:500,probability:800},
-            {amount:5000,probability:180},
-            {amount:25000,probability:18},
-            {amount:100000,probability:2}
+            {amount:0,probability:1008000},
+            {amount:10,probability:734164},
+            {amount:20,probability:348768},
+            {amount:50,probability:6300},
+            {amount:100,probability:2100},
+            {amount:500,probability:420},
+            {amount:1000,probability:168},
+            {amount:5000,probability:42},
+            {amount:25000,probability:10},
+            {amount:100000,probability:28}
         ]
     },
 
@@ -2797,20 +2917,24 @@ const tickets = [
         unlockLevel:10,
 
         jackpot:100000,
-        odds:"1 : 3,0",
+
+        hitRate:55,
+        rtp:91,
+
+        jackpotOdds:"1 : 50.000",
 
         xp:60,
 
         prizes:[
-            {amount:0,probability:666666},
-            {amount:20,probability:245000},
-            {amount:40,probability:60000},
-            {amount:100,probability:20000},
-            {amount:250,probability:6000},
-            {amount:1000,probability:2000},
-            {amount:5000,probability:300},
-            {amount:25000,probability:30},
-            {amount:100000,probability:4}
+            {amount:0,probability:945000},
+            {amount:20,probability:742770},
+            {amount:40,probability:402990},
+            {amount:100,probability:6300},
+            {amount:250,probability:2100},
+            {amount:1000,probability:630},
+            {amount:5000,probability:147},
+            {amount:25000,probability:21},
+            {amount:100000,probability:42}
         ]
     },
 
@@ -2824,20 +2948,24 @@ const tickets = [
         unlockLevel:16,
 
         jackpot:100000,
-        odds:"1 : 2,8",
+
+        hitRate:58,
+        rtp:94,
+
+        jackpotOdds:"1 : 35.000",
 
         xp:155,
 
         prizes:[
-            {amount:0,probability:643000},
-            {amount:50,probability:260000},
-            {amount:100,probability:70000},
-            {amount:250,probability:20000},
-            {amount:500,probability:5000},
-            {amount:1000,probability:1500},
-            {amount:5000,probability:450},
-            {amount:25000,probability:48},
-            {amount:100000,probability:2}
+            {amount:0,probability:882000},
+            {amount:50,probability:692676},
+            {amount:100,probability:512412},
+            {amount:250,probability:8400},
+            {amount:500,probability:3150},
+            {amount:1000,probability:1050},
+            {amount:5000,probability:210},
+            {amount:25000,probability:42},
+            {amount:100000,probability:60}
         ]
     },
 
@@ -2851,21 +2979,25 @@ const tickets = [
         unlockLevel:24,
 
         jackpot:100000,
-        odds:"1 : 2,5",
+
+        hitRate:60,
+        rtp:97,
+
+        jackpotOdds:"1 : 25.000",
 
         xp:325,
 
         prizes:[
-            {amount:0,probability:600000},
-            {amount:100,probability:280000},
-            {amount:200,probability:80000},
-            {amount:500,probability:25000},
-            {amount:1000,probability:10000},
-            {amount:2500,probability:3500},
-            {amount:5000,probability:1200},
-            {amount:10000,probability:250},
-            {amount:25000,probability:45},
-            {amount:100000,probability:5}
+            {amount:0,probability:840000},
+            {amount:100,probability:727146},
+            {amount:200,probability:515802},
+            {amount:500,probability:10500},
+            {amount:1000,probability:4200},
+            {amount:2500,probability:1470},
+            {amount:5000,probability:525},
+            {amount:10000,probability:210},
+            {amount:25000,probability:63},
+            {amount:100000,probability:84}
         ]
     }
 
@@ -2995,7 +3127,7 @@ const machines = [
 
 
 /* =========================================================
-   LEVEL
+   LEVELS
    ========================================================= */
 
 const ranks = [
@@ -3024,6 +3156,7 @@ const milestones = [
     {level:20,name:"Master",text:"Druckerei + 8h"},
     {level:24,name:"Vault",text:"100-€-Lose"},
     {level:30,name:"Mythic",text:"Quantum Tap"}
+
 ];
 
 
@@ -3159,9 +3292,8 @@ let activePage = "scratch";
    DOM
    ========================================================= */
 
-const $ =
-    id =>
-        document.getElementById(id);
+const $ = id =>
+    document.getElementById(id);
 
 
 const balanceEl = $("balance");
@@ -3190,7 +3322,11 @@ const selectedNameEl = $("selectedName");
 const selectedPriceEl = $("selectedPrice");
 
 const selectedOddsEl = $("selectedOdds");
+const selectedRtpEl = $("selectedRtp");
+
 const selectedJackpotEl = $("selectedJackpot");
+const selectedJackpotOddsEl = $("selectedJackpotOdds");
+
 const selectedXpEl = $("selectedXp");
 
 const buyButton = $("buyButton");
@@ -3225,12 +3361,17 @@ const tapUpgradeList = $("tapUpgradeList");
 const machineList = $("machineList");
 
 const startModal = $("startModal");
-
 const installModal = $("installModal");
 
 const offlineModal = $("offlineModal");
 const offlineModalAmount = $("offlineModalAmount");
 const offlineModalText = $("offlineModalText");
+
+const winEffect = $("winEffect");
+const winEffectLabel = $("winEffectLabel");
+const winEffectTitle = $("winEffectTitle");
+const winEffectAmount = $("winEffectAmount");
+const winEffectTicket = $("winEffectTicket");
 
 const toast = $("toast");
 
@@ -3259,6 +3400,7 @@ function loadState() {
             localStorage.getItem(
                 STORAGE_KEY
             );
+
 
         if (!saved)
             return {...defaultState};
@@ -3297,10 +3439,10 @@ function loadState() {
 
 
 /* =========================================================
-   MONEY
+   FORMAT
    ========================================================= */
 
-function money(value, decimals = 0) {
+function money(value,decimals=0) {
 
     return new Intl.NumberFormat(
         "de-DE",
@@ -3330,12 +3472,14 @@ function moneySmart(value) {
 
 
 /* =========================================================
-   RNG
+   RANDOM
    ========================================================= */
 
 function randomInteger(max) {
 
-    const maxUint = 4294967296;
+    const maxUint =
+        4294967296;
+
 
     const limit =
         maxUint -
@@ -3374,7 +3518,7 @@ function drawPrize(ticket) {
 
     const roll =
         randomInteger(
-            1000000
+            PROBABILITY_TOTAL
         );
 
 
@@ -3408,7 +3552,7 @@ function drawPrize(ticket) {
 
 
 /* =========================================================
-   GLOBAL XP
+   XP
    ========================================================= */
 
 function gainXp(amount) {
@@ -3465,7 +3609,7 @@ function gainXp(amount) {
 
 
 /* =========================================================
-   MINT CALCULATION
+   MINT CALC
    ========================================================= */
 
 function currentTapValue() {
@@ -3571,10 +3715,6 @@ function calculateOfflineIncome() {
         );
 
 
-    /*
-        Unter 30 Sekunden ignorieren.
-    */
-
     if (
         elapsedMs <
         30000
@@ -3667,7 +3807,7 @@ function calculateOfflineIncome() {
 
 
 /* =========================================================
-   SCRATCH TICKETS UI
+   TICKET UI
    ========================================================= */
 
 function renderTickets() {
@@ -3751,15 +3891,27 @@ function renderTickets() {
 
                 <div>
 
+                    <div class="ticket-meta">
+
+                        <div class="ticket-chip">
+                            <strong>
+                                ${ticket.hitRate} %
+                            </strong>
+                            Treffer
+                        </div>
+
+                        <div class="ticket-chip">
+                            <strong>
+                                ${ticket.rtp} %
+                            </strong>
+                            RTP
+                        </div>
+
+                    </div>
+
                     <div class="odds">
 
-                        Gewinnchance
-                        ${ticket.odds}
-
-                        <br>
-
-                        ${ticket.xp}
-                        XP
+                        ${ticket.xp} XP
 
                     </div>
 
@@ -3843,7 +3995,13 @@ function renderSelected() {
 
 
     selectedOddsEl.textContent =
-        selectedTicket.odds;
+        selectedTicket.hitRate +
+        " %";
+
+
+    selectedRtpEl.textContent =
+        selectedTicket.rtp +
+        " %";
 
 
     selectedJackpotEl.textContent =
@@ -3851,6 +4009,10 @@ function renderSelected() {
             selectedTicket.jackpot
         ) +
         " €";
+
+
+    selectedJackpotOddsEl.textContent =
+        selectedTicket.jackpotOdds;
 
 
     selectedXpEl.textContent =
@@ -3871,7 +4033,7 @@ function renderSelected() {
 
 
 /* =========================================================
-   SCRATCH BUY
+   BUY
    ========================================================= */
 
 function buyTicket() {
@@ -3989,7 +4151,7 @@ function buyTicket() {
 
 
 /* =========================================================
-   SCRATCH RESULT
+   RESULT
    ========================================================= */
 
 function prepareResult() {
@@ -4030,8 +4192,21 @@ function prepareResult() {
 
     else if (
         activePrize >=
-        activeTicket.price *
-        20
+        25000
+    ) {
+
+        resultKicker.textContent =
+            "MEGA WIN";
+
+
+        resultMessage.textContent =
+            "Massiver Treffer.";
+
+    }
+
+    else if (
+        activePrize >=
+        1000
     ) {
 
         resultKicker.textContent =
@@ -4043,7 +4218,10 @@ function prepareResult() {
 
     }
 
-    else {
+    else if (
+        activePrize >
+        activeTicket.price
+    ) {
 
         resultKicker.textContent =
             "GEWINN";
@@ -4053,6 +4231,17 @@ function prepareResult() {
             "+" +
             money(activePrize) +
             " €";
+
+    }
+
+    else {
+
+        resultKicker.textContent =
+            "TREFFER";
+
+
+        resultMessage.textContent =
+            "Einsatz zurück.";
 
     }
 
@@ -4178,9 +4367,7 @@ function createScratchLayer(
 
         ctx.fillStyle =
             Math.random() > .5
-
             ? "rgba(255,255,255,.07)"
-
             : "rgba(0,0,0,.06)";
 
 
@@ -4193,6 +4380,7 @@ function createScratchLayer(
                 rect.height,
 
             1,
+
             1
 
         );
@@ -4223,12 +4411,9 @@ function createScratchLayer(
     );
 
 
-    scratchDistance =
-        0;
+    scratchDistance = 0;
 
-
-    lastScratchPoint =
-        null;
+    lastScratchPoint = null;
 
 
     scratchCanvas.dataset.session =
@@ -4416,6 +4601,7 @@ scratchCanvas.addEventListener(
     () => {
 
         scratching = false;
+
         lastScratchPoint = null;
 
     }
@@ -4427,6 +4613,7 @@ scratchCanvas.addEventListener(
     () => {
 
         scratching = false;
+
         lastScratchPoint = null;
 
     }
@@ -4492,12 +4679,9 @@ function revealTicket() {
         currentSessionId;
 
 
-    ticketResolved =
-        true;
+    ticketResolved = true;
 
-
-    scratching =
-        false;
+    scratching = false;
 
 
     scratchCanvas.style.transition =
@@ -4521,6 +4705,10 @@ function revealTicket() {
 
 }
 
+
+/* =========================================================
+   RESOLVE
+   ========================================================= */
 
 function resolveTicket(
     sessionId
@@ -4616,7 +4804,76 @@ function resolveTicket(
         finishedPrize <= 0;
 
 
+    saveState();
+
+    updateUI();
+
+
+    /*
+        WIN EFFECTS
+    */
+
     if (
+        finishedPrize ===
+        finishedTicket.jackpot
+    ) {
+
+        setTimeout(
+            () => {
+
+                showWinEffect(
+                    "jackpot",
+                    finishedPrize,
+                    finishedTicket
+                );
+
+            },
+            350
+        );
+
+    }
+
+    else if (
+        finishedPrize >=
+        25000
+    ) {
+
+        setTimeout(
+            () => {
+
+                showWinEffect(
+                    "mega",
+                    finishedPrize,
+                    finishedTicket
+                );
+
+            },
+            350
+        );
+
+    }
+
+    else if (
+        finishedPrize >=
+        1000
+    ) {
+
+        setTimeout(
+            () => {
+
+                showWinEffect(
+                    "big",
+                    finishedPrize,
+                    finishedTicket
+                );
+
+            },
+            350
+        );
+
+    }
+
+    else if (
         finishedPrize >
         0
     ) {
@@ -4630,11 +4887,6 @@ function resolveTicket(
         );
 
     }
-
-
-    saveState();
-
-    updateUI();
 
 
     resultCleanupTimer =
@@ -4675,6 +4927,121 @@ function resolveTicket(
             },
             1300
         );
+
+}
+
+
+/* =========================================================
+   BIG WIN EFFECTS
+   ========================================================= */
+
+function showWinEffect(
+    type,
+    amount,
+    ticket
+) {
+
+    winEffect.className =
+        "win-effect show " +
+        type;
+
+
+    if (
+        type ===
+        "jackpot"
+    ) {
+
+        winEffectLabel.textContent =
+            "JACKPOT";
+
+
+        winEffectTitle.innerHTML =
+            "JACK<br>POT";
+
+    }
+
+    else if (
+        type ===
+        "mega"
+    ) {
+
+        winEffectLabel.textContent =
+            "MEGA WIN";
+
+
+        winEffectTitle.innerHTML =
+            "MEGA<br>WIN";
+
+    }
+
+    else {
+
+        winEffectLabel.textContent =
+            "BIG WIN";
+
+
+        winEffectTitle.innerHTML =
+            "BIG<br>WIN";
+
+    }
+
+
+    winEffectAmount.textContent =
+        "+" +
+        money(amount) +
+        " €";
+
+
+    winEffectTicket.textContent =
+        ticket.name +
+        " · " +
+        ticket.price +
+        " € Los";
+
+
+    if (
+        navigator.vibrate
+    ) {
+
+        if (
+            type ===
+            "jackpot"
+        ) {
+
+            navigator.vibrate(
+                [
+                    120,
+                    60,
+                    120,
+                    60,
+                    250
+                ]
+            );
+
+        }
+
+        else {
+
+            navigator.vibrate(
+                [
+                    80,
+                    50,
+                    120
+                ]
+            );
+
+        }
+
+    }
+
+}
+
+
+function closeWinEffect() {
+
+    winEffect.classList.remove(
+        "show"
+    );
 
 }
 
@@ -4743,15 +5110,12 @@ function tapMint(event) {
     state.totalClicks++;
 
 
-    /*
-        50 Taps = 1 XP.
-    */
-
     state.clickXpCounter++;
 
 
     if (
-        state.clickXpCounter >= 50
+        state.clickXpCounter >=
+        50
     ) {
 
         const earnedXp =
@@ -4778,11 +5142,6 @@ function tapMint(event) {
         value
     );
 
-
-    /*
-        Nicht jeden Tap direkt
-        localStorage schreiben.
-    */
 
     updateUI();
 
@@ -4943,13 +5302,9 @@ function renderTapUpgrades() {
 
                         ${
                             owned
-
                             ? "Installiert"
-
-                            : money(
-                                upgrade.price
-                            ) +
-                            " €"
+                            : money(upgrade.price) +
+                              " €"
                         }
 
                     </div>
@@ -4977,7 +5332,6 @@ function renderTapUpgrades() {
                         )
 
                         ? "disabled"
-
                         : ""
                     }
                 >
@@ -5030,7 +5384,9 @@ function renderTapUpgrades() {
 }
 
 
-function buyTapUpgrade(upgrade) {
+function buyTapUpgrade(
+    upgrade
+) {
 
     if (
         state.level <
@@ -5088,7 +5444,8 @@ function buyTapUpgrade(upgrade) {
 
 function renderMachines() {
 
-    machineList.innerHTML = "";
+    machineList.innerHTML =
+        "";
 
 
     machines.forEach(
@@ -5143,13 +5500,9 @@ function renderMachines() {
 
                         ${
                             owned
-
                             ? "Produziert"
-
-                            : money(
-                                machine.price
-                            ) +
-                            " €"
+                            : money(machine.price) +
+                              " €"
                         }
 
                     </div>
@@ -5176,7 +5529,6 @@ function renderMachines() {
                         )
 
                         ? "disabled"
-
                         : ""
                     }
                 >
@@ -5226,7 +5578,9 @@ function renderMachines() {
 }
 
 
-function buyMachine(machine) {
+function buyMachine(
+    machine
+) {
 
     if (
         state.balance <
@@ -5309,7 +5663,8 @@ function renderProgression() {
                         item.level
                     ) {
 
-                        cls = "done";
+                        cls =
+                            "done";
 
                     }
 
@@ -5318,7 +5673,8 @@ function renderProgression() {
                         item.level
                     ) {
 
-                        cls = "current";
+                        cls =
+                            "current";
 
                     }
 
@@ -5816,12 +6172,13 @@ function updateUI() {
 
 
 /* =========================================================
-   PAGE NAVIGATION
+   NAVIGATION
    ========================================================= */
 
 function switchPage(page) {
 
-    activePage = page;
+    activePage =
+        page;
 
 
     document
@@ -5913,7 +6270,8 @@ function startNewRound() {
             resultCleanupTimer
         );
 
-        resultCleanupTimer = null;
+        resultCleanupTimer =
+            null;
 
     }
 
@@ -5921,35 +6279,56 @@ function startNewRound() {
     currentSessionId++;
 
 
-    /*
-        Langzeitfortschritt bleibt.
-    */
-
     state.balance =
         START_BALANCE;
 
 
-    state.totalSpent = 0;
-    state.totalWon = 0;
+    state.totalSpent =
+        0;
 
-    state.ticketsBought = 0;
-    state.biggestWin = 0;
 
-    state.history = [];
+    state.totalWon =
+        0;
 
-    state.started = true;
+
+    state.ticketsBought =
+        0;
+
+
+    state.biggestWin =
+        0;
+
+
+    state.history =
+        [];
+
+
+    state.started =
+        true;
+
 
     state.lastActive =
         Date.now();
 
 
-    activeTicket = null;
-    activePrize = null;
+    activeTicket =
+        null;
 
-    ticketResolved = true;
 
-    lastSharePrize = null;
-    lastShareTicket = null;
+    activePrize =
+        null;
+
+
+    ticketResolved =
+        true;
+
+
+    lastSharePrize =
+        null;
+
+
+    lastShareTicket =
+        null;
 
 
     scratchCanvas.style.opacity =
@@ -5980,7 +6359,7 @@ function startNewRound() {
 
 
 /* =========================================================
-   INSTALL PROMPT
+   INSTALL
    ========================================================= */
 
 function isStandalone() {
@@ -6040,7 +6419,8 @@ function checkInstallPrompt() {
 
 
     if (
-        dismissed === "true"
+        dismissed ===
+        "true"
     ) {
 
         return;
@@ -6068,7 +6448,8 @@ function checkInstallPrompt() {
    TOAST
    ========================================================= */
 
-let toastTimer = null;
+let toastTimer =
+    null;
 
 
 function showToast(text) {
@@ -6167,6 +6548,13 @@ $("bankruptResetButton")
     );
 
 
+$("winEffectButton")
+    .addEventListener(
+        "click",
+        closeWinEffect
+    );
+
+
 document
     .querySelectorAll(
         ".nav-btn"
@@ -6230,6 +6618,7 @@ $("offlineModalButton")
                 "hidden"
             );
 
+
             updateUI();
 
         }
@@ -6237,7 +6626,7 @@ $("offlineModalButton")
 
 
 /* =========================================================
-   SAVE LOOP
+   SAVE
    ========================================================= */
 
 setInterval(
@@ -6310,13 +6699,7 @@ if (
    INIT
    ========================================================= */
 
-/*
-    Zuerst Offlinezeit auswerten,
-    bevor lastActive überschrieben wird.
-*/
-
 calculateOfflineIncome();
-
 
 updateUI();
 
