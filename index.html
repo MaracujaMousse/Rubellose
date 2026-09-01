@@ -24,11 +24,20 @@
     --bg:#0d0f12;
     --panel:#15181d;
     --panel2:#1b1f25;
+    --panel3:#111419;
+
     --line:rgba(255,255,255,.09);
+    --lineStrong:rgba(255,255,255,.15);
+
     --text:#f5f3ee;
     --muted:#8d939c;
+
     --accent:#d9ff65;
     --accentSoft:rgba(217,255,101,.12);
+
+    --mint:#75f0c5;
+    --mintSoft:rgba(117,240,197,.11);
+
     --gold:#e7bf68;
     --red:#ff7770;
 }
@@ -54,7 +63,7 @@ body {
         radial-gradient(
             circle at 50% -10%,
             rgba(217,255,101,.08),
-            transparent 27rem
+            transparent 28rem
         ),
         var(--bg);
 
@@ -71,24 +80,33 @@ body {
 button {
     font:inherit;
     border:0;
+    cursor:pointer;
+    touch-action:manipulation;
     -webkit-user-select:none;
     user-select:none;
-    -webkit-touch-callout:none;
+}
+
+.hidden {
+    display:none !important;
 }
 
 .app {
     width:100%;
     max-width:600px;
+
     margin:0 auto;
+
     min-height:100dvh;
 
     padding:
         max(12px,env(safe-area-inset-top))
         14px
-        calc(70px + env(safe-area-inset-bottom));
+        calc(100px + env(safe-area-inset-bottom));
 }
 
-/* HEADER */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .topbar {
     height:48px;
@@ -102,11 +120,12 @@ button {
 
 .brand {
     display:flex;
-    gap:10px;
     align-items:center;
+    gap:10px;
 
     font-size:13px;
     font-weight:900;
+
     letter-spacing:.15em;
 }
 
@@ -128,18 +147,20 @@ button {
 }
 
 .rank-pill {
+    padding:7px 10px;
+
     border:1px solid var(--line);
     border-radius:999px;
 
     color:var(--muted);
 
-    padding:7px 10px;
-
     font-size:10px;
-    font-weight:700;
+    font-weight:750;
 }
 
-/* BALANCE */
+/* =========================================================
+   BALANCE
+   ========================================================= */
 
 .balance-card {
     position:relative;
@@ -151,7 +172,7 @@ button {
     border:1px solid var(--line);
     border-radius:21px;
 
-    background:rgba(21,24,29,.9);
+    background:rgba(21,24,29,.92);
 }
 
 .balance-card::after {
@@ -181,7 +202,7 @@ button {
     color:var(--muted);
 
     font-size:9px;
-    font-weight:700;
+    font-weight:750;
 
     letter-spacing:.13em;
 }
@@ -196,7 +217,7 @@ button {
 
     line-height:1;
 
-    font-weight:900;
+    font-weight:950;
 
     letter-spacing:-.065em;
 }
@@ -207,7 +228,27 @@ button {
     font-weight:500;
 }
 
-/* LEVEL */
+.balance-footer {
+    position:relative;
+    z-index:1;
+
+    display:flex;
+    justify-content:space-between;
+
+    margin-top:14px;
+
+    color:var(--muted);
+
+    font-size:9px;
+}
+
+.balance-footer strong {
+    color:var(--text);
+}
+
+/* =========================================================
+   LEVEL
+   ========================================================= */
 
 .level-card {
     margin-top:9px;
@@ -309,7 +350,45 @@ button {
     color:var(--text);
 }
 
-/* STATS */
+/* =========================================================
+   PAGES
+   ========================================================= */
+
+.page {
+    display:none;
+}
+
+.page.active {
+    display:block;
+}
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.section-header {
+    margin:25px 2px 10px;
+}
+
+.section-header h2 {
+    margin:0;
+
+    font-size:21px;
+
+    letter-spacing:-.04em;
+}
+
+.section-header p {
+    margin:3px 0 0;
+
+    font-size:10px;
+
+    color:var(--muted);
+}
+
+/* =========================================================
+   STATS
+   ========================================================= */
 
 .stats {
     display:grid;
@@ -364,29 +443,9 @@ button {
     text-transform:uppercase;
 }
 
-/* SECTION */
-
-.section-header {
-    margin:25px 2px 10px;
-}
-
-.section-header h2 {
-    margin:0;
-
-    font-size:21px;
-
-    letter-spacing:-.04em;
-}
-
-.section-header p {
-    margin:3px 0 0;
-
-    font-size:10px;
-
-    color:var(--muted);
-}
-
-/* TICKETS */
+/* =========================================================
+   SCRATCH TICKETS
+   ========================================================= */
 
 .ticket-grid {
     display:flex;
@@ -473,29 +532,12 @@ button {
     opacity:.07;
 }
 
-.ticket.mini {
-    color:#bed5e7;
-}
-
-.ticket.classic {
-    color:#d9ff65;
-}
-
-.ticket.gold {
-    color:#e7bf68;
-}
-
-.ticket.black {
-    color:#ff8585;
-}
-
-.ticket.neon {
-    color:#7de9ff;
-}
-
-.ticket.vault {
-    color:#d4a5ff;
-}
+.ticket.mini { color:#bed5e7; }
+.ticket.classic { color:#d9ff65; }
+.ticket.gold { color:#e7bf68; }
+.ticket.black { color:#ff8585; }
+.ticket.neon { color:#7de9ff; }
+.ticket.vault { color:#d4a5ff; }
 
 .ticket-top {
     display:flex;
@@ -579,7 +621,9 @@ button {
     font-weight:800;
 }
 
-/* GAME */
+/* =========================================================
+   SCRATCH GAME
+   ========================================================= */
 
 .game-panel {
     border:1px solid var(--line);
@@ -701,10 +745,6 @@ button {
     background:#101216;
 }
 
-.empty-game.hidden {
-    display:none;
-}
-
 .empty-icon {
     width:50px;
     height:50px;
@@ -714,9 +754,7 @@ button {
 
     margin-bottom:13px;
 
-    border:
-        1px solid
-        rgba(217,255,101,.18);
+    border:1px solid rgba(217,255,101,.18);
 
     border-radius:15px;
 
@@ -745,8 +783,6 @@ button {
     line-height:1.55;
 }
 
-/* GAME INFO */
-
 .game-info {
     display:flex;
     flex-direction:column;
@@ -760,7 +796,6 @@ button {
 
 .selected-heading {
     font-size:9px;
-
     color:var(--muted);
 }
 
@@ -802,11 +837,14 @@ button {
     color:var(--muted);
 }
 
-/* BUTTONS */
+/* =========================================================
+   BUTTONS
+   ========================================================= */
 
 .primary-btn,
 .secondary-btn,
-.whatsapp-btn {
+.whatsapp-btn,
+.mint-buy-btn {
     width:100%;
 
     min-height:52px;
@@ -817,30 +855,11 @@ button {
 
     font-size:13px;
     font-weight:850;
-
-    cursor:pointer;
-
-    touch-action:manipulation;
 }
 
 .primary-btn {
     background:var(--accent);
-
     color:#10120e;
-}
-
-.primary-btn:active,
-.secondary-btn:active,
-.whatsapp-btn:active {
-    transform:scale(.985);
-}
-
-.primary-btn:disabled,
-.secondary-btn:disabled,
-.whatsapp-btn:disabled {
-    opacity:.32;
-
-    pointer-events:none;
 }
 
 .secondary-btn {
@@ -860,12 +879,99 @@ button {
 
     color:#dbffd4;
 
-    border:
-        1px solid
-        rgba(190,255,177,.14);
+    border:1px solid rgba(190,255,177,.14);
 }
 
-/* PROGRESSION */
+.primary-btn:active,
+.secondary-btn:active,
+.whatsapp-btn:active,
+.mint-buy-btn:active {
+    transform:scale(.985);
+}
+
+button:disabled {
+    opacity:.32;
+    pointer-events:none;
+}
+
+/* =========================================================
+   BANKRUPT
+   ========================================================= */
+
+.bankrupt-card {
+    display:none;
+
+    margin-top:10px;
+
+    padding:17px;
+
+    border:1px solid rgba(255,119,112,.19);
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,119,112,.09),
+            transparent
+        ),
+        var(--panel);
+}
+
+.bankrupt-card.show {
+    display:block;
+}
+
+.bankrupt-card h3 {
+    margin:0;
+
+    font-size:19px;
+
+    letter-spacing:-.035em;
+}
+
+.bankrupt-card p {
+    margin:5px 0 15px;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    line-height:1.5;
+}
+
+.bankrupt-actions {
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:7px;
+}
+
+.bankrupt-actions button {
+    min-height:45px;
+
+    border-radius:12px;
+
+    font-size:11px;
+    font-weight:850;
+}
+
+.bankrupt-mint {
+    background:var(--mint);
+    color:#0d1512;
+}
+
+.bankrupt-reset {
+    background:transparent;
+    color:var(--text);
+
+    border:1px solid var(--line);
+}
+
+/* =========================================================
+   PROGRESSION
+   ========================================================= */
 
 .progression {
     display:flex;
@@ -888,7 +994,7 @@ button {
 }
 
 .milestone {
-    flex:0 0 135px;
+    flex:0 0 145px;
 
     padding:14px;
 
@@ -909,7 +1015,6 @@ button {
 
 .milestone-level {
     font-size:9px;
-
     color:var(--muted);
 }
 
@@ -933,7 +1038,9 @@ button {
     color:var(--muted);
 }
 
-/* HISTORY */
+/* =========================================================
+   HISTORY
+   ========================================================= */
 
 .history {
     overflow:hidden;
@@ -958,8 +1065,7 @@ button {
 .history-row {
     display:grid;
 
-    grid-template-columns:
-        1fr auto auto;
+    grid-template-columns:1fr auto auto;
 
     gap:8px;
 
@@ -1002,8 +1108,6 @@ button {
     color:var(--accent);
 }
 
-/* NEW ROUND */
-
 .round-bar {
     display:flex;
     align-items:center;
@@ -1038,16 +1142,539 @@ button {
     font-weight:800;
 }
 
-/* START MODAL */
+/* =========================================================
+   MINT
+   ========================================================= */
 
-.modal {
+.mint-hero {
+    margin-top:14px;
+
+    padding:19px;
+
+    border:1px solid var(--line);
+
+    border-radius:21px;
+
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(117,240,197,.14),
+            transparent 15rem
+        ),
+        var(--panel);
+}
+
+.mint-eyebrow {
+    color:var(--mint);
+
+    font-size:9px;
+    font-weight:800;
+
+    letter-spacing:.13em;
+}
+
+.mint-hero h2 {
+    margin:5px 0 3px;
+
+    font-size:31px;
+
+    letter-spacing:-.05em;
+}
+
+.mint-hero p {
+    margin:0;
+
+    color:var(--muted);
+
+    font-size:10px;
+}
+
+.mint-stats {
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:6px;
+
+    margin-top:16px;
+}
+
+.mint-stat {
+    padding:11px 7px;
+
+    border-radius:12px;
+
+    background:rgba(0,0,0,.14);
+
+    border:1px solid var(--line);
+}
+
+.mint-stat strong {
+    display:block;
+
+    font-size:15px;
+
+    letter-spacing:-.03em;
+}
+
+.mint-stat span {
+    display:block;
+
+    margin-top:3px;
+
+    color:var(--muted);
+
+    font-size:7px;
+
+    text-transform:uppercase;
+}
+
+.tap-area {
+    margin-top:10px;
+
+    padding:25px 15px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    border:1px solid var(--line);
+
+    border-radius:21px;
+
+    background:var(--panel);
+}
+
+.tap-label {
+    color:var(--muted);
+
+    font-size:9px;
+
+    letter-spacing:.13em;
+}
+
+.tap-button {
+    position:relative;
+
+    width:min(63vw,270px);
+    aspect-ratio:1;
+
+    margin:22px 0 19px;
+
+    border-radius:50%;
+
+    display:grid;
+    place-items:center;
+
+    background:
+        radial-gradient(
+            circle at 40% 32%,
+            #a2f8dc,
+            #64d4ae 38%,
+            #31886e 100%
+        );
+
+    color:#0a1713;
+
+    box-shadow:
+        inset 0 -13px 25px rgba(0,0,0,.22),
+        inset 0 5px 10px rgba(255,255,255,.2),
+        0 15px 40px rgba(0,0,0,.25);
+
+    transition:transform .08s ease;
+}
+
+.tap-button::after {
+    content:"";
+
+    position:absolute;
+
+    inset:13px;
+
+    border:1px solid rgba(0,0,0,.16);
+
+    border-radius:50%;
+}
+
+.tap-button:active {
+    transform:scale(.94);
+}
+
+.tap-button-main {
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+}
+
+.tap-button-main strong {
+    display:block;
+
+    font-size:41px;
+    font-weight:950;
+
+    letter-spacing:-.055em;
+}
+
+.tap-button-main span {
+    display:block;
+
+    margin-top:2px;
+
+    font-size:9px;
+    font-weight:800;
+
+    letter-spacing:.1em;
+}
+
+.tap-note {
+    color:var(--muted);
+
+    font-size:9px;
+}
+
+.tap-float {
+    position:fixed;
+
+    z-index:600;
+
+    pointer-events:none;
+
+    color:var(--mint);
+
+    font-weight:900;
+
+    font-size:15px;
+
+    animation:
+        tapFloat .65s ease forwards;
+}
+
+@keyframes tapFloat {
+
+    from {
+        transform:
+            translate(-50%,0)
+            scale(.9);
+
+        opacity:1;
+    }
+
+    to {
+        transform:
+            translate(-50%,-48px)
+            scale(1.05);
+
+        opacity:0;
+    }
+
+}
+
+.mint-block {
+    margin-top:9px;
+
+    padding:16px;
+
+    border:1px solid var(--line);
+
+    border-radius:18px;
+
+    background:var(--panel);
+}
+
+.mint-block-head {
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:11px;
+}
+
+.mint-block-head h3 {
+    margin:0;
+
+    font-size:17px;
+
+    letter-spacing:-.03em;
+}
+
+.mint-block-head span {
+    color:var(--muted);
+
+    font-size:9px;
+}
+
+.upgrade-list {
+    display:flex;
+
+    flex-direction:column;
+
+    gap:7px;
+}
+
+.upgrade-card {
+    position:relative;
+
+    padding:13px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    gap:10px;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    border:1px solid var(--line);
+
+    border-radius:14px;
+
+    background:var(--panel3);
+}
+
+.upgrade-card.locked {
+    opacity:.42;
+}
+
+.upgrade-card.owned {
+    border-color:
+        rgba(117,240,197,.22);
+}
+
+.upgrade-title {
+    font-size:12px;
+    font-weight:850;
+}
+
+.upgrade-desc {
+    margin-top:3px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.45;
+}
+
+.upgrade-price {
+    margin-top:5px;
+
+    color:var(--mint);
+
+    font-size:10px;
+    font-weight:850;
+}
+
+.mint-buy-btn {
+    width:auto;
+    min-width:78px;
+    min-height:39px;
+
+    padding:8px 10px;
+
+    border-radius:10px;
+
+    background:var(--mint);
+
+    color:#0d1512;
+
+    font-size:10px;
+}
+
+.mint-buy-btn.owned {
+    background:transparent;
+
+    color:var(--muted);
+
+    border:1px solid var(--line);
+}
+
+.offline-card {
+    margin-top:9px;
+
+    padding:17px;
+
+    border:1px solid rgba(117,240,197,.14);
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(117,240,197,.07),
+            transparent
+        ),
+        var(--panel);
+}
+
+.offline-card-top {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+
+    gap:10px;
+}
+
+.offline-card h3 {
+    margin:0;
+
+    font-size:17px;
+
+    letter-spacing:-.03em;
+}
+
+.offline-state {
+    color:var(--mint);
+
+    font-size:9px;
+    font-weight:800;
+}
+
+.offline-card p {
+    margin:6px 0 0;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.5;
+}
+
+.offline-values {
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:6px;
+
+    margin-top:13px;
+}
+
+.offline-value {
+    padding:11px;
+
+    border:1px solid var(--line);
+    border-radius:12px;
+
+    background:rgba(0,0,0,.13);
+}
+
+.offline-value strong {
+    display:block;
+
+    font-size:15px;
+}
+
+.offline-value span {
+    display:block;
+
+    margin-top:3px;
+
+    color:var(--muted);
+
+    font-size:8px;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.bottom-nav {
+    position:fixed;
+
+    z-index:80;
+
+    left:50%;
+
+    bottom:
+        max(
+            10px,
+            env(safe-area-inset-bottom)
+        );
+
+    width:
+        min(
+            calc(100% - 20px),
+            580px
+        );
+
+    transform:
+        translateX(-50%);
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    padding:6px;
+
+    gap:5px;
+
+    border:1px solid var(--line);
+
+    border-radius:18px;
+
+    background:
+        rgba(
+            18,
+            21,
+            25,
+            .91
+        );
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.35);
+}
+
+.nav-btn {
+    min-height:53px;
+
+    border-radius:13px;
+
+    background:transparent;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    font-weight:850;
+}
+
+.nav-btn.active {
+    background:var(--accent);
+
+    color:#10120e;
+}
+
+.nav-btn[data-page="mint"].active {
+    background:var(--mint);
+
+    color:#0c1612;
+}
+
+/* =========================================================
+   MODALS
+   ========================================================= */
+
+.modal,
+.install-modal {
     position:fixed;
 
     inset:0;
 
-    z-index:100;
+    z-index:300;
 
-    display:grid;
+    display:flex;
 
     align-items:flex-end;
 
@@ -1059,18 +1686,15 @@ button {
             env(safe-area-inset-bottom)
         );
 
-    background:rgba(5,6,8,.82);
+    background:rgba(5,6,8,.8);
 
-    backdrop-filter:blur(13px);
+    backdrop-filter:blur(15px);
 
-    -webkit-backdrop-filter:blur(13px);
+    -webkit-backdrop-filter:blur(15px);
 }
 
-.modal.hidden {
-    display:none;
-}
-
-.modal-card {
+.modal-card,
+.install-card {
     width:100%;
     max-width:600px;
 
@@ -1085,18 +1709,19 @@ button {
     background:#16191e;
 }
 
-.modal-eyebrow {
+.modal-eyebrow,
+.install-label {
     color:var(--accent);
 
     font-size:9px;
-    font-weight:800;
 
-    letter-spacing:.13em;
+    font-weight:850;
 
-    text-transform:uppercase;
+    letter-spacing:.14em;
 }
 
-.modal h2 {
+.modal h2,
+.install-card h2 {
     margin:5px 0 7px;
 
     font-size:30px;
@@ -1104,7 +1729,8 @@ button {
     letter-spacing:-.05em;
 }
 
-.modal p {
+.modal p,
+.install-card p {
     margin:0 0 18px;
 
     color:var(--muted);
@@ -1146,7 +1772,8 @@ button {
     letter-spacing:-.05em;
 }
 
-.start-btn {
+.start-btn,
+.install-button {
     width:100%;
 
     min-height:54px;
@@ -1158,56 +1785,6 @@ button {
     color:#10120e;
 
     font-weight:900;
-}
-
-/* INSTALL MODAL */
-
-.install-modal {
-    position:fixed;
-
-    inset:0;
-
-    z-index:300;
-
-    display:flex;
-    align-items:flex-end;
-
-    padding:
-        12px
-        12px
-        max(
-            12px,
-            env(safe-area-inset-bottom)
-        );
-
-    background:rgba(5,6,8,.78);
-
-    backdrop-filter:blur(15px);
-
-    -webkit-backdrop-filter:blur(15px);
-}
-
-.install-modal.hidden {
-    display:none;
-}
-
-.install-card {
-    width:100%;
-    max-width:600px;
-
-    margin:0 auto;
-
-    padding:23px;
-
-    border:1px solid var(--line);
-
-    border-radius:24px;
-
-    background:#16191e;
-
-    box-shadow:
-        0 30px 80px
-        rgba(0,0,0,.5);
 }
 
 .install-icon {
@@ -1226,34 +1803,10 @@ button {
     color:#10120e;
 
     font-size:25px;
+
     font-weight:1000;
 
     transform:rotate(-3deg);
-}
-
-.install-label {
-    color:var(--accent);
-
-    font-size:9px;
-    font-weight:850;
-
-    letter-spacing:.15em;
-}
-
-.install-card h2 {
-    margin:5px 0 8px;
-
-    font-size:30px;
-
-    letter-spacing:-.05em;
-}
-
-.install-card p {
-    margin:0;
-
-    color:var(--muted);
-
-    font-size:12px;
 }
 
 .install-instruction {
@@ -1298,21 +1851,8 @@ button {
     color:var(--accent);
 
     font-size:19px;
+
     font-weight:800;
-}
-
-.install-button {
-    width:100%;
-
-    min-height:52px;
-
-    border-radius:14px;
-
-    background:var(--accent);
-
-    color:#10120e;
-
-    font-weight:900;
 }
 
 .install-later {
@@ -1329,18 +1869,34 @@ button {
     font-size:11px;
 }
 
-/* TOAST */
+/* OFFLINE MODAL */
+
+.offline-modal-amount {
+    margin:20px 0 4px;
+
+    font-size:52px;
+
+    font-weight:950;
+
+    letter-spacing:-.06em;
+
+    color:var(--mint);
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
 
 .toast {
     position:fixed;
 
-    z-index:400;
+    z-index:700;
 
     left:50%;
 
     bottom:
         calc(
-            22px +
+            88px +
             env(safe-area-inset-bottom)
         );
 
@@ -1391,51 +1947,14 @@ button {
         );
 }
 
-.footer {
-    margin-top:28px;
-
-    text-align:center;
-
-    color:#555b63;
-
-    font-size:9px;
-}
-
 @supports (-webkit-touch-callout:none) {
 
     body {
-        min-height:
-            -webkit-fill-available;
+        min-height:-webkit-fill-available;
     }
 
 }
 
-@media(max-width:380px) {
-
-    .app {
-        padding-left:10px;
-        padding-right:10px;
-    }
-
-    .ticket-grid,
-    .progression {
-        width:
-            calc(
-                100% +
-                20px
-            );
-
-        margin-left:-10px;
-
-        padding-left:10px;
-        padding-right:10px;
-    }
-
-    .ticket {
-        flex-basis:82vw;
-    }
-
-}
 </style>
 </head>
 
@@ -1480,6 +1999,24 @@ button {
 
     </div>
 
+    <div class="balance-footer">
+
+        <span>
+            Bilanz
+            <strong id="balanceNet">
+                0 €
+            </strong>
+        </span>
+
+        <span>
+            Mint
+            <strong id="headerPassive">
+                0 €/Min.
+            </strong>
+        </span>
+
+    </div>
+
 </section>
 
 
@@ -1490,12 +2027,10 @@ button {
         <div>
 
             <div class="level-caption">
-
                 LEVEL
                 <span id="levelNumber">
                     1
                 </span>
-
             </div>
 
             <div class="level-title" id="levelName">
@@ -1507,7 +2042,7 @@ button {
         <div class="level-reward">
 
             <strong id="nextReward">
-                +15 €
+                +16 €
             </strong>
 
             <span>
@@ -1526,7 +2061,7 @@ button {
         </span>
 
         <span id="xpText">
-            0 / 40
+            0 / 58
         </span>
 
     </div>
@@ -1543,6 +2078,12 @@ button {
 
 </section>
 
+
+<!-- =====================================================
+     SCRATCH PAGE
+     ===================================================== -->
+
+<main class="page active" id="scratchPage">
 
 <section class="stats">
 
@@ -1565,7 +2106,7 @@ button {
         </div>
 
         <div class="stat-label">
-            Gewonnen
+            Gewinn
         </div>
 
     </div>
@@ -1595,6 +2136,31 @@ button {
     </div>
 
 </section>
+
+
+<div class="bankrupt-card" id="bankruptCard">
+
+    <h3>
+        Kein Los mehr bezahlbar.
+    </h3>
+
+    <p>
+        In der Mint kannst du dein Guthaben wieder aufbauen oder eine neue Runde starten.
+    </p>
+
+    <div class="bankrupt-actions">
+
+        <button class="bankrupt-mint" id="bankruptMintButton">
+            Zur Mint
+        </button>
+
+        <button class="bankrupt-reset" id="bankruptResetButton">
+            Neue Runde
+        </button>
+
+    </div>
+
+</div>
 
 
 <div class="section-header">
@@ -1628,124 +2194,124 @@ button {
 
 <section class="game-panel">
 
-    <div class="scratch-side">
+<div class="scratch-side">
 
-        <div class="scratch-card">
+    <div class="scratch-card">
 
-            <div class="result-underlay">
+        <div class="result-underlay">
 
-                <div>
+            <div>
 
-                    <div class="result-kicker" id="resultKicker">
-                        Gewinn
-                    </div>
+                <div class="result-kicker" id="resultKicker">
+                    Gewinn
+                </div>
 
-                    <div class="result-amount" id="resultAmount">
-                        0 €
-                    </div>
+                <div class="result-amount" id="resultAmount">
+                    0 €
+                </div>
 
-                    <div class="result-message" id="resultMessage">
-                        Viel Glück.
-                    </div>
-
+                <div class="result-message" id="resultMessage">
+                    Viel Glück.
                 </div>
 
             </div>
 
-            <canvas id="scratchCanvas"></canvas>
+        </div>
 
-            <div class="empty-game" id="emptyGame">
+        <canvas id="scratchCanvas"></canvas>
 
-                <div class="empty-icon">
-                    ✦
-                </div>
+        <div class="empty-game" id="emptyGame">
 
-                <strong>
-                    Bereit
-                </strong>
-
-                <p>
-                    Los auswählen und starten.
-                </p>
-
+            <div class="empty-icon">
+                ✦
             </div>
+
+            <strong>
+                Bereit
+            </strong>
+
+            <p>
+                Los auswählen und starten.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="game-info">
+
+    <div>
+
+        <div class="selected-heading">
+            AUSGEWÄHLT
+        </div>
+
+        <div class="selected-name" id="selectedName">
+            Mini
+        </div>
+
+        <div class="selected-price" id="selectedPrice">
+            2 € Einsatz
+        </div>
+
+    </div>
+
+
+    <div class="info-list">
+
+        <div class="info-row">
+
+            <span>
+                Gewinnchance
+            </span>
+
+            <span id="selectedOdds"></span>
+
+        </div>
+
+        <div class="info-row">
+
+            <span>
+                Hauptgewinn
+            </span>
+
+            <span id="selectedJackpot"></span>
+
+        </div>
+
+        <div class="info-row">
+
+            <span>
+                XP
+            </span>
+
+            <span id="selectedXp"></span>
 
         </div>
 
     </div>
 
 
-    <div class="game-info">
+    <div>
 
-        <div>
+        <button class="primary-btn" id="buyButton">
+            Los kaufen
+        </button>
 
-            <div class="selected-heading">
-                AUSGEWÄHLT
-            </div>
+        <button class="secondary-btn" id="revealButton" disabled>
+            Sofort aufdecken
+        </button>
 
-            <div class="selected-name" id="selectedName">
-                Mini
-            </div>
-
-            <div class="selected-price" id="selectedPrice">
-                2 € Einsatz
-            </div>
-
-        </div>
-
-
-        <div class="info-list">
-
-            <div class="info-row">
-
-                <span>
-                    Gewinnchance
-                </span>
-
-                <span id="selectedOdds"></span>
-
-            </div>
-
-            <div class="info-row">
-
-                <span>
-                    Hauptgewinn
-                </span>
-
-                <span id="selectedJackpot"></span>
-
-            </div>
-
-            <div class="info-row">
-
-                <span>
-                    XP
-                </span>
-
-                <span id="selectedXp"></span>
-
-            </div>
-
-        </div>
-
-
-        <div>
-
-            <button class="primary-btn" id="buyButton">
-                Los kaufen
-            </button>
-
-            <button class="secondary-btn" id="revealButton" disabled>
-                Sofort aufdecken
-            </button>
-
-            <button class="whatsapp-btn" id="whatsappButton" disabled>
-                Gewinn über WhatsApp teilen
-            </button>
-
-        </div>
+        <button class="whatsapp-btn" id="whatsappButton" disabled>
+            Gewinn über WhatsApp teilen
+        </button>
 
     </div>
+
+</div>
 
 </section>
 
@@ -1757,7 +2323,7 @@ button {
     </h2>
 
     <p>
-        Freischaltungen und Meilensteine.
+        Scratch und Mint teilen sich dieselben Level.
     </p>
 
 </div>
@@ -1781,15 +2347,220 @@ button {
 
 <section class="history" id="history"></section>
 
+</main>
 
-<div class="footer">
-    Simulation ohne Echtgeld.
+
+<!-- =====================================================
+     MINT PAGE
+     ===================================================== -->
+
+<main class="page" id="mintPage">
+
+<section class="mint-hero">
+
+    <div class="mint-eyebrow">
+        CASH LAB
+    </div>
+
+    <h2>
+        Mint
+    </h2>
+
+    <p>
+        Tippen, investieren, automatisieren.
+    </p>
+
+
+    <div class="mint-stats">
+
+        <div class="mint-stat">
+
+            <strong id="mintPerTap">
+                0,01 €
+            </strong>
+
+            <span>
+                pro Tap
+            </span>
+
+        </div>
+
+        <div class="mint-stat">
+
+            <strong id="mintPerMinute">
+                0 €
+            </strong>
+
+            <span>
+                pro Minute
+            </span>
+
+        </div>
+
+        <div class="mint-stat">
+
+            <strong id="mintTotalClicks">
+                0
+            </strong>
+
+            <span>
+                Taps
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="tap-area">
+
+    <div class="tap-label">
+        MANUELLE MINT
+    </div>
+
+    <button class="tap-button" id="tapButton">
+
+        <div class="tap-button-main">
+
+            <strong id="tapButtonValue">
+                +0,01 €
+            </strong>
+
+            <span>
+                TAP
+            </span>
+
+        </div>
+
+    </button>
+
+    <div class="tap-note">
+        50 Taps = 1 XP
+    </div>
+
+</section>
+
+
+<section class="offline-card">
+
+    <div class="offline-card-top">
+
+        <div>
+
+            <h3>
+                Offline Mint
+            </h3>
+
+            <p>
+                Deine Maschinen produzieren auch außerhalb der App.
+            </p>
+
+        </div>
+
+        <div class="offline-state" id="offlineState">
+            AKTIV
+        </div>
+
+    </div>
+
+
+    <div class="offline-values">
+
+        <div class="offline-value">
+
+            <strong id="offlineRate">
+                0 €/Min.
+            </strong>
+
+            <span>
+                Produktion
+            </span>
+
+        </div>
+
+        <div class="offline-value">
+
+            <strong id="offlineCap">
+                2 Std.
+            </strong>
+
+            <span>
+                Max. Offlinezeit
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="section-header">
+
+    <h2>
+        Tap-Upgrades
+    </h2>
+
+    <p>
+        Einmal kaufen, dauerhaft stärker tippen.
+    </p>
+
 </div>
 
+
+<section class="mint-block">
+
+    <div class="upgrade-list" id="tapUpgradeList"></div>
+
+</section>
+
+
+<div class="section-header">
+
+    <h2>
+        Maschinen
+    </h2>
+
+    <p>
+        Automatisches Einkommen pro Minute.
+    </p>
+
 </div>
 
 
-<!-- START MODAL -->
+<section class="mint-block">
+
+    <div class="upgrade-list" id="machineList"></div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+
+<nav class="bottom-nav">
+
+    <button class="nav-btn active" data-page="scratch">
+        SCRATCH
+    </button>
+
+    <button class="nav-btn" data-page="mint">
+        MINT
+    </button>
+
+</nav>
+
+
+<!-- =====================================================
+     START MODAL
+     ===================================================== -->
 
 <div class="modal" id="startModal">
 
@@ -1804,7 +2575,7 @@ button {
         </h2>
 
         <p>
-            Dein Level und deine Freischaltungen bleiben erhalten.
+            Level, Mint und Freischaltungen bleiben erhalten.
         </p>
 
         <div class="start-amount">
@@ -1828,7 +2599,9 @@ button {
 </div>
 
 
-<!-- INSTALL MODAL -->
+<!-- =====================================================
+     INSTALL MODAL
+     ===================================================== -->
 
 <div class="install-modal hidden" id="installModal">
 
@@ -1881,20 +2654,54 @@ button {
 </div>
 
 
+<!-- =====================================================
+     OFFLINE MODAL
+     ===================================================== -->
+
+<div class="modal hidden" id="offlineModal">
+
+    <div class="modal-card">
+
+        <div class="modal-eyebrow">
+            MINT
+        </div>
+
+        <h2>
+            Produktion abgeschlossen
+        </h2>
+
+        <div class="offline-modal-amount" id="offlineModalAmount">
+            +0 €
+        </div>
+
+        <p id="offlineModalText">
+            Deine Maschinen waren aktiv.
+        </p>
+
+        <button class="start-btn" id="offlineModalButton">
+            Einsammeln
+        </button>
+
+    </div>
+
+</div>
+
+
 <div class="toast" id="toast"></div>
 
 
 <script>
 
 /* =========================================================
-   KONFIGURATION
+   CORE
    ========================================================= */
 
 const START_BALANCE = 150;
+const STORAGE_KEY = "scratchGameStateV3";
 
 
 /* =========================================================
-   LOSE
+   SCRATCH TICKETS
    ========================================================= */
 
 const tickets = [
@@ -2066,7 +2873,129 @@ const tickets = [
 
 
 /* =========================================================
-   LEVELSYSTEM
+   MINT
+   ========================================================= */
+
+const tapUpgrades = [
+
+    {
+        id:"copper",
+        name:"Kupferfinger",
+        value:0.02,
+        price:250,
+        level:4,
+        xp:80
+    },
+
+    {
+        id:"steel",
+        name:"Stahlfinger",
+        value:0.05,
+        price:1500,
+        level:8,
+        xp:220
+    },
+
+    {
+        id:"hydraulic",
+        name:"Hydraulik",
+        value:0.10,
+        price:7500,
+        level:12,
+        xp:550
+    },
+
+    {
+        id:"press",
+        name:"Presswerk",
+        value:0.25,
+        price:35000,
+        level:18,
+        xp:1300
+    },
+
+    {
+        id:"printer",
+        name:"Money Printer",
+        value:0.50,
+        price:150000,
+        level:24,
+        xp:3000
+    },
+
+    {
+        id:"quantum",
+        name:"Quantum Tap",
+        value:1,
+        price:750000,
+        level:30,
+        xp:7500
+    }
+
+];
+
+
+const machines = [
+
+    {
+        id:"tray",
+        name:"Münzschale",
+        rate:0.01,
+        price:100,
+        level:2,
+        xp:45
+    },
+
+    {
+        id:"changer",
+        name:"Wechselautomat",
+        rate:0.05,
+        price:750,
+        level:5,
+        xp:120
+    },
+
+    {
+        id:"register",
+        name:"Kasse",
+        rate:0.25,
+        price:4000,
+        level:9,
+        xp:320
+    },
+
+    {
+        id:"minimint",
+        name:"Mini-Mint",
+        rate:1,
+        price:20000,
+        level:14,
+        xp:800
+    },
+
+    {
+        id:"printshop",
+        name:"Druckerei",
+        rate:5,
+        price:100000,
+        level:20,
+        xp:2200
+    },
+
+    {
+        id:"centralbank",
+        name:"Zentralbank",
+        rate:25,
+        price:750000,
+        level:28,
+        xp:6000
+    }
+
+];
+
+
+/* =========================================================
+   LEVEL
    ========================================================= */
 
 const ranks = [
@@ -2085,54 +3014,16 @@ const ranks = [
 
 const milestones = [
 
-    {
-        level:3,
-        name:"Classic",
-        text:"5-€-Lose"
-    },
-
-    {
-        level:6,
-        name:"Gold",
-        text:"10-€-Lose"
-    },
-
-    {
-        level:10,
-        name:"Black",
-        text:"20-€-Lose"
-    },
-
-    {
-        level:15,
-        name:"Elite Bonus",
-        text:"+100 €"
-    },
-
-    {
-        level:16,
-        name:"Neon",
-        text:"50-€-Lose"
-    },
-
-    {
-        level:20,
-        name:"Master Bonus",
-        text:"+200 €"
-    },
-
-    {
-        level:24,
-        name:"Vault",
-        text:"100-€-Lose"
-    },
-
-    {
-        level:30,
-        name:"Mythic",
-        text:"+500 €"
-    }
-
+    {level:2,name:"Mint I",text:"Münzschale"},
+    {level:3,name:"Classic",text:"5-€-Lose"},
+    {level:4,name:"Mint II",text:"Kupferfinger"},
+    {level:6,name:"Gold",text:"10-€-Lose"},
+    {level:10,name:"Black",text:"20-€-Lose"},
+    {level:14,name:"Mini-Mint",text:"1 €/Min."},
+    {level:16,name:"Neon",text:"50-€-Lose"},
+    {level:20,name:"Master",text:"Druckerei + 8h"},
+    {level:24,name:"Vault",text:"100-€-Lose"},
+    {level:30,name:"Mythic",text:"Quantum Tap"}
 ];
 
 
@@ -2141,10 +3032,7 @@ function xpNeeded(level) {
     return Math.round(
         40 +
         level * 14 +
-        Math.pow(
-            level,
-            1.45
-        ) * 4
+        Math.pow(level,1.45) * 4
     );
 
 }
@@ -2172,27 +3060,43 @@ function levelReward(level) {
 }
 
 
+function offlineHourCap() {
+
+    if (state.level >= 20)
+        return 8;
+
+    if (state.level >= 16)
+        return 6;
+
+    if (state.level >= 10)
+        return 4;
+
+    if (state.level >= 6)
+        return 3;
+
+    return 2;
+
+}
+
+
 function currentRank() {
 
-    let rank =
-        ranks[0];
+    let rank = ranks[0];
 
-    for (
-        const entry
-        of ranks
-    ) {
+    ranks.forEach(
+        item => {
 
-        if (
-            state.level >=
-            entry.level
-        ) {
+            if (
+                state.level >=
+                item.level
+            ) {
 
-            rank =
-                entry;
+                rank = item;
+
+            }
 
         }
-
-    }
+    );
 
     return rank.name;
 
@@ -2218,225 +3122,117 @@ const defaultState = {
 
     history:[],
 
-    started:false
+    started:false,
+
+    tapUpgrade:null,
+    machines:[],
+
+    totalClicks:0,
+    clickXpCounter:0,
+
+    mintLifetime:0,
+
+    lastActive:Date.now()
 
 };
 
 
-let state =
-    loadState();
+let state = loadState();
 
+let selectedTicket = tickets[0];
 
-let selectedTicket =
-    tickets[0];
+let activeTicket = null;
+let activePrize = null;
 
+let ticketResolved = true;
 
-let activeTicket =
-    null;
+let currentSessionId = 0;
+let resultCleanupTimer = null;
 
+let lastSharePrize = null;
+let lastShareTicket = null;
 
-let activePrize =
-    null;
-
-
-let ticketResolved =
-    true;
-
-
-let currentSessionId =
-    0;
-
-
-let resultCleanupTimer =
-    null;
-
-
-let lastSharePrize =
-    null;
-
-
-let lastShareTicket =
-    null;
+let activePage = "scratch";
 
 
 /* =========================================================
    DOM
    ========================================================= */
 
-const balanceEl =
-    document.getElementById(
-        "balance"
-    );
+const $ =
+    id =>
+        document.getElementById(id);
 
-const levelNumberEl =
-    document.getElementById(
-        "levelNumber"
-    );
 
-const levelNameEl =
-    document.getElementById(
-        "levelName"
-    );
+const balanceEl = $("balance");
+const balanceNetEl = $("balanceNet");
 
-const rankPill =
-    document.getElementById(
-        "rankPill"
-    );
+const headerPassive = $("headerPassive");
 
-const xpTextEl =
-    document.getElementById(
-        "xpText"
-    );
+const levelNumberEl = $("levelNumber");
+const levelNameEl = $("levelName");
+const rankPill = $("rankPill");
 
-const xpFillEl =
-    document.getElementById(
-        "xpFill"
-    );
+const xpTextEl = $("xpText");
+const xpFillEl = $("xpFill");
 
-const nextRewardEl =
-    document.getElementById(
-        "nextReward"
-    );
+const nextRewardEl = $("nextReward");
+const nextUnlockEl = $("nextUnlock");
 
-const nextUnlockEl =
-    document.getElementById(
-        "nextUnlock"
-    );
+const ticketsBoughtEl = $("ticketsBought");
+const totalWonEl = $("totalWon");
+const biggestWinEl = $("biggestWin");
+const netResultEl = $("netResult");
 
-const ticketsBoughtEl =
-    document.getElementById(
-        "ticketsBought"
-    );
+const ticketGrid = $("ticketGrid");
 
-const totalWonEl =
-    document.getElementById(
-        "totalWon"
-    );
+const selectedNameEl = $("selectedName");
+const selectedPriceEl = $("selectedPrice");
 
-const biggestWinEl =
-    document.getElementById(
-        "biggestWin"
-    );
+const selectedOddsEl = $("selectedOdds");
+const selectedJackpotEl = $("selectedJackpot");
+const selectedXpEl = $("selectedXp");
 
-const netResultEl =
-    document.getElementById(
-        "netResult"
-    );
+const buyButton = $("buyButton");
+const revealButton = $("revealButton");
+const whatsappButton = $("whatsappButton");
 
-const ticketGrid =
-    document.getElementById(
-        "ticketGrid"
-    );
+const scratchCanvas = $("scratchCanvas");
+const emptyGame = $("emptyGame");
 
-const selectedNameEl =
-    document.getElementById(
-        "selectedName"
-    );
+const resultKicker = $("resultKicker");
+const resultAmount = $("resultAmount");
+const resultMessage = $("resultMessage");
 
-const selectedPriceEl =
-    document.getElementById(
-        "selectedPrice"
-    );
+const progressionEl = $("progression");
+const historyEl = $("history");
 
-const selectedOddsEl =
-    document.getElementById(
-        "selectedOdds"
-    );
+const bankruptCard = $("bankruptCard");
 
-const selectedJackpotEl =
-    document.getElementById(
-        "selectedJackpot"
-    );
+const tapButton = $("tapButton");
+const tapButtonValue = $("tapButtonValue");
 
-const selectedXpEl =
-    document.getElementById(
-        "selectedXp"
-    );
+const mintPerTap = $("mintPerTap");
+const mintPerMinute = $("mintPerMinute");
 
-const buyButton =
-    document.getElementById(
-        "buyButton"
-    );
+const mintTotalClicks = $("mintTotalClicks");
 
-const revealButton =
-    document.getElementById(
-        "revealButton"
-    );
+const offlineRate = $("offlineRate");
+const offlineCap = $("offlineCap");
+const offlineState = $("offlineState");
 
-const whatsappButton =
-    document.getElementById(
-        "whatsappButton"
-    );
+const tapUpgradeList = $("tapUpgradeList");
+const machineList = $("machineList");
 
-const scratchCanvas =
-    document.getElementById(
-        "scratchCanvas"
-    );
+const startModal = $("startModal");
 
-const emptyGame =
-    document.getElementById(
-        "emptyGame"
-    );
+const installModal = $("installModal");
 
-const resultKicker =
-    document.getElementById(
-        "resultKicker"
-    );
+const offlineModal = $("offlineModal");
+const offlineModalAmount = $("offlineModalAmount");
+const offlineModalText = $("offlineModalText");
 
-const resultAmount =
-    document.getElementById(
-        "resultAmount"
-    );
-
-const resultMessage =
-    document.getElementById(
-        "resultMessage"
-    );
-
-const historyEl =
-    document.getElementById(
-        "history"
-    );
-
-const progressionEl =
-    document.getElementById(
-        "progression"
-    );
-
-const startModal =
-    document.getElementById(
-        "startModal"
-    );
-
-const startGameButton =
-    document.getElementById(
-        "startGameButton"
-    );
-
-const newRoundButton =
-    document.getElementById(
-        "newRoundButton"
-    );
-
-const installModal =
-    document.getElementById(
-        "installModal"
-    );
-
-const installDoneButton =
-    document.getElementById(
-        "installDoneButton"
-    );
-
-const installLaterButton =
-    document.getElementById(
-        "installLaterButton"
-    );
-
-const toast =
-    document.getElementById(
-        "toast"
-    );
+const toast = $("toast");
 
 
 /* =========================================================
@@ -2445,8 +3241,10 @@ const toast =
 
 function saveState() {
 
+    state.lastActive = Date.now();
+
     localStorage.setItem(
-        "scratchGameStateV2",
+        STORAGE_KEY,
         JSON.stringify(state)
     );
 
@@ -2459,24 +3257,31 @@ function loadState() {
 
         const saved =
             localStorage.getItem(
-                "scratchGameStateV2"
+                STORAGE_KEY
             );
 
-        if (!saved) {
+        if (!saved)
+            return {...defaultState};
 
-            return {
-                ...defaultState
-            };
 
-        }
+        const parsed =
+            JSON.parse(saved);
+
 
         return {
 
             ...defaultState,
+            ...parsed,
 
-            ...JSON.parse(
-                saved
-            )
+            machines:
+                Array.isArray(parsed.machines)
+                ? parsed.machines
+                : [],
+
+            history:
+                Array.isArray(parsed.history)
+                ? parsed.history
+                : []
 
         };
 
@@ -2484,9 +3289,7 @@ function loadState() {
 
     catch {
 
-        return {
-            ...defaultState
-        };
+        return {...defaultState};
 
     }
 
@@ -2494,29 +3297,45 @@ function loadState() {
 
 
 /* =========================================================
-   FORMAT
+   MONEY
    ========================================================= */
 
-function money(value) {
+function money(value, decimals = 0) {
 
     return new Intl.NumberFormat(
         "de-DE",
         {
-            maximumFractionDigits:0
+            minimumFractionDigits:decimals,
+            maximumFractionDigits:decimals
         }
-    ).format(value);
+    )
+    .format(value);
+
+}
+
+
+function moneySmart(value) {
+
+    if (
+        Math.abs(value) < 10
+    ) {
+
+        return money(value,2);
+
+    }
+
+    return money(value,0);
 
 }
 
 
 /* =========================================================
-   RANDOM
+   RNG
    ========================================================= */
 
 function randomInteger(max) {
 
-    const maxUint =
-        4294967296;
+    const maxUint = 4294967296;
 
     const limit =
         maxUint -
@@ -2525,26 +3344,24 @@ function randomInteger(max) {
             max
         );
 
+
     const array =
         new Uint32Array(1);
+
 
     let value;
 
 
     do {
 
-        crypto.getRandomValues(
-            array
-        );
+        crypto.getRandomValues(array);
 
-        value =
-            array[0];
+        value = array[0];
 
     }
 
     while (
-        value >=
-        limit
+        value >= limit
     );
 
 
@@ -2560,8 +3377,8 @@ function drawPrize(ticket) {
             1000000
         );
 
-    let cumulative =
-        0;
+
+    let cumulative = 0;
 
 
     for (
@@ -2591,30 +3408,24 @@ function drawPrize(ticket) {
 
 
 /* =========================================================
-   XP & LEVEL
+   GLOBAL XP
    ========================================================= */
 
 function gainXp(amount) {
 
-    state.xp +=
-        amount;
+    state.xp += amount;
 
 
-    const rewards =
-        [];
+    let totalBonus = 0;
 
 
     while (
         state.xp >=
-        xpNeeded(
-            state.level
-        )
+        xpNeeded(state.level)
     ) {
 
         state.xp -=
-            xpNeeded(
-                state.level
-            );
+            xpNeeded(state.level);
 
 
         state.level++;
@@ -2630,30 +3441,21 @@ function gainXp(amount) {
             reward;
 
 
-        rewards.push(
-            reward
-        );
+        totalBonus +=
+            reward;
 
     }
 
 
     if (
-        rewards.length
+        totalBonus > 0
     ) {
-
-        const total =
-            rewards.reduce(
-                (a,b) =>
-                    a+b,
-                0
-            );
-
 
         showToast(
             "Level " +
             state.level +
             " · +" +
-            money(total) +
+            money(totalBonus) +
             " €"
         );
 
@@ -2663,13 +3465,214 @@ function gainXp(amount) {
 
 
 /* =========================================================
-   TICKETS
+   MINT CALCULATION
+   ========================================================= */
+
+function currentTapValue() {
+
+    if (
+        !state.tapUpgrade
+    ) {
+
+        return 0.01;
+
+    }
+
+
+    const upgrade =
+        tapUpgrades.find(
+            item =>
+                item.id ===
+                state.tapUpgrade
+        );
+
+
+    return upgrade
+        ? upgrade.value
+        : 0.01;
+
+}
+
+
+function passivePerMinute() {
+
+    let total = 0;
+
+
+    machines.forEach(
+        machine => {
+
+            if (
+                state.machines.includes(
+                    machine.id
+                )
+            ) {
+
+                total +=
+                    machine.rate;
+
+            }
+
+        }
+    );
+
+
+    return total;
+
+}
+
+
+/* =========================================================
+   OFFLINE
+   ========================================================= */
+
+function calculateOfflineIncome() {
+
+    if (
+        !state.started
+    ) {
+
+        state.lastActive =
+            Date.now();
+
+        return;
+
+    }
+
+
+    const rate =
+        passivePerMinute();
+
+
+    if (
+        rate <= 0
+    ) {
+
+        state.lastActive =
+            Date.now();
+
+        return;
+
+    }
+
+
+    const now =
+        Date.now();
+
+
+    const elapsedMs =
+        Math.max(
+            0,
+            now -
+            Number(
+                state.lastActive ||
+                now
+            )
+        );
+
+
+    /*
+        Unter 30 Sekunden ignorieren.
+    */
+
+    if (
+        elapsedMs <
+        30000
+    ) {
+
+        state.lastActive =
+            now;
+
+        return;
+
+    }
+
+
+    const capMs =
+        offlineHourCap() *
+        60 *
+        60 *
+        1000;
+
+
+    const usedMs =
+        Math.min(
+            elapsedMs,
+            capMs
+        );
+
+
+    const minutes =
+        usedMs /
+        60000;
+
+
+    const earned =
+        rate *
+        minutes;
+
+
+    if (
+        earned <= 0
+    ) {
+
+        state.lastActive =
+            now;
+
+        return;
+
+    }
+
+
+    state.balance +=
+        earned;
+
+
+    state.mintLifetime +=
+        earned;
+
+
+    state.lastActive =
+        now;
+
+
+    saveState();
+
+
+    offlineModalAmount.textContent =
+        "+" +
+        moneySmart(earned) +
+        " €";
+
+
+    const hours =
+        usedMs /
+        3600000;
+
+
+    offlineModalText.textContent =
+        "Produktion für " +
+        (
+            hours >= 1
+            ? money(hours,1) + " Std."
+            : money(minutes,0) + " Min."
+        );
+
+
+    offlineModal.classList.remove(
+        "hidden"
+    );
+
+}
+
+
+/* =========================================================
+   SCRATCH TICKETS UI
    ========================================================= */
 
 function renderTickets() {
 
-    ticketGrid.innerHTML =
-        "";
+    ticketGrid.innerHTML = "";
 
 
     tickets.forEach(
@@ -2756,18 +3759,20 @@ function renderTickets() {
                         <br>
 
                         ${ticket.xp}
-                        XP pro Los
+                        XP
 
                     </div>
 
                     ${
                         unlocked
+
                         ? ""
+
                         : `
-                        <div class="lock-text">
-                            Ab Level
-                            ${ticket.unlockLevel}
-                        </div>
+                            <div class="lock-text">
+                                Ab Level
+                                ${ticket.unlockLevel}
+                            </div>
                         `
                     }
 
@@ -2790,7 +3795,7 @@ function renderTickets() {
                         ) {
 
                             showToast(
-                                "Erst aktuelles Los beenden"
+                                "Aktuelles Los zuerst beenden"
                             );
 
                             return;
@@ -2866,19 +3871,10 @@ function renderSelected() {
 
 
 /* =========================================================
-   KAUFEN
+   SCRATCH BUY
    ========================================================= */
 
 function buyTicket() {
-
-    /*
-        Alten Cleanup-Timer vollständig
-        entfernen.
-
-        Dadurch kann ein vorheriges Los
-        niemals mehr über ein neues Los
-        springen.
-    */
 
     if (
         resultCleanupTimer
@@ -2993,7 +3989,7 @@ function buyTicket() {
 
 
 /* =========================================================
-   RESULT
+   SCRATCH RESULT
    ========================================================= */
 
 function prepareResult() {
@@ -3055,9 +4051,7 @@ function prepareResult() {
 
         resultMessage.textContent =
             "+" +
-            money(
-                activePrize
-            ) +
+            money(activePrize) +
             " €";
 
     }
@@ -3071,14 +4065,11 @@ function prepareResult() {
 
 let ctx;
 
-let scratching =
-    false;
+let scratching = false;
 
-let scratchDistance =
-    0;
+let scratchDistance = 0;
 
-let lastScratchPoint =
-    null;
+let lastScratchPoint = null;
 
 
 function createScratchLayer(
@@ -3092,7 +4083,8 @@ function createScratchLayer(
 
     const dpr =
         Math.min(
-            window.devicePixelRatio || 1,
+            window.devicePixelRatio ||
+            1,
             3
         );
 
@@ -3129,10 +4121,6 @@ function createScratchLayer(
         0,
         0
     );
-
-
-    ctx.globalCompositeOperation =
-        "source-over";
 
 
     const gradient =
@@ -3184,7 +4172,7 @@ function createScratchLayer(
 
     for (
         let i = 0;
-        i < 2200;
+        i < 1800;
         i++
     ) {
 
@@ -3205,7 +4193,6 @@ function createScratchLayer(
                 rect.height,
 
             1,
-
             1
 
         );
@@ -3259,7 +4246,7 @@ function createScratchLayer(
 
 
 /* =========================================================
-   SCRATCH
+   SCRATCH POINTER
    ========================================================= */
 
 function scratchAt(
@@ -3314,12 +4301,14 @@ function scratchAt(
 
         Math.max(
             25,
-            rect.width * .06
+            rect.width *
+            .06
         ),
 
         0,
 
-        Math.PI * 2
+        Math.PI *
+        2
 
     );
 
@@ -3358,7 +4347,8 @@ function scratchAt(
 
     if (
         scratchDistance >
-        rect.width * 5
+        rect.width *
+        5
     ) {
 
         revealTicket();
@@ -3367,10 +4357,6 @@ function scratchAt(
 
 }
 
-
-/* =========================================================
-   POINTER
-   ========================================================= */
 
 scratchCanvas.addEventListener(
     "pointerdown",
@@ -3386,12 +4372,9 @@ scratchCanvas.addEventListener(
         }
 
 
-        scratching =
-            true;
+        scratching = true;
 
-
-        lastScratchPoint =
-            null;
+        lastScratchPoint = null;
 
 
         try {
@@ -3417,15 +4400,12 @@ scratchCanvas.addEventListener(
     e => {
 
         if (
-            !scratching
+            scratching
         ) {
 
-            return;
+            handleScratch(e);
 
         }
-
-
-        handleScratch(e);
 
     }
 );
@@ -3435,12 +4415,8 @@ scratchCanvas.addEventListener(
     "pointerup",
     () => {
 
-        scratching =
-            false;
-
-
-        lastScratchPoint =
-            null;
+        scratching = false;
+        lastScratchPoint = null;
 
     }
 );
@@ -3450,12 +4426,8 @@ scratchCanvas.addEventListener(
     "pointercancel",
     () => {
 
-        scratching =
-            false;
-
-
-        lastScratchPoint =
-            null;
+        scratching = false;
+        lastScratchPoint = null;
 
     }
 );
@@ -3480,8 +4452,6 @@ function handleScratch(e) {
 
 }
 
-
-/* iOS Scroll während Rubbeln blockieren */
 
 document.addEventListener(
     "touchmove",
@@ -3551,10 +4521,6 @@ function revealTicket() {
 
 }
 
-
-/* =========================================================
-   RESOLVE
-   ========================================================= */
 
 function resolveTicket(
     sessionId
@@ -3638,12 +4604,8 @@ function resolveTicket(
         finishedTicket;
 
 
-    activeTicket =
-        null;
-
-
-    activePrize =
-        null;
+    activeTicket = null;
+    activePrize = null;
 
 
     revealButton.disabled =
@@ -3660,13 +4622,11 @@ function resolveTicket(
     ) {
 
         showToast(
-
             "+" +
             money(
                 finishedPrize
             ) +
             " €"
-
         );
 
     }
@@ -3737,7 +4697,6 @@ function shareWhatsApp() {
 
 
     const text =
-
         "Ich habe gerade beim " +
         lastShareTicket.name +
         "-Los " +
@@ -3747,15 +4706,586 @@ function shareWhatsApp() {
         " € gewonnen. 🎟️";
 
 
-    const url =
+    window.location.href =
         "https://wa.me/?text=" +
-        encodeURIComponent(
-            text
+        encodeURIComponent(text);
+
+}
+
+
+/* =========================================================
+   MINT TAP
+   ========================================================= */
+
+function tapMint(event) {
+
+    if (
+        !state.started
+    ) {
+
+        return;
+
+    }
+
+
+    const value =
+        currentTapValue();
+
+
+    state.balance +=
+        value;
+
+
+    state.mintLifetime +=
+        value;
+
+
+    state.totalClicks++;
+
+
+    /*
+        50 Taps = 1 XP.
+    */
+
+    state.clickXpCounter++;
+
+
+    if (
+        state.clickXpCounter >= 50
+    ) {
+
+        const earnedXp =
+            Math.floor(
+                state.clickXpCounter /
+                50
+            );
+
+
+        state.clickXpCounter =
+            state.clickXpCounter %
+            50;
+
+
+        gainXp(
+            earnedXp
+        );
+
+    }
+
+
+    showTapFloat(
+        event,
+        value
+    );
+
+
+    /*
+        Nicht jeden Tap direkt
+        localStorage schreiben.
+    */
+
+    updateUI();
+
+}
+
+
+/* =========================================================
+   TAP FLOAT
+   ========================================================= */
+
+function showTapFloat(
+    event,
+    amount
+) {
+
+    const el =
+        document.createElement(
+            "div"
         );
 
 
-    window.location.href =
-        url;
+    el.className =
+        "tap-float";
+
+
+    el.textContent =
+        "+" +
+        moneySmart(amount) +
+        " €";
+
+
+    const rect =
+        tapButton
+            .getBoundingClientRect();
+
+
+    const x =
+        event.clientX ||
+        (
+            rect.left +
+            rect.width / 2
+        );
+
+
+    const y =
+        event.clientY ||
+        (
+            rect.top +
+            rect.height / 2
+        );
+
+
+    el.style.left =
+        x +
+        "px";
+
+
+    el.style.top =
+        y +
+        "px";
+
+
+    document.body.appendChild(
+        el
+    );
+
+
+    setTimeout(
+        () => {
+
+            el.remove();
+
+        },
+        700
+    );
+
+}
+
+
+/* =========================================================
+   TAP UPGRADES
+   ========================================================= */
+
+function renderTapUpgrades() {
+
+    tapUpgradeList.innerHTML =
+        "";
+
+
+    const currentIndex =
+        state.tapUpgrade
+
+        ? tapUpgrades.findIndex(
+            item =>
+                item.id ===
+                state.tapUpgrade
+        )
+
+        : -1;
+
+
+    tapUpgrades.forEach(
+        (
+            upgrade,
+            index
+        ) => {
+
+            const unlocked =
+                state.level >=
+                upgrade.level;
+
+
+            const owned =
+                index <=
+                currentIndex;
+
+
+            const next =
+                index ===
+                currentIndex + 1;
+
+
+            const el =
+                document.createElement(
+                    "div"
+                );
+
+
+            el.className =
+                "upgrade-card" +
+                (
+                    !unlocked
+                    ? " locked"
+                    : ""
+                ) +
+                (
+                    owned
+                    ? " owned"
+                    : ""
+                );
+
+
+            el.innerHTML = `
+
+                <div>
+
+                    <div class="upgrade-title">
+                        ${upgrade.name}
+                    </div>
+
+                    <div class="upgrade-desc">
+                        ${moneySmart(upgrade.value)} €
+                        pro Tap · Level
+                        ${upgrade.level}
+                    </div>
+
+                    <div class="upgrade-price">
+
+                        ${
+                            owned
+
+                            ? "Installiert"
+
+                            : money(
+                                upgrade.price
+                            ) +
+                            " €"
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="
+                        mint-buy-btn
+                        ${
+                            owned
+                            ? " owned"
+                            : ""
+                        }
+                    "
+
+                    ${
+                        (
+                            owned ||
+                            !unlocked ||
+                            !next ||
+                            state.balance <
+                            upgrade.price
+                        )
+
+                        ? "disabled"
+
+                        : ""
+                    }
+                >
+
+                    ${
+                        owned
+                        ? "Aktiv"
+                        : !unlocked
+                        ? "Lv. " +
+                          upgrade.level
+                        : !next
+                        ? "Vorheriges"
+                        : "Kaufen"
+                    }
+
+                </button>
+
+            `;
+
+
+            const button =
+                el.querySelector(
+                    "button"
+                );
+
+
+            if (
+                unlocked &&
+                next &&
+                !owned
+            ) {
+
+                button.addEventListener(
+                    "click",
+                    () =>
+                        buyTapUpgrade(
+                            upgrade
+                        )
+                );
+
+            }
+
+
+            tapUpgradeList
+                .appendChild(el);
+
+        }
+    );
+
+}
+
+
+function buyTapUpgrade(upgrade) {
+
+    if (
+        state.level <
+        upgrade.level
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        state.balance <
+        upgrade.price
+    ) {
+
+        showToast(
+            "Nicht genug Guthaben"
+        );
+
+        return;
+
+    }
+
+
+    state.balance -=
+        upgrade.price;
+
+
+    state.tapUpgrade =
+        upgrade.id;
+
+
+    gainXp(
+        upgrade.xp
+    );
+
+
+    showToast(
+        upgrade.name +
+        " installiert"
+    );
+
+
+    saveState();
+
+    updateUI();
+
+}
+
+
+/* =========================================================
+   MACHINES
+   ========================================================= */
+
+function renderMachines() {
+
+    machineList.innerHTML = "";
+
+
+    machines.forEach(
+        machine => {
+
+            const unlocked =
+                state.level >=
+                machine.level;
+
+
+            const owned =
+                state.machines.includes(
+                    machine.id
+                );
+
+
+            const el =
+                document.createElement(
+                    "div"
+                );
+
+
+            el.className =
+                "upgrade-card" +
+                (
+                    !unlocked
+                    ? " locked"
+                    : ""
+                ) +
+                (
+                    owned
+                    ? " owned"
+                    : ""
+                );
+
+
+            el.innerHTML = `
+
+                <div>
+
+                    <div class="upgrade-title">
+                        ${machine.name}
+                    </div>
+
+                    <div class="upgrade-desc">
+                        +${moneySmart(machine.rate)}
+                        €/Min. · Level
+                        ${machine.level}
+                    </div>
+
+                    <div class="upgrade-price">
+
+                        ${
+                            owned
+
+                            ? "Produziert"
+
+                            : money(
+                                machine.price
+                            ) +
+                            " €"
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="
+                        mint-buy-btn
+                        ${
+                            owned
+                            ? " owned"
+                            : ""
+                        }
+                    "
+
+                    ${
+                        (
+                            owned ||
+                            !unlocked ||
+                            state.balance <
+                            machine.price
+                        )
+
+                        ? "disabled"
+
+                        : ""
+                    }
+                >
+
+                    ${
+                        owned
+                        ? "Aktiv"
+                        : !unlocked
+                        ? "Lv. " +
+                          machine.level
+                        : "Kaufen"
+                    }
+
+                </button>
+
+            `;
+
+
+            const button =
+                el.querySelector(
+                    "button"
+                );
+
+
+            if (
+                unlocked &&
+                !owned
+            ) {
+
+                button.addEventListener(
+                    "click",
+                    () =>
+                        buyMachine(
+                            machine
+                        )
+                );
+
+            }
+
+
+            machineList
+                .appendChild(el);
+
+        }
+    );
+
+}
+
+
+function buyMachine(machine) {
+
+    if (
+        state.balance <
+        machine.price
+    ) {
+
+        showToast(
+            "Nicht genug Guthaben"
+        );
+
+        return;
+
+    }
+
+
+    if (
+        state.level <
+        machine.level
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        state.machines.includes(
+            machine.id
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    state.balance -=
+        machine.price;
+
+
+    state.machines.push(
+        machine.id
+    );
+
+
+    gainXp(
+        machine.xp
+    );
+
+
+    showToast(
+        machine.name +
+        " aktiviert"
+    );
+
+
+    saveState();
+
+    updateUI();
 
 }
 
@@ -3771,8 +5301,7 @@ function renderProgression() {
             .map(
                 item => {
 
-                    let className =
-                        "";
+                    let cls = "";
 
 
                     if (
@@ -3780,8 +5309,7 @@ function renderProgression() {
                         item.level
                     ) {
 
-                        className =
-                            "done";
+                        cls = "done";
 
                     }
 
@@ -3790,15 +5318,14 @@ function renderProgression() {
                         item.level
                     ) {
 
-                        className =
-                            "current";
+                        cls = "current";
 
                     }
 
 
                     return `
 
-                        <div class="milestone ${className}">
+                        <div class="milestone ${cls}">
 
                             <div class="milestone-level">
                                 LEVEL ${item.level}
@@ -3924,35 +5451,150 @@ function renderHistory() {
 
 function renderUnlock() {
 
-    const nextTicket =
-        tickets.find(
-            ticket =>
+    const unlocks = [];
+
+
+    tickets.forEach(
+        ticket => {
+
+            if (
                 ticket.unlockLevel >
                 state.level
-        );
+            ) {
+
+                unlocks.push({
+
+                    level:
+                        ticket.unlockLevel,
+
+                    text:
+                        ticket.name +
+                        "-Los"
+
+                });
+
+            }
+
+        }
+    );
+
+
+    machines.forEach(
+        machine => {
+
+            if (
+                machine.level >
+                state.level
+            ) {
+
+                unlocks.push({
+
+                    level:
+                        machine.level,
+
+                    text:
+                        machine.name
+
+                });
+
+            }
+
+        }
+    );
+
+
+    tapUpgrades.forEach(
+        upgrade => {
+
+            if (
+                upgrade.level >
+                state.level
+            ) {
+
+                unlocks.push({
+
+                    level:
+                        upgrade.level,
+
+                    text:
+                        upgrade.name
+
+                });
+
+            }
+
+        }
+    );
+
+
+    unlocks.sort(
+        (
+            a,
+            b
+        ) =>
+            a.level -
+            b.level
+    );
+
+
+    const next =
+        unlocks[0];
 
 
     if (
-        nextTicket
+        next
     ) {
 
         nextUnlockEl.innerHTML =
 
-            `Nächste Freischaltung:
+            `Level ${next.level}:
              <strong>
-                ${nextTicket.name}
-             </strong>
-             auf Level
-             ${nextTicket.unlockLevel}.`;
+                ${next.text}
+             </strong>`;
 
     }
 
     else {
 
-        nextUnlockEl.innerHTML =
-            "Alle Losklassen freigeschaltet.";
+        nextUnlockEl.textContent =
+            "Alle Systeme freigeschaltet.";
 
     }
+
+}
+
+
+/* =========================================================
+   BANKRUPT
+   ========================================================= */
+
+function canAffordAnyTicket() {
+
+    return tickets.some(
+        ticket =>
+            state.level >=
+            ticket.unlockLevel &&
+            state.balance >=
+            ticket.price
+    );
+
+}
+
+
+function updateBankruptState() {
+
+    const bankrupt =
+        state.started &&
+        !activeTicket &&
+        !canAffordAnyTicket();
+
+
+    bankruptCard
+        .classList
+        .toggle(
+            "show",
+            bankrupt
+        );
 
 }
 
@@ -3998,15 +5640,47 @@ function updateButtons() {
 
 
 /* =========================================================
-   UI
+   MAIN UI
    ========================================================= */
 
 function updateUI() {
 
+    const net =
+        state.balance -
+        START_BALANCE;
+
+
+    const rate =
+        passivePerMinute();
+
+
     balanceEl.textContent =
-        money(
+        moneySmart(
             state.balance
         );
+
+
+    const netText =
+        (
+            net > 0
+            ? "+"
+            : ""
+        ) +
+        moneySmart(net) +
+        " €";
+
+
+    balanceNetEl.textContent =
+        netText;
+
+
+    netResultEl.textContent =
+        netText;
+
+
+    headerPassive.textContent =
+        moneySmart(rate) +
+        " €/Min.";
 
 
     levelNumberEl.textContent =
@@ -4032,7 +5706,9 @@ function updateUI() {
 
 
     xpTextEl.textContent =
-        state.xp +
+        money(
+            state.xp
+        ) +
         " / " +
         needed;
 
@@ -4051,7 +5727,8 @@ function updateUI() {
         "+" +
         money(
             levelReward(
-                state.level + 1
+                state.level +
+                1
             )
         ) +
         " €";
@@ -4075,32 +5752,46 @@ function updateUI() {
         " €";
 
 
-    /*
-        BILANZ:
-
-        Immer im Verhältnis zum
-        Startguthaben von 150 €.
-
-        150 € = 0 €
-        200 € = +50 €
-        100 € = -50 €
-    */
-
-    const net =
-        state.balance -
-        START_BALANCE;
-
-
-    netResultEl.textContent =
-        (
-            net > 0
-            ? "+"
-            : ""
-        ) +
-        money(
-            net
+    mintPerTap.textContent =
+        moneySmart(
+            currentTapValue()
         ) +
         " €";
+
+
+    tapButtonValue.textContent =
+        "+" +
+        moneySmart(
+            currentTapValue()
+        ) +
+        " €";
+
+
+    mintPerMinute.textContent =
+        moneySmart(rate) +
+        " €";
+
+
+    mintTotalClicks.textContent =
+        money(
+            state.totalClicks
+        );
+
+
+    offlineRate.textContent =
+        moneySmart(rate) +
+        " €/Min.";
+
+
+    offlineCap.textContent =
+        offlineHourCap() +
+        " Std.";
+
+
+    offlineState.textContent =
+        rate > 0
+        ? "AKTIV"
+        : "KEINE MASCHINE";
 
 
     renderUnlock();
@@ -4113,13 +5804,80 @@ function updateUI() {
 
     renderHistory();
 
+    renderTapUpgrades();
+
+    renderMachines();
+
     updateButtons();
+
+    updateBankruptState();
 
 }
 
 
 /* =========================================================
-   NEUE RUNDE
+   PAGE NAVIGATION
+   ========================================================= */
+
+function switchPage(page) {
+
+    activePage = page;
+
+
+    document
+        .querySelectorAll(
+            ".page"
+        )
+        .forEach(
+            el =>
+                el.classList.remove(
+                    "active"
+                )
+        );
+
+
+    $(
+        page +
+        "Page"
+    )
+    .classList
+    .add(
+        "active"
+    );
+
+
+    document
+        .querySelectorAll(
+            ".nav-btn"
+        )
+        .forEach(
+            button => {
+
+                button.classList.toggle(
+
+                    "active",
+
+                    button.dataset.page ===
+                    page
+
+                );
+
+            }
+        );
+
+
+    window.scrollTo(
+        {
+            top:0,
+            behavior:"smooth"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   NEW ROUND
    ========================================================= */
 
 function openStartModal() {
@@ -4130,7 +5888,7 @@ function openStartModal() {
     ) {
 
         showToast(
-            "Erst aktuelles Los beenden"
+            "Aktuelles Los zuerst beenden"
         );
 
         return;
@@ -4155,9 +5913,7 @@ function startNewRound() {
             resultCleanupTimer
         );
 
-
-        resultCleanupTimer =
-            null;
+        resultCleanupTimer = null;
 
     }
 
@@ -4165,52 +5921,35 @@ function startNewRound() {
     currentSessionId++;
 
 
+    /*
+        Langzeitfortschritt bleibt.
+    */
+
     state.balance =
         START_BALANCE;
 
 
-    state.totalSpent =
-        0;
+    state.totalSpent = 0;
+    state.totalWon = 0;
+
+    state.ticketsBought = 0;
+    state.biggestWin = 0;
+
+    state.history = [];
+
+    state.started = true;
+
+    state.lastActive =
+        Date.now();
 
 
-    state.totalWon =
-        0;
+    activeTicket = null;
+    activePrize = null;
 
+    ticketResolved = true;
 
-    state.ticketsBought =
-        0;
-
-
-    state.biggestWin =
-        0;
-
-
-    state.history =
-        [];
-
-
-    state.started =
-        true;
-
-
-    activeTicket =
-        null;
-
-
-    activePrize =
-        null;
-
-
-    ticketResolved =
-        true;
-
-
-    lastSharePrize =
-        null;
-
-
-    lastShareTicket =
-        null;
+    lastSharePrize = null;
+    lastShareTicket = null;
 
 
     scratchCanvas.style.opacity =
@@ -4232,11 +5971,6 @@ function startNewRound() {
     updateUI();
 
 
-    /*
-        Nach dem allerersten Spielstart
-        Installationshinweis prüfen.
-    */
-
     setTimeout(
         checkInstallPrompt,
         450
@@ -4246,7 +5980,7 @@ function startNewRound() {
 
 
 /* =========================================================
-   INSTALLATION
+   INSTALL PROMPT
    ========================================================= */
 
 function isStandalone() {
@@ -4271,36 +6005,24 @@ function isStandalone() {
 
 function isIOS() {
 
-    return /iphone|ipad|ipod/i.test(
-        navigator.userAgent
-    );
+    return /iphone|ipad|ipod/i
+        .test(
+            navigator.userAgent
+        );
 
 }
 
 
 function checkInstallPrompt() {
 
-    /*
-        Läuft Scratch bereits vom
-        Home-Bildschirm, niemals anzeigen.
-    */
-
     if (
         isStandalone()
     ) {
-
-        installModal.classList.add(
-            "hidden"
-        );
 
         return;
 
     }
 
-
-    /*
-        Diesen eigenen Hinweis nur auf iOS.
-    */
 
     if (
         !isIOS()
@@ -4342,42 +6064,11 @@ function checkInstallPrompt() {
 }
 
 
-installDoneButton.addEventListener(
-    "click",
-    () => {
-
-        localStorage.setItem(
-            "scratchInstallDismissed",
-            "true"
-        );
-
-
-        installModal.classList.add(
-            "hidden"
-        );
-
-    }
-);
-
-
-installLaterButton.addEventListener(
-    "click",
-    () => {
-
-        installModal.classList.add(
-            "hidden"
-        );
-
-    }
-);
-
-
 /* =========================================================
    TOAST
    ========================================================= */
 
-let toastTimer =
-    null;
+let toastTimer = null;
 
 
 function showToast(text) {
@@ -4411,7 +6102,7 @@ function showToast(text) {
                 );
 
             },
-            1900
+            1800
         );
 
 }
@@ -4439,15 +6130,151 @@ whatsappButton.addEventListener(
 );
 
 
-newRoundButton.addEventListener(
-    "click",
-    openStartModal
+tapButton.addEventListener(
+    "pointerdown",
+    tapMint
 );
 
 
-startGameButton.addEventListener(
-    "click",
-    startNewRound
+$("newRoundButton")
+    .addEventListener(
+        "click",
+        openStartModal
+    );
+
+
+$("startGameButton")
+    .addEventListener(
+        "click",
+        startNewRound
+    );
+
+
+$("bankruptMintButton")
+    .addEventListener(
+        "click",
+        () =>
+            switchPage(
+                "mint"
+            )
+    );
+
+
+$("bankruptResetButton")
+    .addEventListener(
+        "click",
+        openStartModal
+    );
+
+
+document
+    .querySelectorAll(
+        ".nav-btn"
+    )
+    .forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    switchPage(
+                        button.dataset.page
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+$("installDoneButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            localStorage.setItem(
+                "scratchInstallDismissed",
+                "true"
+            );
+
+
+            installModal.classList.add(
+                "hidden"
+            );
+
+        }
+    );
+
+
+$("installLaterButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            installModal.classList.add(
+                "hidden"
+            );
+
+        }
+    );
+
+
+$("offlineModalButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            offlineModal.classList.add(
+                "hidden"
+            );
+
+            updateUI();
+
+        }
+    );
+
+
+/* =========================================================
+   SAVE LOOP
+   ========================================================= */
+
+setInterval(
+    () => {
+
+        if (
+            state.started
+        ) {
+
+            saveState();
+
+        }
+
+    },
+    15000
+);
+
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if (
+            document.hidden
+        ) {
+
+            saveState();
+
+        }
+
+    }
+);
+
+
+window.addEventListener(
+    "pagehide",
+    saveState
 );
 
 
@@ -4482,6 +6309,14 @@ if (
 /* =========================================================
    INIT
    ========================================================= */
+
+/*
+    Zuerst Offlinezeit auswerten,
+    bevor lastActive überschrieben wird.
+*/
+
+calculateOfflineIncome();
+
 
 updateUI();
 
