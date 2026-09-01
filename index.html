@@ -14,1282 +14,897 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="SCRATCH">
-
 <meta name="theme-color" content="#0d0f12">
 
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 
 <style>
-    :root {
-        --bg: #0d0f12;
-        --panel: #15181d;
-        --panel-2: #1b1f25;
-        --line: rgba(255,255,255,.09);
-        --text: #f5f3ee;
-        --muted: #8d939c;
-        --accent: #d9ff65;
-        --accent-soft: rgba(217,255,101,.12);
-        --danger: #ff7065;
-        --gold: #e7bf68;
-        --radius: 22px;
-    }
+:root {
+    --bg:#0d0f12;
+    --panel:#15181d;
+    --panel2:#1b1f25;
+    --line:rgba(255,255,255,.09);
+    --text:#f5f3ee;
+    --muted:#8d939c;
+    --accent:#d9ff65;
+    --accentSoft:rgba(217,255,101,.12);
+    --gold:#e7bf68;
+    --red:#ff7770;
+}
 
-    * {
-        box-sizing: border-box;
-        -webkit-tap-highlight-color: transparent;
-    }
+* {
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
 
-    html {
-        background: var(--bg);
-        scroll-behavior: smooth;
-        overscroll-behavior: none;
-    }
+html {
+    background:var(--bg);
+    overscroll-behavior:none;
+}
 
+body {
+    margin:0;
+    min-height:100dvh;
+    overflow-x:hidden;
+    color:var(--text);
+    background:
+        radial-gradient(circle at 50% -10%,rgba(217,255,101,.08),transparent 27rem),
+        var(--bg);
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    -webkit-font-smoothing:antialiased;
+}
+
+button {
+    font:inherit;
+    border:0;
+    -webkit-user-select:none;
+    user-select:none;
+    -webkit-touch-callout:none;
+}
+
+.app {
+    width:100%;
+    max-width:600px;
+    margin:0 auto;
+    min-height:100dvh;
+
+    padding:
+        max(12px,env(safe-area-inset-top))
+        14px
+        calc(70px + env(safe-area-inset-bottom));
+}
+
+/* HEADER */
+
+.topbar {
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:8px;
+}
+
+.brand {
+    display:flex;
+    gap:10px;
+    align-items:center;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:.15em;
+}
+
+.brand-mark {
+    width:31px;
+    height:31px;
+    display:grid;
+    place-items:center;
+    border-radius:9px;
+    background:var(--accent);
+    color:#0d0f12;
+    font-weight:1000;
+    transform:rotate(-4deg);
+}
+
+.rank-pill {
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--muted);
+    padding:7px 10px;
+    font-size:10px;
+    font-weight:700;
+}
+
+/* BALANCE */
+
+.balance-card {
+    position:relative;
+    overflow:hidden;
+    padding:20px;
+    border:1px solid var(--line);
+    border-radius:21px;
+    background:rgba(21,24,29,.9);
+}
+
+.balance-card::after {
+    content:"";
+    position:absolute;
+    width:230px;
+    height:230px;
+    right:-140px;
+    top:-140px;
+    border-radius:50%;
+    background:var(--accent);
+    filter:blur(50px);
+    opacity:.13;
+}
+
+.balance-label {
+    position:relative;
+    z-index:1;
+    color:var(--muted);
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.13em;
+}
+
+.balance {
+    position:relative;
+    z-index:1;
+    margin-top:5px;
+    font-size:clamp(50px,15vw,74px);
+    line-height:1;
+    font-weight:900;
+    letter-spacing:-.065em;
+}
+
+.balance small {
+    font-size:.36em;
+    color:var(--muted);
+    font-weight:500;
+}
+
+/* LEVEL */
+
+.level-card {
+    margin-top:9px;
+    padding:16px 17px;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:var(--panel);
+}
+
+.level-top {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+}
+
+.level-caption {
+    font-size:9px;
+    color:var(--muted);
+    letter-spacing:.1em;
+}
+
+.level-title {
+    margin-top:3px;
+    font-size:23px;
+    font-weight:850;
+    letter-spacing:-.04em;
+}
+
+.level-reward {
+    text-align:right;
+}
+
+.level-reward strong {
+    display:block;
+    color:var(--accent);
+    font-size:14px;
+}
+
+.level-reward span {
+    font-size:9px;
+    color:var(--muted);
+}
+
+.xp-row {
+    display:flex;
+    justify-content:space-between;
+    margin:15px 0 7px;
+    font-size:10px;
+    color:var(--muted);
+}
+
+.xp-bar {
+    height:7px;
+    border-radius:999px;
+    overflow:hidden;
+    background:#262a30;
+}
+
+.xp-fill {
+    width:0;
+    height:100%;
+    border-radius:inherit;
+    background:var(--accent);
+    transition:width .4s ease;
+}
+
+.next-unlock {
+    border-top:1px solid var(--line);
+    padding-top:11px;
+    margin-top:11px;
+    font-size:10px;
+    color:var(--muted);
+    line-height:1.5;
+}
+
+.next-unlock strong {
+    color:var(--text);
+}
+
+/* STATS */
+
+.stats {
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:6px;
+    margin:9px 0 25px;
+}
+
+.stat {
+    min-width:0;
+    padding:11px 5px;
+    text-align:center;
+    border:1px solid var(--line);
+    border-radius:13px;
+    background:var(--panel);
+}
+
+.stat-value {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    font-size:clamp(14px,4.2vw,19px);
+    font-weight:800;
+    letter-spacing:-.03em;
+}
+
+.stat-label {
+    margin-top:4px;
+    color:var(--muted);
+    font-size:7px;
+    text-transform:uppercase;
+}
+
+/* SECTION */
+
+.section-header {
+    margin:25px 2px 10px;
+}
+
+.section-header h2 {
+    margin:0;
+    font-size:21px;
+    letter-spacing:-.04em;
+}
+
+.section-header p {
+    margin:3px 0 0;
+    font-size:10px;
+    color:var(--muted);
+}
+
+/* TICKETS */
+
+.ticket-grid {
+    display:flex;
+    width:calc(100% + 28px);
+    margin-left:-14px;
+    padding:2px 14px 10px;
+    gap:10px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+}
+
+.ticket-grid::-webkit-scrollbar {
+    display:none;
+}
+
+.ticket {
+    flex:0 0 min(79vw,335px);
+    min-height:185px;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:var(--panel);
+    scroll-snap-align:center;
+    transition:.15s ease;
+}
+
+.ticket:active:not(.locked) {
+    transform:scale(.985);
+}
+
+.ticket.selected {
+    border-color:var(--accent);
+    box-shadow:inset 0 0 0 1px var(--accent);
+}
+
+.ticket.locked {
+    opacity:.38;
+}
+
+.ticket::after {
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    right:-80px;
+    top:-80px;
+    border-radius:50%;
+    background:currentColor;
+    filter:blur(25px);
+    opacity:.07;
+}
+
+.ticket.mini { color:#bed5e7; }
+.ticket.classic { color:#d9ff65; }
+.ticket.gold { color:#e7bf68; }
+.ticket.black { color:#ff8585; }
+.ticket.neon { color:#7de9ff; }
+.ticket.vault { color:#d4a5ff; }
+
+.ticket-top {
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.ticket-name {
+    color:var(--text);
+    font-size:21px;
+    font-weight:900;
+    letter-spacing:-.035em;
+}
+
+.ticket-price {
+    font-size:13px;
+    font-weight:900;
+}
+
+.ticket-tier {
+    display:inline-block;
+    margin-top:4px;
+    color:var(--muted);
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+}
+
+.ticket-jackpot {
+    margin-top:24px;
+}
+
+.ticket-jackpot span {
+    display:block;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--muted);
+}
+
+.ticket-jackpot strong {
+    display:block;
+    margin-top:2px;
+    font-size:31px;
+    letter-spacing:-.045em;
+    color:var(--text);
+}
+
+.odds {
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.65;
+}
+
+.lock-text {
+    margin-top:7px;
+    color:var(--text);
+    font-size:10px;
+    font-weight:800;
+}
+
+/* GAME */
+
+.game-panel {
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:var(--panel);
+    overflow:hidden;
+}
+
+.scratch-side {
+    padding:10px;
+}
+
+.scratch-card {
+    width:100%;
+    aspect-ratio:1.45 / 1;
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:
+        radial-gradient(circle at 75% 30%,rgba(217,255,101,.13),transparent 30%),
+        #101216;
+    -webkit-user-select:none;
+    user-select:none;
+}
+
+.result-underlay {
+    position:absolute;
+    inset:0;
+    padding:20px;
+    display:grid;
+    place-items:center;
+    text-align:center;
+}
+
+.result-kicker {
+    color:var(--muted);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+}
+
+.result-amount {
+    margin-top:7px;
+    font-size:clamp(52px,17vw,84px);
+    font-weight:950;
+    line-height:.94;
+    letter-spacing:-.065em;
+}
+
+.result-message {
+    margin-top:12px;
+    font-size:11px;
+    color:var(--muted);
+}
+
+#scratchCanvas {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    touch-action:none;
+    -webkit-user-select:none;
+    user-select:none;
+}
+
+.empty-game {
+    position:absolute;
+    inset:0;
+    z-index:4;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+    text-align:center;
+    background:#101216;
+}
+
+.empty-game.hidden {
+    display:none;
+}
+
+.empty-icon {
+    width:50px;
+    height:50px;
+    display:grid;
+    place-items:center;
+    margin-bottom:13px;
+    border:1px solid rgba(217,255,101,.18);
+    border-radius:15px;
+    background:var(--accentSoft);
+    color:var(--accent);
+    font-size:21px;
+}
+
+.empty-game strong {
+    font-size:19px;
+    letter-spacing:-.03em;
+}
+
+.empty-game p {
+    max-width:280px;
+    margin:6px 0 0;
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.55;
+}
+
+/* GAME INFO */
+
+.game-info {
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    padding:17px;
+    border-top:1px solid var(--line);
+}
+
+.selected-heading {
+    font-size:9px;
+    color:var(--muted);
+}
+
+.selected-name {
+    margin-top:4px;
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:-.04em;
+}
+
+.selected-price {
+    margin-top:4px;
+    color:var(--accent);
+    font-size:11px;
+}
+
+.info-list {
+    border-top:1px solid var(--line);
+}
+
+.info-row {
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:9px 0;
+    border-bottom:1px solid var(--line);
+    font-size:10px;
+}
+
+.info-row span:first-child {
+    color:var(--muted);
+}
+
+/* BUTTONS */
+
+.primary-btn,
+.secondary-btn,
+.whatsapp-btn {
+    width:100%;
+    min-height:52px;
+    border-radius:14px;
+    padding:14px 16px;
+    font-size:13px;
+    font-weight:850;
+    cursor:pointer;
+    touch-action:manipulation;
+}
+
+.primary-btn {
+    background:var(--accent);
+    color:#10120e;
+}
+
+.primary-btn:active,
+.secondary-btn:active,
+.whatsapp-btn:active {
+    transform:scale(.985);
+}
+
+.primary-btn:disabled,
+.secondary-btn:disabled,
+.whatsapp-btn:disabled {
+    opacity:.32;
+    pointer-events:none;
+}
+
+.secondary-btn {
+    margin-top:7px;
+    color:var(--text);
+    background:transparent;
+    border:1px solid var(--line);
+}
+
+.whatsapp-btn {
+    margin-top:7px;
+    background:#20251f;
+    color:#dbffd4;
+    border:1px solid rgba(190,255,177,.14);
+}
+
+/* PROGRESSION */
+
+.progression {
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    width:calc(100% + 28px);
+    margin-left:-14px;
+    padding:2px 14px 7px;
+    scrollbar-width:none;
+}
+
+.progression::-webkit-scrollbar {
+    display:none;
+}
+
+.milestone {
+    flex:0 0 135px;
+    padding:14px;
+    border-radius:15px;
+    border:1px solid var(--line);
+    background:var(--panel);
+}
+
+.milestone.current {
+    border-color:var(--accent);
+}
+
+.milestone.done {
+    opacity:.55;
+}
+
+.milestone-level {
+    font-size:9px;
+    color:var(--muted);
+}
+
+.milestone strong {
+    display:block;
+    margin-top:4px;
+    font-size:14px;
+}
+
+.milestone span {
+    display:block;
+    margin-top:5px;
+    font-size:9px;
+    line-height:1.4;
+    color:var(--muted);
+}
+
+/* HISTORY */
+
+.history {
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:var(--panel);
+}
+
+.history-empty {
+    padding:24px;
+    text-align:center;
+    color:var(--muted);
+    font-size:11px;
+}
+
+.history-row {
+    display:grid;
+    grid-template-columns:1fr auto auto;
+    gap:8px;
+    align-items:center;
+    padding:12px 13px;
+    border-bottom:1px solid var(--line);
+    font-size:10px;
+}
+
+.history-row:last-child {
+    border-bottom:none;
+}
+
+.history-name strong {
+    display:block;
+    font-size:11px;
+}
+
+.history-name small {
+    color:var(--muted);
+}
+
+.history-cost {
+    color:var(--muted);
+}
+
+.history-result {
+    min-width:62px;
+    text-align:right;
+    font-weight:850;
+}
+
+.history-result.win {
+    color:var(--accent);
+}
+
+/* NEW ROUND */
+
+.round-bar {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin:25px 2px 10px;
+}
+
+.round-bar h2 {
+    margin:0;
+    font-size:21px;
+}
+
+.round-btn {
+    width:auto;
+    min-height:38px;
+    padding:9px 12px;
+    border:1px solid var(--line);
+    border-radius:11px;
+    background:transparent;
+    color:var(--text);
+    font-size:10px;
+    font-weight:800;
+}
+
+/* MODAL */
+
+.modal {
+    position:fixed;
+    inset:0;
+    z-index:100;
+    display:grid;
+    align-items:flex-end;
+    padding:
+        12px
+        12px
+        max(12px,env(safe-area-inset-bottom));
+    background:rgba(5,6,8,.82);
+    backdrop-filter:blur(13px);
+}
+
+.modal.hidden {
+    display:none;
+}
+
+.modal-card {
+    width:100%;
+    max-width:600px;
+    margin:0 auto;
+    padding:22px;
+    border:1px solid var(--line);
+    border-radius:24px;
+    background:#16191e;
+}
+
+.modal-eyebrow {
+    color:var(--accent);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
+
+.modal h2 {
+    margin:5px 0 7px;
+    font-size:30px;
+    letter-spacing:-.05em;
+}
+
+.modal p {
+    margin:0 0 18px;
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.55;
+}
+
+.start-amount {
+    margin:18px 0;
+    padding:19px;
+    border:1px solid var(--line);
+    border-radius:17px;
+    background:#111419;
+}
+
+.start-amount span {
+    display:block;
+    color:var(--muted);
+    font-size:9px;
+    letter-spacing:.1em;
+}
+
+.start-amount strong {
+    display:block;
+    margin-top:4px;
+    font-size:42px;
+    letter-spacing:-.05em;
+}
+
+.start-btn {
+    width:100%;
+    min-height:54px;
+    border-radius:14px;
+    background:var(--accent);
+    color:#10120e;
+    font-weight:900;
+}
+
+/* TOAST */
+
+.toast {
+    position:fixed;
+    z-index:200;
+    left:50%;
+    bottom:calc(22px + env(safe-area-inset-bottom));
+    max-width:calc(100vw - 28px);
+    padding:12px 17px;
+    border-radius:999px;
+    transform:translate(-50%,25px);
+    opacity:0;
+    pointer-events:none;
+    background:#eefbd0;
+    color:#11140d;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size:11px;
+    font-weight:850;
+    transition:.25s ease;
+}
+
+.toast.show {
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+.footer {
+    margin-top:28px;
+    text-align:center;
+    color:#555b63;
+    font-size:9px;
+}
+
+@supports (-webkit-touch-callout:none) {
     body {
-        margin: 0;
-        width: 100%;
-        min-height: 100dvh;
-        overflow-x: hidden;
-
-        background:
-            radial-gradient(
-                circle at 50% -10%,
-                rgba(217,255,101,.08),
-                transparent 28rem
-            ),
-            var(--bg);
-
-        color: var(--text);
-
-        font-family:
-            Inter,
-            -apple-system,
-            BlinkMacSystemFont,
-            "Segoe UI",
-            sans-serif;
-
-        -webkit-font-smoothing: antialiased;
-        overscroll-behavior-y: none;
+        min-height:-webkit-fill-available;
     }
+}
 
-    button,
-    input {
-        font: inherit;
-    }
-
-    button {
-        border: 0;
-    }
-
-    button,
-    .ticket,
-    .scratch-card {
-        -webkit-user-select: none;
-        user-select: none;
-        -webkit-touch-callout: none;
-    }
-
+@media(max-width:380px) {
     .app {
-        width: 100%;
-        max-width: 600px;
-        min-height: 100dvh;
-
-        margin: 0 auto;
-
-        padding-top:
-            max(
-                14px,
-                env(safe-area-inset-top)
-            );
-
-        padding-left: 14px;
-        padding-right: 14px;
-
-        padding-bottom:
-            calc(
-                70px +
-                env(safe-area-inset-bottom)
-            );
+        padding-left:10px;
+        padding-right:10px;
     }
 
-    /* =====================================================
-       TOPBAR
-       ===================================================== */
-
-    .topbar {
-        min-height: 52px;
-
-        padding: 4px 2px 14px;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-    }
-
-    .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        font-size: 13px;
-        font-weight: 800;
-        letter-spacing: .16em;
-    }
-
-    .brand-mark {
-        width: 31px;
-        height: 31px;
-
-        border-radius: 9px;
-
-        background: var(--accent);
-        color: #0d0f12;
-
-        display: grid;
-        place-items: center;
-
-        font-size: 15px;
-        font-weight: 1000;
-
-        transform: rotate(-4deg);
-    }
-
-    .fiction-label {
-        color: var(--muted);
-
-        font-size: 10px;
-
-        border: 1px solid var(--line);
-        border-radius: 999px;
-
-        padding: 7px 10px;
-    }
-
-    /* =====================================================
-       HERO
-       ===================================================== */
-
-    .hero {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    .hero-main,
-    .level-card {
-        border: 1px solid var(--line);
-
-        background:
-            rgba(21,24,29,.88);
-
-        border-radius: 20px;
-
-        overflow: hidden;
-    }
-
-    .hero-main {
-        position: relative;
-
-        min-height: auto;
-
-        padding: 21px;
-    }
-
-    .hero-main::after {
-        content: "";
-
-        position: absolute;
-
-        width: 280px;
-        height: 280px;
-
-        right: -160px;
-        top: -160px;
-
-        border-radius: 50%;
-
-        background: var(--accent);
-
-        filter: blur(60px);
-
-        opacity: .12;
-
-        pointer-events: none;
-    }
-
-    .hero-main h1,
-    .hero-main .eyebrow {
-        display: none;
-    }
-
-    .eyebrow {
-        color: var(--accent);
-
-        font-size: 11px;
-        font-weight: 800;
-
-        letter-spacing: .16em;
-        text-transform: uppercase;
-    }
-
-    .balance-label {
-        margin-top: 0;
-
-        color: var(--muted);
-
-        font-size: 10px;
-
-        letter-spacing: .12em;
-    }
-
-    .balance {
-        margin-top: 6px;
-
-        font-size: clamp(46px, 14vw, 72px);
-
-        line-height: 1;
-
-        letter-spacing: -.06em;
-
-        font-weight: 800;
-    }
-
-    .balance small {
-        font-size: .4em;
-
-        color: var(--muted);
-
-        font-weight: 500;
-    }
-
-    /* =====================================================
-       LEVEL
-       ===================================================== */
-
-    .level-card {
-        margin-top: 9px;
-
-        min-height: auto;
-
-        padding: 17px 18px;
-    }
-
-    .level-number {
-        color: var(--muted);
-
-        font-size: 10px;
-    }
-
-    .level-name {
-        margin-top: 3px;
-
-        font-size: 22px;
-
-        letter-spacing: -.04em;
-
-        font-weight: 800;
-    }
-
-    .xp-row {
-        display: flex;
-        justify-content: space-between;
-
-        margin-top: 15px;
-        margin-bottom: 8px;
-
-        color: var(--muted);
-
-        font-size: 11px;
-    }
-
-    .xp-bar {
-        width: 100%;
-        height: 7px;
-
-        background: #262a30;
-
-        border-radius: 999px;
-
-        overflow: hidden;
-    }
-
-    .xp-fill {
-        height: 100%;
-        width: 0;
-
-        border-radius: inherit;
-
-        background: var(--accent);
-
-        transition:
-            width .45s
-            cubic-bezier(.2,.8,.2,1);
-    }
-
-    .next-unlock {
-        margin-top: 12px;
-        padding-top: 12px;
-
-        border-top: 1px solid var(--line);
-
-        color: var(--muted);
-
-        font-size: 10px;
-        line-height: 1.5;
-    }
-
-    /* =====================================================
-       STATS
-       ===================================================== */
-
-    .stats {
-        display: grid;
-
-        grid-template-columns:
-            repeat(4,minmax(0,1fr));
-
-        gap: 6px;
-
-        margin: 10px 0 24px;
-    }
-
-    .stat {
-        min-width: 0;
-
-        background: var(--panel);
-
-        border: 1px solid var(--line);
-        border-radius: 13px;
-
-        padding: 12px 8px;
-
-        text-align: center;
-    }
-
-    .stat-value {
-        overflow: hidden;
-
-        font-size:
-            clamp(
-                15px,
-                4.5vw,
-                20px
-            );
-
-        font-weight: 750;
-
-        letter-spacing: -.03em;
-
-        white-space: nowrap;
-
-        text-overflow: ellipsis;
-    }
-
-    .stat-label {
-        margin-top: 4px;
-
-        color: var(--muted);
-
-        font-size: 7px;
-
-        text-transform: uppercase;
-
-        letter-spacing: .04em;
-    }
-
-    /* =====================================================
-       SECTION HEADER
-       ===================================================== */
-
-    .section-header {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-
-        gap: 20px;
-
-        margin: 25px 2px 11px;
-    }
-
-    .section-header h2 {
-        margin: 0;
-
-        font-size: 21px;
-
-        letter-spacing: -.035em;
-    }
-
-    .section-header p {
-        margin: 4px 0 0;
-
-        color: var(--muted);
-
-        font-size: 11px;
-    }
-
-    /* =====================================================
-       TICKETS
-       ===================================================== */
-
-    .ticket-grid {
-        width:
-            calc(
-                100% + 28px
-            );
-
-        margin-left: -14px;
-
-        padding:
-            2px 14px 10px;
-
-        display: flex;
-
-        gap: 10px;
-
-        overflow-x: auto;
-
-        scroll-snap-type: x mandatory;
-
-        scrollbar-width: none;
-
-        overscroll-behavior-x: contain;
-
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .ticket-grid::-webkit-scrollbar {
-        display: none;
+    .ticket-grid,
+    .progression {
+        width:calc(100% + 20px);
+        margin-left:-10px;
+        padding-left:10px;
+        padding-right:10px;
     }
 
     .ticket {
-        flex:
-            0 0
-            min(
-                78vw,
-                330px
-            );
-
-        min-height: 185px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        padding: 18px;
-
-        background: var(--panel);
-
-        border: 1px solid var(--line);
-
-        border-radius: 18px;
-
-        cursor: pointer;
-
-        scroll-snap-align: center;
-
-        position: relative;
-
-        overflow: hidden;
-
-        transition:
-            transform .15s ease,
-            border-color .15s ease,
-            background .15s ease;
+        flex-basis:82vw;
     }
-
-    .ticket:active:not(.locked) {
-        transform: scale(.985);
-    }
-
-    .ticket.selected {
-        border-color: var(--accent);
-
-        box-shadow:
-            inset 0 0 0 1px
-            var(--accent);
-    }
-
-    .ticket.locked {
-        cursor: not-allowed;
-        opacity: .42;
-    }
-
-    .ticket::after {
-        content: "";
-
-        position: absolute;
-
-        width: 150px;
-        height: 150px;
-
-        border-radius: 50%;
-
-        background: currentColor;
-
-        right: -80px;
-        top: -80px;
-
-        filter: blur(20px);
-
-        opacity: .06;
-    }
-
-    .ticket.basic {
-        color: #bdd0e4;
-    }
-
-    .ticket.plus {
-        color: #d9ff65;
-    }
-
-    .ticket.pro {
-        color: #e7bf68;
-    }
-
-    .ticket.black {
-        color: #ff8585;
-    }
-
-    .ticket-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-
-        gap: 10px;
-    }
-
-    .ticket-name {
-        color: var(--text);
-
-        font-weight: 850;
-
-        letter-spacing: -.025em;
-
-        font-size: 20px;
-    }
-
-    .ticket-price {
-        color: currentColor;
-
-        font-size: 13px;
-
-        font-weight: 800;
-    }
-
-    .ticket-jackpot {
-        margin-top: 25px;
-    }
-
-    .ticket-jackpot span {
-        display: block;
-
-        color: var(--muted);
-
-        font-size: 10px;
-
-        letter-spacing: .1em;
-
-        text-transform: uppercase;
-    }
-
-    .ticket-jackpot strong {
-        display: block;
-
-        margin-top: 3px;
-
-        color: var(--text);
-
-        font-size: 31px;
-
-        letter-spacing: -.04em;
-    }
-
-    .odds {
-        margin-top: 18px;
-
-        color: var(--muted);
-
-        font-size: 11px;
-
-        line-height: 1.65;
-    }
-
-    .lock-text {
-        margin-top: 12px;
-
-        color: var(--text);
-
-        font-size: 11px;
-
-        font-weight: 700;
-    }
-
-    /* =====================================================
-       GAME
-       ===================================================== */
-
-    .game-panel {
-        display: flex;
-        flex-direction: column;
-
-        margin-top: 8px;
-
-        border: 1px solid var(--line);
-
-        background: var(--panel);
-
-        border-radius: 20px;
-
-        overflow: hidden;
-    }
-
-    .scratch-side {
-        padding: 10px;
-    }
-
-    .scratch-card {
-        width: 100%;
-
-        position: relative;
-
-        aspect-ratio: 1.45 / 1;
-
-        border-radius: 16px;
-
-        overflow: hidden;
-
-        background:
-            radial-gradient(
-                circle at 75% 30%,
-                rgba(217,255,101,.14),
-                transparent 30%
-            ),
-            #101216;
-
-        border: 1px solid var(--line);
-    }
-
-    .result-underlay {
-        position: absolute;
-
-        inset: 0;
-
-        display: grid;
-        place-items: center;
-
-        text-align: center;
-
-        padding: 25px;
-    }
-
-    .result-kicker {
-        color: var(--muted);
-
-        text-transform: uppercase;
-
-        letter-spacing: .15em;
-
-        font-size: 11px;
-    }
-
-    .result-amount {
-        margin-top: 9px;
-
-        font-weight: 900;
-
-        font-size:
-            clamp(
-                52px,
-                17vw,
-                85px
-            );
-
-        letter-spacing: -.06em;
-
-        line-height: .95;
-    }
-
-    .result-message {
-        margin-top: 13px;
-
-        color: var(--muted);
-
-        font-size: 12px;
-    }
-
-    #scratchCanvas {
-        position: absolute;
-
-        inset: 0;
-
-        width: 100%;
-        height: 100%;
-
-        touch-action: none;
-
-        cursor: crosshair;
-
-        -webkit-user-select: none;
-        user-select: none;
-    }
-
-    .empty-game {
-        position: absolute;
-
-        inset: 0;
-
-        background: #101216;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        z-index: 5;
-
-        text-align: center;
-
-        padding: 25px;
-    }
-
-    .empty-game.hidden {
-        display: none;
-    }
-
-    .empty-icon {
-        width: 54px;
-        height: 54px;
-
-        margin-bottom: 16px;
-
-        border-radius: 16px;
-
-        background: var(--accent-soft);
-
-        border:
-            1px solid
-            rgba(217,255,101,.2);
-
-        display: grid;
-        place-items: center;
-
-        color: var(--accent);
-
-        font-size: 24px;
-    }
-
-    .empty-game strong {
-        font-size: 20px;
-
-        letter-spacing: -.03em;
-    }
-
-    .empty-game p {
-        max-width: 340px;
-
-        margin: 7px 0 0;
-
-        color: var(--muted);
-
-        font-size: 13px;
-
-        line-height: 1.6;
-    }
-
-    /* =====================================================
-       GAME INFO
-       ===================================================== */
-
-    .game-info {
-        padding: 18px;
-
-        border-top:
-            1px solid
-            var(--line);
-
-        display: flex;
-        flex-direction: column;
-
-        gap: 17px;
-    }
-
-    .selected-heading {
-        color: var(--muted);
-
-        font-size: 9px;
-    }
-
-    .selected-name {
-        margin-top: 5px;
-
-        font-size: 26px;
-
-        font-weight: 850;
-
-        letter-spacing: -.04em;
-    }
-
-    .selected-price {
-        margin-top: 5px;
-
-        color: var(--accent);
-
-        font-size: 11px;
-    }
-
-    .info-list {
-        border-top:
-            1px solid
-            var(--line);
-    }
-
-    .info-row {
-        display: flex;
-        justify-content: space-between;
-
-        gap: 15px;
-
-        padding: 9px 0;
-
-        border-bottom:
-            1px solid
-            var(--line);
-
-        font-size: 10px;
-    }
-
-    .info-row span:first-child {
-        color: var(--muted);
-    }
-
-    .info-row span:last-child {
-        text-align: right;
-    }
-
-    /* =====================================================
-       BUTTONS
-       ===================================================== */
-
-    .buy-btn,
-    .secondary-btn {
-        width: 100%;
-
-        min-height: 52px;
-
-        cursor: pointer;
-
-        border-radius: 14px;
-
-        padding: 14px 17px;
-
-        font-size: 14px;
-
-        font-weight: 800;
-
-        touch-action: manipulation;
-
-        transition:
-            transform .15s ease,
-            opacity .15s ease;
-    }
-
-    .buy-btn {
-        background: var(--accent);
-        color: #10120e;
-    }
-
-    .buy-btn:active {
-        transform: scale(.985);
-    }
-
-    .buy-btn:disabled {
-        cursor: not-allowed;
-
-        opacity: .35;
-
-        transform: none;
-    }
-
-    .secondary-btn {
-        margin-top: 8px;
-
-        background: transparent;
-
-        color: var(--text);
-
-        border: 1px solid var(--line);
-    }
-
-    .secondary-btn:active {
-        transform: scale(.985);
-    }
-
-    /* =====================================================
-       HISTORY
-       ===================================================== */
-
-    .history {
-        background: var(--panel);
-
-        border: 1px solid var(--line);
-
-        border-radius: 16px;
-
-        overflow: hidden;
-    }
-
-    .history-empty {
-        padding: 25px;
-
-        color: var(--muted);
-
-        font-size: 13px;
-
-        text-align: center;
-    }
-
-    .history-row {
-        display: grid;
-
-        grid-template-columns:
-            1fr auto auto;
-
-        align-items: center;
-
-        gap: 9px;
-
-        padding: 13px 14px;
-
-        border-bottom:
-            1px solid
-            var(--line);
-
-        font-size: 11px;
-    }
-
-    .history-row:last-child {
-        border-bottom: none;
-    }
-
-    .history-name strong {
-        display: block;
-    }
-
-    .history-name small {
-        color: var(--muted);
-    }
-
-    .history-cost {
-        color: var(--muted);
-    }
-
-    .history-result {
-        min-width: 66px;
-
-        text-align: right;
-
-        font-weight: 800;
-    }
-
-    .history-result.win {
-        color: var(--accent);
-    }
-
-    /* =====================================================
-       MODAL
-       ===================================================== */
-
-    .modal {
-        position: fixed;
-
-        inset: 0;
-
-        z-index: 100;
-
-        display: grid;
-
-        align-items: flex-end;
-        justify-items: center;
-
-        padding:
-            12px
-            12px
-            max(
-                12px,
-                env(safe-area-inset-bottom)
-            );
-
-        background:
-            rgba(5,6,8,.82);
-
-        backdrop-filter: blur(14px);
-    }
-
-    .modal.hidden {
-        display: none;
-    }
-
-    .modal-card {
-        width: 100%;
-        max-width: 600px;
-
-        max-height:
-            calc(
-                100dvh -
-                env(safe-area-inset-top) -
-                20px
-            );
-
-        overflow-y: auto;
-
-        padding: 22px;
-
-        background: #16191e;
-
-        border: 1px solid var(--line);
-
-        border-radius: 24px;
-
-        box-shadow:
-            0 30px 80px
-            rgba(0,0,0,.45);
-    }
-
-    .modal-card h2 {
-        margin: 6px 0 8px;
-
-        font-size: 30px;
-
-        letter-spacing: -.05em;
-    }
-
-    .modal-card > p {
-        margin-bottom: 18px;
-
-        color: var(--muted);
-
-        line-height: 1.6;
-
-        font-size: 12px;
-    }
-
-    .budget-grid {
-        display: grid;
-
-        grid-template-columns:
-            1fr 1fr;
-
-        gap: 8px;
-    }
-
-    .budget-option {
-        min-height: 82px;
-
-        background: #20242a;
-
-        border: 1px solid var(--line);
-
-        border-radius: 14px;
-
-        padding: 14px;
-
-        cursor: pointer;
-
-        color: var(--text);
-
-        text-align: left;
-    }
-
-    .budget-option:active,
-    .budget-option.selected {
-        border-color: var(--accent);
-    }
-
-    .budget-option strong {
-        display: block;
-
-        font-size: 22px;
-    }
-
-    .budget-option span {
-        color: var(--muted);
-
-        font-size: 11px;
-    }
-
-    .start-btn {
-        width: 100%;
-
-        min-height: 54px;
-
-        margin-top: 10px;
-
-        border-radius: 15px;
-
-        padding: 16px;
-
-        background: var(--accent);
-
-        color: #10120e;
-
-        cursor: pointer;
-
-        font-weight: 900;
-    }
-
-    .level-bonus-preview {
-        margin-top: 18px;
-
-        padding: 15px;
-
-        border: 1px solid var(--line);
-
-        border-radius: 15px;
-
-        color: var(--muted);
-
-        font-size: 12px;
-
-        line-height: 1.6;
-    }
-
-    .level-bonus-preview strong {
-        color: var(--text);
-    }
-
-    /* =====================================================
-       TOAST
-       ===================================================== */
-
-    .toast {
-        position: fixed;
-
-        left: 50%;
-
-        bottom:
-            calc(
-                22px +
-                env(safe-area-inset-bottom)
-            );
-
-        transform:
-            translate(-50%,30px);
-
-        max-width:
-            calc(
-                100vw -
-                30px
-            );
-
-        overflow: hidden;
-
-        opacity: 0;
-
-        z-index: 200;
-
-        background: #eefbd0;
-
-        color: #11140d;
-
-        padding: 13px 18px;
-
-        border-radius: 999px;
-
-        font-size: 12px;
-
-        font-weight: 800;
-
-        pointer-events: none;
-
-        white-space: nowrap;
-
-        text-overflow: ellipsis;
-
-        transition: .3s ease;
-
-        box-shadow:
-            0 15px 40px
-            rgba(0,0,0,.35);
-    }
-
-    .toast.show {
-        opacity: 1;
-
-        transform:
-            translate(-50%,0);
-    }
-
-    .disclaimer {
-        margin-top: 32px;
-
-        color: #686e76;
-
-        font-size: 10px;
-
-        text-align: center;
-
-        line-height: 1.6;
-    }
-
-    /* =====================================================
-       HOME SCREEN
-       ===================================================== */
-
-    @media (display-mode: standalone) {
-
-        .app {
-            padding-top:
-                max(
-                    8px,
-                    env(safe-area-inset-top)
-                );
-        }
-
-    }
-
-    @supports (-webkit-touch-callout: none) {
-
-        body {
-            min-height:
-                -webkit-fill-available;
-        }
-
-    }
-
-    @media (max-width: 380px) {
-
-        .app {
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-
-        .ticket-grid {
-            width:
-                calc(
-                    100% + 20px
-                );
-
-            margin-left: -10px;
-
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-
-        .ticket {
-            flex-basis: 82vw;
-        }
-
-        .stats {
-            gap: 4px;
-        }
-
-        .stat {
-            padding: 10px 5px;
-        }
-
-    }
-
+}
 </style>
 </head>
 
@@ -1297,559 +912,266 @@
 
 <div class="app">
 
-    <header class="topbar">
+<header class="topbar">
+    <div class="brand">
+        <div class="brand-mark">S</div>
+        SCRATCH
+    </div>
 
-        <div class="brand">
-
-            <div class="brand-mark">
-                S
-            </div>
-
-            SCRATCH
-
-        </div>
-
-        <div class="fiction-label">
-            NUR SPIELGELD
-        </div>
-
-    </header>
+    <div class="rank-pill" id="rankPill">
+        ROOKIE
+    </div>
+</header>
 
 
-    <section class="hero">
+<section class="balance-card">
 
-        <div class="hero-main">
+    <div class="balance-label">
+        GUTHABEN
+    </div>
 
-            <div class="balance-label">
-                VERFÜGBARES SPIELGELD
-            </div>
+    <div class="balance">
+        <span id="balance">150</span>
+        <small>€</small>
+    </div>
 
-            <div class="balance">
-
-                <span id="balance">
-                    0
-                </span>
-
-                <small>
-                    €
-                </small>
-
-            </div>
-
-        </div>
+</section>
 
 
-        <div class="level-card">
+<section class="level-card">
 
-            <div>
-
-                <div class="level-number">
-
-                    LEVEL
-                    <span id="levelNumber">
-                        1
-                    </span>
-
-                </div>
-
-                <div
-                    class="level-name"
-                    id="levelName"
-                >
-                    Rookie
-                </div>
-
-            </div>
-
-
-            <div class="xp-row">
-
-                <span>
-                    Fortschritt
-                </span>
-
-                <span id="xpText">
-                    0 / 30 XP
-                </span>
-
-            </div>
-
-
-            <div class="xp-bar">
-
-                <div
-                    class="xp-fill"
-                    id="xpFill"
-                ></div>
-
-            </div>
-
-
-            <div
-                class="next-unlock"
-                id="nextUnlock"
-            >
-                Nächstes Los wird auf Level 3
-                freigeschaltet.
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="stats">
-
-        <div class="stat">
-
-            <div
-                class="stat-value"
-                id="ticketsBought"
-            >
-                0
-            </div>
-
-            <div class="stat-label">
-                Lose
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div
-                class="stat-value"
-                id="totalWon"
-            >
-                0 €
-            </div>
-
-            <div class="stat-label">
-                Gewonnen
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div
-                class="stat-value"
-                id="biggestWin"
-            >
-                0 €
-            </div>
-
-            <div class="stat-label">
-                Bestwert
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div
-                class="stat-value"
-                id="netResult"
-            >
-                0 €
-            </div>
-
-            <div class="stat-label">
-                Bilanz
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <div class="section-header">
+    <div class="level-top">
 
         <div>
+            <div class="level-caption">
+                LEVEL <span id="levelNumber">1</span>
+            </div>
 
-            <h2>
-                Lose
-            </h2>
+            <div class="level-title" id="levelName">
+                Rookie
+            </div>
+        </div>
 
-            <p>
-                Wischen zum Auswählen.
-            </p>
-
+        <div class="level-reward">
+            <strong id="nextReward">+15 €</strong>
+            <span>NÄCHSTES LEVEL</span>
         </div>
 
     </div>
 
-
-    <section
-        class="ticket-grid"
-        id="ticketGrid"
-    ></section>
-
-
-    <div class="section-header">
-
-        <div>
-
-            <h2>
-                Rubbelfeld
-            </h2>
-
-            <p>
-                Mit dem Finger freirubbeln.
-            </p>
-
-        </div>
-
+    <div class="xp-row">
+        <span>XP</span>
+        <span id="xpText">0 / 40</span>
     </div>
 
+    <div class="xp-bar">
+        <div class="xp-fill" id="xpFill"></div>
+    </div>
 
-    <section class="game-panel">
+    <div class="next-unlock" id="nextUnlock"></div>
 
-        <div class="scratch-side">
+</section>
 
-            <div
-                class="scratch-card"
-                id="scratchCard"
-            >
 
-                <div class="result-underlay">
+<section class="stats">
 
-                    <div>
+    <div class="stat">
+        <div class="stat-value" id="ticketsBought">0</div>
+        <div class="stat-label">Lose</div>
+    </div>
 
-                        <div
-                            class="result-kicker"
-                            id="resultKicker"
-                        >
-                            Gewinn
-                        </div>
+    <div class="stat">
+        <div class="stat-value" id="totalWon">0 €</div>
+        <div class="stat-label">Gewonnen</div>
+    </div>
 
-                        <div
-                            class="result-amount"
-                            id="resultAmount"
-                        >
-                            0 €
-                        </div>
+    <div class="stat">
+        <div class="stat-value" id="biggestWin">0 €</div>
+        <div class="stat-label">Bestwert</div>
+    </div>
 
-                        <div
-                            class="result-message"
-                            id="resultMessage"
-                        >
-                            Viel Glück.
-                        </div>
+    <div class="stat">
+        <div class="stat-value" id="netResult">0 €</div>
+        <div class="stat-label">Bilanz</div>
+    </div>
 
+</section>
+
+
+<div class="section-header">
+    <h2>Lose</h2>
+    <p>Wischen und auswählen.</p>
+</div>
+
+<section class="ticket-grid" id="ticketGrid"></section>
+
+
+<div class="section-header">
+    <h2>Rubbelfeld</h2>
+    <p>Mit dem Finger freirubbeln.</p>
+</div>
+
+
+<section class="game-panel">
+
+    <div class="scratch-side">
+
+        <div class="scratch-card">
+
+            <div class="result-underlay">
+
+                <div>
+
+                    <div class="result-kicker" id="resultKicker">
+                        Gewinn
+                    </div>
+
+                    <div class="result-amount" id="resultAmount">
+                        0 €
+                    </div>
+
+                    <div class="result-message" id="resultMessage">
+                        Viel Glück.
                     </div>
 
                 </div>
 
+            </div>
 
-                <canvas
-                    id="scratchCanvas"
-                ></canvas>
+            <canvas id="scratchCanvas"></canvas>
 
+            <div class="empty-game" id="emptyGame">
 
-                <div
-                    class="empty-game"
-                    id="emptyGame"
-                >
-
-                    <div class="empty-icon">
-                        ✦
-                    </div>
-
-                    <strong>
-                        Noch kein aktives Los
-                    </strong>
-
-                    <p>
-                        Wähle eine Losklasse aus
-                        und kaufe dein erstes
-                        fiktives Rubbellos.
-                    </p>
-
+                <div class="empty-icon">
+                    ✦
                 </div>
+
+                <strong>
+                    Bereit
+                </strong>
+
+                <p>
+                    Los auswählen und starten.
+                </p>
 
             </div>
 
         </div>
 
-
-        <aside class="game-info">
-
-            <div>
-
-                <div class="selected-heading">
-                    AUSGEWÄHLTES LOS
-                </div>
-
-                <div
-                    class="selected-name"
-                    id="selectedName"
-                >
-                    Mini
-                </div>
-
-                <div
-                    class="selected-price"
-                    id="selectedPrice"
-                >
-                    Einsatz 2 €
-                </div>
-
-            </div>
+    </div>
 
 
-            <div class="info-list">
-
-                <div class="info-row">
-
-                    <span>
-                        Gewinnchance
-                    </span>
-
-                    <span id="selectedOdds">
-                        ca. 1 : 3,2
-                    </span>
-
-                </div>
-
-
-                <div class="info-row">
-
-                    <span>
-                        Hauptgewinn
-                    </span>
-
-                    <span id="selectedJackpot">
-                        10.000 €
-                    </span>
-
-                </div>
-
-
-                <div class="info-row">
-
-                    <span>
-                        Ausschüttung
-                    </span>
-
-                    <span id="selectedRtp">
-                        ca. 61 %
-                    </span>
-
-                </div>
-
-
-                <div class="info-row">
-
-                    <span>
-                        XP pro Los
-                    </span>
-
-                    <span id="selectedXp">
-                        2 XP
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div>
-
-                <button
-                    class="buy-btn"
-                    id="buyButton"
-                >
-                    Los für 2 € kaufen
-                </button>
-
-
-                <button
-                    class="secondary-btn"
-                    id="revealButton"
-                    disabled
-                >
-                    Sofort aufdecken
-                </button>
-
-            </div>
-
-        </aside>
-
-    </section>
-
-
-    <div class="section-header">
+    <div class="game-info">
 
         <div>
 
-            <h2>
-                Letzte Lose
-            </h2>
+            <div class="selected-heading">
+                AUSGEWÄHLT
+            </div>
 
-            <p>
-                Deine letzten Ergebnisse.
-            </p>
+            <div class="selected-name" id="selectedName">
+                Mini
+            </div>
+
+            <div class="selected-price" id="selectedPrice">
+                2 € Einsatz
+            </div>
 
         </div>
 
 
-        <button
-            class="secondary-btn"
-            style="
-                width:auto;
-                min-height:42px;
-                margin:0;
-                padding:10px 14px;
-                font-size:11px;
-            "
-            id="newRoundButton"
-        >
-            Neue Runde
-        </button>
+        <div class="info-list">
+
+            <div class="info-row">
+                <span>Gewinnchance</span>
+                <span id="selectedOdds"></span>
+            </div>
+
+            <div class="info-row">
+                <span>Hauptgewinn</span>
+                <span id="selectedJackpot"></span>
+            </div>
+
+            <div class="info-row">
+                <span>XP</span>
+                <span id="selectedXp"></span>
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <button class="primary-btn" id="buyButton">
+                Los kaufen
+            </button>
+
+            <button class="secondary-btn" id="revealButton" disabled>
+                Sofort aufdecken
+            </button>
+
+            <button class="whatsapp-btn" id="whatsappButton" disabled>
+                Gewinn über WhatsApp teilen
+            </button>
+
+        </div>
 
     </div>
 
-
-    <section
-        class="history"
-        id="history"
-    ></section>
+</section>
 
 
-    <div class="disclaimer">
+<div class="section-header">
+    <h2>Progression</h2>
+    <p>Freischaltungen und Meilensteine.</p>
+</div>
 
-        SCRATCH ist eine reine
-        Spielgeld-Simulation.
+<section class="progression" id="progression"></section>
 
-        Es findet kein Glücksspiel
-        mit echtem Geld statt.
 
-        Die Wahrscheinlichkeiten sind
-        frei modelliert und stellen
-        keine offiziellen Quoten einer
-        Lotterie dar.
+<div class="round-bar">
 
-    </div>
+    <h2>Verlauf</h2>
+
+    <button class="round-btn" id="newRoundButton">
+        Neue Runde
+    </button>
+
+</div>
+
+<section class="history" id="history"></section>
+
+
+<div class="footer">
+    Simulation ohne Echtgeld.
+</div>
 
 </div>
 
 
-<div
-    class="modal"
-    id="startModal"
->
+<div class="modal" id="startModal">
 
     <div class="modal-card">
 
-        <div class="eyebrow">
-            Neue Runde
+        <div class="modal-eyebrow">
+            SCRATCH
         </div>
 
         <h2>
-            Startkapital wählen
+            Neue Runde
         </h2>
 
         <p>
-            Entscheide, mit welchem Grundbudget
-            du spielen möchtest. Dein Level
-            gibt dir zusätzlich einen Startbonus.
+            Dein Level und deine Freischaltungen bleiben erhalten.
         </p>
 
-
-        <div class="budget-grid">
-
-            <button
-                class="budget-option"
-                data-budget="20"
-            >
-
-                <strong>
-                    20 €
-                </strong>
-
-                <span>
-                    Kleine Challenge
-                </span>
-
-            </button>
-
-
-            <button
-                class="budget-option selected"
-                data-budget="50"
-            >
-
-                <strong>
-                    50 €
-                </strong>
-
-                <span>
-                    Standard
-                </span>
-
-            </button>
-
-
-            <button
-                class="budget-option"
-                data-budget="100"
-            >
-
-                <strong>
-                    100 €
-                </strong>
-
-                <span>
-                    Entspannt
-                </span>
-
-            </button>
-
-
-            <button
-                class="budget-option"
-                data-budget="250"
-            >
-
-                <strong>
-                    250 €
-                </strong>
-
-                <span>
-                    High Roller
-                </span>
-
-            </button>
-
+        <div class="start-amount">
+            <span>STARTGUTHABEN</span>
+            <strong>150 €</strong>
         </div>
 
-
-        <div
-            class="level-bonus-preview"
-            id="bonusPreview"
-        >
-
-            Dein aktuelles Level gibt dir
-            zusätzlich
-
-            <strong>
-                0 €
-            </strong>
-
-            Startbonus.
-
-        </div>
-
-
-        <button
-            class="start-btn"
-            id="startGameButton"
-        >
-            Runde starten
+        <button class="start-btn" id="startGameButton">
+            Starten
         </button>
 
     </div>
@@ -1857,172 +1179,329 @@
 </div>
 
 
-<div
-    class="toast"
-    id="toast"
-></div>
+<div class="toast" id="toast"></div>
 
 
 <script>
 
-/* ============================================================
-   LOSKLASSEN
-   ============================================================ */
+/* =========================================================
+   KONFIGURATION
+   ========================================================= */
+
+const START_BALANCE = 150;
+
+
+/* =========================================================
+   LOSE
+   ========================================================= */
 
 const tickets = [
 
     {
-        id: "mini",
-        name: "Mini",
-        className: "basic",
+        id:"mini",
+        name:"Mini",
+        tier:"Starter",
+        className:"mini",
 
-        price: 2,
-        unlockLevel: 1,
+        price:2,
+        unlockLevel:1,
 
-        jackpot: 10000,
+        jackpot:10000,
+        odds:"1 : 3,2",
 
-        odds: "ca. 1 : 3,2",
-        rtp: "ca. 61 %",
+        xp:6,
 
-        prizes: [
-            { amount: 0, probability: 690000 },
-            { amount: 2, probability: 230000 },
-            { amount: 4, probability: 50000 },
-            { amount: 10, probability: 20000 },
-            { amount: 20, probability: 7000 },
-            { amount: 50, probability: 2500 },
-            { amount: 100, probability: 450 },
-            { amount: 1000, probability: 49 },
-            { amount: 10000, probability: 1 }
+        prizes:[
+            {amount:0,probability:690000},
+            {amount:2,probability:230000},
+            {amount:4,probability:50000},
+            {amount:10,probability:20000},
+            {amount:20,probability:7000},
+            {amount:50,probability:2500},
+            {amount:100,probability:450},
+            {amount:1000,probability:49},
+            {amount:10000,probability:1}
         ]
     },
 
     {
-        id: "classic",
-        name: "Classic",
-        className: "plus",
+        id:"classic",
+        name:"Classic",
+        tier:"Regular",
+        className:"classic",
 
-        price: 5,
-        unlockLevel: 3,
+        price:5,
+        unlockLevel:3,
 
-        jackpot: 100000,
+        jackpot:100000,
+        odds:"1 : 3,8",
 
-        odds: "ca. 1 : 3,8",
-        rtp: "ca. 69 %",
+        xp:14,
 
-        prizes: [
-            { amount: 0, probability: 735000 },
-            { amount: 5, probability: 180000 },
-            { amount: 10, probability: 60000 },
-            { amount: 20, probability: 18000 },
-            { amount: 50, probability: 5000 },
-            { amount: 100, probability: 1500 },
-            { amount: 500, probability: 400 },
-            { amount: 5000, probability: 95 },
-            { amount: 100000, probability: 5 }
+        prizes:[
+            {amount:0,probability:735000},
+            {amount:5,probability:180000},
+            {amount:10,probability:60000},
+            {amount:20,probability:18000},
+            {amount:50,probability:5000},
+            {amount:100,probability:1500},
+            {amount:500,probability:400},
+            {amount:5000,probability:95},
+            {amount:100000,probability:5}
         ]
     },
 
     {
-        id: "gold",
-        name: "Gold",
-        className: "pro",
+        id:"gold",
+        name:"Gold",
+        tier:"Premium",
+        className:"gold",
 
-        price: 10,
-        unlockLevel: 7,
+        price:10,
+        unlockLevel:6,
 
-        jackpot: 100000,
+        jackpot:100000,
+        odds:"1 : 3,4",
 
-        odds: "ca. 1 : 3,4",
-        rtp: "ca. 63 %",
+        xp:28,
 
-        prizes: [
-            { amount: 0, probability: 710000 },
-            { amount: 10, probability: 220000 },
-            { amount: 20, probability: 50000 },
-            { amount: 50, probability: 15000 },
-            { amount: 100, probability: 4000 },
-            { amount: 500, probability: 800 },
-            { amount: 5000, probability: 180 },
-            { amount: 25000, probability: 18 },
-            { amount: 100000, probability: 2 }
+        prizes:[
+            {amount:0,probability:710000},
+            {amount:10,probability:220000},
+            {amount:20,probability:50000},
+            {amount:50,probability:15000},
+            {amount:100,probability:4000},
+            {amount:500,probability:800},
+            {amount:5000,probability:180},
+            {amount:25000,probability:18},
+            {amount:100000,probability:2}
         ]
     },
 
     {
-        id: "black",
-        name: "Black 20",
-        className: "black",
+        id:"black",
+        name:"Black 20",
+        tier:"Elite",
+        className:"black",
 
-        price: 20,
-        unlockLevel: 12,
+        price:20,
+        unlockLevel:10,
 
-        jackpot: 100000,
+        jackpot:100000,
+        odds:"1 : 3,0",
 
-        odds: "ca. 1 : 3,0",
-        rtp: "ca. 72 %",
+        xp:60,
 
-        prizes: [
-            { amount: 0, probability: 666666 },
-            { amount: 20, probability: 245000 },
-            { amount: 40, probability: 60000 },
-            { amount: 100, probability: 20000 },
-            { amount: 250, probability: 6000 },
-            { amount: 1000, probability: 2000 },
-            { amount: 5000, probability: 300 },
-            { amount: 25000, probability: 30 },
-            { amount: 100000, probability: 4 }
+        prizes:[
+            {amount:0,probability:666666},
+            {amount:20,probability:245000},
+            {amount:40,probability:60000},
+            {amount:100,probability:20000},
+            {amount:250,probability:6000},
+            {amount:1000,probability:2000},
+            {amount:5000,probability:300},
+            {amount:25000,probability:30},
+            {amount:100000,probability:4}
+        ]
+    },
+
+    {
+        id:"neon",
+        name:"Neon 50",
+        tier:"Master",
+        className:"neon",
+
+        price:50,
+        unlockLevel:16,
+
+        jackpot:100000,
+        odds:"1 : 2,8",
+
+        xp:155,
+
+        prizes:[
+            {amount:0,probability:643000},
+            {amount:50,probability:260000},
+            {amount:100,probability:70000},
+            {amount:250,probability:20000},
+            {amount:500,probability:5000},
+            {amount:1000,probability:1500},
+            {amount:5000,probability:450},
+            {amount:25000,probability:48},
+            {amount:100000,probability:2}
+        ]
+    },
+
+    {
+        id:"vault",
+        name:"Vault 100",
+        tier:"Legend",
+        className:"vault",
+
+        price:100,
+        unlockLevel:24,
+
+        jackpot:100000,
+        odds:"1 : 2,5",
+
+        xp:325,
+
+        prizes:[
+            {amount:0,probability:600000},
+            {amount:100,probability:280000},
+            {amount:200,probability:80000},
+            {amount:500,probability:25000},
+            {amount:1000,probability:10000},
+            {amount:2500,probability:3500},
+            {amount:5000,probability:1200},
+            {amount:10000,probability:250},
+            {amount:25000,probability:45},
+            {amount:100000,probability:5}
         ]
     }
 
 ];
 
 
-/* ============================================================
-   LEVELNAMEN
-   ============================================================ */
+/* =========================================================
+   LEVELSYSTEM
+   ========================================================= */
 
-const levelNames = [
+const ranks = [
+    {level:1,name:"Rookie"},
+    {level:3,name:"Player"},
+    {level:6,name:"Grinder"},
+    {level:10,name:"High Roller"},
+    {level:15,name:"Elite"},
+    {level:20,name:"Master"},
+    {level:25,name:"Legend"},
+    {level:30,name:"Mythic"}
+];
 
-    "Rookie",
-    "Starter",
-    "Player",
-    "Regular",
-    "Grinder",
-    "Challenger",
-    "Insider",
-    "Veteran",
-    "Expert",
-    "Elite",
-    "Master",
-    "High Roller",
-    "Legend",
-    "Icon",
-    "Untouchable"
+
+const milestones = [
+
+    {
+        level:3,
+        name:"Classic",
+        text:"5-€-Lose"
+    },
+
+    {
+        level:6,
+        name:"Gold",
+        text:"10-€-Lose"
+    },
+
+    {
+        level:10,
+        name:"Black",
+        text:"20-€-Lose"
+    },
+
+    {
+        level:15,
+        name:"Elite Bonus",
+        text:"+100 €"
+    },
+
+    {
+        level:16,
+        name:"Neon",
+        text:"50-€-Lose"
+    },
+
+    {
+        level:20,
+        name:"Master Bonus",
+        text:"+200 €"
+    },
+
+    {
+        level:24,
+        name:"Vault",
+        text:"100-€-Lose"
+    },
+
+    {
+        level:30,
+        name:"Mythic",
+        text:"+500 €"
+    }
 
 ];
 
 
-/* ============================================================
-   SPIELSTAND
-   ============================================================ */
+function xpNeeded(level) {
+
+    return Math.round(
+        40 +
+        level * 14 +
+        Math.pow(level,1.45) * 4
+    );
+
+}
+
+
+function levelReward(level) {
+
+    if (level === 30)
+        return 500;
+
+    if (level === 20)
+        return 200;
+
+    if (level === 15)
+        return 100;
+
+    if (level % 10 === 0)
+        return 100;
+
+    if (level % 5 === 0)
+        return 50;
+
+    return 10 + level * 3;
+
+}
+
+
+function currentRank() {
+
+    let rank = ranks[0];
+
+    for (const entry of ranks) {
+
+        if (state.level >= entry.level) {
+            rank = entry;
+        }
+
+    }
+
+    return rank.name;
+
+}
+
+
+/* =========================================================
+   STATE
+   ========================================================= */
 
 const defaultState = {
 
-    level: 1,
-    xp: 0,
+    level:1,
+    xp:0,
 
-    balance: 0,
+    balance:START_BALANCE,
 
-    totalSpent: 0,
-    totalWon: 0,
+    totalSpent:0,
+    totalWon:0,
 
-    ticketsBought: 0,
-    biggestWin: 0,
+    ticketsBought:0,
+    biggestWin:0,
 
-    history: [],
+    history:[],
 
-    started: false
+    started:false
 
 };
 
@@ -2034,14 +1513,19 @@ let selectedTicket = tickets[0];
 let activeTicket = null;
 let activePrize = null;
 
-let ticketResolved = false;
+let ticketResolved = true;
 
-let chosenBudget = 50;
+let currentSessionId = 0;
+
+let resultCleanupTimer = null;
+
+let lastSharePrize = null;
+let lastShareTicket = null;
 
 
-/* ============================================================
+/* =========================================================
    DOM
-   ============================================================ */
+   ========================================================= */
 
 const balanceEl =
     document.getElementById("balance");
@@ -2052,11 +1536,17 @@ const levelNumberEl =
 const levelNameEl =
     document.getElementById("levelName");
 
+const rankPill =
+    document.getElementById("rankPill");
+
 const xpTextEl =
     document.getElementById("xpText");
 
 const xpFillEl =
     document.getElementById("xpFill");
+
+const nextRewardEl =
+    document.getElementById("nextReward");
 
 const nextUnlockEl =
     document.getElementById("nextUnlock");
@@ -2088,9 +1578,6 @@ const selectedOddsEl =
 const selectedJackpotEl =
     document.getElementById("selectedJackpot");
 
-const selectedRtpEl =
-    document.getElementById("selectedRtp");
-
 const selectedXpEl =
     document.getElementById("selectedXp");
 
@@ -2100,14 +1587,8 @@ const buyButton =
 const revealButton =
     document.getElementById("revealButton");
 
-const resultAmount =
-    document.getElementById("resultAmount");
-
-const resultKicker =
-    document.getElementById("resultKicker");
-
-const resultMessage =
-    document.getElementById("resultMessage");
+const whatsappButton =
+    document.getElementById("whatsappButton");
 
 const scratchCanvas =
     document.getElementById("scratchCanvas");
@@ -2115,8 +1596,20 @@ const scratchCanvas =
 const emptyGame =
     document.getElementById("emptyGame");
 
+const resultKicker =
+    document.getElementById("resultKicker");
+
+const resultAmount =
+    document.getElementById("resultAmount");
+
+const resultMessage =
+    document.getElementById("resultMessage");
+
 const historyEl =
     document.getElementById("history");
+
+const progressionEl =
+    document.getElementById("progression");
 
 const startModal =
     document.getElementById("startModal");
@@ -2127,21 +1620,18 @@ const startGameButton =
 const newRoundButton =
     document.getElementById("newRoundButton");
 
-const bonusPreview =
-    document.getElementById("bonusPreview");
-
 const toast =
     document.getElementById("toast");
 
 
-/* ============================================================
-   SPEICHERN
-   ============================================================ */
+/* =========================================================
+   STORAGE
+   ========================================================= */
 
 function saveState() {
 
     localStorage.setItem(
-        "scratchGameState",
+        "scratchGameStateV2",
         JSON.stringify(state)
     );
 
@@ -2154,124 +1644,54 @@ function loadState() {
 
         const saved =
             localStorage.getItem(
-                "scratchGameState"
+                "scratchGameStateV2"
             );
 
         if (!saved) {
 
-            return JSON.parse(
-                JSON.stringify(
-                    defaultState
-                )
-            );
+            return {
+                ...defaultState
+            };
 
         }
 
         return {
-
-            ...JSON.parse(
-                JSON.stringify(
-                    defaultState
-                )
-            ),
-
+            ...defaultState,
             ...JSON.parse(saved)
-
         };
 
     }
 
     catch {
 
-        return JSON.parse(
-            JSON.stringify(
-                defaultState
-            )
-        );
+        return {
+            ...defaultState
+        };
 
     }
 
 }
 
 
-/* ============================================================
-   GELDFORMAT
-   ============================================================ */
+/* =========================================================
+   FORMAT
+   ========================================================= */
 
 function money(value) {
 
     return new Intl.NumberFormat(
         "de-DE",
         {
-            maximumFractionDigits: 0
+            maximumFractionDigits:0
         }
     ).format(value);
 
 }
 
 
-/* ============================================================
-   LEVEL
-   ============================================================ */
-
-function xpNeeded(level) {
-
-    return (
-        30 +
-        ((level - 1) * 12)
-    );
-
-}
-
-
-function levelStartBonus() {
-
-    return Math.max(
-        0,
-        (state.level - 1) * 5
-    );
-
-}
-
-
-function gainXp(amount) {
-
-    state.xp += amount;
-
-    let leveledUp = false;
-
-
-    while (
-        state.xp >=
-        xpNeeded(state.level)
-    ) {
-
-        state.xp -=
-            xpNeeded(state.level);
-
-        state.level++;
-
-        leveledUp = true;
-
-    }
-
-
-    if (leveledUp) {
-
-        showToast(
-            "Level " +
-            state.level +
-            " erreicht"
-        );
-
-    }
-
-}
-
-
-/* ============================================================
-   ZUFALL
-   ============================================================ */
+/* =========================================================
+   RANDOM
+   ========================================================= */
 
 function randomInteger(max) {
 
@@ -2287,34 +1707,32 @@ function randomInteger(max) {
 
     let value;
 
-
     do {
 
-        crypto.getRandomValues(array);
+        crypto.getRandomValues(
+            array
+        );
 
-        value = array[0];
+        value =
+            array[0];
 
     }
 
     while (value >= limit);
-
 
     return value % max;
 
 }
 
 
-/* ============================================================
-   GEWINN AUSLOSEN
-   ============================================================ */
-
 function drawPrize(ticket) {
 
     const roll =
-        randomInteger(1000000);
+        randomInteger(
+            1000000
+        );
 
     let cumulative = 0;
-
 
     for (
         const prize
@@ -2323,7 +1741,6 @@ function drawPrize(ticket) {
 
         cumulative +=
             prize.probability;
-
 
         if (
             roll <
@@ -2336,20 +1753,74 @@ function drawPrize(ticket) {
 
     }
 
-
     return 0;
 
 }
 
 
-/* ============================================================
-   LOSE RENDERN
-   ============================================================ */
+/* =========================================================
+   XP & LEVEL
+   ========================================================= */
+
+function gainXp(amount) {
+
+    state.xp += amount;
+
+    const rewards = [];
+
+    while (
+        state.xp >=
+        xpNeeded(state.level)
+    ) {
+
+        state.xp -=
+            xpNeeded(state.level);
+
+        state.level++;
+
+        const reward =
+            levelReward(
+                state.level
+            );
+
+        state.balance +=
+            reward;
+
+        rewards.push(
+            reward
+        );
+
+    }
+
+    if (rewards.length) {
+
+        const total =
+            rewards.reduce(
+                (a,b) => a+b,
+                0
+            );
+
+        showToast(
+            "Level " +
+            state.level +
+            " · +" +
+            money(total) +
+            " €"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   TICKETS
+   ========================================================= */
 
 function renderTickets() {
 
-    ticketGrid.innerHTML = "";
-
+    ticketGrid.innerHTML =
+        "";
 
     tickets.forEach(
         ticket => {
@@ -2358,29 +1829,24 @@ function renderTickets() {
                 state.level >=
                 ticket.unlockLevel;
 
+            const selected =
+                selectedTicket.id ===
+                ticket.id;
 
             const el =
                 document.createElement(
                     "div"
                 );
 
-
             el.className =
                 "ticket " +
                 ticket.className +
-                (
-                    selectedTicket.id ===
-                    ticket.id
-
+                (selected
                     ? " selected"
-                    : ""
-                ) +
-                (
-                    !unlocked
+                    : "") +
+                (!unlocked
                     ? " locked"
-                    : ""
-                );
-
+                    : "");
 
             el.innerHTML = `
 
@@ -2388,8 +1854,16 @@ function renderTickets() {
 
                     <div class="ticket-top">
 
-                        <div class="ticket-name">
-                            ${ticket.name}
+                        <div>
+
+                            <div class="ticket-name">
+                                ${ticket.name}
+                            </div>
+
+                            <div class="ticket-tier">
+                                ${ticket.tier}
+                            </div>
+
                         </div>
 
                         <div class="ticket-price">
@@ -2397,7 +1871,6 @@ function renderTickets() {
                         </div>
 
                     </div>
-
 
                     <div class="ticket-jackpot">
 
@@ -2413,34 +1886,20 @@ function renderTickets() {
 
                 </div>
 
-
                 <div>
 
                     <div class="odds">
-
-                        Gewinnchance
-                        ${ticket.odds}
-
-                        <br>
-
-                        Ausschüttung
-                        ${ticket.rtp}
-
+                        Gewinnchance ${ticket.odds}<br>
+                        ${ticket.xp} XP pro Los
                     </div>
 
                     ${
                         unlocked
                         ? ""
                         : `
-
                         <div class="lock-text">
-
-                            Freischaltung
-                            Level
-                            ${ticket.unlockLevel}
-
+                            Ab Level ${ticket.unlockLevel}
                         </div>
-
                         `
                     }
 
@@ -2448,19 +1907,36 @@ function renderTickets() {
 
             `;
 
-
             if (unlocked) {
 
                 el.addEventListener(
                     "click",
-                    () =>
-                        selectTicket(
-                            ticket
-                        )
+                    () => {
+
+                        if (
+                            activeTicket &&
+                            !ticketResolved
+                        ) {
+
+                            showToast(
+                                "Erst aktuelles Los beenden"
+                            );
+
+                            return;
+
+                        }
+
+                        selectedTicket =
+                            ticket;
+
+                        renderTickets();
+
+                        renderSelected();
+
+                    }
                 );
 
             }
-
 
             ticketGrid.appendChild(
                 el
@@ -2472,55 +1948,17 @@ function renderTickets() {
 }
 
 
-/* ============================================================
-   LOS AUSWÄHLEN
-   ============================================================ */
-
-function selectTicket(ticket) {
-
-    if (
-        activeTicket &&
-        !ticketResolved
-    ) {
-
-        showToast(
-            "Aktuelles Los zuerst freirubbeln"
-        );
-
-        return;
-
-    }
-
-
-    selectedTicket = ticket;
-
-
-    renderTickets();
-
-    renderSelectedTicket();
-
-}
-
-
-/* ============================================================
-   AUSGEWÄHLTES LOS
-   ============================================================ */
-
-function renderSelectedTicket() {
+function renderSelected() {
 
     selectedNameEl.textContent =
         selectedTicket.name;
 
-
     selectedPriceEl.textContent =
-        "Einsatz " +
         selectedTicket.price +
-        " €";
-
+        " € Einsatz";
 
     selectedOddsEl.textContent =
         selectedTicket.odds;
-
 
     selectedJackpotEl.textContent =
         money(
@@ -2528,41 +1966,51 @@ function renderSelectedTicket() {
         ) +
         " €";
 
-
-    selectedRtpEl.textContent =
-        selectedTicket.rtp;
-
-
     selectedXpEl.textContent =
-        selectedTicket.price +
+        selectedTicket.xp +
         " XP";
 
-
     buyButton.textContent =
-        "Los für " +
+        selectedTicket.name +
+        " · " +
         selectedTicket.price +
-        " € kaufen";
+        " €";
 
-
-    updateBuyButton();
+    updateButtons();
 
 }
 
 
-/* ============================================================
-   LOS KAUFEN
-   ============================================================ */
+/* =========================================================
+   KAUFEN
+   ========================================================= */
 
 function buyTicket() {
+
+    /*
+        KRITISCHER BUGFIX:
+
+        Der Timer eines alten Loses darf
+        niemals mehr den Zustand des neuen
+        Loses verändern.
+    */
+
+    if (resultCleanupTimer) {
+
+        clearTimeout(
+            resultCleanupTimer
+        );
+
+        resultCleanupTimer =
+            null;
+
+    }
+
 
     if (
         activeTicket &&
         !ticketResolved
     ) {
-
-        showToast(
-            "Aktuelles Los zuerst aufdecken"
-        );
 
         return;
 
@@ -2575,7 +2023,7 @@ function buyTicket() {
     ) {
 
         showToast(
-            "Nicht genug Spielgeld"
+            "Nicht genug Guthaben"
         );
 
         return;
@@ -2583,33 +2031,42 @@ function buyTicket() {
     }
 
 
+    currentSessionId++;
+
+    const sessionId =
+        currentSessionId;
+
+
     activeTicket =
         selectedTicket;
-
 
     activePrize =
         drawPrize(
             activeTicket
         );
 
-
     ticketResolved =
         false;
+
+
+    lastSharePrize =
+        null;
+
+    lastShareTicket =
+        null;
 
 
     state.balance -=
         activeTicket.price;
 
-
     state.totalSpent +=
         activeTicket.price;
-
 
     state.ticketsBought++;
 
 
     gainXp(
-        activeTicket.price
+        activeTicket.xp
     );
 
 
@@ -2620,24 +2077,28 @@ function buyTicket() {
 
     prepareResult();
 
-
-    createScratchLayer();
+    createScratchLayer(
+        sessionId
+    );
 
 
     revealButton.disabled =
         false;
 
+    whatsappButton.disabled =
+        true;
 
-    updateUI();
 
     saveState();
+
+    updateUI();
 
 }
 
 
-/* ============================================================
-   RESULTAT
-   ============================================================ */
+/* =========================================================
+   RESULT
+   ========================================================= */
 
 function prepareResult() {
 
@@ -2646,13 +2107,15 @@ function prepareResult() {
         " €";
 
 
-    if (activePrize === 0) {
+    if (
+        activePrize === 0
+    ) {
 
         resultKicker.textContent =
-            "Leider nichts";
+            "Niete";
 
         resultMessage.textContent =
-            "Dieses Los war eine Niete.";
+            "Nächstes Los.";
 
     }
 
@@ -2665,74 +2128,59 @@ function prepareResult() {
             "JACKPOT";
 
         resultMessage.textContent =
-            "Das war der Hauptgewinn.";
+            "Hauptgewinn.";
 
     }
 
     else if (
-        activePrize >
-        activeTicket.price * 10
+        activePrize >=
+        activeTicket.price * 20
     ) {
 
         resultKicker.textContent =
-            "Großer Treffer";
+            "BIG WIN";
 
         resultMessage.textContent =
-            "Deutlich mehr als dein Einsatz.";
-
-    }
-
-    else if (
-        activePrize >
-        activeTicket.price
-    ) {
-
-        resultKicker.textContent =
-            "Gewinn";
-
-        resultMessage.textContent =
-            "Das Los hat sich gelohnt.";
+            "Starker Treffer.";
 
     }
 
     else {
 
         resultKicker.textContent =
-            "Einsatz zurück";
+            "GEWINN";
 
         resultMessage.textContent =
-            "Kleiner Treffer.";
+            "+" +
+            money(activePrize) +
+            " €";
 
     }
 
 }
 
 
-/* ============================================================
-   RUBBEL CANVAS
-   ============================================================ */
+/* =========================================================
+   SCRATCH CANVAS
+   ========================================================= */
 
 let ctx;
 
 let scratching = false;
 
-let totalMoves = 0;
+let scratchDistance = 0;
+
+let lastScratchPoint =
+    null;
 
 
-function createScratchLayer() {
-
-    scratchCanvas.style.opacity =
-        "1";
-
-
-    scratchCanvas.style.transition =
-        "none";
-
+function createScratchLayer(
+    sessionId
+) {
 
     const rect =
         scratchCanvas
             .getBoundingClientRect();
-
 
     const dpr =
         Math.min(
@@ -2742,16 +2190,26 @@ function createScratchLayer() {
 
 
     scratchCanvas.width =
-        rect.width * dpr;
-
+        Math.round(
+            rect.width *
+            dpr
+        );
 
     scratchCanvas.height =
-        rect.height * dpr;
+        Math.round(
+            rect.height *
+            dpr
+        );
 
 
     ctx =
         scratchCanvas
-            .getContext("2d");
+            .getContext(
+                "2d",
+                {
+                    willReadFrequently:true
+                }
+            );
 
 
     ctx.setTransform(
@@ -2762,6 +2220,10 @@ function createScratchLayer() {
         0,
         0
     );
+
+
+    ctx.globalCompositeOperation =
+        "source-over";
 
 
     const gradient =
@@ -2775,37 +2237,32 @@ function createScratchLayer() {
 
     gradient.addColorStop(
         0,
-        "#737982"
+        "#747a81"
     );
 
     gradient.addColorStop(
-        .25,
-        "#c1c5ca"
+        .23,
+        "#c5c9cc"
     );
 
     gradient.addColorStop(
-        .5,
+        .48,
         "#858b92"
     );
 
     gradient.addColorStop(
-        .75,
-        "#d0d3d6"
+        .73,
+        "#d3d5d7"
     );
 
     gradient.addColorStop(
         1,
-        "#747a81"
+        "#767c83"
     );
-
-
-    ctx.globalCompositeOperation =
-        "source-over";
 
 
     ctx.fillStyle =
         gradient;
-
 
     ctx.fillRect(
         0,
@@ -2816,21 +2273,20 @@ function createScratchLayer() {
 
 
     for (
-        let i = 0;
-        i < 2600;
+        let i=0;
+        i<2200;
         i++
     ) {
 
         ctx.fillStyle =
             Math.random() > .5
 
-            ? "rgba(255,255,255,.09)"
+            ? "rgba(255,255,255,.07)"
 
-            : "rgba(0,0,0,.07)";
+            : "rgba(0,0,0,.06)";
 
 
         ctx.fillRect(
-
             Math.random() *
                 rect.width,
 
@@ -2839,49 +2295,71 @@ function createScratchLayer() {
 
             1,
             1
-
         );
 
     }
 
 
     ctx.fillStyle =
-        "rgba(20,22,25,.8)";
-
+        "rgba(15,17,20,.75)";
 
     ctx.font =
-        "800 13px system-ui";
-
+        "800 12px system-ui";
 
     ctx.textAlign =
         "center";
 
-
     ctx.fillText(
-
-        "HIER RUBBELN",
-
+        "RUBBELN",
         rect.width / 2,
-
         rect.height / 2
-
     );
 
 
-    totalMoves = 0;
+    scratchDistance =
+        0;
+
+    lastScratchPoint =
+        null;
+
+
+    scratchCanvas.dataset.session =
+        sessionId;
+
+
+    scratchCanvas.style.opacity =
+        "1";
+
+    scratchCanvas.style.transition =
+        "none";
 
 }
 
 
-/* ============================================================
-   RUBBELN
-   ============================================================ */
-
-function scratchAt(x,y) {
+function scratchAt(
+    x,
+    y
+) {
 
     if (
         !activeTicket ||
         ticketResolved
+    ) {
+
+        return;
+
+    }
+
+
+    const canvasSession =
+        Number(
+            scratchCanvas.dataset.session
+        );
+
+
+    if (
+        canvasSession !==
+        currentSessionId
     ) {
 
         return;
@@ -2900,32 +2378,55 @@ function scratchAt(x,y) {
 
     ctx.beginPath();
 
-
     ctx.arc(
-
         x,
         y,
-
         Math.max(
-            26,
+            25,
             rect.width * .06
         ),
-
         0,
-
         Math.PI * 2
-
     );
-
 
     ctx.fill();
 
 
-    totalMoves++;
+    if (lastScratchPoint) {
 
+        const dx =
+            x -
+            lastScratchPoint.x;
+
+        const dy =
+            y -
+            lastScratchPoint.y;
+
+        scratchDistance +=
+            Math.sqrt(
+                dx*dx +
+                dy*dy
+            );
+
+    }
+
+
+    lastScratchPoint = {
+        x,
+        y
+    };
+
+
+    /*
+       Distanz statt "Anzahl Events".
+
+       Dadurch funktioniert Rubbeln auf
+       iOS deutlich zuverlässiger.
+    */
 
     if (
-        totalMoves > 65
+        scratchDistance >
+        rect.width * 5
     ) {
 
         revealTicket();
@@ -2935,23 +2436,28 @@ function scratchAt(x,y) {
 }
 
 
-/* ============================================================
-   POINTER EVENTS
-   ============================================================ */
+/* =========================================================
+   POINTER
+   ========================================================= */
 
 scratchCanvas.addEventListener(
     "pointerdown",
     e => {
 
-        if (!activeTicket) {
+        if (
+            !activeTicket ||
+            ticketResolved
+        ) {
 
             return;
 
         }
 
+        scratching =
+            true;
 
-        scratching = true;
-
+        lastScratchPoint =
+            null;
 
         try {
 
@@ -2961,8 +2467,8 @@ scratchCanvas.addEventListener(
                 );
 
         }
-        catch {}
 
+        catch {}
 
         handleScratch(e);
 
@@ -2974,12 +2480,8 @@ scratchCanvas.addEventListener(
     "pointermove",
     e => {
 
-        if (!scratching) {
-
+        if (!scratching)
             return;
-
-        }
-
 
         handleScratch(e);
 
@@ -2991,7 +2493,11 @@ scratchCanvas.addEventListener(
     "pointerup",
     () => {
 
-        scratching = false;
+        scratching =
+            false;
+
+        lastScratchPoint =
+            null;
 
     }
 );
@@ -3001,7 +2507,11 @@ scratchCanvas.addEventListener(
     "pointercancel",
     () => {
 
-        scratching = false;
+        scratching =
+            false;
+
+        lastScratchPoint =
+            null;
 
     }
 );
@@ -3013,42 +2523,35 @@ function handleScratch(e) {
         scratchCanvas
             .getBoundingClientRect();
 
-
     scratchAt(
-
         e.clientX -
             rect.left,
 
         e.clientY -
             rect.top
-
     );
 
 }
 
-
-/* iOS Scrollen beim Rubbeln verhindern */
 
 document.addEventListener(
     "touchmove",
     e => {
 
         if (scratching) {
-
             e.preventDefault();
-
         }
 
     },
     {
-        passive: false
+        passive:false
     }
 );
 
 
-/* ============================================================
-   LOS AUFDECKEN
-   ============================================================ */
+/* =========================================================
+   REVEAL
+   ========================================================= */
 
 function revealTicket() {
 
@@ -3062,58 +2565,86 @@ function revealTicket() {
     }
 
 
+    const sessionId =
+        currentSessionId;
+
+
     ticketResolved =
         true;
-
 
     scratching =
         false;
 
 
     scratchCanvas.style.transition =
-        "opacity .4s ease";
-
+        "opacity .35s ease";
 
     scratchCanvas.style.opacity =
         "0";
 
 
     setTimeout(
-        resolveTicket,
+        () => {
+
+            resolveTicket(
+                sessionId
+            );
+
+        },
         300
     );
 
 }
 
 
-/* ============================================================
-   GEWINN VERRECHNEN
-   ============================================================ */
+/* =========================================================
+   RESOLVE
+   ========================================================= */
 
-function resolveTicket() {
+function resolveTicket(
+    sessionId
+) {
 
-    if (!activeTicket) {
+    /*
+       Falls inzwischen ein neues Los läuft,
+       wird das alte Ergebnis ignoriert.
+    */
+
+    if (
+        sessionId !==
+        currentSessionId
+    ) {
 
         return;
 
     }
 
 
-    state.balance +=
+    if (!activeTicket)
+        return;
+
+
+    const finishedTicket =
+        activeTicket;
+
+    const finishedPrize =
         activePrize;
 
+
+    state.balance +=
+        finishedPrize;
 
     state.totalWon +=
-        activePrize;
+        finishedPrize;
 
 
     if (
-        activePrize >
+        finishedPrize >
         state.biggestWin
     ) {
 
         state.biggestWin =
-            activePrize;
+            finishedPrize;
 
     }
 
@@ -3121,13 +2652,13 @@ function resolveTicket() {
     state.history.unshift({
 
         name:
-            activeTicket.name,
+            finishedTicket.name,
 
         price:
-            activeTicket.price,
+            finishedTicket.price,
 
         prize:
-            activePrize,
+            finishedPrize,
 
         timestamp:
             Date.now()
@@ -3138,37 +2669,21 @@ function resolveTicket() {
     state.history =
         state.history.slice(
             0,
-            12
+            15
         );
 
 
-    if (
-        activePrize ===
-        activeTicket.jackpot
-    ) {
+    lastSharePrize =
+        finishedPrize;
 
-        showToast(
-            "JACKPOT · " +
-            money(activePrize) +
-            " €"
-        );
-
-    }
-
-    else if (
-        activePrize > 0
-    ) {
-
-        showToast(
-            "+" +
-            money(activePrize) +
-            " € gewonnen"
-        );
-
-    }
+    lastShareTicket =
+        finishedTicket;
 
 
     activeTicket =
+        null;
+
+    activePrize =
         null;
 
 
@@ -3176,36 +2691,181 @@ function resolveTicket() {
         true;
 
 
+    whatsappButton.disabled =
+        finishedPrize <= 0;
+
+
+    if (
+        finishedPrize > 0
+    ) {
+
+        showToast(
+            "+" +
+            money(
+                finishedPrize
+            ) +
+            " €"
+        );
+
+    }
+
+
     saveState();
 
     updateUI();
 
 
-    setTimeout(
-        () => {
+    /*
+        Bugfix:
+        Timeout gehört exakt dieser Session.
+    */
 
-            scratchCanvas.style.opacity =
-                "1";
+    resultCleanupTimer =
+        setTimeout(
+            () => {
+
+                if (
+                    sessionId !==
+                    currentSessionId
+                ) {
+
+                    return;
+
+                }
 
 
-            scratchCanvas.style.transition =
-                "none";
+                if (
+                    activeTicket
+                ) {
+
+                    return;
+
+                }
 
 
-            emptyGame.classList.remove(
-                "hidden"
-            );
+                emptyGame.classList.remove(
+                    "hidden"
+                );
 
-        },
-        1700
-    );
+
+                scratchCanvas.style.opacity =
+                    "1";
+
+
+                resultCleanupTimer =
+                    null;
+
+            },
+            1300
+        );
 
 }
 
 
-/* ============================================================
-   HISTORIE
-   ============================================================ */
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
+
+function shareWhatsApp() {
+
+    if (
+        !lastShareTicket ||
+        lastSharePrize === null ||
+        lastSharePrize <= 0
+    ) {
+
+        return;
+
+    }
+
+
+    const text =
+
+        "Ich habe gerade beim " +
+        lastShareTicket.name +
+        "-Los " +
+        money(lastSharePrize) +
+        " € gewonnen. 🎟️";
+
+
+    const url =
+        "https://wa.me/?text=" +
+        encodeURIComponent(
+            text
+        );
+
+
+    window.location.href =
+        url;
+
+}
+
+
+/* =========================================================
+   PROGRESSION
+   ========================================================= */
+
+function renderProgression() {
+
+    progressionEl.innerHTML =
+        milestones
+            .map(
+                item => {
+
+                    let className =
+                        "";
+
+                    if (
+                        state.level >
+                        item.level
+                    ) {
+
+                        className =
+                            "done";
+
+                    }
+
+                    else if (
+                        state.level ===
+                        item.level
+                    ) {
+
+                        className =
+                            "current";
+
+                    }
+
+
+                    return `
+
+                        <div class="milestone ${className}">
+
+                            <div class="milestone-level">
+                                LEVEL ${item.level}
+                            </div>
+
+                            <strong>
+                                ${item.name}
+                            </strong>
+
+                            <span>
+                                ${item.text}
+                            </span>
+
+                        </div>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+}
+
+
+/* =========================================================
+   HISTORY
+   ========================================================= */
 
 function renderHistory() {
 
@@ -3216,9 +2876,7 @@ function renderHistory() {
         historyEl.innerHTML = `
 
             <div class="history-empty">
-
-                Noch keine Lose gespielt.
-
+                Noch keine Ergebnisse.
             </div>
 
         `;
@@ -3233,21 +2891,15 @@ function renderHistory() {
             .map(
                 item => {
 
-                    const date =
+                    const time =
                         new Date(
                             item.timestamp
-                        );
-
-
-                    const time =
-                        date.toLocaleTimeString(
+                        )
+                        .toLocaleTimeString(
                             "de-DE",
                             {
-                                hour:
-                                    "2-digit",
-
-                                minute:
-                                    "2-digit"
+                                hour:"2-digit",
+                                minute:"2-digit"
                             }
                         );
 
@@ -3263,34 +2915,31 @@ function renderHistory() {
                                 </strong>
 
                                 <small>
-                                    ${time} Uhr
+                                    ${time}
                                 </small>
 
                             </div>
 
 
                             <div class="history-cost">
-
                                 −${money(item.price)} €
-
                             </div>
 
 
                             <div class="
                                 history-result
-
-                                ${
-                                    item.prize > 0
+                                ${item.prize > 0
                                     ? "win"
-                                    : ""
-                                }
+                                    : ""}
                             ">
 
                                 ${
                                     item.prize > 0
 
                                     ? "+" +
-                                      money(item.prize) +
+                                      money(
+                                          item.prize
+                                      ) +
                                       " €"
 
                                     : "0 €"
@@ -3309,9 +2958,86 @@ function renderHistory() {
 }
 
 
-/* ============================================================
+/* =========================================================
+   UNLOCK
+   ========================================================= */
+
+function renderUnlock() {
+
+    const nextTicket =
+        tickets.find(
+            ticket =>
+                ticket.unlockLevel >
+                state.level
+        );
+
+
+    if (
+        nextTicket
+    ) {
+
+        nextUnlockEl.innerHTML =
+
+            `Nächste Freischaltung:
+             <strong>
+                ${nextTicket.name}
+             </strong>
+             auf Level
+             ${nextTicket.unlockLevel}.`;
+
+    }
+
+    else {
+
+        nextUnlockEl.innerHTML =
+            "Alle Losklassen freigeschaltet.";
+
+    }
+
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+function updateButtons() {
+
+    const locked =
+        state.level <
+        selectedTicket.unlockLevel;
+
+    const poor =
+        state.balance <
+        selectedTicket.price;
+
+    const active =
+        activeTicket &&
+        !ticketResolved;
+
+
+    buyButton.disabled =
+        locked ||
+        poor ||
+        active;
+
+
+    revealButton.disabled =
+        !active;
+
+
+    whatsappButton.disabled =
+        !(
+            lastSharePrize &&
+            lastSharePrize > 0
+        );
+
+}
+
+
+/* =========================================================
    UI
-   ============================================================ */
+   ========================================================= */
 
 function updateUI() {
 
@@ -3325,13 +3051,16 @@ function updateUI() {
         state.level;
 
 
+    const rank =
+        currentRank();
+
+
     levelNameEl.textContent =
-        levelNames[
-            Math.min(
-                state.level - 1,
-                levelNames.length - 1
-            )
-        ];
+        rank;
+
+
+    rankPill.textContent =
+        rank.toUpperCase();
 
 
     const needed =
@@ -3343,8 +3072,7 @@ function updateUI() {
     xpTextEl.textContent =
         state.xp +
         " / " +
-        needed +
-        " XP";
+        needed;
 
 
     xpFillEl.style.width =
@@ -3355,6 +3083,16 @@ function updateUI() {
             100
         ) +
         "%";
+
+
+    nextRewardEl.textContent =
+        "+" +
+        money(
+            levelReward(
+                state.level + 1
+            )
+        ) +
+        " €";
 
 
     ticketsBoughtEl.textContent =
@@ -3383,169 +3121,123 @@ function updateUI() {
     netResultEl.textContent =
         (
             net > 0
-            ? "+"
-            : ""
+                ? "+"
+                : ""
         ) +
         money(net) +
         " €";
 
 
-    renderNextUnlock();
+    renderUnlock();
 
     renderTickets();
 
-    renderSelectedTicket();
+    renderSelected();
+
+    renderProgression();
 
     renderHistory();
+
+    updateButtons();
 
 }
 
 
-/* ============================================================
-   NÄCHSTE FREISCHALTUNG
-   ============================================================ */
+/* =========================================================
+   NEUE RUNDE
+   ========================================================= */
 
-function renderNextUnlock() {
+function openStartModal() {
 
-    const next =
-        tickets.find(
-            ticket =>
-                ticket.unlockLevel >
-                state.level
+    if (
+        activeTicket &&
+        !ticketResolved
+    ) {
+
+        showToast(
+            "Erst aktuelles Los beenden"
         );
-
-
-    if (!next) {
-
-        nextUnlockEl.textContent =
-            "Alle Losklassen freigeschaltet.";
 
         return;
 
     }
 
 
-    nextUnlockEl.innerHTML =
-
-        `Level ${next.unlockLevel}:
-         <strong>${next.name}</strong>
-         für ${next.price} €`;
-
-}
-
-
-/* ============================================================
-   BUY BUTTON
-   ============================================================ */
-
-function updateBuyButton() {
-
-    const locked =
-        state.level <
-        selectedTicket.unlockLevel;
-
-
-    const insufficient =
-        state.balance <
-        selectedTicket.price;
-
-
-    const unresolved =
-        activeTicket &&
-        !ticketResolved;
-
-
-    buyButton.disabled =
-        locked ||
-        insufficient ||
-        unresolved;
-
-}
-
-
-/* ============================================================
-   START MODAL
-   ============================================================ */
-
-function openStartModal() {
-
     startModal.classList.remove(
         "hidden"
     );
 
-
-    updateBonusPreview();
-
 }
 
-
-/* ============================================================
-   BONUS
-   ============================================================ */
-
-function updateBonusPreview() {
-
-    bonusPreview.innerHTML =
-
-        `Dein aktuelles Level
-        <strong>${state.level}</strong>
-        gibt dir zusätzlich
-        <strong>
-            ${money(levelStartBonus())} €
-        </strong>
-        Startbonus.
-
-        <br><br>
-
-        Neue Runde:
-        <strong>
-            ${money(
-                chosenBudget +
-                levelStartBonus()
-            )} €
-        </strong>
-        Spielgeld.`;
-
-}
-
-
-/* ============================================================
-   NEUE RUNDE
-   ============================================================ */
 
 function startNewRound() {
 
+    if (
+        resultCleanupTimer
+    ) {
+
+        clearTimeout(
+            resultCleanupTimer
+        );
+
+        resultCleanupTimer =
+            null;
+
+    }
+
+
+    currentSessionId++;
+
+
     state.balance =
-        chosenBudget +
-        levelStartBonus();
+        START_BALANCE;
+
+    state.totalSpent =
+        0;
+
+    state.totalWon =
+        0;
+
+    state.ticketsBought =
+        0;
+
+    state.biggestWin =
+        0;
+
+    state.history =
+        [];
+
+    state.started =
+        true;
 
 
-    state.totalSpent = 0;
+    activeTicket =
+        null;
 
-    state.totalWon = 0;
+    activePrize =
+        null;
 
-    state.ticketsBought = 0;
-
-    state.biggestWin = 0;
-
-    state.history = [];
-
-    state.started = true;
+    ticketResolved =
+        true;
 
 
-    activeTicket = null;
+    lastSharePrize =
+        null;
 
-    activePrize = null;
+    lastShareTicket =
+        null;
 
-    ticketResolved = true;
+
+    scratchCanvas.style.opacity =
+        "1";
 
 
-    startModal.classList.add(
+    emptyGame.classList.remove(
         "hidden"
     );
 
 
-    emptyGame.classList.remove(
+    startModal.classList.add(
         "hidden"
     );
 
@@ -3557,65 +3249,25 @@ function startNewRound() {
 }
 
 
-/* ============================================================
-   BUDGET
-   ============================================================ */
-
-document
-    .querySelectorAll(
-        ".budget-option"
-    )
-    .forEach(
-        button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    document
-                        .querySelectorAll(
-                            ".budget-option"
-                        )
-                        .forEach(
-                            b =>
-                                b.classList.remove(
-                                    "selected"
-                                )
-                        );
-
-
-                    button.classList.add(
-                        "selected"
-                    );
-
-
-                    chosenBudget =
-                        Number(
-                            button.dataset.budget
-                        );
-
-
-                    updateBonusPreview();
-
-                }
-            );
-
-        }
-    );
-
-
-/* ============================================================
+/* =========================================================
    TOAST
-   ============================================================ */
+   ========================================================= */
 
-let toastTimer;
+let toastTimer =
+    null;
 
 
 function showToast(text) {
 
-    clearTimeout(
+    if (
         toastTimer
-    );
+    ) {
+
+        clearTimeout(
+            toastTimer
+        );
+
+    }
 
 
     toast.textContent =
@@ -3636,15 +3288,15 @@ function showToast(text) {
                 );
 
             },
-            2100
+            1900
         );
 
 }
 
 
-/* ============================================================
-   BUTTONS
-   ============================================================ */
+/* =========================================================
+   EVENTS
+   ========================================================= */
 
 buyButton.addEventListener(
     "click",
@@ -3658,60 +3310,38 @@ revealButton.addEventListener(
 );
 
 
+whatsappButton.addEventListener(
+    "click",
+    shareWhatsApp
+);
+
+
+newRoundButton.addEventListener(
+    "click",
+    openStartModal
+);
+
+
 startGameButton.addEventListener(
     "click",
     startNewRound
 );
 
 
-newRoundButton.addEventListener(
-    "click",
-    () => {
-
-        if (
-            activeTicket &&
-            !ticketResolved
-        ) {
-
-            showToast(
-                "Aktuelles Los zuerst aufdecken"
-            );
-
-            return;
-
-        }
-
-
-        openStartModal();
-
-    }
-);
-
-
-/* ============================================================
+/* =========================================================
    RESIZE
-   ============================================================ */
 
-window.addEventListener(
-    "resize",
-    () => {
+   Kein automatisches Canvas-Neuzeichnen mehr
+   während eines laufenden Loses.
 
-        if (
-            activeTicket &&
-            !ticketResolved
-        ) {
-
-            createScratchLayer();
-
-        }
-
-    }
-);
+   Das konnte auf iOS durch Browser-UI-
+   Größenänderungen ebenfalls Probleme erzeugen.
+   ========================================================= */
 
 
-/* ============================================================
+/* =========================================================
    SERVICE WORKER
-   ============================================================ */
+   ========================================================= */
 
 if (
     "serviceWorker"
@@ -3737,16 +3367,20 @@ if (
 }
 
 
-/* ============================================================
-   START
-   ============================================================ */
+/* =========================================================
+   INIT
+   ========================================================= */
 
 updateUI();
 
 
-if (!state.started) {
+if (
+    !state.started
+) {
 
-    openStartModal();
+    startModal.classList.remove(
+        "hidden"
+    );
 
 }
 
