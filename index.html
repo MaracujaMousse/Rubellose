@@ -2,11 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>Scratch</title>
 
@@ -53,18 +49,9 @@ body{
     overflow-x:hidden;
     color:var(--text);
     background:
-        radial-gradient(
-            circle at 50% -10%,
-            rgba(217,255,101,.08),
-            transparent 28rem
-        ),
+        radial-gradient(circle at 50% -10%,rgba(217,255,101,.08),transparent 28rem),
         var(--bg);
-    font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+    font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     -webkit-font-smoothing:antialiased;
 }
 
@@ -77,9 +64,7 @@ button{
     user-select:none;
 }
 
-.hidden{
-    display:none!important;
-}
+.hidden{display:none!important;}
 
 .app{
     width:100%;
@@ -187,9 +172,7 @@ button{
     font-size:9px;
 }
 
-.balance-footer strong{
-    color:var(--text);
-}
+.balance-footer strong{color:var(--text);}
 
 .level-card{
     margin-top:9px;
@@ -219,9 +202,7 @@ button{
     letter-spacing:-.04em;
 }
 
-.level-reward{
-    text-align:right;
-}
+.level-reward{text-align:right;}
 
 .level-reward strong{
     display:block;
@@ -266,17 +247,10 @@ button{
     line-height:1.5;
 }
 
-.next-unlock strong{
-    color:var(--text);
-}
+.next-unlock strong{color:var(--text);}
 
-.page{
-    display:none;
-}
-
-.page.active{
-    display:block;
-}
+.page{display:none;}
+.page.active{display:block;}
 
 .section-header{
     margin:25px 2px 10px;
@@ -339,9 +313,7 @@ button{
     -webkit-overflow-scrolling:touch;
 }
 
-.ticket-grid::-webkit-scrollbar{
-    display:none;
-}
+.ticket-grid::-webkit-scrollbar{display:none;}
 
 .ticket{
     flex:0 0 min(79vw,335px);
@@ -359,18 +331,14 @@ button{
     transition:.15s ease;
 }
 
-.ticket:active:not(.locked){
-    transform:scale(.985);
-}
+.ticket:active:not(.locked){transform:scale(.985);}
 
 .ticket.selected{
     border-color:var(--accent);
     box-shadow:inset 0 0 0 1px var(--accent);
 }
 
-.ticket.locked{
-    opacity:.38;
-}
+.ticket.locked{opacity:.38;}
 
 .ticket::after{
     content:"";
@@ -420,9 +388,7 @@ button{
     letter-spacing:.1em;
 }
 
-.ticket-jackpot{
-    margin-top:23px;
-}
+.ticket-jackpot{margin-top:23px;}
 
 .ticket-jackpot span{
     display:block;
@@ -455,9 +421,7 @@ button{
     font-size:8px;
 }
 
-.ticket-chip strong{
-    color:var(--text);
-}
+.ticket-chip strong{color:var(--text);}
 
 .lock-text{
     margin-top:8px;
@@ -472,23 +436,14 @@ button{
     padding:17px;
     border:1px solid rgba(255,119,112,.19);
     border-radius:17px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,119,112,.09),
-            transparent
-        ),
-        var(--panel);
+    background:linear-gradient(135deg,rgba(255,119,112,.09),transparent),var(--panel);
 }
 
-.bankrupt-card.show{
-    display:block;
-}
+.bankrupt-card.show{display:block;}
 
 .bankrupt-card h3{
     margin:0;
     font-size:19px;
-    letter-spacing:-.035em;
 }
 
 .bankrupt-card p{
@@ -529,9 +484,7 @@ button{
     overflow:hidden;
 }
 
-.scratch-side{
-    padding:10px;
-}
+.scratch-side{padding:10px;}
 
 .scratch-card{
     width:100%;
@@ -541,11 +494,7 @@ button{
     border:1px solid var(--line);
     border-radius:16px;
     background:
-        radial-gradient(
-            circle at 75% 30%,
-            rgba(217,255,101,.13),
-            transparent 30%
-        ),
+        radial-gradient(circle at 75% 30%,rgba(217,255,101,.13),transparent 30%),
         #101216;
     user-select:none;
 }
@@ -629,6 +578,52 @@ button{
     line-height:1.55;
 }
 
+/* NEU: CASH DIREKT UNTER RUBBELLOS */
+
+.scratch-cash{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-top:9px;
+    padding:14px 16px;
+    border:1px solid rgba(217,255,101,.16);
+    border-radius:15px;
+    background:var(--accentSoft);
+}
+
+.scratch-cash-left span{
+    display:block;
+    color:var(--muted);
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.12em;
+}
+
+.scratch-cash-left strong{
+    display:block;
+    margin-top:3px;
+    font-size:25px;
+    letter-spacing:-.04em;
+}
+
+.scratch-cash-right{
+    text-align:right;
+}
+
+.scratch-cash-right span{
+    display:block;
+    color:var(--muted);
+    font-size:8px;
+}
+
+.scratch-cash-right strong{
+    display:block;
+    margin-top:3px;
+    color:var(--accent);
+    font-size:12px;
+}
+
 .game-info{
     display:flex;
     flex-direction:column;
@@ -655,9 +650,7 @@ button{
     font-size:11px;
 }
 
-.info-list{
-    border-top:1px solid var(--line);
-}
+.info-list{border-top:1px solid var(--line);}
 
 .info-row{
     display:flex;
@@ -668,9 +661,7 @@ button{
     font-size:10px;
 }
 
-.info-row span:first-child{
-    color:var(--muted);
-}
+.info-row span:first-child{color:var(--muted);}
 
 .primary-btn,
 .secondary-btn,
@@ -795,9 +786,7 @@ button:disabled{
     scrollbar-width:none;
 }
 
-.progression::-webkit-scrollbar{
-    display:none;
-}
+.progression::-webkit-scrollbar{display:none;}
 
 .milestone{
     flex:0 0 145px;
@@ -807,13 +796,8 @@ button:disabled{
     background:var(--panel);
 }
 
-.milestone.current{
-    border-color:var(--accent);
-}
-
-.milestone.done{
-    opacity:.55;
-}
+.milestone.current{border-color:var(--accent);}
+.milestone.done{opacity:.55;}
 
 .milestone-level{
     font-size:9px;
@@ -858,22 +842,15 @@ button:disabled{
     font-size:10px;
 }
 
-.history-row:last-child{
-    border-bottom:none;
-}
+.history-row:last-child{border-bottom:none;}
 
 .history-name strong{
     display:block;
     font-size:11px;
 }
 
-.history-name small{
-    color:var(--muted);
-}
-
-.history-cost{
-    color:var(--muted);
-}
+.history-name small{color:var(--muted);}
+.history-cost{color:var(--muted);}
 
 .history-result{
     min-width:70px;
@@ -881,9 +858,7 @@ button:disabled{
     font-weight:850;
 }
 
-.history-result.win{
-    color:var(--accent);
-}
+.history-result.win{color:var(--accent);}
 
 .round-bar{
     display:flex;
@@ -918,11 +893,7 @@ button:disabled{
     border:1px solid var(--line);
     border-radius:21px;
     background:
-        radial-gradient(
-            circle at 80% 10%,
-            rgba(117,240,197,.14),
-            transparent 15rem
-        ),
+        radial-gradient(circle at 80% 10%,rgba(117,240,197,.14),transparent 15rem),
         var(--panel);
 }
 
@@ -999,12 +970,7 @@ button:disabled{
     display:grid;
     place-items:center;
     background:
-        radial-gradient(
-            circle at 40% 32%,
-            #a2f8dc,
-            #64d4ae 38%,
-            #31886e 100%
-        );
+        radial-gradient(circle at 40% 32%,#a2f8dc,#64d4ae 38%,#31886e 100%);
     color:#0a1713;
     box-shadow:
         inset 0 -13px 25px rgba(0,0,0,.22),
@@ -1021,9 +987,7 @@ button:disabled{
     border-radius:50%;
 }
 
-.tap-button:active{
-    transform:scale(.94);
-}
+.tap-button:active{transform:scale(.94);}
 
 .tap-button-main{
     position:relative;
@@ -1097,9 +1061,7 @@ button:disabled{
     background:var(--panel3);
 }
 
-.upgrade-card.locked{
-    opacity:.42;
-}
+.upgrade-card.locked{opacity:.42;}
 
 .upgrade-card.owned{
     border-color:rgba(117,240,197,.22);
@@ -1147,11 +1109,7 @@ button:disabled{
     border:1px solid rgba(117,240,197,.14);
     border-radius:18px;
     background:
-        linear-gradient(
-            135deg,
-            rgba(117,240,197,.07),
-            transparent
-        ),
+        linear-gradient(135deg,rgba(117,240,197,.07),transparent),
         var(--panel);
 }
 
@@ -1165,7 +1123,6 @@ button:disabled{
 .offline-card h3{
     margin:0;
     font-size:17px;
-    letter-spacing:-.03em;
 }
 
 .offline-state{
@@ -1252,10 +1209,7 @@ button:disabled{
     z-index:300;
     display:flex;
     align-items:flex-end;
-    padding:
-        12px
-        12px
-        max(12px,env(safe-area-inset-bottom));
+    padding:12px 12px max(12px,env(safe-area-inset-bottom));
     background:rgba(5,6,8,.8);
     backdrop-filter:blur(15px);
     -webkit-backdrop-filter:blur(15px);
@@ -1313,7 +1267,6 @@ button:disabled{
     display:block;
     margin-top:4px;
     font-size:42px;
-    letter-spacing:-.05em;
 }
 
 .start-btn,
@@ -1337,7 +1290,6 @@ button:disabled{
     color:#10120e;
     font-size:25px;
     font-weight:1000;
-    transform:rotate(-3deg);
 }
 
 .install-instruction{
@@ -1353,9 +1305,7 @@ button:disabled{
     line-height:1.55;
 }
 
-.install-instruction strong{
-    color:var(--text);
-}
+.install-instruction strong{color:var(--text);}
 
 .share-symbol{
     flex:0 0 auto;
@@ -1385,8 +1335,6 @@ button:disabled{
     letter-spacing:-.06em;
     color:var(--mint);
 }
-
-/* BIG WIN */
 
 .win-effect{
     position:fixed;
@@ -1421,13 +1369,8 @@ button:disabled{
     animation:winPulse 1.1s ease infinite alternate;
 }
 
-.win-effect.mega .win-effect-glow{
-    opacity:.22;
-}
-
-.win-effect.jackpot .win-effect-glow{
-    opacity:.34;
-}
+.win-effect.mega .win-effect-glow{opacity:.22;}
+.win-effect.jackpot .win-effect-glow{opacity:.34;}
 
 @keyframes winPulse{
     from{transform:scale(.65)}
@@ -1440,18 +1383,6 @@ button:disabled{
     width:100%;
     max-width:450px;
     text-align:center;
-    animation:winEnter .55s cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes winEnter{
-    from{
-        transform:scale(.72) translateY(30px);
-        opacity:0;
-    }
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
 }
 
 .win-effect-label{
@@ -1474,7 +1405,6 @@ button:disabled{
     font-size:clamp(32px,10vw,55px);
     font-weight:900;
     color:var(--accent);
-    letter-spacing:-.05em;
 }
 
 .win-effect-ticket{
@@ -1507,8 +1437,6 @@ button:disabled{
     background:#eefbd0;
     color:#11140d;
     white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
     font-size:11px;
     font-weight:850;
     transition:.25s ease;
@@ -1534,48 +1462,29 @@ button:disabled{
 </header>
 
 <section class="balance-card">
-
     <div class="balance-label">GUTHABEN</div>
-
     <div class="balance">
         <span id="balance">150</span>
         <small>€</small>
     </div>
 
     <div class="balance-footer">
-        <span>
-            Cash
-            <strong id="balanceNet">0 €</strong>
-        </span>
-
-        <span>
-            Mint
-            <strong id="headerPassive">0 €/Min.</strong>
-        </span>
+        <span>Cash <strong id="balanceNet">0 €</strong></span>
+        <span>Mint <strong id="headerPassive">0 €/Min.</strong></span>
     </div>
-
 </section>
 
 <section class="level-card">
-
     <div class="level-top">
-
         <div>
-            <div class="level-caption">
-                LEVEL
-                <span id="levelNumber">1</span>
-            </div>
-
-            <div class="level-title" id="levelName">
-                Rookie
-            </div>
+            <div class="level-caption">LEVEL <span id="levelNumber">1</span></div>
+            <div class="level-title" id="levelName">Rookie</div>
         </div>
 
         <div class="level-reward">
             <strong id="nextReward">+16 €</strong>
             <span>NÄCHSTES LEVEL</span>
         </div>
-
     </div>
 
     <div class="xp-row">
@@ -1588,13 +1497,11 @@ button:disabled{
     </div>
 
     <div class="next-unlock" id="nextUnlock"></div>
-
 </section>
 
 <main class="page active" id="scratchPage">
 
 <section class="stats">
-
     <div class="stat">
         <div class="stat-value" id="ticketsBought">0</div>
         <div class="stat-label">Lose</div>
@@ -1614,37 +1521,21 @@ button:disabled{
         <div class="stat-value" id="netResult">0 €</div>
         <div class="stat-label">Cash</div>
     </div>
-
 </section>
 
 <div class="bankrupt-card" id="bankruptCard">
-
     <h3>Kein Los mehr bezahlbar.</h3>
-
-    <p>
-        Nutze die Mint, um dein Guthaben wieder aufzubauen,
-        oder starte eine neue Runde.
-    </p>
+    <p>Nutze die Mint oder starte eine neue Runde.</p>
 
     <div class="bankrupt-actions">
-
-        <button class="bankrupt-mint" id="bankruptMintButton">
-            Zur Mint
-        </button>
-
-        <button class="bankrupt-reset" id="bankruptResetButton">
-            Neue Runde
-        </button>
-
+        <button class="bankrupt-mint" id="bankruptMintButton">Zur Mint</button>
+        <button class="bankrupt-reset" id="bankruptResetButton">Neue Runde</button>
     </div>
-
 </div>
 
 <div class="section-header">
     <h2>Lose</h2>
-    <p>
-        Jeder Gewinnbereich enthält hunderte bis tausende mögliche Beträge.
-    </p>
+    <p>Los auswählen.</p>
 </div>
 
 <section class="ticket-grid" id="ticketGrid"></section>
@@ -1661,39 +1552,34 @@ button:disabled{
     <div class="scratch-card">
 
         <div class="result-underlay">
-
             <div>
-
-                <div class="result-kicker" id="resultKicker">
-                    Gewinn
-                </div>
-
-                <div class="result-amount" id="resultAmount">
-                    0 €
-                </div>
-
-                <div class="result-message" id="resultMessage">
-                    Viel Glück.
-                </div>
-
+                <div class="result-kicker" id="resultKicker">Gewinn</div>
+                <div class="result-amount" id="resultAmount">0 €</div>
+                <div class="result-message" id="resultMessage">Viel Glück.</div>
             </div>
-
         </div>
 
         <canvas id="scratchCanvas"></canvas>
 
         <div class="empty-game" id="emptyGame">
-
             <div class="empty-icon">✦</div>
-
             <strong>Bereit</strong>
-
-            <p>
-                Los auswählen und starten.
-            </p>
-
+            <p>Los auswählen und starten.</p>
         </div>
 
+    </div>
+
+    <!-- NEU -->
+    <div class="scratch-cash">
+        <div class="scratch-cash-left">
+            <span>DEIN CASH</span>
+            <strong><span id="scratchCash">150</span> €</strong>
+        </div>
+
+        <div class="scratch-cash-right">
+            <span>NÄCHSTES LOS</span>
+            <strong id="scratchTicketCost">−2 €</strong>
+        </div>
     </div>
 
 </div>
@@ -1701,23 +1587,12 @@ button:disabled{
 <div class="game-info">
 
     <div>
-
-        <div class="selected-heading">
-            AUSGEWÄHLT
-        </div>
-
-        <div class="selected-name" id="selectedName">
-            Mini
-        </div>
-
-        <div class="selected-price" id="selectedPrice">
-            2 € Einsatz
-        </div>
-
+        <div class="selected-heading">AUSGEWÄHLT</div>
+        <div class="selected-name" id="selectedName">Mini</div>
+        <div class="selected-price" id="selectedPrice">2 € Einsatz</div>
     </div>
 
     <div class="info-list">
-
         <div class="info-row">
             <span>Trefferquote</span>
             <span id="selectedOdds"></span>
@@ -1747,56 +1622,34 @@ button:disabled{
             <span>XP</span>
             <span id="selectedXp"></span>
         </div>
-
     </div>
 
     <div>
-
-        <button class="primary-btn" id="buyButton">
-            Los kaufen
-        </button>
-
-        <button class="secondary-btn" id="revealButton" disabled>
-            Sofort aufdecken
-        </button>
-
-        <button class="whatsapp-btn" id="whatsappButton" disabled>
-            Gewinn über WhatsApp teilen
-        </button>
-
+        <button class="primary-btn" id="buyButton">Los kaufen</button>
+        <button class="secondary-btn" id="revealButton" disabled>Sofort aufdecken</button>
+        <button class="whatsapp-btn" id="whatsappButton" disabled>Gewinn über WhatsApp teilen</button>
     </div>
 
 </div>
-
 </section>
 
 <div class="section-header">
     <h2>Luck Lab</h2>
-    <p>
-        Kleine permanente Verbesserungen der Trefferchance.
-        Maximal +0,80 Prozentpunkte pro Los.
-    </p>
+    <p>Kleine permanente Verbesserungen der Trefferchance.</p>
 </div>
 
 <section class="luck-list" id="luckList"></section>
 
 <div class="section-header">
     <h2>Progression</h2>
-    <p>
-        Scratch und Mint nutzen dasselbe Level.
-    </p>
+    <p>Scratch und Mint nutzen dasselbe Level.</p>
 </div>
 
 <section class="progression" id="progression"></section>
 
 <div class="round-bar">
-
     <h2>Verlauf</h2>
-
-    <button class="round-btn" id="newRoundButton">
-        Neue Runde
-    </button>
-
+    <button class="round-btn" id="newRoundButton">Neue Runde</button>
 </div>
 
 <section class="history" id="history"></section>
@@ -1806,19 +1659,11 @@ button:disabled{
 <main class="page" id="mintPage">
 
 <section class="mint-hero">
-
-    <div class="mint-eyebrow">
-        CASH LAB
-    </div>
-
+    <div class="mint-eyebrow">CASH LAB</div>
     <h2>Mint</h2>
-
-    <p>
-        Tippen, investieren, automatisieren.
-    </p>
+    <p>Tippen, investieren, automatisieren.</p>
 
     <div class="mint-stats">
-
         <div class="mint-stat">
             <strong id="mintPerTap">0,01 €</strong>
             <span>pro Tap</span>
@@ -1833,56 +1678,32 @@ button:disabled{
             <strong id="mintTotalClicks">0</strong>
             <span>Taps</span>
         </div>
-
     </div>
-
 </section>
 
 <section class="tap-area">
-
-    <div class="tap-label">
-        MANUELLE MINT
-    </div>
+    <div class="tap-label">MANUELLE MINT</div>
 
     <button class="tap-button" id="tapButton">
-
         <div class="tap-button-main">
-
-            <strong id="tapButtonValue">
-                +0,01 €
-            </strong>
-
+            <strong id="tapButtonValue">+0,01 €</strong>
             <span>TAP</span>
-
         </div>
-
     </button>
 
-    <div class="tap-note">
-        50 Taps = 1 XP
-    </div>
-
+    <div class="tap-note">50 Taps = 1 XP</div>
 </section>
 
 <section class="offline-card">
-
     <div class="offline-card-top">
-
         <div>
             <h3>Offline Mint</h3>
-            <p>
-                Maschinen produzieren auch außerhalb der App.
-            </p>
+            <p>Maschinen produzieren auch außerhalb der App.</p>
         </div>
-
-        <div class="offline-state" id="offlineState">
-            AKTIV
-        </div>
-
+        <div class="offline-state" id="offlineState">AKTIV</div>
     </div>
 
     <div class="offline-values">
-
         <div class="offline-value">
             <strong id="offlineRate">0 €/Min.</strong>
             <span>Produktion</span>
@@ -1892,14 +1713,12 @@ button:disabled{
             <strong id="offlineCap">2 Std.</strong>
             <span>Max. Offlinezeit</span>
         </div>
-
     </div>
-
 </section>
 
 <div class="section-header">
     <h2>Tap-Upgrades</h2>
-    <p>Dauerhaft stärker tippen.</p>
+    <p>Stärker tippen. Maximal 4.500 €.</p>
 </div>
 
 <section class="mint-block">
@@ -1908,7 +1727,7 @@ button:disabled{
 
 <div class="section-header">
     <h2>Maschinen</h2>
-    <p>Automatisches Einkommen pro Minute.</p>
+    <p>Automatisches Einkommen. Maximal 5.000 €.</p>
 </div>
 
 <section class="mint-block">
@@ -1920,166 +1739,79 @@ button:disabled{
 </div>
 
 <nav class="bottom-nav">
-
-    <button class="nav-btn active" data-page="scratch">
-        SCRATCH
-    </button>
-
-    <button class="nav-btn" data-page="mint">
-        MINT
-    </button>
-
+    <button class="nav-btn active" data-page="scratch">SCRATCH</button>
+    <button class="nav-btn" data-page="mint">MINT</button>
 </nav>
 
 <div class="modal" id="startModal">
-
     <div class="modal-card">
-
-        <div class="modal-eyebrow">
-            SCRATCH
-        </div>
-
+        <div class="modal-eyebrow">SCRATCH</div>
         <h2>Neue Runde</h2>
-
-        <p>
-            Level, Mint und Luck-Upgrades bleiben erhalten.
-        </p>
+        <p>Level, Mint und Luck-Upgrades bleiben erhalten.</p>
 
         <div class="start-amount">
-
             <span>STARTGUTHABEN</span>
-
             <strong>150 €</strong>
-
         </div>
 
-        <button class="start-btn" id="startGameButton">
-            Starten
-        </button>
-
+        <button class="start-btn" id="startGameButton">Starten</button>
     </div>
-
 </div>
 
 <div class="install-modal hidden" id="installModal">
-
     <div class="install-card">
-
         <div class="install-icon">S</div>
-
-        <div class="install-label">
-            WEB-APP
-        </div>
-
+        <div class="install-label">WEB-APP</div>
         <h2>Scratch installieren</h2>
-
-        <p>
-            Als Web-App zum Home-Bildschirm hinzufügen?
-        </p>
+        <p>Als Web-App zum Home-Bildschirm hinzufügen?</p>
 
         <div class="install-instruction">
-
             <span class="share-symbol">↑</span>
-
             <div>
-                In Safari auf
-                <strong>Teilen</strong>
-                und danach
-                <strong>Zum Home-Bildschirm</strong>
-                tippen.
+                In Safari auf <strong>Teilen</strong> und danach
+                <strong>Zum Home-Bildschirm</strong> tippen.
             </div>
-
         </div>
 
-        <button class="install-button" id="installDoneButton">
-            Verstanden
-        </button>
-
-        <button class="install-later" id="installLaterButton">
-            Später
-        </button>
-
+        <button class="install-button" id="installDoneButton">Verstanden</button>
+        <button class="install-later" id="installLaterButton">Später</button>
     </div>
-
 </div>
 
 <div class="modal hidden" id="offlineModal">
-
     <div class="modal-card">
-
-        <div class="modal-eyebrow">
-            MINT
-        </div>
-
+        <div class="modal-eyebrow">MINT</div>
         <h2>Produktion abgeschlossen</h2>
-
-        <div class="offline-modal-amount" id="offlineModalAmount">
-            +0 €
-        </div>
-
+        <div class="offline-modal-amount" id="offlineModalAmount">+0 €</div>
         <p id="offlineModalText"></p>
-
-        <button class="start-btn" id="offlineModalButton">
-            Einsammeln
-        </button>
-
+        <button class="start-btn" id="offlineModalButton">Einsammeln</button>
     </div>
-
 </div>
 
 <div class="win-effect" id="winEffect">
-
     <div class="win-effect-glow"></div>
 
     <div class="win-effect-content">
-
-        <div class="win-effect-label" id="winEffectLabel">
-            BIG WIN
-        </div>
-
-        <div class="win-effect-title" id="winEffectTitle">
-            BIG<br>WIN
-        </div>
-
-        <div class="win-effect-amount" id="winEffectAmount">
-            +1.000 €
-        </div>
-
+        <div class="win-effect-label" id="winEffectLabel">BIG WIN</div>
+        <div class="win-effect-title" id="winEffectTitle">BIG<br>WIN</div>
+        <div class="win-effect-amount" id="winEffectAmount">+1.000 €</div>
         <div class="win-effect-ticket" id="winEffectTicket"></div>
-
-        <button class="win-effect-button" id="winEffectButton">
-            Weiter
-        </button>
-
+        <button class="win-effect-button" id="winEffectButton">Weiter</button>
     </div>
-
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
 
-/* =========================================================
-   BASIS
-   ========================================================= */
-
 const START_BALANCE = 150;
-const STORAGE_KEY = "scratchGameStateV5";
+const STORAGE_KEY = "scratchGameStateV6";
 
 const LUCK_STEP = 0.0008;
 const MAX_LUCK_LEVEL = 10;
 
-
 /* =========================================================
    LOSE
-
-   probability = Anteil zwischen 0 und 1.
-
-   "loss" ist die Niete.
-   Alle anderen Bereiche erzeugen variable Cent-Beträge.
-
-   featured = Beträge, die innerhalb ihres Bereichs
-   etwas häufiger ausgewählt werden dürfen.
    ========================================================= */
 
 const tickets = [
@@ -2089,97 +1821,27 @@ const tickets = [
     name:"Mini",
     tier:"Starter",
     className:"mini",
-
     price:2,
     unlockLevel:1,
     xp:6,
-
     jackpot:10000,
     jackpotOdds:"1 : 100.000",
 
     bands:[
-        {
-            id:"loss",
-            probability:.52,
-            fixed:0
-        },
-
-        {
-            id:"partial",
-            probability:.28,
-            min:.50,
-            max:1.99
-        },
-
-        {
-            id:"break",
-            probability:.15,
-            min:2,
-            max:3.99
-        },
-
-        {
-            id:"small",
-            probability:.045,
-            min:4,
-            max:9.99
-        },
-
-        {
-            id:"medium",
-            probability:.004,
-            min:10,
-            max:49.99
-        },
-
-        {
-            id:"high",
-            probability:.0008,
-            min:50,
-            max:199.99
-        },
-
-        {
-            id:"big",
-            probability:.00015,
-            min:200,
-            max:999.99
-        },
-
-        {
-            id:"mega",
-            probability:.00004,
-            min:1000,
-            max:4999.99
-        },
-
-        {
-            id:"jackpot",
-            probability:.00001,
-            fixed:10000
-        }
+        {id:"loss",probability:.52,fixed:0},
+        {id:"partial",probability:.28,min:.50,max:1.99},
+        {id:"break",probability:.15,min:2,max:3.99},
+        {id:"small",probability:.045,min:4,max:9.99},
+        {id:"medium",probability:.004,min:10,max:49.99},
+        {id:"high",probability:.0008,min:50,max:199.99},
+        {id:"big",probability:.00015,min:200,max:999.99},
+        {id:"mega",probability:.00004,min:1000,max:4999.99},
+        {id:"jackpot",probability:.00001,fixed:10000}
     ],
 
     featured:[
-        1,
-        1.25,
-        1.50,
-        1.75,
-        2.30,
-        3.29,
-        4.50,
-        5,
-        7.50,
-        10,
-        12,
-        20,
-        25,
-        50,
-        83,
-        100,
-        150,
-        200,
-        500
+        1,1.25,1.50,1.75,2.30,3.29,4.50,5,7.50,
+        10,12,20,25,50,83,100,150,200,500
     ]
 },
 
@@ -2188,117 +1850,29 @@ const tickets = [
     name:"Classic",
     tier:"Regular",
     className:"classic",
-
     price:5,
     unlockLevel:3,
     xp:14,
-
     jackpot:100000,
     jackpotOdds:"1 : 100.000",
 
     bands:[
-        {
-            id:"loss",
-            probability:.50,
-            fixed:0
-        },
-
-        {
-            id:"partial",
-            probability:.30073,
-            min:1,
-            max:4.99
-        },
-
-        {
-            id:"break",
-            probability:.17,
-            min:5,
-            max:9.99
-        },
-
-        {
-            id:"small",
-            probability:.025,
-            min:10,
-            max:29.99
-        },
-
-        {
-            id:"medium",
-            probability:.003,
-            min:30,
-            max:99.99
-        },
-
-        {
-            id:"high",
-            probability:.001,
-            min:100,
-            max:249.99
-        },
-
-        {
-            id:"big",
-            probability:.0002,
-            min:250,
-            max:999.99
-        },
-
-        {
-            id:"mega",
-            probability:.00005,
-            min:1000,
-            max:4999.99
-        },
-
-        {
-            id:"ultra",
-            probability:.00001,
-            min:5000,
-            max:24999.99
-        },
-
-        {
-            id:"jackpot",
-            probability:.00001,
-            fixed:100000
-        }
+        {id:"loss",probability:.50,fixed:0},
+        {id:"partial",probability:.30073,min:1,max:4.99},
+        {id:"break",probability:.17,min:5,max:9.99},
+        {id:"small",probability:.025,min:10,max:29.99},
+        {id:"medium",probability:.003,min:30,max:99.99},
+        {id:"high",probability:.001,min:100,max:249.99},
+        {id:"big",probability:.0002,min:250,max:999.99},
+        {id:"mega",probability:.00005,min:1000,max:4999.99},
+        {id:"ultra",probability:.00001,min:5000,max:24999.99},
+        {id:"jackpot",probability:.00001,fixed:100000}
     ],
 
     featured:[
-        1.50,
-        2,
-        2.30,
-        2.50,
-        3.29,
-        3.50,
-        4,
-        4.50,
-        5,
-        6.50,
-        7.50,
-        8,
-        10,
-        12,
-        15,
-        20,
-        25,
-        30,
-        37,
-        50,
-        75,
-        83,
-        100,
-        125,
-        150,
-        175,
-        200,
-        225,
-        250,
-        300,
-        500,
-        750
+        1.50,2,2.30,2.50,3.29,3.50,4,4.50,5,6.50,
+        7.50,8,10,12,15,20,25,30,37,50,75,83,100,
+        125,150,175,200,225,250,300,500,750
     ]
 },
 
@@ -2307,104 +1881,28 @@ const tickets = [
     name:"Gold",
     tier:"Premium",
     className:"gold",
-
     price:10,
     unlockLevel:6,
     xp:28,
-
     jackpot:100000,
     jackpotOdds:"1 : 75.000",
 
     bands:[
-        {
-            id:"loss",
-            probability:.48,
-            fixed:0
-        },
-
-        {
-            id:"partial",
-            probability:.2900134,
-            min:2,
-            max:9.99
-        },
-
-        {
-            id:"break",
-            probability:.18,
-            min:10,
-            max:19.99
-        },
-
-        {
-            id:"small",
-            probability:.045,
-            min:20,
-            max:59.99
-        },
-
-        {
-            id:"medium",
-            probability:.004,
-            min:60,
-            max:249.99
-        },
-
-        {
-            id:"high",
-            probability:.0008,
-            min:250,
-            max:999.99
-        },
-
-        {
-            id:"big",
-            probability:.00015,
-            min:1000,
-            max:4999.99
-        },
-
-        {
-            id:"mega",
-            probability:.0000232667,
-            min:5000,
-            max:24999.99
-        },
-
-        {
-            id:"jackpot",
-            probability:1/75000,
-            fixed:100000
-        }
+        {id:"loss",probability:.48,fixed:0},
+        {id:"partial",probability:.2900134,min:2,max:9.99},
+        {id:"break",probability:.18,min:10,max:19.99},
+        {id:"small",probability:.045,min:20,max:59.99},
+        {id:"medium",probability:.004,min:60,max:249.99},
+        {id:"high",probability:.0008,min:250,max:999.99},
+        {id:"big",probability:.00015,min:1000,max:4999.99},
+        {id:"mega",probability:.0000232667,min:5000,max:24999.99},
+        {id:"jackpot",probability:1/75000,fixed:100000}
     ],
 
     featured:[
-        3.29,
-        5,
-        7.50,
-        9.50,
-        10,
-        12,
-        15,
-        20,
-        25,
-        30,
-        37,
-        50,
-        75,
-        83,
-        100,
-        125,
-        150,
-        200,
-        250,
-        300,
-        400,
-        500,
-        600,
-        750,
-        1000,
-        1500
+        3.29,5,7.50,9.50,10,12,15,20,25,30,37,50,
+        75,83,100,125,150,200,250,300,400,500,600,
+        750,1000,1500
     ]
 },
 
@@ -2413,104 +1911,28 @@ const tickets = [
     name:"Black 20",
     tier:"Elite",
     className:"black",
-
     price:20,
     unlockLevel:10,
     xp:60,
-
     jackpot:100000,
     jackpotOdds:"1 : 50.000",
 
     bands:[
-        {
-            id:"loss",
-            probability:.45,
-            fixed:0
-        },
-
-        {
-            id:"partial",
-            probability:.34,
-            min:4,
-            max:19.99
-        },
-
-        {
-            id:"break",
-            probability:.19,
-            min:20,
-            max:39.99
-        },
-
-        {
-            id:"small",
-            probability:.017,
-            min:40,
-            max:199.99
-        },
-
-        {
-            id:"medium",
-            probability:.002,
-            min:200,
-            max:799.99
-        },
-
-        {
-            id:"high",
-            probability:.0007,
-            min:800,
-            max:2499.99
-        },
-
-        {
-            id:"big",
-            probability:.0002,
-            min:2500,
-            max:9999.99
-        },
-
-        {
-            id:"mega",
-            probability:.00008,
-            min:10000,
-            max:24999.99
-        },
-
-        {
-            id:"jackpot",
-            probability:.00002,
-            fixed:100000
-        }
+        {id:"loss",probability:.45,fixed:0},
+        {id:"partial",probability:.34,min:4,max:19.99},
+        {id:"break",probability:.19,min:20,max:39.99},
+        {id:"small",probability:.017,min:40,max:199.99},
+        {id:"medium",probability:.002,min:200,max:799.99},
+        {id:"high",probability:.0007,min:800,max:2499.99},
+        {id:"big",probability:.0002,min:2500,max:9999.99},
+        {id:"mega",probability:.00008,min:10000,max:24999.99},
+        {id:"jackpot",probability:.00002,fixed:100000}
     ],
 
     featured:[
-        5,
-        10,
-        12.50,
-        15,
-        18,
-        20,
-        25,
-        30,
-        37,
-        40,
-        50,
-        75,
-        83,
-        100,
-        125,
-        150,
-        200,
-        250,
-        300,
-        400,
-        500,
-        600,
-        750,
-        1000,
-        1500,
-        2000
+        5,10,12.50,15,18,20,25,30,37,40,50,75,83,
+        100,125,150,200,250,300,400,500,600,750,
+        1000,1500,2000
     ]
 },
 
@@ -2519,105 +1941,28 @@ const tickets = [
     name:"Neon 50",
     tier:"Master",
     className:"neon",
-
     price:50,
     unlockLevel:16,
     xp:155,
-
     jackpot:100000,
     jackpotOdds:"1 : 35.000",
 
     bands:[
-        {
-            id:"loss",
-            probability:.42,
-            fixed:0
-        },
-
-        {
-            id:"partial",
-            probability:.34,
-            min:10,
-            max:49.99
-        },
-
-        {
-            id:"break",
-            probability:.22,
-            min:50,
-            max:99.99
-        },
-
-        {
-            id:"small",
-            probability:.015,
-            min:100,
-            max:299.99
-        },
-
-        {
-            id:"medium",
-            probability:.003,
-            min:300,
-            max:999.99
-        },
-
-        {
-            id:"high",
-            probability:.0015,
-            min:1000,
-            max:4999.99
-        },
-
-        {
-            id:"big",
-            probability:.00035,
-            min:5000,
-            max:14999.99
-        },
-
-        {
-            id:"mega",
-            probability:.0001214286,
-            min:15000,
-            max:49999.99
-        },
-
-        {
-            id:"jackpot",
-            probability:1/35000,
-            fixed:100000
-        }
+        {id:"loss",probability:.42,fixed:0},
+        {id:"partial",probability:.34,min:10,max:49.99},
+        {id:"break",probability:.22,min:50,max:99.99},
+        {id:"small",probability:.015,min:100,max:299.99},
+        {id:"medium",probability:.003,min:300,max:999.99},
+        {id:"high",probability:.0015,min:1000,max:4999.99},
+        {id:"big",probability:.00035,min:5000,max:14999.99},
+        {id:"mega",probability:.0001214286,min:15000,max:49999.99},
+        {id:"jackpot",probability:1/35000,fixed:100000}
     ],
 
     featured:[
-        10,
-        20,
-        25,
-        30,
-        37,
-        40,
-        45,
-        50,
-        60,
-        75,
-        83,
-        100,
-        125,
-        150,
-        180,
-        200,
-        250,
-        300,
-        400,
-        500,
-        600,
-        750,
-        850,
-        1000,
-        1500,
-        2500,
-        5000
+        10,20,25,30,37,40,45,50,60,75,83,100,125,
+        150,180,200,250,300,400,500,600,750,850,
+        1000,1500,2500,5000
     ]
 },
 
@@ -2626,111 +1971,35 @@ const tickets = [
     name:"Vault 100",
     tier:"Legend",
     className:"vault",
-
     price:100,
     unlockLevel:24,
     xp:325,
-
     jackpot:100000,
     jackpotOdds:"1 : 25.000",
 
     bands:[
-        {
-            id:"loss",
-            probability:.40,
-            fixed:0
-        },
-
-        {
-            id:"partial",
-            probability:.346,
-            min:20,
-            max:99.99
-        },
-
-        {
-            id:"break",
-            probability:.234,
-            min:100,
-            max:199.99
-        },
-
-        {
-            id:"small",
-            probability:.015,
-            min:200,
-            max:499.99
-        },
-
-        {
-            id:"medium",
-            probability:.0035,
-            min:500,
-            max:1999.99
-        },
-
-        {
-            id:"high",
-            probability:.001,
-            min:2000,
-            max:9999.99
-        },
-
-        {
-            id:"big",
-            probability:.00035,
-            min:10000,
-            max:24999.99
-        },
-
-        {
-            id:"mega",
-            probability:.00011,
-            min:25000,
-            max:49999.99
-        },
-
-        {
-            id:"jackpot",
-            probability:.00004,
-            fixed:100000
-        }
+        {id:"loss",probability:.40,fixed:0},
+        {id:"partial",probability:.346,min:20,max:99.99},
+        {id:"break",probability:.234,min:100,max:199.99},
+        {id:"small",probability:.015,min:200,max:499.99},
+        {id:"medium",probability:.0035,min:500,max:1999.99},
+        {id:"high",probability:.001,min:2000,max:9999.99},
+        {id:"big",probability:.00035,min:10000,max:24999.99},
+        {id:"mega",probability:.00011,min:25000,max:49999.99},
+        {id:"jackpot",probability:.00004,fixed:100000}
     ],
 
     featured:[
-        25,
-        50,
-        75,
-        83,
-        90,
-        100,
-        125,
-        150,
-        175,
-        200,
-        250,
-        300,
-        400,
-        500,
-        600,
-        750,
-        850,
-        1000,
-        1250,
-        1500,
-        2000,
-        2500,
-        5000,
-        7500,
-        10000
+        25,50,75,83,90,100,125,150,175,200,250,300,
+        400,500,600,750,850,1000,1250,1500,2000,
+        2500,5000,7500,10000
     ]
 }
 
 ];
 
-
 /* =========================================================
-   MINT
+   GÜNSTIGERE MINT-UPGRADES
    ========================================================= */
 
 const tapUpgrades = [
@@ -2739,54 +2008,54 @@ const tapUpgrades = [
     id:"copper",
     name:"Kupferfinger",
     value:.02,
-    price:250,
-    level:4,
-    xp:80
+    price:25,
+    level:2,
+    xp:20
 },
 
 {
     id:"steel",
     name:"Stahlfinger",
     value:.05,
-    price:1500,
-    level:8,
-    xp:220
+    price:100,
+    level:4,
+    xp:45
 },
 
 {
     id:"hydraulic",
     name:"Hydraulik",
     value:.10,
-    price:7500,
-    level:12,
-    xp:550
+    price:350,
+    level:7,
+    xp:90
 },
 
 {
     id:"press",
     name:"Presswerk",
     value:.25,
-    price:35000,
-    level:18,
-    xp:1300
+    price:900,
+    level:11,
+    xp:180
 },
 
 {
     id:"printer",
     name:"Money Printer",
     value:.50,
-    price:150000,
-    level:24,
-    xp:3000
+    price:2200,
+    level:17,
+    xp:350
 },
 
 {
     id:"quantum",
     name:"Quantum Tap",
     value:1,
-    price:750000,
-    level:30,
-    xp:7500
+    price:4500,
+    level:24,
+    xp:650
 }
 
 ];
@@ -2796,65 +2065,62 @@ const machines = [
 {
     id:"tray",
     name:"Münzschale",
-    rate:.01,
-    price:100,
+    rate:.02,
+    price:40,
     level:2,
-    xp:45
+    xp:20
 },
 
 {
     id:"changer",
     name:"Wechselautomat",
-    rate:.05,
-    price:750,
-    level:5,
-    xp:120
+    rate:.10,
+    price:150,
+    level:4,
+    xp:45
 },
 
 {
     id:"register",
     name:"Kasse",
-    rate:.25,
-    price:4000,
-    level:9,
-    xp:320
+    rate:.50,
+    price:500,
+    level:8,
+    xp:100
 },
 
 {
     id:"minimint",
     name:"Mini-Mint",
-    rate:1,
-    price:20000,
-    level:14,
-    xp:800
+    rate:2,
+    price:1250,
+    level:12,
+    xp:200
 },
 
 {
     id:"printshop",
     name:"Druckerei",
-    rate:5,
-    price:100000,
-    level:20,
-    xp:2200
+    rate:7.5,
+    price:2750,
+    level:18,
+    xp:400
 },
 
 {
     id:"centralbank",
     name:"Zentralbank",
     rate:25,
-    price:750000,
-    level:28,
-    xp:6000
+    price:5000,
+    level:26,
+    xp:800
 }
 
 ];
 
+/* LEVEL */
 
-/* =========================================================
-   LEVEL
-   ========================================================= */
-
-const ranks = [
+const ranks=[
     {level:1,name:"Rookie"},
     {level:3,name:"Player"},
     {level:6,name:"Grinder"},
@@ -2865,87 +2131,62 @@ const ranks = [
     {level:30,name:"Mythic"}
 ];
 
-const milestones = [
-    {level:2,name:"Mint I",text:"Münzschale"},
+const milestones=[
+    {level:2,name:"Mint I",text:"Kupferfinger + Münzschale"},
     {level:3,name:"Classic",text:"5-€-Lose"},
-    {level:4,name:"Luck Lab",text:"Luck-Upgrades"},
     {level:6,name:"Gold",text:"10-€-Lose"},
     {level:10,name:"Black",text:"20-€-Lose"},
-    {level:14,name:"Mini-Mint",text:"1 €/Min."},
+    {level:12,name:"Mini-Mint",text:"2 €/Min."},
     {level:16,name:"Neon",text:"50-€-Lose"},
-    {level:20,name:"Master",text:"Druckerei + 8h"},
-    {level:24,name:"Vault",text:"100-€-Lose"},
-    {level:30,name:"Mythic",text:"Quantum Tap"}
+    {level:20,name:"Master",text:"8 Std. Offline"},
+    {level:24,name:"Vault",text:"100-€-Lose + Quantum"},
+    {level:26,name:"Bank",text:"Zentralbank"},
+    {level:30,name:"Mythic",text:"Endgame"}
 ];
 
 function xpNeeded(level){
-    return Math.round(
-        40 +
-        level*14 +
-        Math.pow(level,1.45)*4
-    );
+    return Math.round(40+level*14+Math.pow(level,1.45)*4);
 }
 
 function levelReward(level){
-
-    if(level===30) return 500;
-    if(level===20) return 200;
-    if(level===15) return 100;
-
-    if(level%10===0) return 100;
-    if(level%5===0) return 50;
-
-    return 10 + level*3;
+    if(level===30)return 500;
+    if(level===20)return 200;
+    if(level===15)return 100;
+    if(level%10===0)return 100;
+    if(level%5===0)return 50;
+    return 10+level*3;
 }
 
 function currentRank(){
-
     let rank=ranks[0];
-
     ranks.forEach(r=>{
-        if(state.level>=r.level){
-            rank=r;
-        }
+        if(state.level>=r.level)rank=r;
     });
-
     return rank.name;
 }
 
 function offlineHourCap(){
-
-    if(state.level>=20) return 8;
-    if(state.level>=16) return 6;
-    if(state.level>=10) return 4;
-    if(state.level>=6) return 3;
-
+    if(state.level>=20)return 8;
+    if(state.level>=16)return 6;
+    if(state.level>=10)return 4;
+    if(state.level>=6)return 3;
     return 2;
 }
 
+/* STATE */
 
-/* =========================================================
-   STATE
-   ========================================================= */
-
-const defaultState = {
-
+const defaultState={
     level:1,
     xp:0,
-
     balance:START_BALANCE,
-
     totalSpent:0,
     totalWon:0,
-
     ticketsBought:0,
     biggestWin:0,
-
     history:[],
-
     started:false,
-
     tapUpgrade:null,
     machines:[],
-
     luckUpgrades:{
         mini:0,
         classic:0,
@@ -2954,332 +2195,134 @@ const defaultState = {
         neon:0,
         vault:0
     },
-
     totalClicks:0,
     clickXpCounter:0,
-
     mintLifetime:0,
-
     lastActive:Date.now()
 };
 
 let state=loadState();
-
 let selectedTicket=tickets[0];
-
 let activeTicket=null;
 let activePrize=null;
-
 let ticketResolved=true;
-
 let currentSessionId=0;
 let resultCleanupTimer=null;
-
 let lastSharePrize=null;
 let lastShareTicket=null;
-
 let lastLiveTick=Date.now();
-
-
-/* =========================================================
-   DOM
-   ========================================================= */
 
 const $=id=>document.getElementById(id);
 
-const balanceEl=$("balance");
-const balanceNetEl=$("balanceNet");
-
-const headerPassive=$("headerPassive");
-
-const levelNumberEl=$("levelNumber");
-const levelNameEl=$("levelName");
-const rankPill=$("rankPill");
-
-const xpTextEl=$("xpText");
-const xpFillEl=$("xpFill");
-
-const nextRewardEl=$("nextReward");
-const nextUnlockEl=$("nextUnlock");
-
-const ticketsBoughtEl=$("ticketsBought");
-const totalWonEl=$("totalWon");
-const biggestWinEl=$("biggestWin");
-const netResultEl=$("netResult");
-
-const ticketGrid=$("ticketGrid");
-
-const selectedNameEl=$("selectedName");
-const selectedPriceEl=$("selectedPrice");
-const selectedOddsEl=$("selectedOdds");
-const selectedLuckEl=$("selectedLuck");
-const selectedRtpEl=$("selectedRtp");
-const selectedJackpotEl=$("selectedJackpot");
-const selectedJackpotOddsEl=$("selectedJackpotOdds");
-const selectedXpEl=$("selectedXp");
-
-const buyButton=$("buyButton");
-const revealButton=$("revealButton");
-const whatsappButton=$("whatsappButton");
-
-const scratchCanvas=$("scratchCanvas");
-const emptyGame=$("emptyGame");
-
-const resultKicker=$("resultKicker");
-const resultAmount=$("resultAmount");
-const resultMessage=$("resultMessage");
-
-const luckList=$("luckList");
-
-const progressionEl=$("progression");
-const historyEl=$("history");
-
-const bankruptCard=$("bankruptCard");
-
-const tapButton=$("tapButton");
-const tapButtonValue=$("tapButtonValue");
-
-const mintPerTap=$("mintPerTap");
-const mintPerMinute=$("mintPerMinute");
-const mintTotalClicks=$("mintTotalClicks");
-
-const offlineRate=$("offlineRate");
-const offlineCap=$("offlineCap");
-const offlineState=$("offlineState");
-
-const tapUpgradeList=$("tapUpgradeList");
-const machineList=$("machineList");
-
-const startModal=$("startModal");
-const installModal=$("installModal");
-
-const offlineModal=$("offlineModal");
-const offlineModalAmount=$("offlineModalAmount");
-const offlineModalText=$("offlineModalText");
-
-const winEffect=$("winEffect");
-const winEffectLabel=$("winEffectLabel");
-const winEffectTitle=$("winEffectTitle");
-const winEffectAmount=$("winEffectAmount");
-const winEffectTicket=$("winEffectTicket");
-
-const toast=$("toast");
-
-
-/* =========================================================
-   STORAGE
-   ========================================================= */
+function clone(obj){
+    return JSON.parse(JSON.stringify(obj));
+}
 
 function saveState(){
-
     state.lastActive=Date.now();
-
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(state)
-    );
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
 }
 
 function loadState(){
-
     try{
-
-        const saved=
-            localStorage.getItem(
-                STORAGE_KEY
-            );
-
-        if(!saved){
-            return structuredCloneSafe(defaultState);
-        }
+        const saved=localStorage.getItem(STORAGE_KEY);
+        if(!saved)return clone(defaultState);
 
         const parsed=JSON.parse(saved);
 
         return{
-            ...structuredCloneSafe(defaultState),
+            ...clone(defaultState),
             ...parsed,
-
-            history:
-                Array.isArray(parsed.history)
-                ? parsed.history
-                : [],
-
-            machines:
-                Array.isArray(parsed.machines)
-                ? parsed.machines
-                : [],
-
+            history:Array.isArray(parsed.history)?parsed.history:[],
+            machines:Array.isArray(parsed.machines)?parsed.machines:[],
             luckUpgrades:{
                 ...defaultState.luckUpgrades,
                 ...(parsed.luckUpgrades||{})
             }
         };
-
     }catch{
-
-        return structuredCloneSafe(defaultState);
+        return clone(defaultState);
     }
 }
 
-function structuredCloneSafe(obj){
-    return JSON.parse(JSON.stringify(obj));
-}
-
-
-/* =========================================================
-   FORMAT
-   ========================================================= */
+/* FORMAT */
 
 function money(value,decimals=0){
-
-    return new Intl.NumberFormat(
-        "de-DE",
-        {
-            minimumFractionDigits:decimals,
-            maximumFractionDigits:decimals
-        }
-    ).format(value);
+    return new Intl.NumberFormat("de-DE",{
+        minimumFractionDigits:decimals,
+        maximumFractionDigits:decimals
+    }).format(value);
 }
 
 function moneySmart(value){
-
-    const rounded=
-        Math.round(value*100)/100;
-
-    const hasCents=
-        Math.abs(
-            rounded-
-            Math.round(rounded)
-        )>.0001;
-
-    return money(
-        rounded,
-        hasCents?2:0
-    );
+    const rounded=Math.round(value*100)/100;
+    const cents=Math.abs(rounded-Math.round(rounded))>.0001;
+    return money(rounded,cents?2:0);
 }
 
 function percent(value){
-
-    return new Intl.NumberFormat(
-        "de-DE",
-        {
-            minimumFractionDigits:2,
-            maximumFractionDigits:2
-        }
-    ).format(value*100)+" %";
+    return new Intl.NumberFormat("de-DE",{
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+    }).format(value*100)+" %";
 }
 
-
-/* =========================================================
-   CRYPTO RNG
-   ========================================================= */
+/* RNG */
 
 function cryptoFloat(){
-
-    const arr=
-        new Uint32Array(1);
-
+    const arr=new Uint32Array(1);
     crypto.getRandomValues(arr);
-
     return arr[0]/4294967296;
 }
 
 function cryptoInteger(min,max){
-
-    const range=
-        max-min+1;
-
-    const maxUint=
-        4294967296;
-
-    const limit=
-        maxUint-
-        (
-            maxUint%range
-        );
-
-    const arr=
-        new Uint32Array(1);
-
+    const range=max-min+1;
+    const maxUint=4294967296;
+    const limit=maxUint-(maxUint%range);
+    const arr=new Uint32Array(1);
     let value;
 
     do{
-
         crypto.getRandomValues(arr);
         value=arr[0];
-
     }while(value>=limit);
 
     return min+(value%range);
 }
 
-
-/* =========================================================
-   LUCK
-   ========================================================= */
+/* LUCK */
 
 function getLuckLevel(ticket){
-
-    return Number(
-        state.luckUpgrades[
-            ticket.id
-        ]||0
-    );
+    return Number(state.luckUpgrades[ticket.id]||0);
 }
 
 function getLuckBoost(ticket){
-
-    return getLuckLevel(ticket)*
-        LUCK_STEP;
+    return getLuckLevel(ticket)*LUCK_STEP;
 }
 
 function luckUpgradeCost(ticket){
+    const level=getLuckLevel(ticket);
 
-    const level=
-        getLuckLevel(ticket);
-
+    /* etwas günstiger als vorher */
     return Math.round(
-        ticket.price*
-        60*
-        Math.pow(1.7,level)
+        Math.min(
+            5000,
+            Math.max(
+                20,
+                ticket.price*18*Math.pow(1.48,level)
+            )
+        )
     );
 }
 
-
-/*
-    Luck nimmt Wahrscheinlichkeit ausschließlich
-    von der Niete weg.
-
-    Sie wird nicht auf Teilverluste verteilt,
-    sondern auf profitable Gewinnbereiche.
-
-    Dadurch ist jedes Upgrade real wirksam.
-*/
-
 function getAdjustedBands(ticket){
+    const bands=ticket.bands.map(b=>({...b}));
+    const boost=getLuckBoost(ticket);
 
-    const bands=
-        ticket.bands.map(
-            b=>({...b})
-        );
+    if(boost<=0)return bands;
 
-    const boost=
-        getLuckBoost(ticket);
-
-    if(boost<=0){
-        return bands;
-    }
-
-    const loss=
-        bands.find(
-            b=>b.id==="loss"
-        );
-
-    loss.probability=
-        Math.max(
-            0,
-            loss.probability-boost
-        );
+    const loss=bands.find(b=>b.id==="loss");
+    loss.probability=Math.max(0,loss.probability-boost);
 
     const distribution=[
         ["small",.45],
@@ -3289,325 +2332,140 @@ function getAdjustedBands(ticket){
         ["mega",.03]
     ];
 
-    distribution.forEach(
-        ([id,share])=>{
-
-            const band=
-                bands.find(
-                    b=>b.id===id
-                );
-
-            if(band){
-                band.probability+=
-                    boost*share;
-            }
-        }
-    );
+    distribution.forEach(([id,share])=>{
+        const band=bands.find(b=>b.id===id);
+        if(band)band.probability+=boost*share;
+    });
 
     return bands;
 }
 
 function getHitRate(ticket){
-
-    const bands=
-        getAdjustedBands(ticket);
-
-    const loss=
-        bands.find(
-            b=>b.id==="loss"
-        );
-
+    const loss=getAdjustedBands(ticket).find(b=>b.id==="loss");
     return 1-loss.probability;
 }
 
-
-/* =========================================================
-   RTP
-   ========================================================= */
+/* RTP */
 
 function averageBandValue(band){
-
-    if(
-        typeof band.fixed===
-        "number"
-    ){
-        return band.fixed;
-    }
-
-    return(
-        band.min+
-        band.max
-    )/2;
+    if(typeof band.fixed==="number")return band.fixed;
+    return (band.min+band.max)/2;
 }
 
 function estimatedRtp(ticket){
-
-    const bands=
-        getAdjustedBands(ticket);
-
     let expected=0;
 
-    bands.forEach(b=>{
-        expected+=
-            b.probability*
-            averageBandValue(b);
+    getAdjustedBands(ticket).forEach(b=>{
+        expected+=b.probability*averageBandValue(b);
     });
 
-    return expected/
-        ticket.price*
-        100;
+    return expected/ticket.price*100;
 }
 
-
-/* =========================================================
-   VARIABLE GEWINNE
-   ========================================================= */
+/* PRIZE */
 
 function chooseBand(ticket){
-
-    const bands=
-        getAdjustedBands(ticket);
-
-    const roll=
-        cryptoFloat();
-
+    const bands=getAdjustedBands(ticket);
+    const roll=cryptoFloat();
     let cumulative=0;
 
     for(const band of bands){
-
-        cumulative+=
-            band.probability;
-
-        if(roll<cumulative){
-            return band;
-        }
+        cumulative+=band.probability;
+        if(roll<cumulative)return band;
     }
 
     return bands[0];
 }
 
+function generatePrizeFromBand(ticket,band){
+    if(typeof band.fixed==="number")return band.fixed;
 
-/*
-    Innerhalb eines Gewinnbereichs können
-    ALLE Cent-Werte gezogen werden.
+    const featured=ticket.featured.filter(
+        value=>value>=band.min&&value<=band.max
+    );
 
-    Beispiel 1,00 bis 4,99:
-    1,00 / 1,01 / 1,02 ... 4,99.
-
-    Zusätzlich gibt es mit 22 % Wahrscheinlichkeit
-    einen "featured"-Betrag aus demselben Bereich.
-
-    Dadurch tauchen Werte wie 83 €, 200 € oder
-    600 € öfter sichtbar auf, ohne andere Beträge
-    unmöglich zu machen.
-*/
-
-function generatePrizeFromBand(
-    ticket,
-    band
-){
-
-    if(
-        typeof band.fixed===
-        "number"
-    ){
-        return band.fixed;
+    if(featured.length&&cryptoFloat()<.22){
+        return featured[cryptoInteger(0,featured.length-1)];
     }
 
-    const featured=
-        ticket.featured.filter(
-            value=>
-                value>=band.min &&
-                value<=band.max
-        );
+    const minCents=Math.round(band.min*100);
+    const maxCents=Math.round(band.max*100);
 
-    if(
-        featured.length &&
-        cryptoFloat()<.22
-    ){
-
-        return featured[
-            cryptoInteger(
-                0,
-                featured.length-1
-            )
-        ];
-    }
-
-    const minCents=
-        Math.round(
-            band.min*100
-        );
-
-    const maxCents=
-        Math.round(
-            band.max*100
-        );
-
-    const cents=
-        cryptoInteger(
-            minCents,
-            maxCents
-        );
-
-    return cents/100;
+    return cryptoInteger(minCents,maxCents)/100;
 }
 
 function drawPrize(ticket){
-
-    const band=
-        chooseBand(ticket);
-
-    return generatePrizeFromBand(
-        ticket,
-        band
-    );
+    return generatePrizeFromBand(ticket,chooseBand(ticket));
 }
 
-
-/* =========================================================
-   XP
-   ========================================================= */
+/* XP */
 
 function gainXp(amount){
-
     state.xp+=amount;
+    let bonus=0;
 
-    let totalBonus=0;
-
-    while(
-        state.xp>=
-        xpNeeded(state.level)
-    ){
-
-        state.xp-=
-            xpNeeded(state.level);
-
+    while(state.xp>=xpNeeded(state.level)){
+        state.xp-=xpNeeded(state.level);
         state.level++;
 
-        const reward=
-            levelReward(
-                state.level
-            );
-
+        const reward=levelReward(state.level);
         state.balance+=reward;
-        totalBonus+=reward;
+        bonus+=reward;
     }
 
-    if(totalBonus>0){
-
-        showToast(
-            "Level "+
-            state.level+
-            " · +"+
-            money(totalBonus)+
-            " €"
-        );
+    if(bonus>0){
+        showToast("Level "+state.level+" · +"+money(bonus)+" €");
     }
 }
 
-
-/* =========================================================
-   MINT
-   ========================================================= */
+/* MINT */
 
 function currentTapValue(){
+    if(!state.tapUpgrade)return .01;
 
-    if(!state.tapUpgrade){
-        return .01;
-    }
-
-    const upgrade=
-        tapUpgrades.find(
-            u=>u.id===
-            state.tapUpgrade
-        );
-
-    return upgrade
-        ? upgrade.value
-        : .01;
+    const upgrade=tapUpgrades.find(u=>u.id===state.tapUpgrade);
+    return upgrade?upgrade.value:.01;
 }
 
 function passivePerMinute(){
-
     let total=0;
 
-    machines.forEach(
-        machine=>{
-
-            if(
-                state.machines.includes(
-                    machine.id
-                )
-            ){
-                total+=machine.rate;
-            }
+    machines.forEach(machine=>{
+        if(state.machines.includes(machine.id)){
+            total+=machine.rate;
         }
-    );
+    });
 
     return total;
 }
 
-
-/* =========================================================
-   OFFLINE MINT
-   ========================================================= */
+/* OFFLINE */
 
 function calculateOfflineIncome(){
-
     if(!state.started){
-
-        state.lastActive=
-            Date.now();
-
+        state.lastActive=Date.now();
         return;
     }
 
-    const rate=
-        passivePerMinute();
+    const rate=passivePerMinute();
 
     if(rate<=0){
-
-        state.lastActive=
-            Date.now();
-
+        state.lastActive=Date.now();
         return;
     }
 
     const now=Date.now();
+    const elapsed=Math.max(0,now-Number(state.lastActive||now));
 
-    const elapsedMs=
-        Math.max(
-            0,
-            now-
-            Number(
-                state.lastActive||now
-            )
-        );
-
-    if(elapsedMs<30000){
-
+    if(elapsed<30000){
         state.lastActive=now;
         return;
     }
 
-    const capMs=
-        offlineHourCap()*
-        60*
-        60*
-        1000;
-
-    const usedMs=
-        Math.min(
-            elapsedMs,
-            capMs
-        );
-
-    const minutes=
-        usedMs/60000;
-
-    const earned=
-        rate*minutes;
+    const cap=offlineHourCap()*3600000;
+    const used=Math.min(elapsed,cap);
+    const minutes=used/60000;
+    const earned=rate*minutes;
 
     state.balance+=earned;
     state.mintLifetime+=earned;
@@ -3615,66 +2473,28 @@ function calculateOfflineIncome(){
 
     saveState();
 
-    offlineModalAmount.textContent=
-        "+"+
-        moneySmart(earned)+
-        " €";
+    $("offlineModalAmount").textContent="+"+moneySmart(earned)+" €";
 
-    const hours=
-        usedMs/3600000;
+    const hours=used/3600000;
 
-    offlineModalText.textContent=
+    $("offlineModalText").textContent=
         "Produktion für "+
-        (
-            hours>=1
-            ? money(hours,1)+" Std."
-            : money(minutes,0)+" Min."
-        );
+        (hours>=1?money(hours,1)+" Std.":money(minutes,0)+" Min.");
 
-    offlineModal.classList.remove(
-        "hidden"
-    );
+    $("offlineModal").classList.remove("hidden");
 }
 
-
-/* =========================================================
-   LIVE-MINT
-
-   Maschinen produzieren jetzt auch während
-   die App geöffnet ist.
-   ========================================================= */
-
 function processLiveProduction(){
-
     const now=Date.now();
-
-    const elapsed=
-        Math.max(
-            0,
-            now-lastLiveTick
-        );
-
+    const elapsed=Math.max(0,now-lastLiveTick);
     lastLiveTick=now;
 
-    if(
-        !state.started ||
-        document.hidden
-    ){
-        return;
-    }
+    if(!state.started||document.hidden)return;
 
-    const rate=
-        passivePerMinute();
+    const rate=passivePerMinute();
+    if(rate<=0)return;
 
-    if(rate<=0){
-        return;
-    }
-
-    const gain=
-        rate*
-        (
-            elapsed/60000
-        );
+    const gain=rate*(elapsed/60000);
 
     state.balance+=gain;
     state.mintLifetime+=gain;
@@ -3682,619 +2502,274 @@ function processLiveProduction(){
     updateFastNumbers();
 }
 
-
-/* =========================================================
-   TICKET UI
-   ========================================================= */
+/* TICKETS */
 
 function renderTickets(){
+    $("ticketGrid").innerHTML="";
 
-    ticketGrid.innerHTML="";
+    tickets.forEach(ticket=>{
+        const unlocked=state.level>=ticket.unlockLevel;
+        const selected=selectedTicket.id===ticket.id;
+        const hit=getHitRate(ticket);
+        const luck=getLuckLevel(ticket);
 
-    tickets.forEach(
-        ticket=>{
+        const el=document.createElement("div");
 
-            const unlocked=
-                state.level>=
-                ticket.unlockLevel;
+        el.className=
+            "ticket "+ticket.className+
+            (selected?" selected":"")+
+            (!unlocked?" locked":"");
 
-            const selected=
-                selectedTicket.id===
-                ticket.id;
-
-            const hit=
-                getHitRate(ticket);
-
-            const luck=
-                getLuckLevel(ticket);
-
-            const el=
-                document.createElement(
-                    "div"
-                );
-
-            el.className=
-                "ticket "+
-                ticket.className+
-                (
-                    selected
-                    ?" selected"
-                    :""
-                )+
-                (
-                    !unlocked
-                    ?" locked"
-                    :""
-                );
-
-            el.innerHTML=`
-
-                <div>
-
-                    <div class="ticket-top">
-
-                        <div>
-
-                            <div class="ticket-name">
-                                ${ticket.name}
-                            </div>
-
-                            <div class="ticket-tier">
-                                ${ticket.tier}
-                            </div>
-
-                        </div>
-
-                        <div class="ticket-price">
-                            ${ticket.price} €
-                        </div>
-
+        el.innerHTML=`
+            <div>
+                <div class="ticket-top">
+                    <div>
+                        <div class="ticket-name">${ticket.name}</div>
+                        <div class="ticket-tier">${ticket.tier}</div>
                     </div>
-
-                    <div class="ticket-jackpot">
-
-                        <span>
-                            Hauptgewinn
-                        </span>
-
-                        <strong>
-                            ${money(ticket.jackpot)} €
-                        </strong>
-
-                    </div>
-
+                    <div class="ticket-price">${ticket.price} €</div>
                 </div>
 
-                <div>
-
-                    <div class="ticket-meta">
-
-                        <div class="ticket-chip">
-                            <strong>
-                                ${percent(hit)}
-                            </strong>
-                            Treffer
-                        </div>
-
-                        <div class="ticket-chip">
-                            <strong>
-                                Luck ${luck}/10
-                            </strong>
-                        </div>
-
-                    </div>
-
-                    ${
-                        unlocked
-                        ?""
-                        :`
-                            <div class="lock-text">
-                                Ab Level
-                                ${ticket.unlockLevel}
-                            </div>
-                        `
-                    }
-
+                <div class="ticket-jackpot">
+                    <span>Hauptgewinn</span>
+                    <strong>${money(ticket.jackpot)} €</strong>
                 </div>
-            `;
+            </div>
 
-            if(unlocked){
+            <div>
+                <div class="ticket-meta">
+                    <div class="ticket-chip">
+                        <strong>${percent(hit)}</strong> Treffer
+                    </div>
+                    <div class="ticket-chip">
+                        <strong>Luck ${luck}/10</strong>
+                    </div>
+                </div>
 
-                el.addEventListener(
-                    "click",
-                    ()=>{
+                ${unlocked?"":`<div class="lock-text">Ab Level ${ticket.unlockLevel}</div>`}
+            </div>
+        `;
 
-                        if(
-                            activeTicket &&
-                            !ticketResolved
-                        ){
+        if(unlocked){
+            el.addEventListener("click",()=>{
+                if(activeTicket&&!ticketResolved){
+                    showToast("Aktuelles Los zuerst beenden");
+                    return;
+                }
 
-                            showToast(
-                                "Aktuelles Los zuerst beenden"
-                            );
-
-                            return;
-                        }
-
-                        selectedTicket=
-                            ticket;
-
-                        renderTickets();
-                        renderSelected();
-                    }
-                );
-            }
-
-            ticketGrid.appendChild(el);
+                selectedTicket=ticket;
+                renderTickets();
+                renderSelected();
+            });
         }
-    );
+
+        $("ticketGrid").appendChild(el);
+    });
 }
 
-
-/* =========================================================
-   SELECTED
-   ========================================================= */
-
 function renderSelected(){
+    $("selectedName").textContent=selectedTicket.name;
+    $("selectedPrice").textContent=selectedTicket.price+" € Einsatz";
+    $("selectedOdds").textContent=percent(getHitRate(selectedTicket));
 
-    selectedNameEl.textContent=
-        selectedTicket.name;
+    const luck=getLuckLevel(selectedTicket);
 
-    selectedPriceEl.textContent=
-        selectedTicket.price+
-        " € Einsatz";
-
-    selectedOddsEl.textContent=
-        percent(
-            getHitRate(
-                selectedTicket
-            )
-        );
-
-    const luck=
-        getLuckLevel(
-            selectedTicket
-        );
-
-    selectedLuckEl.textContent=
-        luck+
-        "/10 · +"+
-        (
-            luck*
-            LUCK_STEP*
-            100
-        ).toFixed(2)
-        .replace(".",",")+
+    $("selectedLuck").textContent=
+        luck+"/10 · +"+
+        (luck*LUCK_STEP*100).toFixed(2).replace(".",",")+
         " %-Pkt.";
 
-    selectedRtpEl.textContent=
-        money(
-            estimatedRtp(
-                selectedTicket
-            ),
-            1
-        )+
-        " %";
+    $("selectedRtp").textContent=
+        money(estimatedRtp(selectedTicket),1)+" %";
 
-    selectedJackpotEl.textContent=
-        money(
-            selectedTicket.jackpot
-        )+
-        " €";
+    $("selectedJackpot").textContent=
+        money(selectedTicket.jackpot)+" €";
 
-    selectedJackpotOddsEl.textContent=
+    $("selectedJackpotOdds").textContent=
         selectedTicket.jackpotOdds;
 
-    selectedXpEl.textContent=
-        selectedTicket.xp+
-        " XP";
+    $("selectedXp").textContent=
+        selectedTicket.xp+" XP";
 
-    buyButton.textContent=
-        selectedTicket.name+
-        " · "+
-        selectedTicket.price+
-        " €";
+    $("buyButton").textContent=
+        selectedTicket.name+" · "+selectedTicket.price+" €";
+
+    $("scratchTicketCost").textContent=
+        "−"+selectedTicket.price+" €";
 
     updateButtons();
 }
 
-
-/* =========================================================
-   KAUF
-   ========================================================= */
+/* BUY */
 
 function buyTicket(){
-
     if(resultCleanupTimer){
-
-        clearTimeout(
-            resultCleanupTimer
-        );
-
+        clearTimeout(resultCleanupTimer);
         resultCleanupTimer=null;
     }
 
-    if(
-        activeTicket &&
-        !ticketResolved
-    ){
-        return;
-    }
+    if(activeTicket&&!ticketResolved)return;
 
-    if(
-        state.balance<
-        selectedTicket.price
-    ){
-
-        showToast(
-            "Nicht genug Guthaben"
-        );
-
+    if(state.balance<selectedTicket.price){
+        showToast("Nicht genug Guthaben");
         return;
     }
 
     currentSessionId++;
+    const sessionId=currentSessionId;
 
-    const sessionId=
-        currentSessionId;
-
-    activeTicket=
-        selectedTicket;
-
-    activePrize=
-        drawPrize(
-            activeTicket
-        );
-
+    activeTicket=selectedTicket;
+    activePrize=drawPrize(activeTicket);
     ticketResolved=false;
 
     lastSharePrize=null;
     lastShareTicket=null;
 
-    state.balance-=
-        activeTicket.price;
-
-    state.totalSpent+=
-        activeTicket.price;
-
+    state.balance-=activeTicket.price;
+    state.totalSpent+=activeTicket.price;
     state.ticketsBought++;
 
-    gainXp(
-        activeTicket.xp
-    );
+    gainXp(activeTicket.xp);
 
-    emptyGame.classList.add(
-        "hidden"
-    );
+    $("emptyGame").classList.add("hidden");
 
     prepareResult();
+    createScratchLayer(sessionId);
 
-    createScratchLayer(
-        sessionId
-    );
-
-    revealButton.disabled=false;
-    whatsappButton.disabled=true;
+    $("revealButton").disabled=false;
+    $("whatsappButton").disabled=true;
 
     saveState();
     updateUI();
 }
 
-
-/* =========================================================
-   RESULT
-   ========================================================= */
-
 function prepareResult(){
-
-    resultAmount.textContent=
-        moneySmart(
-            activePrize
-        )+
-        " €";
+    $("resultAmount").textContent=moneySmart(activePrize)+" €";
 
     if(activePrize===0){
-
-        resultKicker.textContent=
-            "NIETE";
-
-        resultMessage.textContent=
-            "Nächstes Los.";
-
+        $("resultKicker").textContent="NIETE";
+        $("resultMessage").textContent="Nächstes Los.";
         return;
     }
 
-    if(
-        activePrize===
-        activeTicket.jackpot
-    ){
-
-        resultKicker.textContent=
-            "JACKPOT";
-
-        resultMessage.textContent=
-            "Hauptgewinn.";
-
+    if(activePrize===activeTicket.jackpot){
+        $("resultKicker").textContent="JACKPOT";
+        $("resultMessage").textContent="Hauptgewinn.";
         return;
     }
 
     if(activePrize>=25000){
-
-        resultKicker.textContent=
-            "MEGA WIN";
-
-        resultMessage.textContent=
-            "Massiver Treffer.";
-
+        $("resultKicker").textContent="MEGA WIN";
+        $("resultMessage").textContent="Massiver Treffer.";
         return;
     }
 
     if(activePrize>=1000){
-
-        resultKicker.textContent=
-            "BIG WIN";
-
-        resultMessage.textContent=
-            "Starker Treffer.";
-
+        $("resultKicker").textContent="BIG WIN";
+        $("resultMessage").textContent="Starker Treffer.";
         return;
     }
 
-    if(
-        activePrize>
-        activeTicket.price
-    ){
-
-        resultKicker.textContent=
-            "GEWINN";
-
-        resultMessage.textContent=
-            "+"+
-            moneySmart(
-                activePrize-
-                activeTicket.price
-            )+
-            " € Profit";
-
+    if(activePrize>activeTicket.price){
+        $("resultKicker").textContent="GEWINN";
+        $("resultMessage").textContent=
+            "+"+moneySmart(activePrize-activeTicket.price)+" € Profit";
         return;
     }
 
-    if(
-        activePrize===
-        activeTicket.price
-    ){
-
-        resultKicker.textContent=
-            "EINSATZ ZURÜCK";
-
-        resultMessage.textContent=
-            "Kein Verlust.";
-
+    if(activePrize===activeTicket.price){
+        $("resultKicker").textContent="EINSATZ ZURÜCK";
+        $("resultMessage").textContent="Kein Verlust.";
         return;
     }
 
-    resultKicker.textContent=
-        "RÜCKZAHLUNG";
-
-    resultMessage.textContent=
-        moneySmart(
-            activePrize
-        )+
-        " € zurück.";
+    $("resultKicker").textContent="RÜCKZAHLUNG";
+    $("resultMessage").textContent=moneySmart(activePrize)+" € zurück.";
 }
 
-
-/* =========================================================
-   SCRATCH
-   ========================================================= */
+/* SCRATCH */
 
 let ctx;
 let scratching=false;
 let scratchDistance=0;
 let lastScratchPoint=null;
 
-function createScratchLayer(
-    sessionId
-){
+function createScratchLayer(sessionId){
+    const canvas=$("scratchCanvas");
+    const rect=canvas.getBoundingClientRect();
+    const dpr=Math.min(window.devicePixelRatio||1,3);
 
-    const rect=
-        scratchCanvas
-        .getBoundingClientRect();
+    canvas.width=Math.round(rect.width*dpr);
+    canvas.height=Math.round(rect.height*dpr);
 
-    const dpr=
-        Math.min(
-            window.devicePixelRatio||1,
-            3
-        );
+    ctx=canvas.getContext("2d");
+    ctx.setTransform(dpr,0,0,dpr,0,0);
 
-    scratchCanvas.width=
-        Math.round(
-            rect.width*dpr
-        );
+    const gradient=ctx.createLinearGradient(0,0,rect.width,rect.height);
 
-    scratchCanvas.height=
-        Math.round(
-            rect.height*dpr
-        );
-
-    ctx=
-        scratchCanvas.getContext(
-            "2d"
-        );
-
-    ctx.setTransform(
-        dpr,
-        0,
-        0,
-        dpr,
-        0,
-        0
-    );
-
-    const gradient=
-        ctx.createLinearGradient(
-            0,
-            0,
-            rect.width,
-            rect.height
-        );
-
-    gradient.addColorStop(
-        0,
-        "#747a81"
-    );
-
-    gradient.addColorStop(
-        .23,
-        "#c5c9cc"
-    );
-
-    gradient.addColorStop(
-        .48,
-        "#858b92"
-    );
-
-    gradient.addColorStop(
-        .73,
-        "#d3d5d7"
-    );
-
-    gradient.addColorStop(
-        1,
-        "#767c83"
-    );
+    gradient.addColorStop(0,"#747a81");
+    gradient.addColorStop(.23,"#c5c9cc");
+    gradient.addColorStop(.48,"#858b92");
+    gradient.addColorStop(.73,"#d3d5d7");
+    gradient.addColorStop(1,"#767c83");
 
     ctx.fillStyle=gradient;
+    ctx.fillRect(0,0,rect.width,rect.height);
 
-    ctx.fillRect(
-        0,
-        0,
-        rect.width,
-        rect.height
-    );
-
-    for(let i=0;i<1500;i++){
-
-        ctx.fillStyle=
-            Math.random()>.5
+    for(let i=0;i<1200;i++){
+        ctx.fillStyle=Math.random()>.5
             ?"rgba(255,255,255,.07)"
             :"rgba(0,0,0,.06)";
 
         ctx.fillRect(
-            Math.random()*
-            rect.width,
-
-            Math.random()*
-            rect.height,
-
-            1,
-            1
+            Math.random()*rect.width,
+            Math.random()*rect.height,
+            1,1
         );
     }
 
-    ctx.fillStyle=
-        "rgba(15,17,20,.75)";
-
-    ctx.font=
-        "800 12px system-ui";
-
-    ctx.textAlign=
-        "center";
-
-    ctx.fillText(
-        "RUBBELN",
-        rect.width/2,
-        rect.height/2
-    );
+    ctx.fillStyle="rgba(15,17,20,.75)";
+    ctx.font="800 12px system-ui";
+    ctx.textAlign="center";
+    ctx.fillText("RUBBELN",rect.width/2,rect.height/2);
 
     scratchDistance=0;
     lastScratchPoint=null;
 
-    scratchCanvas.dataset.session=
-        sessionId;
-
-    scratchCanvas.style.opacity=
-        "1";
-
-    scratchCanvas.style.transition=
-        "none";
+    canvas.dataset.session=sessionId;
+    canvas.style.opacity="1";
+    canvas.style.transition="none";
 }
 
 function scratchAt(x,y){
+    if(!activeTicket||ticketResolved)return;
 
-    if(
-        !activeTicket ||
-        ticketResolved
-    ){
-        return;
-    }
+    const canvas=$("scratchCanvas");
 
-    const canvasSession=
-        Number(
-            scratchCanvas
-            .dataset
-            .session
-        );
+    if(Number(canvas.dataset.session)!==currentSessionId)return;
 
-    if(
-        canvasSession!==
-        currentSessionId
-    ){
-        return;
-    }
+    const rect=canvas.getBoundingClientRect();
 
-    const rect=
-        scratchCanvas
-        .getBoundingClientRect();
-
-    ctx.globalCompositeOperation=
-        "destination-out";
-
+    ctx.globalCompositeOperation="destination-out";
     ctx.beginPath();
-
-    ctx.arc(
-        x,
-        y,
-        Math.max(
-            25,
-            rect.width*.06
-        ),
-        0,
-        Math.PI*2
-    );
-
+    ctx.arc(x,y,Math.max(25,rect.width*.06),0,Math.PI*2);
     ctx.fill();
 
     if(lastScratchPoint){
-
-        const dx=
-            x-lastScratchPoint.x;
-
-        const dy=
-            y-lastScratchPoint.y;
-
-        scratchDistance+=
-            Math.sqrt(
-                dx*dx+
-                dy*dy
-            );
+        const dx=x-lastScratchPoint.x;
+        const dy=y-lastScratchPoint.y;
+        scratchDistance+=Math.sqrt(dx*dx+dy*dy);
     }
 
     lastScratchPoint={x,y};
 
-    if(
-        scratchDistance>
-        rect.width*5
-    ){
+    if(scratchDistance>rect.width*5){
         revealTicket();
     }
 }
 
 function handleScratch(e){
-
-    const rect=
-        scratchCanvas
-        .getBoundingClientRect();
+    const rect=$("scratchCanvas").getBoundingClientRect();
 
     scratchAt(
         e.clientX-rect.left,
@@ -4302,1429 +2777,595 @@ function handleScratch(e){
     );
 }
 
-scratchCanvas.addEventListener(
-    "pointerdown",
-    e=>{
+$("scratchCanvas").addEventListener("pointerdown",e=>{
+    if(!activeTicket||ticketResolved)return;
 
-        if(
-            !activeTicket ||
-            ticketResolved
-        ){
-            return;
-        }
+    scratching=true;
+    lastScratchPoint=null;
 
-        scratching=true;
-        lastScratchPoint=null;
+    try{$("scratchCanvas").setPointerCapture(e.pointerId);}catch{}
 
-        try{
-            scratchCanvas
-            .setPointerCapture(
-                e.pointerId
-            );
-        }catch{}
+    handleScratch(e);
+});
 
-        handleScratch(e);
-    }
-);
+$("scratchCanvas").addEventListener("pointermove",e=>{
+    if(scratching)handleScratch(e);
+});
 
-scratchCanvas.addEventListener(
-    "pointermove",
-    e=>{
+$("scratchCanvas").addEventListener("pointerup",()=>{
+    scratching=false;
+    lastScratchPoint=null;
+});
 
-        if(scratching){
-            handleScratch(e);
-        }
-    }
-);
+$("scratchCanvas").addEventListener("pointercancel",()=>{
+    scratching=false;
+    lastScratchPoint=null;
+});
 
-scratchCanvas.addEventListener(
-    "pointerup",
-    ()=>{
-        scratching=false;
-        lastScratchPoint=null;
-    }
-);
-
-scratchCanvas.addEventListener(
-    "pointercancel",
-    ()=>{
-        scratching=false;
-        lastScratchPoint=null;
-    }
-);
-
-document.addEventListener(
-    "touchmove",
-    e=>{
-
-        if(scratching){
-            e.preventDefault();
-        }
-    },
-    {
-        passive:false
-    }
-);
-
-
-/* =========================================================
-   REVEAL
-   ========================================================= */
+document.addEventListener("touchmove",e=>{
+    if(scratching)e.preventDefault();
+},{passive:false});
 
 function revealTicket(){
+    if(!activeTicket||ticketResolved)return;
 
-    if(
-        !activeTicket ||
-        ticketResolved
-    ){
-        return;
-    }
-
-    const sessionId=
-        currentSessionId;
+    const sessionId=currentSessionId;
 
     ticketResolved=true;
     scratching=false;
 
-    scratchCanvas.style.transition=
-        "opacity .35s ease";
+    $("scratchCanvas").style.transition="opacity .35s ease";
+    $("scratchCanvas").style.opacity="0";
 
-    scratchCanvas.style.opacity=
-        "0";
-
-    setTimeout(
-        ()=>{
-            resolveTicket(
-                sessionId
-            );
-        },
-        300
-    );
+    setTimeout(()=>resolveTicket(sessionId),300);
 }
 
+function resolveTicket(sessionId){
+    if(sessionId!==currentSessionId)return;
+    if(!activeTicket)return;
 
-/* =========================================================
-   RESOLVE
-   ========================================================= */
+    const finishedTicket=activeTicket;
+    const finishedPrize=activePrize;
 
-function resolveTicket(
-    sessionId
-){
+    state.balance+=finishedPrize;
+    state.totalWon+=finishedPrize;
 
-    if(
-        sessionId!==
-        currentSessionId
-    ){
-        return;
-    }
-
-    if(!activeTicket){
-        return;
-    }
-
-    const finishedTicket=
-        activeTicket;
-
-    const finishedPrize=
-        activePrize;
-
-    state.balance+=
-        finishedPrize;
-
-    state.totalWon+=
-        finishedPrize;
-
-    if(
-        finishedPrize>
-        state.biggestWin
-    ){
-        state.biggestWin=
-            finishedPrize;
+    if(finishedPrize>state.biggestWin){
+        state.biggestWin=finishedPrize;
     }
 
     state.history.unshift({
-
-        name:
-            finishedTicket.name,
-
-        price:
-            finishedTicket.price,
-
-        prize:
-            finishedPrize,
-
-        timestamp:
-            Date.now()
+        name:finishedTicket.name,
+        price:finishedTicket.price,
+        prize:finishedPrize,
+        timestamp:Date.now()
     });
 
-    state.history=
-        state.history.slice(
-            0,
-            20
-        );
+    state.history=state.history.slice(0,20);
 
-    lastSharePrize=
-        finishedPrize;
-
-    lastShareTicket=
-        finishedTicket;
+    lastSharePrize=finishedPrize;
+    lastShareTicket=finishedTicket;
 
     activeTicket=null;
     activePrize=null;
 
-    revealButton.disabled=true;
-
-    whatsappButton.disabled=
-        finishedPrize<=0;
+    $("revealButton").disabled=true;
+    $("whatsappButton").disabled=finishedPrize<=0;
 
     saveState();
     updateUI();
 
-    if(
-        finishedPrize===
-        finishedTicket.jackpot
-    ){
-
-        setTimeout(
-            ()=>showWinEffect(
-                "jackpot",
-                finishedPrize,
-                finishedTicket
-            ),
-            350
-        );
-
-    }else if(
-        finishedPrize>=25000
-    ){
-
-        setTimeout(
-            ()=>showWinEffect(
-                "mega",
-                finishedPrize,
-                finishedTicket
-            ),
-            350
-        );
-
-    }else if(
-        finishedPrize>=1000
-    ){
-
-        setTimeout(
-            ()=>showWinEffect(
-                "big",
-                finishedPrize,
-                finishedTicket
-            ),
-            350
-        );
-
-    }else if(
-        finishedPrize>
-        finishedTicket.price
-    ){
-
-        showToast(
-            "+"+
-            moneySmart(
-                finishedPrize
-            )+
-            " €"
-        );
+    if(finishedPrize===finishedTicket.jackpot){
+        setTimeout(()=>showWinEffect("jackpot",finishedPrize,finishedTicket),350);
+    }else if(finishedPrize>=25000){
+        setTimeout(()=>showWinEffect("mega",finishedPrize,finishedTicket),350);
+    }else if(finishedPrize>=1000){
+        setTimeout(()=>showWinEffect("big",finishedPrize,finishedTicket),350);
+    }else if(finishedPrize>finishedTicket.price){
+        showToast("+"+moneySmart(finishedPrize)+" €");
     }
 
-    resultCleanupTimer=
-        setTimeout(
-            ()=>{
+    resultCleanupTimer=setTimeout(()=>{
+        if(sessionId!==currentSessionId)return;
+        if(activeTicket)return;
 
-                if(
-                    sessionId!==
-                    currentSessionId
-                ){
-                    return;
-                }
-
-                if(activeTicket){
-                    return;
-                }
-
-                emptyGame.classList.remove(
-                    "hidden"
-                );
-
-                scratchCanvas.style.opacity=
-                    "1";
-
-                resultCleanupTimer=null;
-            },
-            1400
-        );
+        $("emptyGame").classList.remove("hidden");
+        $("scratchCanvas").style.opacity="1";
+        resultCleanupTimer=null;
+    },1400);
 }
 
+/* BIG WIN */
 
-/* =========================================================
-   WIN EFFECT
-   ========================================================= */
-
-function showWinEffect(
-    type,
-    amount,
-    ticket
-){
-
-    winEffect.className=
-        "win-effect show "+
-        type;
+function showWinEffect(type,amount,ticket){
+    $("winEffect").className="win-effect show "+type;
 
     if(type==="jackpot"){
-
-        winEffectLabel.textContent=
-            "JACKPOT";
-
-        winEffectTitle.innerHTML=
-            "JACK<br>POT";
-
+        $("winEffectLabel").textContent="JACKPOT";
+        $("winEffectTitle").innerHTML="JACK<br>POT";
     }else if(type==="mega"){
-
-        winEffectLabel.textContent=
-            "MEGA WIN";
-
-        winEffectTitle.innerHTML=
-            "MEGA<br>WIN";
-
+        $("winEffectLabel").textContent="MEGA WIN";
+        $("winEffectTitle").innerHTML="MEGA<br>WIN";
     }else{
-
-        winEffectLabel.textContent=
-            "BIG WIN";
-
-        winEffectTitle.innerHTML=
-            "BIG<br>WIN";
+        $("winEffectLabel").textContent="BIG WIN";
+        $("winEffectTitle").innerHTML="BIG<br>WIN";
     }
 
-    winEffectAmount.textContent=
-        "+"+
-        moneySmart(amount)+
-        " €";
-
-    winEffectTicket.textContent=
-        ticket.name+
-        " · "+
-        ticket.price+
-        " € Los";
+    $("winEffectAmount").textContent="+"+moneySmart(amount)+" €";
+    $("winEffectTicket").textContent=ticket.name+" · "+ticket.price+" € Los";
 
     if(navigator.vibrate){
-
-        if(type==="jackpot"){
-
-            navigator.vibrate(
-                [120,60,120,60,250]
-            );
-
-        }else{
-
-            navigator.vibrate(
-                [80,50,120]
-            );
-        }
+        navigator.vibrate(type==="jackpot"
+            ?[120,60,120,60,250]
+            :[80,50,120]
+        );
     }
 }
 
 function closeWinEffect(){
-    winEffect.classList.remove(
-        "show"
-    );
+    $("winEffect").classList.remove("show");
 }
 
-
-/* =========================================================
-   WHATSAPP
-   ========================================================= */
+/* WHATSAPP */
 
 function shareWhatsApp(){
-
-    if(
-        !lastShareTicket ||
-        lastSharePrize===null ||
-        lastSharePrize<=0
-    ){
-        return;
-    }
+    if(!lastShareTicket||lastSharePrize===null||lastSharePrize<=0)return;
 
     const text=
         "Ich habe gerade beim "+
         lastShareTicket.name+
         "-Los "+
-        moneySmart(
-            lastSharePrize
-        )+
+        moneySmart(lastSharePrize)+
         " € gewonnen. 🎟️";
 
     window.location.href=
-        "https://wa.me/?text="+
-        encodeURIComponent(text);
+        "https://wa.me/?text="+encodeURIComponent(text);
 }
 
-
-/* =========================================================
-   LUCK UI
-   ========================================================= */
+/* LUCK */
 
 function renderLuck(){
+    $("luckList").innerHTML="";
 
-    luckList.innerHTML="";
+    tickets.forEach(ticket=>{
+        const unlocked=state.level>=ticket.unlockLevel;
+        const level=getLuckLevel(ticket);
+        const maxed=level>=MAX_LUCK_LEVEL;
+        const cost=luckUpgradeCost(ticket);
 
-    tickets.forEach(
-        ticket=>{
+        const el=document.createElement("div");
+        el.className="luck-card";
 
-            const unlocked=
-                state.level>=
-                ticket.unlockLevel;
+        el.innerHTML=`
+            <div class="luck-top">
+                <div>
+                    <div class="luck-name">${ticket.name}</div>
+                    <div class="luck-level">Luck ${level} / ${MAX_LUCK_LEVEL}</div>
+                </div>
+                <div class="luck-chance">${percent(getHitRate(ticket))}</div>
+            </div>
 
-            const level=
-                getLuckLevel(ticket);
+            <div class="luck-bar">
+                <div class="luck-bar-fill" style="width:${level/MAX_LUCK_LEVEL*100}%"></div>
+            </div>
 
-            const maxed=
-                level>=
-                MAX_LUCK_LEVEL;
-
-            const cost=
-                luckUpgradeCost(
-                    ticket
-                );
-
-            const hit=
-                getHitRate(ticket);
-
-            const el=
-                document.createElement(
-                    "div"
-                );
-
-            el.className=
-                "luck-card";
-
-            el.innerHTML=`
-
-                <div class="luck-top">
-
-                    <div>
-
-                        <div class="luck-name">
-                            ${ticket.name}
-                        </div>
-
-                        <div class="luck-level">
-                            Luck ${level} / ${MAX_LUCK_LEVEL}
-                        </div>
-
-                    </div>
-
-                    <div class="luck-chance">
-                        ${percent(hit)}
-                    </div>
-
+            <div class="luck-bottom">
+                <div class="luck-description">
+                    ${
+                        maxed
+                        ?"Maximum · +0,80 %-Pkt."
+                        :!unlocked
+                        ?"Los noch nicht freigeschaltet."
+                        :"+0,08 %-Pkt. · "+money(cost)+" €"
+                    }
                 </div>
 
-                <div class="luck-bar">
+                <button class="luck-button"
+                    ${(maxed||!unlocked||state.balance<cost)?"disabled":""}>
+                    ${maxed?"MAX":!unlocked?"LOCK":"UPGRADE"}
+                </button>
+            </div>
+        `;
 
-                    <div
-                        class="luck-bar-fill"
-                        style="
-                            width:
-                            ${
-                                level/
-                                MAX_LUCK_LEVEL*
-                                100
-                            }%
-                        "
-                    ></div>
+        const button=el.querySelector("button");
 
-                </div>
-
-                <div class="luck-bottom">
-
-                    <div class="luck-description">
-
-                        ${
-                            maxed
-                            ?"Maximum erreicht · +0,80 %-Pkt."
-                            :!unlocked
-                            ?"Los noch nicht freigeschaltet."
-                            :"+0,08 %-Pkt. Trefferchance · "+
-                             money(cost)+
-                             " €"
-                        }
-
-                    </div>
-
-                    <button
-                        class="luck-button"
-
-                        ${
-                            (
-                                maxed ||
-                                !unlocked ||
-                                state.balance<cost
-                            )
-                            ?"disabled"
-                            :""
-                        }
-                    >
-
-                        ${
-                            maxed
-                            ?"MAX"
-                            :!unlocked
-                            ?"LOCK"
-                            :"UPGRADE"
-                        }
-
-                    </button>
-
-                </div>
-            `;
-
-            const button=
-                el.querySelector(
-                    "button"
-                );
-
-            if(
-                unlocked &&
-                !maxed
-            ){
-
-                button.addEventListener(
-                    "click",
-                    ()=>buyLuckUpgrade(
-                        ticket
-                    )
-                );
-            }
-
-            luckList.appendChild(el);
+        if(unlocked&&!maxed){
+            button.addEventListener("click",()=>buyLuckUpgrade(ticket));
         }
-    );
+
+        $("luckList").appendChild(el);
+    });
 }
 
 function buyLuckUpgrade(ticket){
+    const level=getLuckLevel(ticket);
+    if(level>=MAX_LUCK_LEVEL)return;
 
-    const level=
-        getLuckLevel(ticket);
+    const cost=luckUpgradeCost(ticket);
 
-    if(
-        level>=
-        MAX_LUCK_LEVEL
-    ){
-        return;
-    }
-
-    const cost=
-        luckUpgradeCost(ticket);
-
-    if(
-        state.balance<
-        cost
-    ){
-
-        showToast(
-            "Nicht genug Guthaben"
-        );
-
+    if(state.balance<cost){
+        showToast("Nicht genug Guthaben");
         return;
     }
 
     state.balance-=cost;
+    state.luckUpgrades[ticket.id]=level+1;
 
-    state.luckUpgrades[
-        ticket.id
-    ]=level+1;
+    gainXp(Math.max(5,Math.round(cost/25)));
 
-    gainXp(
-        Math.max(
-            5,
-            Math.round(
-                cost/20
-            )
-        )
-    );
-
-    showToast(
-        ticket.name+
-        " · Luck "+
-        (level+1)
-    );
+    showToast(ticket.name+" · Luck "+(level+1));
 
     saveState();
     updateUI();
 }
 
-
-/* =========================================================
-   TAP
-   ========================================================= */
+/* TAP */
 
 function tapMint(event){
+    if(!state.started)return;
 
-    if(!state.started){
-        return;
-    }
-
-    const value=
-        currentTapValue();
+    const value=currentTapValue();
 
     state.balance+=value;
     state.mintLifetime+=value;
-
     state.totalClicks++;
     state.clickXpCounter++;
 
-    if(
-        state.clickXpCounter>=50
-    ){
-
-        const earnedXp=
-            Math.floor(
-                state.clickXpCounter/
-                50
-            );
-
-        state.clickXpCounter%=
-            50;
-
+    if(state.clickXpCounter>=50){
+        const earnedXp=Math.floor(state.clickXpCounter/50);
+        state.clickXpCounter%=50;
         gainXp(earnedXp);
     }
 
-    showTapFloat(
-        event,
-        value
-    );
-
+    showTapFloat(event,value);
     updateUI();
 }
 
-function showTapFloat(
-    event,
-    amount
-){
+function showTapFloat(event,amount){
+    const el=document.createElement("div");
+    el.className="tap-float";
+    el.textContent="+"+moneySmart(amount)+" €";
 
-    const el=
-        document.createElement(
-            "div"
-        );
+    const rect=$("tapButton").getBoundingClientRect();
 
-    el.className=
-        "tap-float";
-
-    el.textContent=
-        "+"+
-        moneySmart(amount)+
-        " €";
-
-    const rect=
-        tapButton
-        .getBoundingClientRect();
-
-    const x=
-        event.clientX||
-        (
-            rect.left+
-            rect.width/2
-        );
-
-    const y=
-        event.clientY||
-        (
-            rect.top+
-            rect.height/2
-        );
+    const x=event.clientX||(rect.left+rect.width/2);
+    const y=event.clientY||(rect.top+rect.height/2);
 
     el.style.left=x+"px";
     el.style.top=y+"px";
 
     document.body.appendChild(el);
 
-    setTimeout(
-        ()=>el.remove(),
-        700
-    );
+    setTimeout(()=>el.remove(),700);
 }
 
-
-/* =========================================================
-   TAP UPGRADES
-   ========================================================= */
+/* TAP UPGRADE */
 
 function renderTapUpgrades(){
+    $("tapUpgradeList").innerHTML="";
 
-    tapUpgradeList.innerHTML="";
-
-    const currentIndex=
-        state.tapUpgrade
-        ?tapUpgrades.findIndex(
-            u=>u.id===
-            state.tapUpgrade
-        )
+    const currentIndex=state.tapUpgrade
+        ?tapUpgrades.findIndex(u=>u.id===state.tapUpgrade)
         :-1;
 
-    tapUpgrades.forEach(
-        (upgrade,index)=>{
+    tapUpgrades.forEach((upgrade,index)=>{
+        const unlocked=state.level>=upgrade.level;
+        const owned=index<=currentIndex;
+        const next=index===currentIndex+1;
 
-            const unlocked=
-                state.level>=
-                upgrade.level;
+        const el=document.createElement("div");
 
-            const owned=
-                index<=
-                currentIndex;
+        el.className=
+            "upgrade-card"+
+            (!unlocked?" locked":"")+
+            (owned?" owned":"");
 
-            const next=
-                index===
-                currentIndex+1;
-
-            const el=
-                document.createElement(
-                    "div"
-                );
-
-            el.className=
-                "upgrade-card"+
-                (
-                    !unlocked
-                    ?" locked"
-                    :""
-                )+
-                (
-                    owned
-                    ?" owned"
-                    :""
-                );
-
-            el.innerHTML=`
-
-                <div>
-
-                    <div class="upgrade-title">
-                        ${upgrade.name}
-                    </div>
-
-                    <div class="upgrade-desc">
-                        ${moneySmart(upgrade.value)}
-                        € pro Tap · Level
-                        ${upgrade.level}
-                    </div>
-
-                    <div class="upgrade-price">
-
-                        ${
-                            owned
-                            ?"Installiert"
-                            :money(
-                                upgrade.price
-                             )+
-                             " €"
-                        }
-
-                    </div>
-
+        el.innerHTML=`
+            <div>
+                <div class="upgrade-title">${upgrade.name}</div>
+                <div class="upgrade-desc">
+                    ${moneySmart(upgrade.value)} € pro Tap · Level ${upgrade.level}
                 </div>
+                <div class="upgrade-price">
+                    ${owned?"Installiert":money(upgrade.price)+" €"}
+                </div>
+            </div>
 
-                <button
-                    class="
-                        mint-buy-btn
-                        ${
-                            owned
-                            ?" owned"
-                            :""
-                        }
-                    "
+            <button
+                class="mint-buy-btn ${owned?"owned":""}"
+                ${(owned||!unlocked||!next||state.balance<upgrade.price)?"disabled":""}>
+                ${
+                    owned
+                    ?"Aktiv"
+                    :!unlocked
+                    ?"Lv. "+upgrade.level
+                    :!next
+                    ?"Vorheriges"
+                    :"Kaufen"
+                }
+            </button>
+        `;
 
-                    ${
-                        (
-                            owned ||
-                            !unlocked ||
-                            !next ||
-                            state.balance<
-                            upgrade.price
-                        )
-                        ?"disabled"
-                        :""
-                    }
-                >
+        const button=el.querySelector("button");
 
-                    ${
-                        owned
-                        ?"Aktiv"
-                        :!unlocked
-                        ?"Lv. "+upgrade.level
-                        :!next
-                        ?"Vorheriges"
-                        :"Kaufen"
-                    }
-
-                </button>
-            `;
-
-            const button=
-                el.querySelector(
-                    "button"
-                );
-
-            if(
-                unlocked &&
-                next &&
-                !owned
-            ){
-
-                button.addEventListener(
-                    "click",
-                    ()=>buyTapUpgrade(
-                        upgrade
-                    )
-                );
-            }
-
-            tapUpgradeList
-                .appendChild(el);
+        if(unlocked&&next&&!owned){
+            button.addEventListener("click",()=>buyTapUpgrade(upgrade));
         }
-    );
+
+        $("tapUpgradeList").appendChild(el);
+    });
 }
 
 function buyTapUpgrade(upgrade){
+    if(state.level<upgrade.level)return;
 
-    if(
-        state.level<
-        upgrade.level
-    ){
+    if(state.balance<upgrade.price){
+        showToast("Nicht genug Guthaben");
         return;
     }
 
-    if(
-        state.balance<
-        upgrade.price
-    ){
+    state.balance-=upgrade.price;
+    state.tapUpgrade=upgrade.id;
 
-        showToast(
-            "Nicht genug Guthaben"
-        );
+    gainXp(upgrade.xp);
 
-        return;
-    }
-
-    state.balance-=
-        upgrade.price;
-
-    state.tapUpgrade=
-        upgrade.id;
-
-    gainXp(
-        upgrade.xp
-    );
-
-    showToast(
-        upgrade.name+
-        " installiert"
-    );
+    showToast(upgrade.name+" installiert");
 
     saveState();
     updateUI();
 }
 
-
-/* =========================================================
-   MASCHINEN
-   ========================================================= */
+/* MACHINES */
 
 function renderMachines(){
+    $("machineList").innerHTML="";
 
-    machineList.innerHTML="";
+    machines.forEach(machine=>{
+        const unlocked=state.level>=machine.level;
+        const owned=state.machines.includes(machine.id);
 
-    machines.forEach(
-        machine=>{
+        const el=document.createElement("div");
 
-            const unlocked=
-                state.level>=
-                machine.level;
+        el.className=
+            "upgrade-card"+
+            (!unlocked?" locked":"")+
+            (owned?" owned":"");
 
-            const owned=
-                state.machines.includes(
-                    machine.id
-                );
+        el.innerHTML=`
+            <div>
+                <div class="upgrade-title">${machine.name}</div>
 
-            const el=
-                document.createElement(
-                    "div"
-                );
-
-            el.className=
-                "upgrade-card"+
-                (
-                    !unlocked
-                    ?" locked"
-                    :""
-                )+
-                (
-                    owned
-                    ?" owned"
-                    :""
-                );
-
-            el.innerHTML=`
-
-                <div>
-
-                    <div class="upgrade-title">
-                        ${machine.name}
-                    </div>
-
-                    <div class="upgrade-desc">
-                        +${moneySmart(machine.rate)}
-                        €/Min. · Level
-                        ${machine.level}
-                    </div>
-
-                    <div class="upgrade-price">
-
-                        ${
-                            owned
-                            ?"Produziert"
-                            :money(
-                                machine.price
-                             )+
-                             " €"
-                        }
-
-                    </div>
-
+                <div class="upgrade-desc">
+                    +${moneySmart(machine.rate)} €/Min. · Level ${machine.level}
                 </div>
 
-                <button
-                    class="
-                        mint-buy-btn
-                        ${
-                            owned
-                            ?" owned"
-                            :""
-                        }
-                    "
+                <div class="upgrade-price">
+                    ${owned?"Produziert":money(machine.price)+" €"}
+                </div>
+            </div>
 
-                    ${
-                        (
-                            owned ||
-                            !unlocked ||
-                            state.balance<
-                            machine.price
-                        )
-                        ?"disabled"
-                        :""
-                    }
-                >
+            <button
+                class="mint-buy-btn ${owned?"owned":""}"
+                ${(owned||!unlocked||state.balance<machine.price)?"disabled":""}>
+                ${owned?"Aktiv":!unlocked?"Lv. "+machine.level:"Kaufen"}
+            </button>
+        `;
 
-                    ${
-                        owned
-                        ?"Aktiv"
-                        :!unlocked
-                        ?"Lv. "+machine.level
-                        :"Kaufen"
-                    }
+        const button=el.querySelector("button");
 
-                </button>
-            `;
-
-            const button=
-                el.querySelector(
-                    "button"
-                );
-
-            if(
-                unlocked &&
-                !owned
-            ){
-
-                button.addEventListener(
-                    "click",
-                    ()=>buyMachine(
-                        machine
-                    )
-                );
-            }
-
-            machineList.appendChild(el);
+        if(unlocked&&!owned){
+            button.addEventListener("click",()=>buyMachine(machine));
         }
-    );
+
+        $("machineList").appendChild(el);
+    });
 }
 
 function buyMachine(machine){
-
-    if(
-        state.balance<
-        machine.price
-    ){
-
-        showToast(
-            "Nicht genug Guthaben"
-        );
-
+    if(state.balance<machine.price){
+        showToast("Nicht genug Guthaben");
         return;
     }
 
-    if(
-        state.level<
-        machine.level
-    ){
-        return;
-    }
+    if(state.level<machine.level)return;
+    if(state.machines.includes(machine.id))return;
 
-    if(
-        state.machines.includes(
-            machine.id
-        )
-    ){
-        return;
-    }
+    state.balance-=machine.price;
+    state.machines.push(machine.id);
 
-    state.balance-=
-        machine.price;
+    gainXp(machine.xp);
 
-    state.machines.push(
-        machine.id
-    );
-
-    gainXp(
-        machine.xp
-    );
-
-    showToast(
-        machine.name+
-        " aktiviert"
-    );
+    showToast(machine.name+" aktiviert");
 
     saveState();
     updateUI();
 }
 
-
-/* =========================================================
-   PROGRESSION
-   ========================================================= */
+/* PROGRESSION */
 
 function renderProgression(){
+    $("progression").innerHTML=milestones.map(item=>{
+        let cls="";
 
-    progressionEl.innerHTML=
-        milestones.map(
-            item=>{
+        if(state.level>item.level)cls="done";
+        else if(state.level===item.level)cls="current";
 
-                let cls="";
-
-                if(
-                    state.level>
-                    item.level
-                ){
-                    cls="done";
-
-                }else if(
-                    state.level===
-                    item.level
-                ){
-                    cls="current";
-                }
-
-                return`
-
-                    <div class="milestone ${cls}">
-
-                        <div class="milestone-level">
-                            LEVEL ${item.level}
-                        </div>
-
-                        <strong>
-                            ${item.name}
-                        </strong>
-
-                        <span>
-                            ${item.text}
-                        </span>
-
-                    </div>
-                `;
-            }
-        ).join("");
+        return`
+            <div class="milestone ${cls}">
+                <div class="milestone-level">LEVEL ${item.level}</div>
+                <strong>${item.name}</strong>
+                <span>${item.text}</span>
+            </div>
+        `;
+    }).join("");
 }
 
-
-/* =========================================================
-   HISTORY
-   ========================================================= */
+/* HISTORY */
 
 function renderHistory(){
-
     if(!state.history.length){
-
-        historyEl.innerHTML=`
+        $("history").innerHTML=`
             <div class="history-empty">
                 Noch keine Ergebnisse.
             </div>
         `;
-
         return;
     }
 
-    historyEl.innerHTML=
-        state.history.map(
-            item=>{
+    $("history").innerHTML=state.history.map(item=>{
+        const time=new Date(item.timestamp).toLocaleTimeString(
+            "de-DE",
+            {hour:"2-digit",minute:"2-digit"}
+        );
 
-                const time=
-                    new Date(
-                        item.timestamp
-                    ).toLocaleTimeString(
-                        "de-DE",
-                        {
-                            hour:"2-digit",
-                            minute:"2-digit"
-                        }
-                    );
+        return`
+            <div class="history-row">
+                <div class="history-name">
+                    <strong>${item.name}</strong>
+                    <small>${time}</small>
+                </div>
 
-                return`
+                <div class="history-cost">−${money(item.price)} €</div>
 
-                    <div class="history-row">
-
-                        <div class="history-name">
-
-                            <strong>
-                                ${item.name}
-                            </strong>
-
-                            <small>
-                                ${time}
-                            </small>
-
-                        </div>
-
-                        <div class="history-cost">
-                            −${money(item.price)} €
-                        </div>
-
-                        <div class="
-                            history-result
-                            ${
-                                item.prize>0
-                                ?"win"
-                                :""
-                            }
-                        ">
-
-                            ${
-                                item.prize>0
-                                ?"+"+
-                                 moneySmart(
-                                     item.prize
-                                 )+
-                                 " €"
-                                :"0 €"
-                            }
-
-                        </div>
-
-                    </div>
-                `;
-            }
-        ).join("");
+                <div class="history-result ${item.prize>0?"win":""}">
+                    ${item.prize>0?"+"+moneySmart(item.prize)+" €":"0 €"}
+                </div>
+            </div>
+        `;
+    }).join("");
 }
 
-
-/* =========================================================
-   NEXT UNLOCK
-   ========================================================= */
+/* NEXT UNLOCK */
 
 function renderUnlock(){
-
     const unlocks=[];
 
-    tickets.forEach(
-        ticket=>{
-
-            if(
-                ticket.unlockLevel>
-                state.level
-            ){
-
-                unlocks.push({
-                    level:
-                        ticket.unlockLevel,
-                    text:
-                        ticket.name+
-                        "-Los"
-                });
-            }
+    tickets.forEach(ticket=>{
+        if(ticket.unlockLevel>state.level){
+            unlocks.push({
+                level:ticket.unlockLevel,
+                text:ticket.name+"-Los"
+            });
         }
-    );
+    });
 
-    machines.forEach(
-        machine=>{
-
-            if(
-                machine.level>
-                state.level
-            ){
-
-                unlocks.push({
-                    level:
-                        machine.level,
-                    text:
-                        machine.name
-                });
-            }
+    machines.forEach(machine=>{
+        if(machine.level>state.level){
+            unlocks.push({
+                level:machine.level,
+                text:machine.name
+            });
         }
-    );
+    });
 
-    tapUpgrades.forEach(
-        upgrade=>{
-
-            if(
-                upgrade.level>
-                state.level
-            ){
-
-                unlocks.push({
-                    level:
-                        upgrade.level,
-                    text:
-                        upgrade.name
-                });
-            }
+    tapUpgrades.forEach(upgrade=>{
+        if(upgrade.level>state.level){
+            unlocks.push({
+                level:upgrade.level,
+                text:upgrade.name
+            });
         }
-    );
+    });
 
-    unlocks.sort(
-        (a,b)=>
-            a.level-b.level
-    );
+    unlocks.sort((a,b)=>a.level-b.level);
 
-    const next=
-        unlocks[0];
+    const next=unlocks[0];
 
-    if(next){
-
-        nextUnlockEl.innerHTML=
-            `Level ${next.level}:
-             <strong>
-                ${next.text}
-             </strong>`;
-
-    }else{
-
-        nextUnlockEl.textContent=
-            "Alle Systeme freigeschaltet.";
-    }
+    $("nextUnlock").innerHTML=next
+        ?`Level ${next.level}: <strong>${next.text}</strong>`
+        :"Alle Systeme freigeschaltet.";
 }
 
-
-/* =========================================================
-   BANKRUPT
-   ========================================================= */
+/* BANKRUPT */
 
 function canAffordAnyTicket(){
-
-    return tickets.some(
-        ticket=>
-            state.level>=
-            ticket.unlockLevel &&
-            state.balance>=
-            ticket.price
+    return tickets.some(ticket=>
+        state.level>=ticket.unlockLevel&&
+        state.balance>=ticket.price
     );
 }
 
 function updateBankruptState(){
-
     const bankrupt=
-        state.started &&
-        !activeTicket &&
+        state.started&&
+        !activeTicket&&
         !canAffordAnyTicket();
 
-    bankruptCard
-    .classList
-    .toggle(
-        "show",
-        bankrupt
-    );
+    $("bankruptCard").classList.toggle("show",bankrupt);
 }
 
-
-/* =========================================================
-   BUTTONS
-   ========================================================= */
+/* BUTTONS */
 
 function updateButtons(){
+    const locked=state.level<selectedTicket.unlockLevel;
+    const poor=state.balance<selectedTicket.price;
+    const active=activeTicket&&!ticketResolved;
 
-    const locked=
-        state.level<
-        selectedTicket.unlockLevel;
+    $("buyButton").disabled=locked||poor||active;
+    $("revealButton").disabled=!active;
 
-    const poor=
-        state.balance<
-        selectedTicket.price;
-
-    const active=
-        activeTicket &&
-        !ticketResolved;
-
-    buyButton.disabled=
-        locked||
-        poor||
-        active;
-
-    revealButton.disabled=
-        !active;
-
-    whatsappButton.disabled=
-        !(
-            lastSharePrize &&
-            lastSharePrize>0
-        );
+    $("whatsappButton").disabled=
+        !(lastSharePrize&&lastSharePrize>0);
 }
 
-
-/* =========================================================
-   FAST UI
-   ========================================================= */
+/* UI */
 
 function updateFastNumbers(){
+    const net=state.balance-START_BALANCE;
 
-    const net=
-        state.balance-
-        START_BALANCE;
+    $("balance").textContent=moneySmart(state.balance);
 
-    balanceEl.textContent=
-        moneySmart(
-            state.balance
-        );
+    /* neue direkte Cash-Anzeige */
+    $("scratchCash").textContent=moneySmart(state.balance);
 
     const netText=
-        (
-            net>0
-            ?"+"
-            :""
-        )+
+        (net>0?"+":"")+
         moneySmart(net)+
         " €";
 
-    balanceNetEl.textContent=
-        netText;
+    $("balanceNet").textContent=netText;
+    $("netResult").textContent=netText;
 
-    netResultEl.textContent=
-        netText;
+    $("headerPassive").textContent=
+        moneySmart(passivePerMinute())+" €/Min.";
 
-    headerPassive.textContent=
-        moneySmart(
-            passivePerMinute()
-        )+
-        " €/Min.";
-
-    mintPerMinute.textContent=
-        moneySmart(
-            passivePerMinute()
-        )+
-        " €";
+    $("mintPerMinute").textContent=
+        moneySmart(passivePerMinute())+" €";
 }
 
-
-/* =========================================================
-   FULL UI
-   ========================================================= */
-
 function updateUI(){
-
     updateFastNumbers();
 
-    levelNumberEl.textContent=
-        state.level;
+    $("levelNumber").textContent=state.level;
 
-    const rank=
-        currentRank();
+    const rank=currentRank();
 
-    levelNameEl.textContent=
-        rank;
+    $("levelName").textContent=rank;
+    $("rankPill").textContent=rank.toUpperCase();
 
-    rankPill.textContent=
-        rank.toUpperCase();
+    const needed=xpNeeded(state.level);
 
-    const needed=
-        xpNeeded(
-            state.level
-        );
+    $("xpText").textContent=money(state.xp)+" / "+needed;
 
-    xpTextEl.textContent=
-        money(state.xp)+
-        " / "+
-        needed;
+    $("xpFill").style.width=
+        Math.min(100,state.xp/needed*100)+"%";
 
-    xpFillEl.style.width=
-        Math.min(
-            100,
-            state.xp/
-            needed*
-            100
-        )+
-        "%";
+    $("nextReward").textContent=
+        "+"+money(levelReward(state.level+1))+" €";
 
-    nextRewardEl.textContent=
-        "+"+
-        money(
-            levelReward(
-                state.level+1
-            )
-        )+
-        " €";
+    $("ticketsBought").textContent=state.ticketsBought;
+    $("totalWon").textContent=moneySmart(state.totalWon)+" €";
+    $("biggestWin").textContent=moneySmart(state.biggestWin)+" €";
 
-    ticketsBoughtEl.textContent=
-        state.ticketsBought;
+    $("mintPerTap").textContent=moneySmart(currentTapValue())+" €";
+    $("tapButtonValue").textContent="+"+moneySmart(currentTapValue())+" €";
+    $("mintTotalClicks").textContent=money(state.totalClicks);
 
-    totalWonEl.textContent=
-        moneySmart(
-            state.totalWon
-        )+
-        " €";
+    const rate=passivePerMinute();
 
-    biggestWinEl.textContent=
-        moneySmart(
-            state.biggestWin
-        )+
-        " €";
-
-    mintPerTap.textContent=
-        moneySmart(
-            currentTapValue()
-        )+
-        " €";
-
-    tapButtonValue.textContent=
-        "+"+
-        moneySmart(
-            currentTapValue()
-        )+
-        " €";
-
-    mintTotalClicks.textContent=
-        money(
-            state.totalClicks
-        );
-
-    const rate=
-        passivePerMinute();
-
-    offlineRate.textContent=
-        moneySmart(rate)+
-        " €/Min.";
-
-    offlineCap.textContent=
-        offlineHourCap()+
-        " Std.";
-
-    offlineState.textContent=
-        rate>0
-        ?"AKTIV"
-        :"KEINE MASCHINE";
+    $("offlineRate").textContent=moneySmart(rate)+" €/Min.";
+    $("offlineCap").textContent=offlineHourCap()+" Std.";
+    $("offlineState").textContent=rate>0?"AKTIV":"KEINE MASCHINE";
 
     renderUnlock();
     renderTickets();
@@ -5739,386 +3380,172 @@ function updateUI(){
     updateBankruptState();
 }
 
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+/* NAV */
 
 function switchPage(page){
-
-    document
-    .querySelectorAll(
-        ".page"
-    )
-    .forEach(
-        el=>el.classList.remove(
-            "active"
-        )
-    );
-
-    $(
-        page+"Page"
-    )
-    .classList
-    .add(
-        "active"
-    );
-
-    document
-    .querySelectorAll(
-        ".nav-btn"
-    )
-    .forEach(
-        button=>{
-
-            button.classList.toggle(
-                "active",
-                button.dataset.page===
-                page
-            );
-        }
-    );
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
+    document.querySelectorAll(".page").forEach(el=>{
+        el.classList.remove("active");
     });
+
+    $(page+"Page").classList.add("active");
+
+    document.querySelectorAll(".nav-btn").forEach(button=>{
+        button.classList.toggle(
+            "active",
+            button.dataset.page===page
+        );
+    });
+
+    window.scrollTo({top:0,behavior:"smooth"});
 }
 
-
-/* =========================================================
-   NEW ROUND
-   ========================================================= */
+/* ROUND */
 
 function openStartModal(){
-
-    if(
-        activeTicket &&
-        !ticketResolved
-    ){
-
-        showToast(
-            "Aktuelles Los zuerst beenden"
-        );
-
+    if(activeTicket&&!ticketResolved){
+        showToast("Aktuelles Los zuerst beenden");
         return;
     }
 
-    startModal.classList.remove(
-        "hidden"
-    );
+    $("startModal").classList.remove("hidden");
 }
 
 function startNewRound(){
-
     if(resultCleanupTimer){
-
-        clearTimeout(
-            resultCleanupTimer
-        );
-
+        clearTimeout(resultCleanupTimer);
         resultCleanupTimer=null;
     }
 
     currentSessionId++;
 
-    state.balance=
-        START_BALANCE;
-
+    state.balance=START_BALANCE;
     state.totalSpent=0;
     state.totalWon=0;
     state.ticketsBought=0;
     state.biggestWin=0;
     state.history=[];
-
     state.started=true;
     state.lastActive=Date.now();
 
     activeTicket=null;
     activePrize=null;
-
     ticketResolved=true;
 
     lastSharePrize=null;
     lastShareTicket=null;
 
-    scratchCanvas.style.opacity=
-        "1";
-
-    emptyGame.classList.remove(
-        "hidden"
-    );
-
-    startModal.classList.add(
-        "hidden"
-    );
+    $("scratchCanvas").style.opacity="1";
+    $("emptyGame").classList.remove("hidden");
+    $("startModal").classList.add("hidden");
 
     saveState();
     updateUI();
 
-    setTimeout(
-        checkInstallPrompt,
-        450
-    );
+    setTimeout(checkInstallPrompt,450);
 }
 
-
-/* =========================================================
-   INSTALL
-   ========================================================= */
+/* INSTALL */
 
 function isStandalone(){
-
     return(
-        window.matchMedia(
-            "(display-mode: standalone)"
-        ).matches
-        ||
-        window.navigator.standalone===
-        true
+        window.matchMedia("(display-mode: standalone)").matches||
+        window.navigator.standalone===true
     );
 }
 
 function isIOS(){
-
-    return /iphone|ipad|ipod/i
-        .test(
-            navigator.userAgent
-        );
+    return /iphone|ipad|ipod/i.test(navigator.userAgent);
 }
 
 function checkInstallPrompt(){
+    if(isStandalone())return;
+    if(!isIOS())return;
+    if(!state.started)return;
 
-    if(isStandalone()) return;
-    if(!isIOS()) return;
-    if(!state.started) return;
+    if(localStorage.getItem("scratchInstallDismissed")==="true")return;
 
-    const dismissed=
-        localStorage.getItem(
-            "scratchInstallDismissed"
-        );
-
-    if(dismissed==="true"){
-        return;
-    }
-
-    installModal.classList.remove(
-        "hidden"
-    );
+    $("installModal").classList.remove("hidden");
 }
 
-
-/* =========================================================
-   TOAST
-   ========================================================= */
+/* TOAST */
 
 let toastTimer=null;
 
 function showToast(text){
+    if(toastTimer)clearTimeout(toastTimer);
 
-    if(toastTimer){
-        clearTimeout(
-            toastTimer
-        );
-    }
+    $("toast").textContent=text;
+    $("toast").classList.add("show");
 
-    toast.textContent=text;
-
-    toast.classList.add(
-        "show"
-    );
-
-    toastTimer=
-        setTimeout(
-            ()=>{
-                toast.classList.remove(
-                    "show"
-                );
-            },
-            1800
-        );
+    toastTimer=setTimeout(()=>{
+        $("toast").classList.remove("show");
+    },1800);
 }
 
+/* EVENTS */
 
-/* =========================================================
-   EVENTS
-   ========================================================= */
+$("buyButton").addEventListener("click",buyTicket);
+$("revealButton").addEventListener("click",revealTicket);
+$("whatsappButton").addEventListener("click",shareWhatsApp);
+$("tapButton").addEventListener("pointerdown",tapMint);
 
-buyButton.addEventListener(
-    "click",
-    buyTicket
-);
+$("newRoundButton").addEventListener("click",openStartModal);
+$("startGameButton").addEventListener("click",startNewRound);
 
-revealButton.addEventListener(
-    "click",
-    revealTicket
-);
+$("bankruptMintButton").addEventListener("click",()=>switchPage("mint"));
+$("bankruptResetButton").addEventListener("click",openStartModal);
 
-whatsappButton.addEventListener(
-    "click",
-    shareWhatsApp
-);
+$("winEffectButton").addEventListener("click",closeWinEffect);
 
-tapButton.addEventListener(
-    "pointerdown",
-    tapMint
-);
+document.querySelectorAll(".nav-btn").forEach(button=>{
+    button.addEventListener("click",()=>{
+        switchPage(button.dataset.page);
+    });
+});
 
-$("newRoundButton")
-.addEventListener(
-    "click",
-    openStartModal
-);
+$("installDoneButton").addEventListener("click",()=>{
+    localStorage.setItem("scratchInstallDismissed","true");
+    $("installModal").classList.add("hidden");
+});
 
-$("startGameButton")
-.addEventListener(
-    "click",
-    startNewRound
-);
+$("installLaterButton").addEventListener("click",()=>{
+    $("installModal").classList.add("hidden");
+});
 
-$("bankruptMintButton")
-.addEventListener(
-    "click",
-    ()=>switchPage("mint")
-);
+$("offlineModalButton").addEventListener("click",()=>{
+    $("offlineModal").classList.add("hidden");
+    updateUI();
+});
 
-$("bankruptResetButton")
-.addEventListener(
-    "click",
-    openStartModal
-);
+/* TIMERS */
 
-$("winEffectButton")
-.addEventListener(
-    "click",
-    closeWinEffect
-);
+setInterval(processLiveProduction,1000);
 
-document
-.querySelectorAll(
-    ".nav-btn"
-)
-.forEach(
-    button=>{
+setInterval(()=>{
+    if(state.started)saveState();
+},15000);
 
-        button.addEventListener(
-            "click",
-            ()=>switchPage(
-                button.dataset.page
-            )
-        );
+document.addEventListener("visibilitychange",()=>{
+    if(document.hidden){
+        saveState();
+    }else{
+        lastLiveTick=Date.now();
     }
-);
+});
 
-$("installDoneButton")
-.addEventListener(
-    "click",
-    ()=>{
+window.addEventListener("pagehide",saveState);
 
-        localStorage.setItem(
-            "scratchInstallDismissed",
-            "true"
-        );
+/* SERVICE WORKER */
 
-        installModal.classList.add(
-            "hidden"
-        );
-    }
-);
-
-$("installLaterButton")
-.addEventListener(
-    "click",
-    ()=>{
-        installModal.classList.add(
-            "hidden"
-        );
-    }
-);
-
-$("offlineModalButton")
-.addEventListener(
-    "click",
-    ()=>{
-
-        offlineModal.classList.add(
-            "hidden"
-        );
-
-        updateUI();
-    }
-);
-
-
-/* =========================================================
-   TIMERS
-   ========================================================= */
-
-setInterval(
-    processLiveProduction,
-    1000
-);
-
-setInterval(
-    ()=>{
-
-        if(state.started){
-            saveState();
-        }
-
-    },
-    15000
-);
-
-document.addEventListener(
-    "visibilitychange",
-    ()=>{
-
-        if(document.hidden){
-
-            saveState();
-
-        }else{
-
-            lastLiveTick=
-                Date.now();
-        }
-    }
-);
-
-window.addEventListener(
-    "pagehide",
-    saveState
-);
-
-
-/* =========================================================
-   SERVICE WORKER
-   ========================================================= */
-
-if(
-    "serviceWorker"
-    in navigator
-){
-
-    window.addEventListener(
-        "load",
-        ()=>{
-
-            navigator
-            .serviceWorker
-            .register(
-                "./service-worker.js"
-            )
+if("serviceWorker" in navigator){
+    window.addEventListener("load",()=>{
+        navigator.serviceWorker
+            .register("./service-worker.js")
             .catch(()=>{});
-        }
-    );
+    });
 }
 
-
-/* =========================================================
-   INIT
-   ========================================================= */
+/* INIT */
 
 calculateOfflineIncome();
 
@@ -6127,21 +3554,10 @@ lastLiveTick=Date.now();
 updateUI();
 
 if(!state.started){
-
-    startModal.classList.remove(
-        "hidden"
-    );
-
+    $("startModal").classList.remove("hidden");
 }else{
-
-    startModal.classList.add(
-        "hidden"
-    );
-
-    setTimeout(
-        checkInstallPrompt,
-        650
-    );
+    $("startModal").classList.add("hidden");
+    setTimeout(checkInstallPrompt,650);
 }
 
 </script>
