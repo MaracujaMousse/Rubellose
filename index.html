@@ -64,7 +64,9 @@ button{
     user-select:none;
 }
 
-.hidden{display:none!important;}
+.hidden{
+    display:none!important;
+}
 
 .app{
     width:100%;
@@ -76,6 +78,8 @@ button{
         14px
         calc(100px + env(safe-area-inset-bottom));
 }
+
+/* HEADER */
 
 .topbar{
     height:48px;
@@ -114,6 +118,8 @@ button{
     font-size:10px;
     font-weight:750;
 }
+
+/* BALANCE */
 
 .balance-card{
     position:relative;
@@ -172,7 +178,11 @@ button{
     font-size:9px;
 }
 
-.balance-footer strong{color:var(--text);}
+.balance-footer strong{
+    color:var(--text);
+}
+
+/* LEVEL */
 
 .level-card{
     margin-top:9px;
@@ -202,7 +212,9 @@ button{
     letter-spacing:-.04em;
 }
 
-.level-reward{text-align:right;}
+.level-reward{
+    text-align:right;
+}
 
 .level-reward strong{
     display:block;
@@ -247,10 +259,19 @@ button{
     line-height:1.5;
 }
 
-.next-unlock strong{color:var(--text);}
+.next-unlock strong{
+    color:var(--text);
+}
 
-.page{display:none;}
-.page.active{display:block;}
+/* PAGE */
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
 
 .section-header{
     margin:25px 2px 10px;
@@ -268,6 +289,8 @@ button{
     color:var(--muted);
     line-height:1.45;
 }
+
+/* STATS */
 
 .stats{
     display:grid;
@@ -301,6 +324,8 @@ button{
     text-transform:uppercase;
 }
 
+/* TICKETS */
+
 .ticket-grid{
     display:flex;
     width:calc(100% + 28px);
@@ -313,7 +338,9 @@ button{
     -webkit-overflow-scrolling:touch;
 }
 
-.ticket-grid::-webkit-scrollbar{display:none;}
+.ticket-grid::-webkit-scrollbar{
+    display:none;
+}
 
 .ticket{
     flex:0 0 min(79vw,335px);
@@ -331,14 +358,18 @@ button{
     transition:.15s ease;
 }
 
-.ticket:active:not(.locked){transform:scale(.985);}
+.ticket:active:not(.locked){
+    transform:scale(.985);
+}
 
 .ticket.selected{
     border-color:var(--accent);
     box-shadow:inset 0 0 0 1px var(--accent);
 }
 
-.ticket.locked{opacity:.38;}
+.ticket.locked{
+    opacity:.38;
+}
 
 .ticket::after{
     content:"";
@@ -388,7 +419,9 @@ button{
     letter-spacing:.1em;
 }
 
-.ticket-jackpot{margin-top:23px;}
+.ticket-jackpot{
+    margin-top:23px;
+}
 
 .ticket-jackpot span{
     display:block;
@@ -421,7 +454,9 @@ button{
     font-size:8px;
 }
 
-.ticket-chip strong{color:var(--text);}
+.ticket-chip strong{
+    color:var(--text);
+}
 
 .lock-text{
     margin-top:8px;
@@ -430,16 +465,22 @@ button{
     font-weight:800;
 }
 
+/* BANKRUPT */
+
 .bankrupt-card{
     display:none;
     margin-top:10px;
     padding:17px;
     border:1px solid rgba(255,119,112,.19);
     border-radius:17px;
-    background:linear-gradient(135deg,rgba(255,119,112,.09),transparent),var(--panel);
+    background:
+        linear-gradient(135deg,rgba(255,119,112,.09),transparent),
+        var(--panel);
 }
 
-.bankrupt-card.show{display:block;}
+.bankrupt-card.show{
+    display:block;
+}
 
 .bankrupt-card h3{
     margin:0;
@@ -477,6 +518,8 @@ button{
     border:1px solid var(--line);
 }
 
+/* SCRATCH */
+
 .game-panel{
     border:1px solid var(--line);
     border-radius:20px;
@@ -484,7 +527,9 @@ button{
     overflow:hidden;
 }
 
-.scratch-side{padding:10px;}
+.scratch-side{
+    padding:10px;
+}
 
 .scratch-card{
     width:100%;
@@ -567,7 +612,6 @@ button{
 
 .empty-game strong{
     font-size:19px;
-    letter-spacing:-.03em;
 }
 
 .empty-game p{
@@ -578,7 +622,7 @@ button{
     line-height:1.55;
 }
 
-/* NEU: CASH DIREKT UNTER RUBBELLOS */
+/* KOMPAKTER CASH-BEREICH */
 
 .scratch-cash{
     display:flex;
@@ -586,7 +630,7 @@ button{
     align-items:center;
     gap:12px;
     margin-top:9px;
-    padding:14px 16px;
+    padding:13px 15px;
     border:1px solid rgba(217,255,101,.16);
     border-radius:15px;
     background:var(--accentSoft);
@@ -624,53 +668,20 @@ button{
     font-size:12px;
 }
 
-.game-info{
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-    padding:17px;
-    border-top:1px solid var(--line);
+/* KOMPAKTE BUTTONS DIREKT UNTER DEM LOS */
+
+.game-actions{
+    padding:0 10px 10px;
 }
-
-.selected-heading{
-    font-size:9px;
-    color:var(--muted);
-}
-
-.selected-name{
-    margin-top:4px;
-    font-size:26px;
-    font-weight:900;
-    letter-spacing:-.04em;
-}
-
-.selected-price{
-    margin-top:4px;
-    color:var(--accent);
-    font-size:11px;
-}
-
-.info-list{border-top:1px solid var(--line);}
-
-.info-row{
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-    padding:9px 0;
-    border-bottom:1px solid var(--line);
-    font-size:10px;
-}
-
-.info-row span:first-child{color:var(--muted);}
 
 .primary-btn,
 .secondary-btn,
 .whatsapp-btn,
 .mint-buy-btn{
     width:100%;
-    min-height:52px;
+    min-height:50px;
     border-radius:14px;
-    padding:14px 16px;
+    padding:13px 16px;
     font-size:13px;
     font-weight:850;
 }
@@ -698,6 +709,8 @@ button:disabled{
     opacity:.32;
     pointer-events:none;
 }
+
+/* LUCK */
 
 .luck-list{
     display:flex;
@@ -776,6 +789,8 @@ button:disabled{
     font-weight:850;
 }
 
+/* PROGRESSION */
+
 .progression{
     display:flex;
     gap:8px;
@@ -786,7 +801,9 @@ button:disabled{
     scrollbar-width:none;
 }
 
-.progression::-webkit-scrollbar{display:none;}
+.progression::-webkit-scrollbar{
+    display:none;
+}
 
 .milestone{
     flex:0 0 145px;
@@ -796,8 +813,13 @@ button:disabled{
     background:var(--panel);
 }
 
-.milestone.current{border-color:var(--accent);}
-.milestone.done{opacity:.55;}
+.milestone.current{
+    border-color:var(--accent);
+}
+
+.milestone.done{
+    opacity:.55;
+}
 
 .milestone-level{
     font-size:9px;
@@ -817,6 +839,8 @@ button:disabled{
     line-height:1.4;
     color:var(--muted);
 }
+
+/* HISTORY */
 
 .history{
     overflow:hidden;
@@ -842,15 +866,22 @@ button:disabled{
     font-size:10px;
 }
 
-.history-row:last-child{border-bottom:none;}
+.history-row:last-child{
+    border-bottom:none;
+}
 
 .history-name strong{
     display:block;
     font-size:11px;
 }
 
-.history-name small{color:var(--muted);}
-.history-cost{color:var(--muted);}
+.history-name small{
+    color:var(--muted);
+}
+
+.history-cost{
+    color:var(--muted);
+}
 
 .history-result{
     min-width:70px;
@@ -858,7 +889,9 @@ button:disabled{
     font-weight:850;
 }
 
-.history-result.win{color:var(--accent);}
+.history-result.win{
+    color:var(--accent);
+}
 
 .round-bar{
     display:flex;
@@ -987,7 +1020,9 @@ button:disabled{
     border-radius:50%;
 }
 
-.tap-button:active{transform:scale(.94);}
+.tap-button:active{
+    transform:scale(.94);
+}
 
 .tap-button-main{
     position:relative;
@@ -1061,7 +1096,9 @@ button:disabled{
     background:var(--panel3);
 }
 
-.upgrade-card.locked{opacity:.42;}
+.upgrade-card.locked{
+    opacity:.42;
+}
 
 .upgrade-card.owned{
     border-color:rgba(117,240,197,.22);
@@ -1164,6 +1201,8 @@ button:disabled{
     font-size:8px;
 }
 
+/* NAV */
+
 .bottom-nav{
     position:fixed;
     z-index:80;
@@ -1201,6 +1240,8 @@ button:disabled{
     background:var(--mint);
     color:#0c1612;
 }
+
+/* MODALS */
 
 .modal,
 .install-modal{
@@ -1305,7 +1346,9 @@ button:disabled{
     line-height:1.55;
 }
 
-.install-instruction strong{color:var(--text);}
+.install-instruction strong{
+    color:var(--text);
+}
 
 .share-symbol{
     flex:0 0 auto;
@@ -1335,6 +1378,8 @@ button:disabled{
     letter-spacing:-.06em;
     color:var(--mint);
 }
+
+/* WIN */
 
 .win-effect{
     position:fixed;
@@ -1369,8 +1414,13 @@ button:disabled{
     animation:winPulse 1.1s ease infinite alternate;
 }
 
-.win-effect.mega .win-effect-glow{opacity:.22;}
-.win-effect.jackpot .win-effect-glow{opacity:.34;}
+.win-effect.mega .win-effect-glow{
+    opacity:.22;
+}
+
+.win-effect.jackpot .win-effect-glow{
+    opacity:.34;
+}
 
 @keyframes winPulse{
     from{transform:scale(.65)}
@@ -1423,6 +1473,8 @@ button:disabled{
     font-weight:900;
 }
 
+/* TOAST */
+
 .toast{
     position:fixed;
     z-index:1000;
@@ -1458,33 +1510,56 @@ button:disabled{
         <div class="brand-mark">S</div>
         SCRATCH
     </div>
-    <div class="rank-pill" id="rankPill">ROOKIE</div>
+
+    <div class="rank-pill" id="rankPill">
+        ROOKIE
+    </div>
 </header>
 
 <section class="balance-card">
-    <div class="balance-label">GUTHABEN</div>
+
+    <div class="balance-label">
+        GUTHABEN
+    </div>
+
     <div class="balance">
         <span id="balance">150</span>
         <small>€</small>
     </div>
 
     <div class="balance-footer">
-        <span>Cash <strong id="balanceNet">0 €</strong></span>
-        <span>Mint <strong id="headerPassive">0 €/Min.</strong></span>
+        <span>
+            Cash
+            <strong id="balanceNet">0 €</strong>
+        </span>
+
+        <span>
+            Mint
+            <strong id="headerPassive">0 €/Min.</strong>
+        </span>
     </div>
+
 </section>
 
 <section class="level-card">
+
     <div class="level-top">
+
         <div>
-            <div class="level-caption">LEVEL <span id="levelNumber">1</span></div>
-            <div class="level-title" id="levelName">Rookie</div>
+            <div class="level-caption">
+                LEVEL <span id="levelNumber">1</span>
+            </div>
+
+            <div class="level-title" id="levelName">
+                Rookie
+            </div>
         </div>
 
         <div class="level-reward">
             <strong id="nextReward">+16 €</strong>
             <span>NÄCHSTES LEVEL</span>
         </div>
+
     </div>
 
     <div class="xp-row">
@@ -1497,11 +1572,15 @@ button:disabled{
     </div>
 
     <div class="next-unlock" id="nextUnlock"></div>
+
 </section>
+
+<!-- SCRATCH PAGE -->
 
 <main class="page active" id="scratchPage">
 
 <section class="stats">
+
     <div class="stat">
         <div class="stat-value" id="ticketsBought">0</div>
         <div class="stat-label">Lose</div>
@@ -1521,16 +1600,31 @@ button:disabled{
         <div class="stat-value" id="netResult">0 €</div>
         <div class="stat-label">Cash</div>
     </div>
+
 </section>
 
 <div class="bankrupt-card" id="bankruptCard">
-    <h3>Kein Los mehr bezahlbar.</h3>
-    <p>Nutze die Mint oder starte eine neue Runde.</p>
+
+    <h3>
+        Kein Los mehr bezahlbar.
+    </h3>
+
+    <p>
+        Nutze die Mint oder starte eine neue Runde.
+    </p>
 
     <div class="bankrupt-actions">
-        <button class="bankrupt-mint" id="bankruptMintButton">Zur Mint</button>
-        <button class="bankrupt-reset" id="bankruptResetButton">Neue Runde</button>
+
+        <button class="bankrupt-mint" id="bankruptMintButton">
+            Zur Mint
+        </button>
+
+        <button class="bankrupt-reset" id="bankruptResetButton">
+            Neue Runde
+        </button>
+
     </div>
+
 </div>
 
 <div class="section-header">
@@ -1542,95 +1636,89 @@ button:disabled{
 
 <div class="section-header">
     <h2>Rubbelfeld</h2>
-    <p>Mit dem Finger freirubbeln.</p>
 </div>
 
 <section class="game-panel">
 
-<div class="scratch-side">
+    <div class="scratch-side">
 
-    <div class="scratch-card">
+        <div class="scratch-card">
 
-        <div class="result-underlay">
-            <div>
-                <div class="result-kicker" id="resultKicker">Gewinn</div>
-                <div class="result-amount" id="resultAmount">0 €</div>
-                <div class="result-message" id="resultMessage">Viel Glück.</div>
+            <div class="result-underlay">
+
+                <div>
+                    <div class="result-kicker" id="resultKicker">
+                        Gewinn
+                    </div>
+
+                    <div class="result-amount" id="resultAmount">
+                        0 €
+                    </div>
+
+                    <div class="result-message" id="resultMessage">
+                        Viel Glück.
+                    </div>
+                </div>
+
             </div>
+
+            <canvas id="scratchCanvas"></canvas>
+
+            <div class="empty-game" id="emptyGame">
+
+                <div class="empty-icon">
+                    ✦
+                </div>
+
+                <strong>
+                    Bereit
+                </strong>
+
+                <p>
+                    Los auswählen und starten.
+                </p>
+
+            </div>
+
         </div>
 
-        <canvas id="scratchCanvas"></canvas>
+        <div class="scratch-cash">
 
-        <div class="empty-game" id="emptyGame">
-            <div class="empty-icon">✦</div>
-            <strong>Bereit</strong>
-            <p>Los auswählen und starten.</p>
+            <div class="scratch-cash-left">
+                <span>DEIN CASH</span>
+
+                <strong>
+                    <span id="scratchCash">150</span> €
+                </strong>
+            </div>
+
+            <div class="scratch-cash-right">
+                <span id="scratchSelectedName">MINI</span>
+                <strong id="scratchTicketCost">−2 €</strong>
+            </div>
+
         </div>
 
     </div>
 
-    <!-- NEU -->
-    <div class="scratch-cash">
-        <div class="scratch-cash-left">
-            <span>DEIN CASH</span>
-            <strong><span id="scratchCash">150</span> €</strong>
-        </div>
+    <!-- Nur noch Buttons, keine Detailinfos -->
 
-        <div class="scratch-cash-right">
-            <span>NÄCHSTES LOS</span>
-            <strong id="scratchTicketCost">−2 €</strong>
-        </div>
+    <div class="game-actions">
+
+        <button class="primary-btn" id="buyButton">
+            Mini · 2 €
+        </button>
+
+        <button class="secondary-btn" id="revealButton" disabled>
+            Sofort aufdecken
+        </button>
+
+        <button class="whatsapp-btn" id="whatsappButton" disabled>
+            Gewinn über WhatsApp teilen
+        </button>
+
     </div>
 
-</div>
-
-<div class="game-info">
-
-    <div>
-        <div class="selected-heading">AUSGEWÄHLT</div>
-        <div class="selected-name" id="selectedName">Mini</div>
-        <div class="selected-price" id="selectedPrice">2 € Einsatz</div>
-    </div>
-
-    <div class="info-list">
-        <div class="info-row">
-            <span>Trefferquote</span>
-            <span id="selectedOdds"></span>
-        </div>
-
-        <div class="info-row">
-            <span>Luck</span>
-            <span id="selectedLuck"></span>
-        </div>
-
-        <div class="info-row">
-            <span>ca. RTP</span>
-            <span id="selectedRtp"></span>
-        </div>
-
-        <div class="info-row">
-            <span>Hauptgewinn</span>
-            <span id="selectedJackpot"></span>
-        </div>
-
-        <div class="info-row">
-            <span>Jackpot-Chance</span>
-            <span id="selectedJackpotOdds"></span>
-        </div>
-
-        <div class="info-row">
-            <span>XP</span>
-            <span id="selectedXp"></span>
-        </div>
-    </div>
-
-    <div>
-        <button class="primary-btn" id="buyButton">Los kaufen</button>
-        <button class="secondary-btn" id="revealButton" disabled>Sofort aufdecken</button>
-        <button class="whatsapp-btn" id="whatsappButton" disabled>Gewinn über WhatsApp teilen</button>
-    </div>
-
-</div>
 </section>
 
 <div class="section-header">
@@ -1648,22 +1736,37 @@ button:disabled{
 <section class="progression" id="progression"></section>
 
 <div class="round-bar">
+
     <h2>Verlauf</h2>
-    <button class="round-btn" id="newRoundButton">Neue Runde</button>
+
+    <button class="round-btn" id="newRoundButton">
+        Neue Runde
+    </button>
+
 </div>
 
 <section class="history" id="history"></section>
 
 </main>
 
+<!-- MINT PAGE -->
+
 <main class="page" id="mintPage">
 
 <section class="mint-hero">
-    <div class="mint-eyebrow">CASH LAB</div>
+
+    <div class="mint-eyebrow">
+        CASH LAB
+    </div>
+
     <h2>Mint</h2>
-    <p>Tippen, investieren, automatisieren.</p>
+
+    <p>
+        Tippen, investieren, automatisieren.
+    </p>
 
     <div class="mint-stats">
+
         <div class="mint-stat">
             <strong id="mintPerTap">0,01 €</strong>
             <span>pro Tap</span>
@@ -1678,32 +1781,51 @@ button:disabled{
             <strong id="mintTotalClicks">0</strong>
             <span>Taps</span>
         </div>
+
     </div>
+
 </section>
 
 <section class="tap-area">
-    <div class="tap-label">MANUELLE MINT</div>
+
+    <div class="tap-label">
+        MANUELLE MINT
+    </div>
 
     <button class="tap-button" id="tapButton">
+
         <div class="tap-button-main">
             <strong id="tapButtonValue">+0,01 €</strong>
             <span>TAP</span>
         </div>
+
     </button>
 
-    <div class="tap-note">50 Taps = 1 XP</div>
+    <div class="tap-note">
+        50 Taps = 1 XP
+    </div>
+
 </section>
 
 <section class="offline-card">
+
     <div class="offline-card-top">
+
         <div>
             <h3>Offline Mint</h3>
-            <p>Maschinen produzieren auch außerhalb der App.</p>
+            <p>
+                Maschinen produzieren auch außerhalb der App.
+            </p>
         </div>
-        <div class="offline-state" id="offlineState">AKTIV</div>
+
+        <div class="offline-state" id="offlineState">
+            AKTIV
+        </div>
+
     </div>
 
     <div class="offline-values">
+
         <div class="offline-value">
             <strong id="offlineRate">0 €/Min.</strong>
             <span>Produktion</span>
@@ -1713,7 +1835,9 @@ button:disabled{
             <strong id="offlineCap">2 Std.</strong>
             <span>Max. Offlinezeit</span>
         </div>
+
     </div>
+
 </section>
 
 <div class="section-header">
@@ -1739,73 +1863,169 @@ button:disabled{
 </div>
 
 <nav class="bottom-nav">
-    <button class="nav-btn active" data-page="scratch">SCRATCH</button>
-    <button class="nav-btn" data-page="mint">MINT</button>
+    <button class="nav-btn active" data-page="scratch">
+        SCRATCH
+    </button>
+
+    <button class="nav-btn" data-page="mint">
+        MINT
+    </button>
 </nav>
 
+<!-- START MODAL -->
+
 <div class="modal" id="startModal">
+
     <div class="modal-card">
-        <div class="modal-eyebrow">SCRATCH</div>
-        <h2>Neue Runde</h2>
-        <p>Level, Mint und Luck-Upgrades bleiben erhalten.</p>
+
+        <div class="modal-eyebrow">
+            SCRATCH
+        </div>
+
+        <h2>
+            Neue Runde
+        </h2>
+
+        <p>
+            Level, Mint und Luck-Upgrades bleiben erhalten.
+        </p>
 
         <div class="start-amount">
-            <span>STARTGUTHABEN</span>
-            <strong>150 €</strong>
+
+            <span>
+                STARTGUTHABEN
+            </span>
+
+            <strong>
+                150 €
+            </strong>
+
         </div>
 
-        <button class="start-btn" id="startGameButton">Starten</button>
+        <button class="start-btn" id="startGameButton">
+            Starten
+        </button>
+
     </div>
+
 </div>
+
+<!-- INSTALL -->
 
 <div class="install-modal hidden" id="installModal">
-    <div class="install-card">
-        <div class="install-icon">S</div>
-        <div class="install-label">WEB-APP</div>
-        <h2>Scratch installieren</h2>
-        <p>Als Web-App zum Home-Bildschirm hinzufügen?</p>
 
-        <div class="install-instruction">
-            <span class="share-symbol">↑</span>
-            <div>
-                In Safari auf <strong>Teilen</strong> und danach
-                <strong>Zum Home-Bildschirm</strong> tippen.
-            </div>
+    <div class="install-card">
+
+        <div class="install-icon">
+            S
         </div>
 
-        <button class="install-button" id="installDoneButton">Verstanden</button>
-        <button class="install-later" id="installLaterButton">Später</button>
+        <div class="install-label">
+            WEB-APP
+        </div>
+
+        <h2>
+            Scratch installieren
+        </h2>
+
+        <p>
+            Als Web-App zum Home-Bildschirm hinzufügen?
+        </p>
+
+        <div class="install-instruction">
+
+            <span class="share-symbol">
+                ↑
+            </span>
+
+            <div>
+                In Safari auf <strong>Teilen</strong>
+                und danach
+                <strong>Zum Home-Bildschirm</strong> tippen.
+            </div>
+
+        </div>
+
+        <button class="install-button" id="installDoneButton">
+            Verstanden
+        </button>
+
+        <button class="install-later" id="installLaterButton">
+            Später
+        </button>
+
     </div>
+
 </div>
+
+<!-- OFFLINE -->
 
 <div class="modal hidden" id="offlineModal">
+
     <div class="modal-card">
-        <div class="modal-eyebrow">MINT</div>
-        <h2>Produktion abgeschlossen</h2>
-        <div class="offline-modal-amount" id="offlineModalAmount">+0 €</div>
+
+        <div class="modal-eyebrow">
+            MINT
+        </div>
+
+        <h2>
+            Produktion abgeschlossen
+        </h2>
+
+        <div class="offline-modal-amount" id="offlineModalAmount">
+            +0 €
+        </div>
+
         <p id="offlineModalText"></p>
-        <button class="start-btn" id="offlineModalButton">Einsammeln</button>
+
+        <button class="start-btn" id="offlineModalButton">
+            Einsammeln
+        </button>
+
     </div>
+
 </div>
 
+<!-- WIN -->
+
 <div class="win-effect" id="winEffect">
+
     <div class="win-effect-glow"></div>
 
     <div class="win-effect-content">
-        <div class="win-effect-label" id="winEffectLabel">BIG WIN</div>
-        <div class="win-effect-title" id="winEffectTitle">BIG<br>WIN</div>
-        <div class="win-effect-amount" id="winEffectAmount">+1.000 €</div>
+
+        <div class="win-effect-label" id="winEffectLabel">
+            BIG WIN
+        </div>
+
+        <div class="win-effect-title" id="winEffectTitle">
+            BIG<br>WIN
+        </div>
+
+        <div class="win-effect-amount" id="winEffectAmount">
+            +1.000 €
+        </div>
+
         <div class="win-effect-ticket" id="winEffectTicket"></div>
-        <button class="win-effect-button" id="winEffectButton">Weiter</button>
+
+        <button class="win-effect-button" id="winEffectButton">
+            Weiter
+        </button>
+
     </div>
+
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
 
+/* =========================================================
+   BASIS
+   ========================================================= */
+
 const START_BALANCE = 150;
-const STORAGE_KEY = "scratchGameStateV6";
+const STORAGE_KEY = "scratchGameStateV7";
 
 const LUCK_STEP = 0.0008;
 const MAX_LUCK_LEVEL = 10;
@@ -1999,7 +2219,7 @@ const tickets = [
 ];
 
 /* =========================================================
-   GÜNSTIGERE MINT-UPGRADES
+   MINT
    ========================================================= */
 
 const tapUpgrades = [
@@ -2118,7 +2338,9 @@ const machines = [
 
 ];
 
-/* LEVEL */
+/* =========================================================
+   LEVEL
+   ========================================================= */
 
 const ranks=[
     {level:1,name:"Rookie"},
@@ -2145,48 +2367,73 @@ const milestones=[
 ];
 
 function xpNeeded(level){
-    return Math.round(40+level*14+Math.pow(level,1.45)*4);
+    return Math.round(
+        40+
+        level*14+
+        Math.pow(level,1.45)*4
+    );
 }
 
 function levelReward(level){
+
     if(level===30)return 500;
     if(level===20)return 200;
     if(level===15)return 100;
+
     if(level%10===0)return 100;
     if(level%5===0)return 50;
+
     return 10+level*3;
 }
 
 function currentRank(){
+
     let rank=ranks[0];
+
     ranks.forEach(r=>{
-        if(state.level>=r.level)rank=r;
+        if(state.level>=r.level){
+            rank=r;
+        }
     });
+
     return rank.name;
 }
 
 function offlineHourCap(){
+
     if(state.level>=20)return 8;
     if(state.level>=16)return 6;
     if(state.level>=10)return 4;
     if(state.level>=6)return 3;
+
     return 2;
 }
 
-/* STATE */
+/* =========================================================
+   STATE
+   ========================================================= */
 
 const defaultState={
+
     level:1,
     xp:0,
+
     balance:START_BALANCE,
+
     totalSpent:0,
     totalWon:0,
+
     ticketsBought:0,
     biggestWin:0,
+
     history:[],
+
     started:false,
+
     tapUpgrade:null,
+
     machines:[],
+
     luckUpgrades:{
         mini:0,
         classic:0,
@@ -2195,134 +2442,272 @@ const defaultState={
         neon:0,
         vault:0
     },
+
     totalClicks:0,
     clickXpCounter:0,
+
     mintLifetime:0,
+
     lastActive:Date.now()
 };
 
 let state=loadState();
+
 let selectedTicket=tickets[0];
+
 let activeTicket=null;
 let activePrize=null;
+
 let ticketResolved=true;
+
 let currentSessionId=0;
 let resultCleanupTimer=null;
+
 let lastSharePrize=null;
 let lastShareTicket=null;
+
 let lastLiveTick=Date.now();
+
+/* =========================================================
+   HELPERS
+   ========================================================= */
 
 const $=id=>document.getElementById(id);
 
 function clone(obj){
-    return JSON.parse(JSON.stringify(obj));
+    return JSON.parse(
+        JSON.stringify(obj)
+    );
 }
 
 function saveState(){
+
     state.lastActive=Date.now();
-    localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(state)
+    );
 }
 
 function loadState(){
-    try{
-        const saved=localStorage.getItem(STORAGE_KEY);
-        if(!saved)return clone(defaultState);
 
-        const parsed=JSON.parse(saved);
+    try{
+
+        const saved=
+            localStorage.getItem(
+                STORAGE_KEY
+            );
+
+        if(!saved){
+            return clone(
+                defaultState
+            );
+        }
+
+        const parsed=
+            JSON.parse(saved);
 
         return{
             ...clone(defaultState),
             ...parsed,
-            history:Array.isArray(parsed.history)?parsed.history:[],
-            machines:Array.isArray(parsed.machines)?parsed.machines:[],
+
+            history:
+                Array.isArray(parsed.history)
+                ?parsed.history
+                :[],
+
+            machines:
+                Array.isArray(parsed.machines)
+                ?parsed.machines
+                :[],
+
             luckUpgrades:{
                 ...defaultState.luckUpgrades,
                 ...(parsed.luckUpgrades||{})
             }
         };
+
     }catch{
-        return clone(defaultState);
+
+        return clone(
+            defaultState
+        );
     }
 }
 
-/* FORMAT */
+/* =========================================================
+   FORMAT
+   ========================================================= */
 
-function money(value,decimals=0){
-    return new Intl.NumberFormat("de-DE",{
-        minimumFractionDigits:decimals,
-        maximumFractionDigits:decimals
-    }).format(value);
+function money(
+    value,
+    decimals=0
+){
+
+    return new Intl.NumberFormat(
+        "de-DE",
+        {
+            minimumFractionDigits:decimals,
+            maximumFractionDigits:decimals
+        }
+    ).format(value);
 }
 
 function moneySmart(value){
-    const rounded=Math.round(value*100)/100;
-    const cents=Math.abs(rounded-Math.round(rounded))>.0001;
-    return money(rounded,cents?2:0);
+
+    const rounded=
+        Math.round(
+            value*100
+        )/100;
+
+    const cents=
+        Math.abs(
+            rounded-
+            Math.round(rounded)
+        )>.0001;
+
+    return money(
+        rounded,
+        cents?2:0
+    );
 }
 
 function percent(value){
-    return new Intl.NumberFormat("de-DE",{
-        minimumFractionDigits:2,
-        maximumFractionDigits:2
-    }).format(value*100)+" %";
+
+    return new Intl.NumberFormat(
+        "de-DE",
+        {
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        }
+    ).format(
+        value*100
+    )+" %";
 }
 
-/* RNG */
+/* =========================================================
+   RNG
+   ========================================================= */
 
 function cryptoFloat(){
-    const arr=new Uint32Array(1);
+
+    const arr=
+        new Uint32Array(1);
+
     crypto.getRandomValues(arr);
-    return arr[0]/4294967296;
+
+    return arr[0]/
+        4294967296;
 }
 
-function cryptoInteger(min,max){
-    const range=max-min+1;
-    const maxUint=4294967296;
-    const limit=maxUint-(maxUint%range);
-    const arr=new Uint32Array(1);
+function cryptoInteger(
+    min,
+    max
+){
+
+    const range=
+        max-min+1;
+
+    const maxUint=
+        4294967296;
+
+    const limit=
+        maxUint-
+        (
+            maxUint%
+            range
+        );
+
+    const arr=
+        new Uint32Array(1);
+
     let value;
 
     do{
-        crypto.getRandomValues(arr);
-        value=arr[0];
-    }while(value>=limit);
 
-    return min+(value%range);
+        crypto.getRandomValues(
+            arr
+        );
+
+        value=arr[0];
+
+    }while(
+        value>=limit
+    );
+
+    return min+
+        (
+            value%
+            range
+        );
 }
 
-/* LUCK */
+/* =========================================================
+   LUCK
+   ========================================================= */
 
 function getLuckLevel(ticket){
-    return Number(state.luckUpgrades[ticket.id]||0);
+
+    return Number(
+        state.luckUpgrades[
+            ticket.id
+        ]||0
+    );
 }
 
 function getLuckBoost(ticket){
-    return getLuckLevel(ticket)*LUCK_STEP;
+
+    return getLuckLevel(ticket)*
+        LUCK_STEP;
 }
 
 function luckUpgradeCost(ticket){
-    const level=getLuckLevel(ticket);
 
-    /* etwas günstiger als vorher */
+    const level=
+        getLuckLevel(ticket);
+
     return Math.round(
         Math.min(
             5000,
             Math.max(
                 20,
-                ticket.price*18*Math.pow(1.48,level)
+                ticket.price*
+                18*
+                Math.pow(
+                    1.48,
+                    level
+                )
             )
         )
     );
 }
 
 function getAdjustedBands(ticket){
-    const bands=ticket.bands.map(b=>({...b}));
-    const boost=getLuckBoost(ticket);
 
-    if(boost<=0)return bands;
+    const bands=
+        ticket.bands.map(
+            b=>({...b})
+        );
 
-    const loss=bands.find(b=>b.id==="loss");
-    loss.probability=Math.max(0,loss.probability-boost);
+    const boost=
+        getLuckBoost(ticket);
+
+    if(boost<=0){
+        return bands;
+    }
+
+    const loss=
+        bands.find(
+            b=>b.id==="loss"
+        );
+
+    loss.probability=
+        Math.max(
+            0,
+            loss.probability-
+            boost
+        );
 
     const distribution=[
         ["small",.45],
@@ -2332,1040 +2717,2581 @@ function getAdjustedBands(ticket){
         ["mega",.03]
     ];
 
-    distribution.forEach(([id,share])=>{
-        const band=bands.find(b=>b.id===id);
-        if(band)band.probability+=boost*share;
-    });
+    distribution.forEach(
+        ([id,share])=>{
+
+            const band=
+                bands.find(
+                    b=>b.id===id
+                );
+
+            if(band){
+                band.probability+=
+                    boost*share;
+            }
+        }
+    );
 
     return bands;
 }
 
 function getHitRate(ticket){
-    const loss=getAdjustedBands(ticket).find(b=>b.id==="loss");
-    return 1-loss.probability;
+
+    const loss=
+        getAdjustedBands(ticket)
+        .find(
+            b=>b.id==="loss"
+        );
+
+    return 1-
+        loss.probability;
 }
 
-/* RTP */
-
-function averageBandValue(band){
-    if(typeof band.fixed==="number")return band.fixed;
-    return (band.min+band.max)/2;
-}
-
-function estimatedRtp(ticket){
-    let expected=0;
-
-    getAdjustedBands(ticket).forEach(b=>{
-        expected+=b.probability*averageBandValue(b);
-    });
-
-    return expected/ticket.price*100;
-}
-
-/* PRIZE */
+/* =========================================================
+   PRIZE
+   ========================================================= */
 
 function chooseBand(ticket){
-    const bands=getAdjustedBands(ticket);
-    const roll=cryptoFloat();
+
+    const bands=
+        getAdjustedBands(ticket);
+
+    const roll=
+        cryptoFloat();
+
     let cumulative=0;
 
-    for(const band of bands){
-        cumulative+=band.probability;
-        if(roll<cumulative)return band;
+    for(
+        const band
+        of bands
+    ){
+
+        cumulative+=
+            band.probability;
+
+        if(
+            roll<
+            cumulative
+        ){
+
+            return band;
+        }
     }
 
     return bands[0];
 }
 
-function generatePrizeFromBand(ticket,band){
-    if(typeof band.fixed==="number")return band.fixed;
+function generatePrizeFromBand(
+    ticket,
+    band
+){
 
-    const featured=ticket.featured.filter(
-        value=>value>=band.min&&value<=band.max
-    );
+    if(
+        typeof band.fixed===
+        "number"
+    ){
 
-    if(featured.length&&cryptoFloat()<.22){
-        return featured[cryptoInteger(0,featured.length-1)];
+        return band.fixed;
     }
 
-    const minCents=Math.round(band.min*100);
-    const maxCents=Math.round(band.max*100);
+    const featured=
+        ticket.featured.filter(
+            value=>
+                value>=band.min &&
+                value<=band.max
+        );
 
-    return cryptoInteger(minCents,maxCents)/100;
+    if(
+        featured.length &&
+        cryptoFloat()<.22
+    ){
+
+        return featured[
+            cryptoInteger(
+                0,
+                featured.length-1
+            )
+        ];
+    }
+
+    const minCents=
+        Math.round(
+            band.min*100
+        );
+
+    const maxCents=
+        Math.round(
+            band.max*100
+        );
+
+    return cryptoInteger(
+        minCents,
+        maxCents
+    )/100;
 }
 
 function drawPrize(ticket){
-    return generatePrizeFromBand(ticket,chooseBand(ticket));
+
+    return generatePrizeFromBand(
+        ticket,
+        chooseBand(ticket)
+    );
 }
 
-/* XP */
+/* =========================================================
+   XP
+   ========================================================= */
 
 function gainXp(amount){
+
     state.xp+=amount;
+
     let bonus=0;
 
-    while(state.xp>=xpNeeded(state.level)){
-        state.xp-=xpNeeded(state.level);
+    while(
+        state.xp>=
+        xpNeeded(
+            state.level
+        )
+    ){
+
+        state.xp-=
+            xpNeeded(
+                state.level
+            );
+
         state.level++;
 
-        const reward=levelReward(state.level);
-        state.balance+=reward;
-        bonus+=reward;
+        const reward=
+            levelReward(
+                state.level
+            );
+
+        state.balance+=
+            reward;
+
+        bonus+=
+            reward;
     }
 
     if(bonus>0){
-        showToast("Level "+state.level+" · +"+money(bonus)+" €");
+
+        showToast(
+            "Level "+
+            state.level+
+            " · +"+
+            money(bonus)+
+            " €"
+        );
     }
 }
 
-/* MINT */
+/* =========================================================
+   MINT
+   ========================================================= */
 
 function currentTapValue(){
-    if(!state.tapUpgrade)return .01;
 
-    const upgrade=tapUpgrades.find(u=>u.id===state.tapUpgrade);
-    return upgrade?upgrade.value:.01;
+    if(
+        !state.tapUpgrade
+    ){
+
+        return .01;
+    }
+
+    const upgrade=
+        tapUpgrades.find(
+            u=>
+                u.id===
+                state.tapUpgrade
+        );
+
+    return upgrade
+        ?upgrade.value
+        :.01;
 }
 
 function passivePerMinute(){
+
     let total=0;
 
-    machines.forEach(machine=>{
-        if(state.machines.includes(machine.id)){
-            total+=machine.rate;
+    machines.forEach(
+        machine=>{
+
+            if(
+                state.machines.includes(
+                    machine.id
+                )
+            ){
+
+                total+=
+                    machine.rate;
+            }
         }
-    });
+    );
 
     return total;
 }
 
-/* OFFLINE */
+/* =========================================================
+   OFFLINE
+   ========================================================= */
 
 function calculateOfflineIncome(){
-    if(!state.started){
-        state.lastActive=Date.now();
+
+    if(
+        !state.started
+    ){
+
+        state.lastActive=
+            Date.now();
+
         return;
     }
 
-    const rate=passivePerMinute();
+    const rate=
+        passivePerMinute();
 
-    if(rate<=0){
-        state.lastActive=Date.now();
+    if(
+        rate<=0
+    ){
+
+        state.lastActive=
+            Date.now();
+
         return;
     }
 
-    const now=Date.now();
-    const elapsed=Math.max(0,now-Number(state.lastActive||now));
+    const now=
+        Date.now();
 
-    if(elapsed<30000){
-        state.lastActive=now;
+    const elapsed=
+        Math.max(
+            0,
+            now-
+            Number(
+                state.lastActive||
+                now
+            )
+        );
+
+    if(
+        elapsed<
+        30000
+    ){
+
+        state.lastActive=
+            now;
+
         return;
     }
 
-    const cap=offlineHourCap()*3600000;
-    const used=Math.min(elapsed,cap);
-    const minutes=used/60000;
-    const earned=rate*minutes;
+    const cap=
+        offlineHourCap()*
+        3600000;
 
-    state.balance+=earned;
-    state.mintLifetime+=earned;
-    state.lastActive=now;
+    const used=
+        Math.min(
+            elapsed,
+            cap
+        );
+
+    const minutes=
+        used/
+        60000;
+
+    const earned=
+        rate*
+        minutes;
+
+    state.balance+=
+        earned;
+
+    state.mintLifetime+=
+        earned;
+
+    state.lastActive=
+        now;
 
     saveState();
 
-    $("offlineModalAmount").textContent="+"+moneySmart(earned)+" €";
+    $("offlineModalAmount")
+        .textContent=
+        "+"+
+        moneySmart(earned)+
+        " €";
 
-    const hours=used/3600000;
+    const hours=
+        used/
+        3600000;
 
-    $("offlineModalText").textContent=
+    $("offlineModalText")
+        .textContent=
         "Produktion für "+
-        (hours>=1?money(hours,1)+" Std.":money(minutes,0)+" Min.");
+        (
+            hours>=1
+            ?money(hours,1)+" Std."
+            :money(minutes,0)+" Min."
+        );
 
-    $("offlineModal").classList.remove("hidden");
+    $("offlineModal")
+        .classList
+        .remove(
+            "hidden"
+        );
 }
 
 function processLiveProduction(){
-    const now=Date.now();
-    const elapsed=Math.max(0,now-lastLiveTick);
-    lastLiveTick=now;
 
-    if(!state.started||document.hidden)return;
+    const now=
+        Date.now();
 
-    const rate=passivePerMinute();
-    if(rate<=0)return;
+    const elapsed=
+        Math.max(
+            0,
+            now-
+            lastLiveTick
+        );
 
-    const gain=rate*(elapsed/60000);
+    lastLiveTick=
+        now;
 
-    state.balance+=gain;
-    state.mintLifetime+=gain;
+    if(
+        !state.started ||
+        document.hidden
+    ){
+
+        return;
+    }
+
+    const rate=
+        passivePerMinute();
+
+    if(
+        rate<=0
+    ){
+
+        return;
+    }
+
+    const gain=
+        rate*
+        (
+            elapsed/
+            60000
+        );
+
+    state.balance+=
+        gain;
+
+    state.mintLifetime+=
+        gain;
 
     updateFastNumbers();
 }
 
-/* TICKETS */
+/* =========================================================
+   TICKET UI
+   ========================================================= */
 
 function renderTickets(){
-    $("ticketGrid").innerHTML="";
 
-    tickets.forEach(ticket=>{
-        const unlocked=state.level>=ticket.unlockLevel;
-        const selected=selectedTicket.id===ticket.id;
-        const hit=getHitRate(ticket);
-        const luck=getLuckLevel(ticket);
+    $("ticketGrid")
+        .innerHTML="";
 
-        const el=document.createElement("div");
+    tickets.forEach(
+        ticket=>{
 
-        el.className=
-            "ticket "+ticket.className+
-            (selected?" selected":"")+
-            (!unlocked?" locked":"");
+            const unlocked=
+                state.level>=
+                ticket.unlockLevel;
 
-        el.innerHTML=`
-            <div>
-                <div class="ticket-top">
-                    <div>
-                        <div class="ticket-name">${ticket.name}</div>
-                        <div class="ticket-tier">${ticket.tier}</div>
+            const selected=
+                selectedTicket.id===
+                ticket.id;
+
+            const hit=
+                getHitRate(ticket);
+
+            const luck=
+                getLuckLevel(ticket);
+
+            const el=
+                document.createElement(
+                    "div"
+                );
+
+            el.className=
+                "ticket "+
+                ticket.className+
+                (
+                    selected
+                    ?" selected"
+                    :""
+                )+
+                (
+                    !unlocked
+                    ?" locked"
+                    :""
+                );
+
+            el.innerHTML=`
+
+                <div>
+
+                    <div class="ticket-top">
+
+                        <div>
+
+                            <div class="ticket-name">
+                                ${ticket.name}
+                            </div>
+
+                            <div class="ticket-tier">
+                                ${ticket.tier}
+                            </div>
+
+                        </div>
+
+                        <div class="ticket-price">
+                            ${ticket.price} €
+                        </div>
+
                     </div>
-                    <div class="ticket-price">${ticket.price} €</div>
+
+                    <div class="ticket-jackpot">
+
+                        <span>
+                            Hauptgewinn
+                        </span>
+
+                        <strong>
+                            ${money(ticket.jackpot)} €
+                        </strong>
+
+                    </div>
+
                 </div>
 
-                <div class="ticket-jackpot">
-                    <span>Hauptgewinn</span>
-                    <strong>${money(ticket.jackpot)} €</strong>
-                </div>
-            </div>
+                <div>
 
-            <div>
-                <div class="ticket-meta">
-                    <div class="ticket-chip">
-                        <strong>${percent(hit)}</strong> Treffer
+                    <div class="ticket-meta">
+
+                        <div class="ticket-chip">
+                            <strong>
+                                ${percent(hit)}
+                            </strong>
+                            Treffer
+                        </div>
+
+                        <div class="ticket-chip">
+                            <strong>
+                                Luck ${luck}/10
+                            </strong>
+                        </div>
+
                     </div>
-                    <div class="ticket-chip">
-                        <strong>Luck ${luck}/10</strong>
-                    </div>
+
+                    ${
+                        unlocked
+                        ?""
+                        :`
+                            <div class="lock-text">
+                                Ab Level
+                                ${ticket.unlockLevel}
+                            </div>
+                        `
+                    }
+
                 </div>
+            `;
 
-                ${unlocked?"":`<div class="lock-text">Ab Level ${ticket.unlockLevel}</div>`}
-            </div>
-        `;
+            if(
+                unlocked
+            ){
 
-        if(unlocked){
-            el.addEventListener("click",()=>{
-                if(activeTicket&&!ticketResolved){
-                    showToast("Aktuelles Los zuerst beenden");
-                    return;
-                }
+                el.addEventListener(
+                    "click",
+                    ()=>{
 
-                selectedTicket=ticket;
-                renderTickets();
-                renderSelected();
-            });
+                        if(
+                            activeTicket &&
+                            !ticketResolved
+                        ){
+
+                            showToast(
+                                "Aktuelles Los zuerst beenden"
+                            );
+
+                            return;
+                        }
+
+                        selectedTicket=
+                            ticket;
+
+                        renderTickets();
+                        renderSelected();
+                    }
+                );
+            }
+
+            $("ticketGrid")
+                .appendChild(
+                    el
+                );
         }
-
-        $("ticketGrid").appendChild(el);
-    });
+    );
 }
 
 function renderSelected(){
-    $("selectedName").textContent=selectedTicket.name;
-    $("selectedPrice").textContent=selectedTicket.price+" € Einsatz";
-    $("selectedOdds").textContent=percent(getHitRate(selectedTicket));
 
-    const luck=getLuckLevel(selectedTicket);
+    $("buyButton")
+        .textContent=
+        selectedTicket.name+
+        " · "+
+        selectedTicket.price+
+        " €";
 
-    $("selectedLuck").textContent=
-        luck+"/10 · +"+
-        (luck*LUCK_STEP*100).toFixed(2).replace(".",",")+
-        " %-Pkt.";
+    $("scratchTicketCost")
+        .textContent=
+        "−"+
+        selectedTicket.price+
+        " €";
 
-    $("selectedRtp").textContent=
-        money(estimatedRtp(selectedTicket),1)+" %";
-
-    $("selectedJackpot").textContent=
-        money(selectedTicket.jackpot)+" €";
-
-    $("selectedJackpotOdds").textContent=
-        selectedTicket.jackpotOdds;
-
-    $("selectedXp").textContent=
-        selectedTicket.xp+" XP";
-
-    $("buyButton").textContent=
-        selectedTicket.name+" · "+selectedTicket.price+" €";
-
-    $("scratchTicketCost").textContent=
-        "−"+selectedTicket.price+" €";
+    $("scratchSelectedName")
+        .textContent=
+        selectedTicket.name
+        .toUpperCase();
 
     updateButtons();
 }
 
-/* BUY */
+/* =========================================================
+   BUY
+   ========================================================= */
 
 function buyTicket(){
-    if(resultCleanupTimer){
-        clearTimeout(resultCleanupTimer);
-        resultCleanupTimer=null;
+
+    if(
+        resultCleanupTimer
+    ){
+
+        clearTimeout(
+            resultCleanupTimer
+        );
+
+        resultCleanupTimer=
+            null;
     }
 
-    if(activeTicket&&!ticketResolved)return;
+    if(
+        activeTicket &&
+        !ticketResolved
+    ){
 
-    if(state.balance<selectedTicket.price){
-        showToast("Nicht genug Guthaben");
+        return;
+    }
+
+    if(
+        state.balance<
+        selectedTicket.price
+    ){
+
+        showToast(
+            "Nicht genug Guthaben"
+        );
+
         return;
     }
 
     currentSessionId++;
-    const sessionId=currentSessionId;
 
-    activeTicket=selectedTicket;
-    activePrize=drawPrize(activeTicket);
-    ticketResolved=false;
+    const sessionId=
+        currentSessionId;
 
-    lastSharePrize=null;
-    lastShareTicket=null;
+    activeTicket=
+        selectedTicket;
 
-    state.balance-=activeTicket.price;
-    state.totalSpent+=activeTicket.price;
+    activePrize=
+        drawPrize(
+            activeTicket
+        );
+
+    ticketResolved=
+        false;
+
+    lastSharePrize=
+        null;
+
+    lastShareTicket=
+        null;
+
+    state.balance-=
+        activeTicket.price;
+
+    state.totalSpent+=
+        activeTicket.price;
+
     state.ticketsBought++;
 
-    gainXp(activeTicket.xp);
+    gainXp(
+        activeTicket.xp
+    );
 
-    $("emptyGame").classList.add("hidden");
+    $("emptyGame")
+        .classList
+        .add(
+            "hidden"
+        );
 
     prepareResult();
-    createScratchLayer(sessionId);
 
-    $("revealButton").disabled=false;
-    $("whatsappButton").disabled=true;
+    createScratchLayer(
+        sessionId
+    );
+
+    $("revealButton")
+        .disabled=
+        false;
+
+    $("whatsappButton")
+        .disabled=
+        true;
 
     saveState();
     updateUI();
 }
 
+/* =========================================================
+   RESULT
+   ========================================================= */
+
 function prepareResult(){
-    $("resultAmount").textContent=moneySmart(activePrize)+" €";
 
-    if(activePrize===0){
-        $("resultKicker").textContent="NIETE";
-        $("resultMessage").textContent="Nächstes Los.";
+    $("resultAmount")
+        .textContent=
+        moneySmart(
+            activePrize
+        )+
+        " €";
+
+    if(
+        activePrize===
+        0
+    ){
+
+        $("resultKicker")
+            .textContent=
+            "NIETE";
+
+        $("resultMessage")
+            .textContent=
+            "Nächstes Los.";
+
         return;
     }
 
-    if(activePrize===activeTicket.jackpot){
-        $("resultKicker").textContent="JACKPOT";
-        $("resultMessage").textContent="Hauptgewinn.";
+    if(
+        activePrize===
+        activeTicket.jackpot
+    ){
+
+        $("resultKicker")
+            .textContent=
+            "JACKPOT";
+
+        $("resultMessage")
+            .textContent=
+            "Hauptgewinn.";
+
         return;
     }
 
-    if(activePrize>=25000){
-        $("resultKicker").textContent="MEGA WIN";
-        $("resultMessage").textContent="Massiver Treffer.";
+    if(
+        activePrize>=
+        25000
+    ){
+
+        $("resultKicker")
+            .textContent=
+            "MEGA WIN";
+
+        $("resultMessage")
+            .textContent=
+            "Massiver Treffer.";
+
         return;
     }
 
-    if(activePrize>=1000){
-        $("resultKicker").textContent="BIG WIN";
-        $("resultMessage").textContent="Starker Treffer.";
+    if(
+        activePrize>=
+        1000
+    ){
+
+        $("resultKicker")
+            .textContent=
+            "BIG WIN";
+
+        $("resultMessage")
+            .textContent=
+            "Starker Treffer.";
+
         return;
     }
 
-    if(activePrize>activeTicket.price){
-        $("resultKicker").textContent="GEWINN";
-        $("resultMessage").textContent=
-            "+"+moneySmart(activePrize-activeTicket.price)+" € Profit";
+    if(
+        activePrize>
+        activeTicket.price
+    ){
+
+        $("resultKicker")
+            .textContent=
+            "GEWINN";
+
+        $("resultMessage")
+            .textContent=
+            "+"+
+            moneySmart(
+                activePrize-
+                activeTicket.price
+            )+
+            " € Profit";
+
         return;
     }
 
-    if(activePrize===activeTicket.price){
-        $("resultKicker").textContent="EINSATZ ZURÜCK";
-        $("resultMessage").textContent="Kein Verlust.";
+    if(
+        activePrize===
+        activeTicket.price
+    ){
+
+        $("resultKicker")
+            .textContent=
+            "EINSATZ ZURÜCK";
+
+        $("resultMessage")
+            .textContent=
+            "Kein Verlust.";
+
         return;
     }
 
-    $("resultKicker").textContent="RÜCKZAHLUNG";
-    $("resultMessage").textContent=moneySmart(activePrize)+" € zurück.";
+    $("resultKicker")
+        .textContent=
+        "RÜCKZAHLUNG";
+
+    $("resultMessage")
+        .textContent=
+        moneySmart(
+            activePrize
+        )+
+        " € zurück.";
 }
 
-/* SCRATCH */
+/* =========================================================
+   SCRATCH
+   ========================================================= */
 
 let ctx;
 let scratching=false;
 let scratchDistance=0;
 let lastScratchPoint=null;
 
-function createScratchLayer(sessionId){
-    const canvas=$("scratchCanvas");
-    const rect=canvas.getBoundingClientRect();
-    const dpr=Math.min(window.devicePixelRatio||1,3);
+function createScratchLayer(
+    sessionId
+){
 
-    canvas.width=Math.round(rect.width*dpr);
-    canvas.height=Math.round(rect.height*dpr);
+    const canvas=
+        $("scratchCanvas");
 
-    ctx=canvas.getContext("2d");
-    ctx.setTransform(dpr,0,0,dpr,0,0);
+    const rect=
+        canvas
+        .getBoundingClientRect();
 
-    const gradient=ctx.createLinearGradient(0,0,rect.width,rect.height);
+    const dpr=
+        Math.min(
+            window.devicePixelRatio||
+            1,
+            3
+        );
 
-    gradient.addColorStop(0,"#747a81");
-    gradient.addColorStop(.23,"#c5c9cc");
-    gradient.addColorStop(.48,"#858b92");
-    gradient.addColorStop(.73,"#d3d5d7");
-    gradient.addColorStop(1,"#767c83");
+    canvas.width=
+        Math.round(
+            rect.width*
+            dpr
+        );
 
-    ctx.fillStyle=gradient;
-    ctx.fillRect(0,0,rect.width,rect.height);
+    canvas.height=
+        Math.round(
+            rect.height*
+            dpr
+        );
 
-    for(let i=0;i<1200;i++){
-        ctx.fillStyle=Math.random()>.5
+    ctx=
+        canvas.getContext(
+            "2d"
+        );
+
+    ctx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+    );
+
+    const gradient=
+        ctx.createLinearGradient(
+            0,
+            0,
+            rect.width,
+            rect.height
+        );
+
+    gradient.addColorStop(
+        0,
+        "#747a81"
+    );
+
+    gradient.addColorStop(
+        .23,
+        "#c5c9cc"
+    );
+
+    gradient.addColorStop(
+        .48,
+        "#858b92"
+    );
+
+    gradient.addColorStop(
+        .73,
+        "#d3d5d7"
+    );
+
+    gradient.addColorStop(
+        1,
+        "#767c83"
+    );
+
+    ctx.fillStyle=
+        gradient;
+
+    ctx.fillRect(
+        0,
+        0,
+        rect.width,
+        rect.height
+    );
+
+    for(
+        let i=0;
+        i<1200;
+        i++
+    ){
+
+        ctx.fillStyle=
+            Math.random()>.5
             ?"rgba(255,255,255,.07)"
             :"rgba(0,0,0,.06)";
 
         ctx.fillRect(
-            Math.random()*rect.width,
-            Math.random()*rect.height,
-            1,1
+            Math.random()*
+            rect.width,
+
+            Math.random()*
+            rect.height,
+
+            1,
+            1
         );
     }
 
-    ctx.fillStyle="rgba(15,17,20,.75)";
-    ctx.font="800 12px system-ui";
-    ctx.textAlign="center";
-    ctx.fillText("RUBBELN",rect.width/2,rect.height/2);
+    ctx.fillStyle=
+        "rgba(15,17,20,.75)";
 
-    scratchDistance=0;
-    lastScratchPoint=null;
+    ctx.font=
+        "800 12px system-ui";
 
-    canvas.dataset.session=sessionId;
-    canvas.style.opacity="1";
-    canvas.style.transition="none";
+    ctx.textAlign=
+        "center";
+
+    ctx.fillText(
+        "RUBBELN",
+        rect.width/2,
+        rect.height/2
+    );
+
+    scratchDistance=
+        0;
+
+    lastScratchPoint=
+        null;
+
+    canvas.dataset.session=
+        sessionId;
+
+    canvas.style.opacity=
+        "1";
+
+    canvas.style.transition=
+        "none";
 }
 
-function scratchAt(x,y){
-    if(!activeTicket||ticketResolved)return;
+function scratchAt(
+    x,
+    y
+){
 
-    const canvas=$("scratchCanvas");
+    if(
+        !activeTicket ||
+        ticketResolved
+    ){
 
-    if(Number(canvas.dataset.session)!==currentSessionId)return;
-
-    const rect=canvas.getBoundingClientRect();
-
-    ctx.globalCompositeOperation="destination-out";
-    ctx.beginPath();
-    ctx.arc(x,y,Math.max(25,rect.width*.06),0,Math.PI*2);
-    ctx.fill();
-
-    if(lastScratchPoint){
-        const dx=x-lastScratchPoint.x;
-        const dy=y-lastScratchPoint.y;
-        scratchDistance+=Math.sqrt(dx*dx+dy*dy);
+        return;
     }
 
-    lastScratchPoint={x,y};
+    const canvas=
+        $("scratchCanvas");
 
-    if(scratchDistance>rect.width*5){
+    if(
+        Number(
+            canvas.dataset.session
+        )!==
+        currentSessionId
+    ){
+
+        return;
+    }
+
+    const rect=
+        canvas
+        .getBoundingClientRect();
+
+    ctx.globalCompositeOperation=
+        "destination-out";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x,
+        y,
+        Math.max(
+            25,
+            rect.width*.06
+        ),
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+
+    if(
+        lastScratchPoint
+    ){
+
+        const dx=
+            x-
+            lastScratchPoint.x;
+
+        const dy=
+            y-
+            lastScratchPoint.y;
+
+        scratchDistance+=
+            Math.sqrt(
+                dx*dx+
+                dy*dy
+            );
+    }
+
+    lastScratchPoint={
+        x,
+        y
+    };
+
+    if(
+        scratchDistance>
+        rect.width*5
+    ){
+
         revealTicket();
     }
 }
 
 function handleScratch(e){
-    const rect=$("scratchCanvas").getBoundingClientRect();
+
+    const rect=
+        $("scratchCanvas")
+        .getBoundingClientRect();
 
     scratchAt(
-        e.clientX-rect.left,
-        e.clientY-rect.top
+        e.clientX-
+        rect.left,
+
+        e.clientY-
+        rect.top
     );
 }
 
-$("scratchCanvas").addEventListener("pointerdown",e=>{
-    if(!activeTicket||ticketResolved)return;
+$("scratchCanvas")
+.addEventListener(
+    "pointerdown",
+    e=>{
 
-    scratching=true;
-    lastScratchPoint=null;
+        if(
+            !activeTicket ||
+            ticketResolved
+        ){
 
-    try{$("scratchCanvas").setPointerCapture(e.pointerId);}catch{}
+            return;
+        }
 
-    handleScratch(e);
-});
+        scratching=
+            true;
 
-$("scratchCanvas").addEventListener("pointermove",e=>{
-    if(scratching)handleScratch(e);
-});
+        lastScratchPoint=
+            null;
 
-$("scratchCanvas").addEventListener("pointerup",()=>{
-    scratching=false;
-    lastScratchPoint=null;
-});
+        try{
 
-$("scratchCanvas").addEventListener("pointercancel",()=>{
-    scratching=false;
-    lastScratchPoint=null;
-});
+            $("scratchCanvas")
+            .setPointerCapture(
+                e.pointerId
+            );
 
-document.addEventListener("touchmove",e=>{
-    if(scratching)e.preventDefault();
-},{passive:false});
+        }catch{}
+
+        handleScratch(e);
+    }
+);
+
+$("scratchCanvas")
+.addEventListener(
+    "pointermove",
+    e=>{
+
+        if(
+            scratching
+        ){
+
+            handleScratch(e);
+        }
+    }
+);
+
+$("scratchCanvas")
+.addEventListener(
+    "pointerup",
+    ()=>{
+
+        scratching=false;
+        lastScratchPoint=null;
+    }
+);
+
+$("scratchCanvas")
+.addEventListener(
+    "pointercancel",
+    ()=>{
+
+        scratching=false;
+        lastScratchPoint=null;
+    }
+);
+
+document.addEventListener(
+    "touchmove",
+    e=>{
+
+        if(
+            scratching
+        ){
+
+            e.preventDefault();
+        }
+    },
+    {
+        passive:false
+    }
+);
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
 
 function revealTicket(){
-    if(!activeTicket||ticketResolved)return;
 
-    const sessionId=currentSessionId;
+    if(
+        !activeTicket ||
+        ticketResolved
+    ){
 
-    ticketResolved=true;
-    scratching=false;
+        return;
+    }
 
-    $("scratchCanvas").style.transition="opacity .35s ease";
-    $("scratchCanvas").style.opacity="0";
+    const sessionId=
+        currentSessionId;
 
-    setTimeout(()=>resolveTicket(sessionId),300);
+    ticketResolved=
+        true;
+
+    scratching=
+        false;
+
+    $("scratchCanvas")
+        .style
+        .transition=
+        "opacity .35s ease";
+
+    $("scratchCanvas")
+        .style
+        .opacity=
+        "0";
+
+    setTimeout(
+        ()=>{
+            resolveTicket(
+                sessionId
+            );
+        },
+        300
+    );
 }
 
-function resolveTicket(sessionId){
-    if(sessionId!==currentSessionId)return;
-    if(!activeTicket)return;
+/* =========================================================
+   RESOLVE
+   ========================================================= */
 
-    const finishedTicket=activeTicket;
-    const finishedPrize=activePrize;
+function resolveTicket(
+    sessionId
+){
 
-    state.balance+=finishedPrize;
-    state.totalWon+=finishedPrize;
+    if(
+        sessionId!==
+        currentSessionId
+    ){
 
-    if(finishedPrize>state.biggestWin){
-        state.biggestWin=finishedPrize;
+        return;
+    }
+
+    if(
+        !activeTicket
+    ){
+
+        return;
+    }
+
+    const finishedTicket=
+        activeTicket;
+
+    const finishedPrize=
+        activePrize;
+
+    state.balance+=
+        finishedPrize;
+
+    state.totalWon+=
+        finishedPrize;
+
+    if(
+        finishedPrize>
+        state.biggestWin
+    ){
+
+        state.biggestWin=
+            finishedPrize;
     }
 
     state.history.unshift({
-        name:finishedTicket.name,
-        price:finishedTicket.price,
-        prize:finishedPrize,
-        timestamp:Date.now()
+
+        name:
+            finishedTicket.name,
+
+        price:
+            finishedTicket.price,
+
+        prize:
+            finishedPrize,
+
+        timestamp:
+            Date.now()
     });
 
-    state.history=state.history.slice(0,20);
+    state.history=
+        state.history.slice(
+            0,
+            20
+        );
 
-    lastSharePrize=finishedPrize;
-    lastShareTicket=finishedTicket;
+    lastSharePrize=
+        finishedPrize;
 
-    activeTicket=null;
-    activePrize=null;
+    lastShareTicket=
+        finishedTicket;
 
-    $("revealButton").disabled=true;
-    $("whatsappButton").disabled=finishedPrize<=0;
+    activeTicket=
+        null;
+
+    activePrize=
+        null;
+
+    $("revealButton")
+        .disabled=
+        true;
+
+    $("whatsappButton")
+        .disabled=
+        finishedPrize<=0;
 
     saveState();
     updateUI();
 
-    if(finishedPrize===finishedTicket.jackpot){
-        setTimeout(()=>showWinEffect("jackpot",finishedPrize,finishedTicket),350);
-    }else if(finishedPrize>=25000){
-        setTimeout(()=>showWinEffect("mega",finishedPrize,finishedTicket),350);
-    }else if(finishedPrize>=1000){
-        setTimeout(()=>showWinEffect("big",finishedPrize,finishedTicket),350);
-    }else if(finishedPrize>finishedTicket.price){
-        showToast("+"+moneySmart(finishedPrize)+" €");
+    if(
+        finishedPrize===
+        finishedTicket.jackpot
+    ){
+
+        setTimeout(
+            ()=>showWinEffect(
+                "jackpot",
+                finishedPrize,
+                finishedTicket
+            ),
+            350
+        );
+
+    }else if(
+        finishedPrize>=25000
+    ){
+
+        setTimeout(
+            ()=>showWinEffect(
+                "mega",
+                finishedPrize,
+                finishedTicket
+            ),
+            350
+        );
+
+    }else if(
+        finishedPrize>=1000
+    ){
+
+        setTimeout(
+            ()=>showWinEffect(
+                "big",
+                finishedPrize,
+                finishedTicket
+            ),
+            350
+        );
+
+    }else if(
+        finishedPrize>
+        finishedTicket.price
+    ){
+
+        showToast(
+            "+"+
+            moneySmart(
+                finishedPrize
+            )+
+            " €"
+        );
     }
 
-    resultCleanupTimer=setTimeout(()=>{
-        if(sessionId!==currentSessionId)return;
-        if(activeTicket)return;
+    resultCleanupTimer=
+        setTimeout(
+            ()=>{
 
-        $("emptyGame").classList.remove("hidden");
-        $("scratchCanvas").style.opacity="1";
-        resultCleanupTimer=null;
-    },1400);
+                if(
+                    sessionId!==
+                    currentSessionId
+                ){
+
+                    return;
+                }
+
+                if(
+                    activeTicket
+                ){
+
+                    return;
+                }
+
+                $("emptyGame")
+                .classList
+                .remove(
+                    "hidden"
+                );
+
+                $("scratchCanvas")
+                .style
+                .opacity=
+                "1";
+
+                resultCleanupTimer=
+                    null;
+
+            },
+            1400
+        );
 }
 
-/* BIG WIN */
+/* =========================================================
+   WIN EFFECT
+   ========================================================= */
 
-function showWinEffect(type,amount,ticket){
-    $("winEffect").className="win-effect show "+type;
+function showWinEffect(
+    type,
+    amount,
+    ticket
+){
 
-    if(type==="jackpot"){
-        $("winEffectLabel").textContent="JACKPOT";
-        $("winEffectTitle").innerHTML="JACK<br>POT";
-    }else if(type==="mega"){
-        $("winEffectLabel").textContent="MEGA WIN";
-        $("winEffectTitle").innerHTML="MEGA<br>WIN";
+    $("winEffect")
+        .className=
+        "win-effect show "+
+        type;
+
+    if(
+        type==="jackpot"
+    ){
+
+        $("winEffectLabel")
+            .textContent=
+            "JACKPOT";
+
+        $("winEffectTitle")
+            .innerHTML=
+            "JACK<br>POT";
+
+    }else if(
+        type==="mega"
+    ){
+
+        $("winEffectLabel")
+            .textContent=
+            "MEGA WIN";
+
+        $("winEffectTitle")
+            .innerHTML=
+            "MEGA<br>WIN";
+
     }else{
-        $("winEffectLabel").textContent="BIG WIN";
-        $("winEffectTitle").innerHTML="BIG<br>WIN";
+
+        $("winEffectLabel")
+            .textContent=
+            "BIG WIN";
+
+        $("winEffectTitle")
+            .innerHTML=
+            "BIG<br>WIN";
     }
 
-    $("winEffectAmount").textContent="+"+moneySmart(amount)+" €";
-    $("winEffectTicket").textContent=ticket.name+" · "+ticket.price+" € Los";
+    $("winEffectAmount")
+        .textContent=
+        "+"+
+        moneySmart(amount)+
+        " €";
 
-    if(navigator.vibrate){
-        navigator.vibrate(type==="jackpot"
-            ?[120,60,120,60,250]
-            :[80,50,120]
+    $("winEffectTicket")
+        .textContent=
+        ticket.name+
+        " · "+
+        ticket.price+
+        " € Los";
+
+    if(
+        navigator.vibrate
+    ){
+
+        navigator.vibrate(
+            type==="jackpot"
+            ?[
+                120,
+                60,
+                120,
+                60,
+                250
+            ]
+            :[
+                80,
+                50,
+                120
+            ]
         );
     }
 }
 
 function closeWinEffect(){
-    $("winEffect").classList.remove("show");
+
+    $("winEffect")
+        .classList
+        .remove(
+            "show"
+        );
 }
 
-/* WHATSAPP */
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
 
 function shareWhatsApp(){
-    if(!lastShareTicket||lastSharePrize===null||lastSharePrize<=0)return;
+
+    if(
+        !lastShareTicket ||
+        lastSharePrize===null ||
+        lastSharePrize<=0
+    ){
+
+        return;
+    }
 
     const text=
         "Ich habe gerade beim "+
         lastShareTicket.name+
         "-Los "+
-        moneySmart(lastSharePrize)+
+        moneySmart(
+            lastSharePrize
+        )+
         " € gewonnen. 🎟️";
 
     window.location.href=
-        "https://wa.me/?text="+encodeURIComponent(text);
+        "https://wa.me/?text="+
+        encodeURIComponent(
+            text
+        );
 }
 
-/* LUCK */
+/* =========================================================
+   LUCK
+   ========================================================= */
 
 function renderLuck(){
-    $("luckList").innerHTML="";
 
-    tickets.forEach(ticket=>{
-        const unlocked=state.level>=ticket.unlockLevel;
-        const level=getLuckLevel(ticket);
-        const maxed=level>=MAX_LUCK_LEVEL;
-        const cost=luckUpgradeCost(ticket);
+    $("luckList")
+        .innerHTML="";
 
-        const el=document.createElement("div");
-        el.className="luck-card";
+    tickets.forEach(
+        ticket=>{
 
-        el.innerHTML=`
-            <div class="luck-top">
-                <div>
-                    <div class="luck-name">${ticket.name}</div>
-                    <div class="luck-level">Luck ${level} / ${MAX_LUCK_LEVEL}</div>
+            const unlocked=
+                state.level>=
+                ticket.unlockLevel;
+
+            const level=
+                getLuckLevel(
+                    ticket
+                );
+
+            const maxed=
+                level>=
+                MAX_LUCK_LEVEL;
+
+            const cost=
+                luckUpgradeCost(
+                    ticket
+                );
+
+            const el=
+                document.createElement(
+                    "div"
+                );
+
+            el.className=
+                "luck-card";
+
+            el.innerHTML=`
+
+                <div class="luck-top">
+
+                    <div>
+
+                        <div class="luck-name">
+                            ${ticket.name}
+                        </div>
+
+                        <div class="luck-level">
+                            Luck ${level} / ${MAX_LUCK_LEVEL}
+                        </div>
+
+                    </div>
+
+                    <div class="luck-chance">
+                        ${percent(getHitRate(ticket))}
+                    </div>
+
                 </div>
-                <div class="luck-chance">${percent(getHitRate(ticket))}</div>
-            </div>
 
-            <div class="luck-bar">
-                <div class="luck-bar-fill" style="width:${level/MAX_LUCK_LEVEL*100}%"></div>
-            </div>
+                <div class="luck-bar">
 
-            <div class="luck-bottom">
-                <div class="luck-description">
-                    ${
-                        maxed
-                        ?"Maximum · +0,80 %-Pkt."
-                        :!unlocked
-                        ?"Los noch nicht freigeschaltet."
-                        :"+0,08 %-Pkt. · "+money(cost)+" €"
-                    }
+                    <div
+                        class="luck-bar-fill"
+                        style="
+                            width:
+                            ${
+                                level/
+                                MAX_LUCK_LEVEL*
+                                100
+                            }%
+                        "
+                    ></div>
+
                 </div>
 
-                <button class="luck-button"
-                    ${(maxed||!unlocked||state.balance<cost)?"disabled":""}>
-                    ${maxed?"MAX":!unlocked?"LOCK":"UPGRADE"}
-                </button>
-            </div>
-        `;
+                <div class="luck-bottom">
 
-        const button=el.querySelector("button");
+                    <div class="luck-description">
 
-        if(unlocked&&!maxed){
-            button.addEventListener("click",()=>buyLuckUpgrade(ticket));
+                        ${
+                            maxed
+                            ?"Maximum · +0,80 %-Pkt."
+                            :!unlocked
+                            ?"Los noch nicht freigeschaltet."
+                            :"+0,08 %-Pkt. · "+
+                             money(cost)+
+                             " €"
+                        }
+
+                    </div>
+
+                    <button
+                        class="luck-button"
+
+                        ${
+                            (
+                                maxed ||
+                                !unlocked ||
+                                state.balance<
+                                cost
+                            )
+                            ?"disabled"
+                            :""
+                        }
+                    >
+
+                        ${
+                            maxed
+                            ?"MAX"
+                            :!unlocked
+                            ?"LOCK"
+                            :"UPGRADE"
+                        }
+
+                    </button>
+
+                </div>
+            `;
+
+            const button=
+                el.querySelector(
+                    "button"
+                );
+
+            if(
+                unlocked &&
+                !maxed
+            ){
+
+                button.addEventListener(
+                    "click",
+                    ()=>buyLuckUpgrade(
+                        ticket
+                    )
+                );
+            }
+
+            $("luckList")
+                .appendChild(
+                    el
+                );
         }
-
-        $("luckList").appendChild(el);
-    });
+    );
 }
 
 function buyLuckUpgrade(ticket){
-    const level=getLuckLevel(ticket);
-    if(level>=MAX_LUCK_LEVEL)return;
 
-    const cost=luckUpgradeCost(ticket);
+    const level=
+        getLuckLevel(ticket);
 
-    if(state.balance<cost){
-        showToast("Nicht genug Guthaben");
+    if(
+        level>=
+        MAX_LUCK_LEVEL
+    ){
+
         return;
     }
 
-    state.balance-=cost;
-    state.luckUpgrades[ticket.id]=level+1;
+    const cost=
+        luckUpgradeCost(
+            ticket
+        );
 
-    gainXp(Math.max(5,Math.round(cost/25)));
+    if(
+        state.balance<
+        cost
+    ){
 
-    showToast(ticket.name+" · Luck "+(level+1));
+        showToast(
+            "Nicht genug Guthaben"
+        );
+
+        return;
+    }
+
+    state.balance-=
+        cost;
+
+    state.luckUpgrades[
+        ticket.id
+    ]=
+        level+1;
+
+    gainXp(
+        Math.max(
+            5,
+            Math.round(
+                cost/25
+            )
+        )
+    );
+
+    showToast(
+        ticket.name+
+        " · Luck "+
+        (
+            level+1
+        )
+    );
 
     saveState();
     updateUI();
 }
 
-/* TAP */
+/* =========================================================
+   TAP
+   ========================================================= */
 
 function tapMint(event){
-    if(!state.started)return;
 
-    const value=currentTapValue();
+    if(
+        !state.started
+    ){
 
-    state.balance+=value;
-    state.mintLifetime+=value;
-    state.totalClicks++;
-    state.clickXpCounter++;
-
-    if(state.clickXpCounter>=50){
-        const earnedXp=Math.floor(state.clickXpCounter/50);
-        state.clickXpCounter%=50;
-        gainXp(earnedXp);
+        return;
     }
 
-    showTapFloat(event,value);
+    const value=
+        currentTapValue();
+
+    state.balance+=
+        value;
+
+    state.mintLifetime+=
+        value;
+
+    state.totalClicks++;
+
+    state.clickXpCounter++;
+
+    if(
+        state.clickXpCounter>=
+        50
+    ){
+
+        const earnedXp=
+            Math.floor(
+                state.clickXpCounter/
+                50
+            );
+
+        state.clickXpCounter%=
+            50;
+
+        gainXp(
+            earnedXp
+        );
+    }
+
+    showTapFloat(
+        event,
+        value
+    );
+
     updateUI();
 }
 
-function showTapFloat(event,amount){
-    const el=document.createElement("div");
-    el.className="tap-float";
-    el.textContent="+"+moneySmart(amount)+" €";
+function showTapFloat(
+    event,
+    amount
+){
 
-    const rect=$("tapButton").getBoundingClientRect();
+    const el=
+        document.createElement(
+            "div"
+        );
 
-    const x=event.clientX||(rect.left+rect.width/2);
-    const y=event.clientY||(rect.top+rect.height/2);
+    el.className=
+        "tap-float";
 
-    el.style.left=x+"px";
-    el.style.top=y+"px";
+    el.textContent=
+        "+"+
+        moneySmart(
+            amount
+        )+
+        " €";
 
-    document.body.appendChild(el);
+    const rect=
+        $("tapButton")
+        .getBoundingClientRect();
 
-    setTimeout(()=>el.remove(),700);
+    const x=
+        event.clientX||
+        (
+            rect.left+
+            rect.width/2
+        );
+
+    const y=
+        event.clientY||
+        (
+            rect.top+
+            rect.height/2
+        );
+
+    el.style.left=
+        x+
+        "px";
+
+    el.style.top=
+        y+
+        "px";
+
+    document.body
+        .appendChild(
+            el
+        );
+
+    setTimeout(
+        ()=>el.remove(),
+        700
+    );
 }
 
-/* TAP UPGRADE */
+/* =========================================================
+   TAP UPGRADES
+   ========================================================= */
 
 function renderTapUpgrades(){
-    $("tapUpgradeList").innerHTML="";
 
-    const currentIndex=state.tapUpgrade
-        ?tapUpgrades.findIndex(u=>u.id===state.tapUpgrade)
+    $("tapUpgradeList")
+        .innerHTML="";
+
+    const currentIndex=
+        state.tapUpgrade
+        ?tapUpgrades.findIndex(
+            u=>
+                u.id===
+                state.tapUpgrade
+        )
         :-1;
 
-    tapUpgrades.forEach((upgrade,index)=>{
-        const unlocked=state.level>=upgrade.level;
-        const owned=index<=currentIndex;
-        const next=index===currentIndex+1;
+    tapUpgrades.forEach(
+        (
+            upgrade,
+            index
+        )=>{
 
-        const el=document.createElement("div");
+            const unlocked=
+                state.level>=
+                upgrade.level;
 
-        el.className=
-            "upgrade-card"+
-            (!unlocked?" locked":"")+
-            (owned?" owned":"");
+            const owned=
+                index<=
+                currentIndex;
 
-        el.innerHTML=`
-            <div>
-                <div class="upgrade-title">${upgrade.name}</div>
-                <div class="upgrade-desc">
-                    ${moneySmart(upgrade.value)} € pro Tap · Level ${upgrade.level}
-                </div>
-                <div class="upgrade-price">
-                    ${owned?"Installiert":money(upgrade.price)+" €"}
-                </div>
-            </div>
+            const next=
+                index===
+                currentIndex+1;
 
-            <button
-                class="mint-buy-btn ${owned?"owned":""}"
-                ${(owned||!unlocked||!next||state.balance<upgrade.price)?"disabled":""}>
-                ${
+            const el=
+                document.createElement(
+                    "div"
+                );
+
+            el.className=
+                "upgrade-card"+
+                (
+                    !unlocked
+                    ?" locked"
+                    :""
+                )+
+                (
                     owned
-                    ?"Aktiv"
-                    :!unlocked
-                    ?"Lv. "+upgrade.level
-                    :!next
-                    ?"Vorheriges"
-                    :"Kaufen"
-                }
-            </button>
-        `;
+                    ?" owned"
+                    :""
+                );
 
-        const button=el.querySelector("button");
+            el.innerHTML=`
 
-        if(unlocked&&next&&!owned){
-            button.addEventListener("click",()=>buyTapUpgrade(upgrade));
+                <div>
+
+                    <div class="upgrade-title">
+                        ${upgrade.name}
+                    </div>
+
+                    <div class="upgrade-desc">
+                        ${moneySmart(upgrade.value)}
+                        € pro Tap · Level
+                        ${upgrade.level}
+                    </div>
+
+                    <div class="upgrade-price">
+
+                        ${
+                            owned
+                            ?"Installiert"
+                            :money(upgrade.price)+
+                             " €"
+                        }
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="
+                        mint-buy-btn
+                        ${
+                            owned
+                            ?" owned"
+                            :""
+                        }
+                    "
+
+                    ${
+                        (
+                            owned ||
+                            !unlocked ||
+                            !next ||
+                            state.balance<
+                            upgrade.price
+                        )
+                        ?"disabled"
+                        :""
+                    }
+                >
+
+                    ${
+                        owned
+                        ?"Aktiv"
+                        :!unlocked
+                        ?"Lv. "+upgrade.level
+                        :!next
+                        ?"Vorheriges"
+                        :"Kaufen"
+                    }
+
+                </button>
+            `;
+
+            const button=
+                el.querySelector(
+                    "button"
+                );
+
+            if(
+                unlocked &&
+                next &&
+                !owned
+            ){
+
+                button.addEventListener(
+                    "click",
+                    ()=>buyTapUpgrade(
+                        upgrade
+                    )
+                );
+            }
+
+            $("tapUpgradeList")
+                .appendChild(
+                    el
+                );
         }
-
-        $("tapUpgradeList").appendChild(el);
-    });
+    );
 }
 
 function buyTapUpgrade(upgrade){
-    if(state.level<upgrade.level)return;
 
-    if(state.balance<upgrade.price){
-        showToast("Nicht genug Guthaben");
+    if(
+        state.level<
+        upgrade.level
+    ){
+
         return;
     }
 
-    state.balance-=upgrade.price;
-    state.tapUpgrade=upgrade.id;
+    if(
+        state.balance<
+        upgrade.price
+    ){
 
-    gainXp(upgrade.xp);
+        showToast(
+            "Nicht genug Guthaben"
+        );
 
-    showToast(upgrade.name+" installiert");
+        return;
+    }
+
+    state.balance-=
+        upgrade.price;
+
+    state.tapUpgrade=
+        upgrade.id;
+
+    gainXp(
+        upgrade.xp
+    );
+
+    showToast(
+        upgrade.name+
+        " installiert"
+    );
 
     saveState();
     updateUI();
 }
 
-/* MACHINES */
+/* =========================================================
+   MACHINES
+   ========================================================= */
 
 function renderMachines(){
-    $("machineList").innerHTML="";
 
-    machines.forEach(machine=>{
-        const unlocked=state.level>=machine.level;
-        const owned=state.machines.includes(machine.id);
+    $("machineList")
+        .innerHTML="";
 
-        const el=document.createElement("div");
+    machines.forEach(
+        machine=>{
 
-        el.className=
-            "upgrade-card"+
-            (!unlocked?" locked":"")+
-            (owned?" owned":"");
+            const unlocked=
+                state.level>=
+                machine.level;
 
-        el.innerHTML=`
-            <div>
-                <div class="upgrade-title">${machine.name}</div>
+            const owned=
+                state.machines.includes(
+                    machine.id
+                );
 
-                <div class="upgrade-desc">
-                    +${moneySmart(machine.rate)} €/Min. · Level ${machine.level}
+            const el=
+                document.createElement(
+                    "div"
+                );
+
+            el.className=
+                "upgrade-card"+
+                (
+                    !unlocked
+                    ?" locked"
+                    :""
+                )+
+                (
+                    owned
+                    ?" owned"
+                    :""
+                );
+
+            el.innerHTML=`
+
+                <div>
+
+                    <div class="upgrade-title">
+                        ${machine.name}
+                    </div>
+
+                    <div class="upgrade-desc">
+                        +${moneySmart(machine.rate)}
+                        €/Min. · Level
+                        ${machine.level}
+                    </div>
+
+                    <div class="upgrade-price">
+
+                        ${
+                            owned
+                            ?"Produziert"
+                            :money(machine.price)+
+                             " €"
+                        }
+
+                    </div>
+
                 </div>
 
-                <div class="upgrade-price">
-                    ${owned?"Produziert":money(machine.price)+" €"}
-                </div>
-            </div>
+                <button
+                    class="
+                        mint-buy-btn
+                        ${
+                            owned
+                            ?" owned"
+                            :""
+                        }
+                    "
 
-            <button
-                class="mint-buy-btn ${owned?"owned":""}"
-                ${(owned||!unlocked||state.balance<machine.price)?"disabled":""}>
-                ${owned?"Aktiv":!unlocked?"Lv. "+machine.level:"Kaufen"}
-            </button>
-        `;
+                    ${
+                        (
+                            owned ||
+                            !unlocked ||
+                            state.balance<
+                            machine.price
+                        )
+                        ?"disabled"
+                        :""
+                    }
+                >
 
-        const button=el.querySelector("button");
+                    ${
+                        owned
+                        ?"Aktiv"
+                        :!unlocked
+                        ?"Lv. "+machine.level
+                        :"Kaufen"
+                    }
 
-        if(unlocked&&!owned){
-            button.addEventListener("click",()=>buyMachine(machine));
+                </button>
+            `;
+
+            const button=
+                el.querySelector(
+                    "button"
+                );
+
+            if(
+                unlocked &&
+                !owned
+            ){
+
+                button.addEventListener(
+                    "click",
+                    ()=>buyMachine(
+                        machine
+                    )
+                );
+            }
+
+            $("machineList")
+                .appendChild(
+                    el
+                );
         }
-
-        $("machineList").appendChild(el);
-    });
+    );
 }
 
 function buyMachine(machine){
-    if(state.balance<machine.price){
-        showToast("Nicht genug Guthaben");
+
+    if(
+        state.balance<
+        machine.price
+    ){
+
+        showToast(
+            "Nicht genug Guthaben"
+        );
+
         return;
     }
 
-    if(state.level<machine.level)return;
-    if(state.machines.includes(machine.id))return;
+    if(
+        state.level<
+        machine.level
+    ){
 
-    state.balance-=machine.price;
-    state.machines.push(machine.id);
+        return;
+    }
 
-    gainXp(machine.xp);
+    if(
+        state.machines.includes(
+            machine.id
+        )
+    ){
 
-    showToast(machine.name+" aktiviert");
+        return;
+    }
+
+    state.balance-=
+        machine.price;
+
+    state.machines.push(
+        machine.id
+    );
+
+    gainXp(
+        machine.xp
+    );
+
+    showToast(
+        machine.name+
+        " aktiviert"
+    );
 
     saveState();
     updateUI();
 }
 
-/* PROGRESSION */
+/* =========================================================
+   PROGRESSION
+   ========================================================= */
 
 function renderProgression(){
-    $("progression").innerHTML=milestones.map(item=>{
-        let cls="";
 
-        if(state.level>item.level)cls="done";
-        else if(state.level===item.level)cls="current";
+    $("progression")
+        .innerHTML=
+        milestones.map(
+            item=>{
 
-        return`
-            <div class="milestone ${cls}">
-                <div class="milestone-level">LEVEL ${item.level}</div>
-                <strong>${item.name}</strong>
-                <span>${item.text}</span>
-            </div>
-        `;
-    }).join("");
+                let cls="";
+
+                if(
+                    state.level>
+                    item.level
+                ){
+
+                    cls="done";
+
+                }else if(
+                    state.level===
+                    item.level
+                ){
+
+                    cls="current";
+                }
+
+                return`
+
+                    <div class="milestone ${cls}">
+
+                        <div class="milestone-level">
+                            LEVEL ${item.level}
+                        </div>
+
+                        <strong>
+                            ${item.name}
+                        </strong>
+
+                        <span>
+                            ${item.text}
+                        </span>
+
+                    </div>
+                `;
+            }
+        ).join("");
 }
 
-/* HISTORY */
+/* =========================================================
+   HISTORY
+   ========================================================= */
 
 function renderHistory(){
-    if(!state.history.length){
-        $("history").innerHTML=`
+
+    if(
+        !state.history.length
+    ){
+
+        $("history")
+            .innerHTML=`
+
             <div class="history-empty">
                 Noch keine Ergebnisse.
             </div>
         `;
+
         return;
     }
 
-    $("history").innerHTML=state.history.map(item=>{
-        const time=new Date(item.timestamp).toLocaleTimeString(
-            "de-DE",
-            {hour:"2-digit",minute:"2-digit"}
-        );
+    $("history")
+        .innerHTML=
+        state.history.map(
+            item=>{
 
-        return`
-            <div class="history-row">
-                <div class="history-name">
-                    <strong>${item.name}</strong>
-                    <small>${time}</small>
-                </div>
+                const time=
+                    new Date(
+                        item.timestamp
+                    )
+                    .toLocaleTimeString(
+                        "de-DE",
+                        {
+                            hour:"2-digit",
+                            minute:"2-digit"
+                        }
+                    );
 
-                <div class="history-cost">−${money(item.price)} €</div>
+                return`
 
-                <div class="history-result ${item.prize>0?"win":""}">
-                    ${item.prize>0?"+"+moneySmart(item.prize)+" €":"0 €"}
-                </div>
-            </div>
-        `;
-    }).join("");
+                    <div class="history-row">
+
+                        <div class="history-name">
+
+                            <strong>
+                                ${item.name}
+                            </strong>
+
+                            <small>
+                                ${time}
+                            </small>
+
+                        </div>
+
+                        <div class="history-cost">
+                            −${money(item.price)} €
+                        </div>
+
+                        <div class="
+                            history-result
+                            ${
+                                item.prize>0
+                                ?"win"
+                                :""
+                            }
+                        ">
+
+                            ${
+                                item.prize>0
+                                ?"+"+
+                                 moneySmart(item.prize)+
+                                 " €"
+                                :"0 €"
+                            }
+
+                        </div>
+
+                    </div>
+                `;
+            }
+        ).join("");
 }
 
-/* NEXT UNLOCK */
+/* =========================================================
+   UNLOCK
+   ========================================================= */
 
 function renderUnlock(){
+
     const unlocks=[];
 
-    tickets.forEach(ticket=>{
-        if(ticket.unlockLevel>state.level){
-            unlocks.push({
-                level:ticket.unlockLevel,
-                text:ticket.name+"-Los"
-            });
+    tickets.forEach(
+        ticket=>{
+
+            if(
+                ticket.unlockLevel>
+                state.level
+            ){
+
+                unlocks.push({
+                    level:
+                        ticket.unlockLevel,
+
+                    text:
+                        ticket.name+
+                        "-Los"
+                });
+            }
         }
-    });
+    );
 
-    machines.forEach(machine=>{
-        if(machine.level>state.level){
-            unlocks.push({
-                level:machine.level,
-                text:machine.name
-            });
+    machines.forEach(
+        machine=>{
+
+            if(
+                machine.level>
+                state.level
+            ){
+
+                unlocks.push({
+                    level:
+                        machine.level,
+
+                    text:
+                        machine.name
+                });
+            }
         }
-    });
+    );
 
-    tapUpgrades.forEach(upgrade=>{
-        if(upgrade.level>state.level){
-            unlocks.push({
-                level:upgrade.level,
-                text:upgrade.name
-            });
+    tapUpgrades.forEach(
+        upgrade=>{
+
+            if(
+                upgrade.level>
+                state.level
+            ){
+
+                unlocks.push({
+                    level:
+                        upgrade.level,
+
+                    text:
+                        upgrade.name
+                });
+            }
         }
-    });
+    );
 
-    unlocks.sort((a,b)=>a.level-b.level);
+    unlocks.sort(
+        (a,b)=>
+            a.level-
+            b.level
+    );
 
-    const next=unlocks[0];
+    const next=
+        unlocks[0];
 
-    $("nextUnlock").innerHTML=next
-        ?`Level ${next.level}: <strong>${next.text}</strong>`
+    $("nextUnlock")
+        .innerHTML=
+        next
+        ?`
+            Level ${next.level}:
+            <strong>
+                ${next.text}
+            </strong>
+        `
         :"Alle Systeme freigeschaltet.";
 }
 
-/* BANKRUPT */
+/* =========================================================
+   BANKRUPT
+   ========================================================= */
 
 function canAffordAnyTicket(){
-    return tickets.some(ticket=>
-        state.level>=ticket.unlockLevel&&
-        state.balance>=ticket.price
+
+    return tickets.some(
+        ticket=>
+            state.level>=
+            ticket.unlockLevel &&
+            state.balance>=
+            ticket.price
     );
 }
 
 function updateBankruptState(){
+
     const bankrupt=
-        state.started&&
-        !activeTicket&&
+        state.started &&
+        !activeTicket &&
         !canAffordAnyTicket();
 
-    $("bankruptCard").classList.toggle("show",bankrupt);
+    $("bankruptCard")
+        .classList
+        .toggle(
+            "show",
+            bankrupt
+        );
 }
 
-/* BUTTONS */
+/* =========================================================
+   BUTTONS
+   ========================================================= */
 
 function updateButtons(){
-    const locked=state.level<selectedTicket.unlockLevel;
-    const poor=state.balance<selectedTicket.price;
-    const active=activeTicket&&!ticketResolved;
 
-    $("buyButton").disabled=locked||poor||active;
-    $("revealButton").disabled=!active;
+    const locked=
+        state.level<
+        selectedTicket.unlockLevel;
 
-    $("whatsappButton").disabled=
-        !(lastSharePrize&&lastSharePrize>0);
+    const poor=
+        state.balance<
+        selectedTicket.price;
+
+    const active=
+        activeTicket &&
+        !ticketResolved;
+
+    $("buyButton")
+        .disabled=
+        locked||
+        poor||
+        active;
+
+    $("revealButton")
+        .disabled=
+        !active;
+
+    $("whatsappButton")
+        .disabled=
+        !(
+            lastSharePrize &&
+            lastSharePrize>0
+        );
 }
 
-/* UI */
+/* =========================================================
+   FAST UI
+   ========================================================= */
 
 function updateFastNumbers(){
-    const net=state.balance-START_BALANCE;
 
-    $("balance").textContent=moneySmart(state.balance);
+    const net=
+        state.balance-
+        START_BALANCE;
 
-    /* neue direkte Cash-Anzeige */
-    $("scratchCash").textContent=moneySmart(state.balance);
+    $("balance")
+        .textContent=
+        moneySmart(
+            state.balance
+        );
+
+    $("scratchCash")
+        .textContent=
+        moneySmart(
+            state.balance
+        );
 
     const netText=
-        (net>0?"+":"")+
+        (
+            net>0
+            ?"+"
+            :""
+        )+
         moneySmart(net)+
         " €";
 
-    $("balanceNet").textContent=netText;
-    $("netResult").textContent=netText;
+    $("balanceNet")
+        .textContent=
+        netText;
 
-    $("headerPassive").textContent=
-        moneySmart(passivePerMinute())+" €/Min.";
+    $("netResult")
+        .textContent=
+        netText;
 
-    $("mintPerMinute").textContent=
-        moneySmart(passivePerMinute())+" €";
+    $("headerPassive")
+        .textContent=
+        moneySmart(
+            passivePerMinute()
+        )+
+        " €/Min.";
+
+    $("mintPerMinute")
+        .textContent=
+        moneySmart(
+            passivePerMinute()
+        )+
+        " €";
 }
 
+/* =========================================================
+   FULL UI
+   ========================================================= */
+
 function updateUI(){
+
     updateFastNumbers();
 
-    $("levelNumber").textContent=state.level;
+    $("levelNumber")
+        .textContent=
+        state.level;
 
-    const rank=currentRank();
+    const rank=
+        currentRank();
 
-    $("levelName").textContent=rank;
-    $("rankPill").textContent=rank.toUpperCase();
+    $("levelName")
+        .textContent=
+        rank;
 
-    const needed=xpNeeded(state.level);
+    $("rankPill")
+        .textContent=
+        rank.toUpperCase();
 
-    $("xpText").textContent=money(state.xp)+" / "+needed;
+    const needed=
+        xpNeeded(
+            state.level
+        );
 
-    $("xpFill").style.width=
-        Math.min(100,state.xp/needed*100)+"%";
+    $("xpText")
+        .textContent=
+        money(state.xp)+
+        " / "+
+        needed;
 
-    $("nextReward").textContent=
-        "+"+money(levelReward(state.level+1))+" €";
+    $("xpFill")
+        .style
+        .width=
+        Math.min(
+            100,
+            state.xp/
+            needed*
+            100
+        )+
+        "%";
 
-    $("ticketsBought").textContent=state.ticketsBought;
-    $("totalWon").textContent=moneySmart(state.totalWon)+" €";
-    $("biggestWin").textContent=moneySmart(state.biggestWin)+" €";
+    $("nextReward")
+        .textContent=
+        "+"+
+        money(
+            levelReward(
+                state.level+1
+            )
+        )+
+        " €";
 
-    $("mintPerTap").textContent=moneySmart(currentTapValue())+" €";
-    $("tapButtonValue").textContent="+"+moneySmart(currentTapValue())+" €";
-    $("mintTotalClicks").textContent=money(state.totalClicks);
+    $("ticketsBought")
+        .textContent=
+        state.ticketsBought;
 
-    const rate=passivePerMinute();
+    $("totalWon")
+        .textContent=
+        moneySmart(
+            state.totalWon
+        )+
+        " €";
 
-    $("offlineRate").textContent=moneySmart(rate)+" €/Min.";
-    $("offlineCap").textContent=offlineHourCap()+" Std.";
-    $("offlineState").textContent=rate>0?"AKTIV":"KEINE MASCHINE";
+    $("biggestWin")
+        .textContent=
+        moneySmart(
+            state.biggestWin
+        )+
+        " €";
+
+    $("mintPerTap")
+        .textContent=
+        moneySmart(
+            currentTapValue()
+        )+
+        " €";
+
+    $("tapButtonValue")
+        .textContent=
+        "+"+
+        moneySmart(
+            currentTapValue()
+        )+
+        " €";
+
+    $("mintTotalClicks")
+        .textContent=
+        money(
+            state.totalClicks
+        );
+
+    const rate=
+        passivePerMinute();
+
+    $("offlineRate")
+        .textContent=
+        moneySmart(rate)+
+        " €/Min.";
+
+    $("offlineCap")
+        .textContent=
+        offlineHourCap()+
+        " Std.";
+
+    $("offlineState")
+        .textContent=
+        rate>0
+        ?"AKTIV"
+        :"KEINE MASCHINE";
 
     renderUnlock();
     renderTickets();
@@ -3380,184 +5306,486 @@ function updateUI(){
     updateBankruptState();
 }
 
-/* NAV */
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
 function switchPage(page){
-    document.querySelectorAll(".page").forEach(el=>{
-        el.classList.remove("active");
+
+    document
+    .querySelectorAll(
+        ".page"
+    )
+    .forEach(
+        el=>{
+
+            el.classList.remove(
+                "active"
+            );
+        }
+    );
+
+    $(
+        page+
+        "Page"
+    )
+    .classList
+    .add(
+        "active"
+    );
+
+    document
+    .querySelectorAll(
+        ".nav-btn"
+    )
+    .forEach(
+        button=>{
+
+            button.classList.toggle(
+                "active",
+                button.dataset.page===
+                page
+            );
+        }
+    );
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
     });
-
-    $(page+"Page").classList.add("active");
-
-    document.querySelectorAll(".nav-btn").forEach(button=>{
-        button.classList.toggle(
-            "active",
-            button.dataset.page===page
-        );
-    });
-
-    window.scrollTo({top:0,behavior:"smooth"});
 }
 
-/* ROUND */
+/* =========================================================
+   NEW ROUND
+   ========================================================= */
 
 function openStartModal(){
-    if(activeTicket&&!ticketResolved){
-        showToast("Aktuelles Los zuerst beenden");
+
+    if(
+        activeTicket &&
+        !ticketResolved
+    ){
+
+        showToast(
+            "Aktuelles Los zuerst beenden"
+        );
+
         return;
     }
 
-    $("startModal").classList.remove("hidden");
+    $("startModal")
+        .classList
+        .remove(
+            "hidden"
+        );
 }
 
 function startNewRound(){
-    if(resultCleanupTimer){
-        clearTimeout(resultCleanupTimer);
-        resultCleanupTimer=null;
+
+    if(
+        resultCleanupTimer
+    ){
+
+        clearTimeout(
+            resultCleanupTimer
+        );
+
+        resultCleanupTimer=
+            null;
     }
 
     currentSessionId++;
 
-    state.balance=START_BALANCE;
-    state.totalSpent=0;
-    state.totalWon=0;
-    state.ticketsBought=0;
-    state.biggestWin=0;
-    state.history=[];
-    state.started=true;
-    state.lastActive=Date.now();
+    state.balance=
+        START_BALANCE;
 
-    activeTicket=null;
-    activePrize=null;
-    ticketResolved=true;
+    state.totalSpent=
+        0;
 
-    lastSharePrize=null;
-    lastShareTicket=null;
+    state.totalWon=
+        0;
 
-    $("scratchCanvas").style.opacity="1";
-    $("emptyGame").classList.remove("hidden");
-    $("startModal").classList.add("hidden");
+    state.ticketsBought=
+        0;
+
+    state.biggestWin=
+        0;
+
+    state.history=
+        [];
+
+    state.started=
+        true;
+
+    state.lastActive=
+        Date.now();
+
+    activeTicket=
+        null;
+
+    activePrize=
+        null;
+
+    ticketResolved=
+        true;
+
+    lastSharePrize=
+        null;
+
+    lastShareTicket=
+        null;
+
+    $("scratchCanvas")
+        .style
+        .opacity=
+        "1";
+
+    $("emptyGame")
+        .classList
+        .remove(
+            "hidden"
+        );
+
+    $("startModal")
+        .classList
+        .add(
+            "hidden"
+        );
 
     saveState();
     updateUI();
 
-    setTimeout(checkInstallPrompt,450);
+    setTimeout(
+        checkInstallPrompt,
+        450
+    );
 }
 
-/* INSTALL */
+/* =========================================================
+   INSTALL
+   ========================================================= */
 
 function isStandalone(){
+
     return(
-        window.matchMedia("(display-mode: standalone)").matches||
-        window.navigator.standalone===true
+        window.matchMedia(
+            "(display-mode: standalone)"
+        ).matches
+        ||
+        window.navigator.standalone===
+        true
     );
 }
 
 function isIOS(){
-    return /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+    return /iphone|ipad|ipod/i
+        .test(
+            navigator.userAgent
+        );
 }
 
 function checkInstallPrompt(){
-    if(isStandalone())return;
-    if(!isIOS())return;
-    if(!state.started)return;
 
-    if(localStorage.getItem("scratchInstallDismissed")==="true")return;
+    if(
+        isStandalone()
+    )return;
 
-    $("installModal").classList.remove("hidden");
+    if(
+        !isIOS()
+    )return;
+
+    if(
+        !state.started
+    )return;
+
+    if(
+        localStorage.getItem(
+            "scratchInstallDismissed"
+        )===
+        "true"
+    ){
+
+        return;
+    }
+
+    $("installModal")
+        .classList
+        .remove(
+            "hidden"
+        );
 }
 
-/* TOAST */
+/* =========================================================
+   TOAST
+   ========================================================= */
 
-let toastTimer=null;
+let toastTimer=
+    null;
 
 function showToast(text){
-    if(toastTimer)clearTimeout(toastTimer);
 
-    $("toast").textContent=text;
-    $("toast").classList.add("show");
+    if(
+        toastTimer
+    ){
 
-    toastTimer=setTimeout(()=>{
-        $("toast").classList.remove("show");
-    },1800);
-}
-
-/* EVENTS */
-
-$("buyButton").addEventListener("click",buyTicket);
-$("revealButton").addEventListener("click",revealTicket);
-$("whatsappButton").addEventListener("click",shareWhatsApp);
-$("tapButton").addEventListener("pointerdown",tapMint);
-
-$("newRoundButton").addEventListener("click",openStartModal);
-$("startGameButton").addEventListener("click",startNewRound);
-
-$("bankruptMintButton").addEventListener("click",()=>switchPage("mint"));
-$("bankruptResetButton").addEventListener("click",openStartModal);
-
-$("winEffectButton").addEventListener("click",closeWinEffect);
-
-document.querySelectorAll(".nav-btn").forEach(button=>{
-    button.addEventListener("click",()=>{
-        switchPage(button.dataset.page);
-    });
-});
-
-$("installDoneButton").addEventListener("click",()=>{
-    localStorage.setItem("scratchInstallDismissed","true");
-    $("installModal").classList.add("hidden");
-});
-
-$("installLaterButton").addEventListener("click",()=>{
-    $("installModal").classList.add("hidden");
-});
-
-$("offlineModalButton").addEventListener("click",()=>{
-    $("offlineModal").classList.add("hidden");
-    updateUI();
-});
-
-/* TIMERS */
-
-setInterval(processLiveProduction,1000);
-
-setInterval(()=>{
-    if(state.started)saveState();
-},15000);
-
-document.addEventListener("visibilitychange",()=>{
-    if(document.hidden){
-        saveState();
-    }else{
-        lastLiveTick=Date.now();
+        clearTimeout(
+            toastTimer
+        );
     }
-});
 
-window.addEventListener("pagehide",saveState);
+    $("toast")
+        .textContent=
+        text;
 
-/* SERVICE WORKER */
+    $("toast")
+        .classList
+        .add(
+            "show"
+        );
 
-if("serviceWorker" in navigator){
-    window.addEventListener("load",()=>{
-        navigator.serviceWorker
-            .register("./service-worker.js")
-            .catch(()=>{});
-    });
+    toastTimer=
+        setTimeout(
+            ()=>{
+
+                $("toast")
+                .classList
+                .remove(
+                    "show"
+                );
+            },
+            1800
+        );
 }
 
-/* INIT */
+/* =========================================================
+   EVENTS
+   ========================================================= */
+
+$("buyButton")
+.addEventListener(
+    "click",
+    buyTicket
+);
+
+$("revealButton")
+.addEventListener(
+    "click",
+    revealTicket
+);
+
+$("whatsappButton")
+.addEventListener(
+    "click",
+    shareWhatsApp
+);
+
+$("tapButton")
+.addEventListener(
+    "pointerdown",
+    tapMint
+);
+
+$("newRoundButton")
+.addEventListener(
+    "click",
+    openStartModal
+);
+
+$("startGameButton")
+.addEventListener(
+    "click",
+    startNewRound
+);
+
+$("bankruptMintButton")
+.addEventListener(
+    "click",
+    ()=>switchPage(
+        "mint"
+    )
+);
+
+$("bankruptResetButton")
+.addEventListener(
+    "click",
+    openStartModal
+);
+
+$("winEffectButton")
+.addEventListener(
+    "click",
+    closeWinEffect
+);
+
+document
+.querySelectorAll(
+    ".nav-btn"
+)
+.forEach(
+    button=>{
+
+        button.addEventListener(
+            "click",
+            ()=>{
+
+                switchPage(
+                    button.dataset.page
+                );
+            }
+        );
+    }
+);
+
+$("installDoneButton")
+.addEventListener(
+    "click",
+    ()=>{
+
+        localStorage.setItem(
+            "scratchInstallDismissed",
+            "true"
+        );
+
+        $("installModal")
+        .classList
+        .add(
+            "hidden"
+        );
+    }
+);
+
+$("installLaterButton")
+.addEventListener(
+    "click",
+    ()=>{
+
+        $("installModal")
+        .classList
+        .add(
+            "hidden"
+        );
+    }
+);
+
+$("offlineModalButton")
+.addEventListener(
+    "click",
+    ()=>{
+
+        $("offlineModal")
+        .classList
+        .add(
+            "hidden"
+        );
+
+        updateUI();
+    }
+);
+
+/* =========================================================
+   TIMERS
+   ========================================================= */
+
+setInterval(
+    processLiveProduction,
+    1000
+);
+
+setInterval(
+    ()=>{
+
+        if(
+            state.started
+        ){
+
+            saveState();
+        }
+    },
+    15000
+);
+
+document.addEventListener(
+    "visibilitychange",
+    ()=>{
+
+        if(
+            document.hidden
+        ){
+
+            saveState();
+
+        }else{
+
+            lastLiveTick=
+                Date.now();
+        }
+    }
+);
+
+window.addEventListener(
+    "pagehide",
+    saveState
+);
+
+/* =========================================================
+   SERVICE WORKER
+   ========================================================= */
+
+if(
+    "serviceWorker"
+    in navigator
+){
+
+    window.addEventListener(
+        "load",
+        ()=>{
+
+            navigator
+            .serviceWorker
+            .register(
+                "./service-worker.js"
+            )
+            .catch(
+                ()=>{}
+            );
+        }
+    );
+}
+
+/* =========================================================
+   INIT
+   ========================================================= */
 
 calculateOfflineIncome();
 
-lastLiveTick=Date.now();
+lastLiveTick=
+    Date.now();
 
 updateUI();
 
-if(!state.started){
-    $("startModal").classList.remove("hidden");
+if(
+    !state.started
+){
+
+    $("startModal")
+    .classList
+    .remove(
+        "hidden"
+    );
+
 }else{
-    $("startModal").classList.add("hidden");
-    setTimeout(checkInstallPrompt,650);
+
+    $("startModal")
+    .classList
+    .add(
+        "hidden"
+    );
+
+    setTimeout(
+        checkInstallPrompt,
+        650
+    );
 }
 
 </script>
